@@ -88,6 +88,7 @@
 		31725B8D21FEB02A005962C6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31725B8C21FEB02A005962C6 /* AppDelegate.m */; };
 		31725B9521FEB02B005962C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31725B9421FEB02B005962C6 /* Assets.xcassets */; };
 		31725B9B21FEB02B005962C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 31725B9A21FEB02B005962C6 /* main.m */; };
+		31769C4A22A6C9600008D278 /* VersionLog.html in Resources */ = {isa = PBXBuildFile; fileRef = 31769C4922A6C9600008D278 /* VersionLog.html */; };
 		317784D52200429F00525237 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 317784D72200429F00525237 /* Localizable.strings */; };
 		317784E72200473800525237 /* CCWMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 317784DC2200473800525237 /* CCWMediator.m */; };
 		317784EF2200492400525237 /* CCWWalletModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 317784EE2200492400525237 /* CCWWalletModule.m */; };
@@ -106,7 +107,6 @@
 		3184B4A02292B8C500985B22 /* CCWTermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3184B49E2292B8C500985B22 /* CCWTermsViewController.m */; };
 		3184B4A52292B8DE00985B22 /* CCWPrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3184B4A32292B8DE00985B22 /* CCWPrivacyViewController.m */; };
 		3184B4AA2292BDD800985B22 /* CCWVersionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3184B4A82292BDD800985B22 /* CCWVersionViewController.m */; };
-		3184B4AB2292BDD800985B22 /* CCWVersionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3184B4A92292BDD800985B22 /* CCWVersionViewController.xib */; };
 		3186E8022293A08200A269C6 /* CCWAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186E7F92293A08200A269C6 /* CCWAlertController.m */; };
 		3186E8032293A08200A269C6 /* CCWAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186E7FB2293A08200A269C6 /* CCWAnimator.m */; };
 		3186E8042293A08200A269C6 /* CCWBaseAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186E7FD2293A08200A269C6 /* CCWBaseAlert.m */; };
@@ -429,6 +429,7 @@
 		31725B9421FEB02B005962C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31725B9921FEB02B005962C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31725B9A21FEB02B005962C6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		31769C4922A6C9600008D278 /* VersionLog.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = VersionLog.html; sourceTree = "<group>"; };
 		317784D62200429F00525237 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		317784D9220042E200525237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		317784DB2200473800525237 /* CCWMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWMediator.h; sourceTree = "<group>"; };
@@ -470,7 +471,6 @@
 		3184B4A32292B8DE00985B22 /* CCWPrivacyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWPrivacyViewController.m; sourceTree = "<group>"; };
 		3184B4A72292BDD800985B22 /* CCWVersionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWVersionViewController.h; sourceTree = "<group>"; };
 		3184B4A82292BDD800985B22 /* CCWVersionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWVersionViewController.m; sourceTree = "<group>"; };
-		3184B4A92292BDD800985B22 /* CCWVersionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWVersionViewController.xib; sourceTree = "<group>"; };
 		3186E7F82293A08200A269C6 /* CCWAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWAlertController.h; sourceTree = "<group>"; };
 		3186E7F92293A08200A269C6 /* CCWAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWAlertController.m; sourceTree = "<group>"; };
 		3186E7FA2293A08200A269C6 /* CCWAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWAnimator.h; sourceTree = "<group>"; };
@@ -1052,7 +1052,6 @@
 				3184B4A32292B8DE00985B22 /* CCWPrivacyViewController.m */,
 				3184B4A72292BDD800985B22 /* CCWVersionViewController.h */,
 				3184B4A82292BDD800985B22 /* CCWVersionViewController.m */,
-				3184B4A92292BDD800985B22 /* CCWVersionViewController.xib */,
 				31E198C4221FEF2F0076A822 /* CCWJoinUsViewController.h */,
 				31E198C5221FEF2F0076A822 /* CCWJoinUsViewController.m */,
 				31D90F0F222D452800F718E7 /* CCWJoinUsViewController.xib */,
@@ -1782,6 +1781,7 @@
 		31C35A4A221E490400E8B455 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				31769C4922A6C9600008D278 /* VersionLog.html */,
 				3186E8082293A5BB00A269C6 /* PRIVACY POLICY.html */,
 				3186E8072293A5BB00A269C6 /* Terms of Service.html */,
 				31C35A4B221E491900E8B455 /* CCWContactModel.h */,
@@ -1996,11 +1996,11 @@
 				317948D6221E4BC000F4EA69 /* CCWContactTableViewCell.xib in Resources */,
 				3191A0E5225F15CB003AB263 /* CCWMyWalletTableViewCell.xib in Resources */,
 				316739A2221ACBC7008D85C4 /* CCWMyViewController.xib in Resources */,
-				3184B4AB2292BDD800985B22 /* CCWVersionViewController.xib in Resources */,
 				3191A0D7225DDFC3003AB263 /* CCWRegisterViewController.xib in Resources */,
 				31881F542216593D006C31A2 /* CCWTipScreenShotViewController.xib in Resources */,
 				31D90F10222D452800F718E7 /* CCWJoinUsViewController.xib in Resources */,
 				31881F5922165EB7006C31A2 /* CCWBackupsPrivateController.xib in Resources */,
+				31769C4A22A6C9600008D278 /* VersionLog.html in Resources */,
 				318FF5E322153FB400AB5696 /* CCWTransferRecordHeader.xib in Resources */,
 				3165861A221689190039B439 /* CCWReceiveViewController.xib in Resources */,
 				31725B9521FEB02B005962C6 /* Assets.xcassets in Resources */,

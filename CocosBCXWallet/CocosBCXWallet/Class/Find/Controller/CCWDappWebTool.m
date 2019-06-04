@@ -66,7 +66,7 @@
 
     NSDictionary *js_params = param[@"params"];
     NSString *account = js_params[@"account"];
-    NSString *asset = js_params[@"assetId"];
+    NSString *asset = js_params[@"assetId"]?:@"COCOS";
     [CCWSDKRequest CCW_QueryAccountInfo:account Success:^(id  _Nonnull responseObject) {
         NSString *accountId = responseObject[@"id"];
         [CCWSDKRequest CCW_QueryAssetInfo:asset Success:^(CCWAssetsModel *assetsModel) {
