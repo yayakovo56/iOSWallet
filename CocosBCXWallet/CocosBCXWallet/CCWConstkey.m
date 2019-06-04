@@ -1,0 +1,22 @@
+//
+//  CCWConstkey.m
+//  CocosWallet
+//
+//  Created by SYL on 2018/11/8.
+//  Copyright © 2018 CCW. All rights reserved.
+//
+
+#import "CCWConstkey.h"
+
+#pragma mark - App检查更新
+BOOL CCWIsHaveUpdate;//!< 是否有更新
+BOOL CCWIsForceUpdate;//!< 是否需要强制更新
+NSString * CCWAppNewVersion;//!< 新的App版本号
+NSString * CCWNewAppDownloadurl;//!< 新App的下载链接
+NSString * CCWNewAppUpdateNotes;//!< 新App的更新内容
+
+#pragma mark - 汇率
+NSString * const CCWCurrencyType = @"CCWCurrencyType";//(YES是USD,NO是CNY)
+NSString * const CCWCurrencyValueKey = @"CCWCurrencyValueKey";//!< 缓存汇率的值
+
+

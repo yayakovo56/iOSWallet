@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="116" id="KGk-i7-Jjw" customClass="CCWMyWalletTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="384" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="384" height="119.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hrp-bV-IpG">
+                        <rect key="frame" x="15" y="12" width="354" height="107.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vb-p7-iJO">
+                                <rect key="frame" x="15" y="18" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <color key="textColor" red="0.14901960784313725" green="0.16470588235294117" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5E-dm-tKn">
+                                <rect key="frame" x="20" y="7" width="16" height="22"/>
+                                <state key="normal" image="tanster_copy"/>
+                                <connections>
+                                    <action selector="makeAddress:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8d3-cf-7wd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tw6-J3-Hgx">
+                                <rect key="frame" x="15" y="89.5" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="26"/>
+                                <color key="textColor" red="0.14901960780000001" green="0.1647058824" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJC-kP-bPX">
+                                <rect key="frame" x="21" y="90.5" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.14901960780000001" green="0.1647058824" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightItem" translatesAutoresizingMaskIntoConstraints="NO" id="buK-FF-ENt">
+                                <rect key="frame" x="331" y="11" width="8" height="14"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5GL-wM-edh" customClass="CCWButton">
+                                <rect key="frame" x="45" y="9" width="51" height="18"/>
+                                <color key="backgroundColor" red="0.28235294117647058" green="0.40784313725490196" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <inset key="contentEdgeInsets" minX="3" minY="2" maxX="3" maxY="2"/>
+                                <state key="normal" title="当前钱包">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.97254901960784312" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="buK-FF-ENt" firstAttribute="centerY" secondItem="z5E-dm-tKn" secondAttribute="centerY" id="APC-mQ-aPz"/>
+                            <constraint firstAttribute="trailing" secondItem="buK-FF-ENt" secondAttribute="trailing" constant="15" id="BC9-fK-Pd3"/>
+                            <constraint firstItem="oJC-kP-bPX" firstAttribute="leading" secondItem="Tw6-J3-Hgx" secondAttribute="trailing" constant="6" id="Ei5-8C-0nK"/>
+                            <constraint firstItem="5GL-wM-edh" firstAttribute="leading" secondItem="z5E-dm-tKn" secondAttribute="trailing" constant="9" id="HdK-3f-0QT"/>
+                            <constraint firstItem="z5E-dm-tKn" firstAttribute="centerY" secondItem="7vb-p7-iJO" secondAttribute="centerY" id="L69-3F-WJg"/>
+                            <constraint firstItem="z5E-dm-tKn" firstAttribute="leading" secondItem="7vb-p7-iJO" secondAttribute="trailing" constant="5" id="LLA-H7-icn"/>
+                            <constraint firstItem="7vb-p7-iJO" firstAttribute="top" secondItem="Hrp-bV-IpG" secondAttribute="top" constant="18" id="aqR-Ij-4nW"/>
+                            <constraint firstItem="Tw6-J3-Hgx" firstAttribute="leading" secondItem="7vb-p7-iJO" secondAttribute="leading" id="dr1-an-uVs"/>
+                            <constraint firstItem="oJC-kP-bPX" firstAttribute="centerY" secondItem="Tw6-J3-Hgx" secondAttribute="centerY" constant="1" id="f1a-Qv-SR7"/>
+                            <constraint firstItem="5GL-wM-edh" firstAttribute="centerY" secondItem="z5E-dm-tKn" secondAttribute="centerY" id="h5z-f9-WXl"/>
+                            <constraint firstItem="7vb-p7-iJO" firstAttribute="leading" secondItem="Hrp-bV-IpG" secondAttribute="leading" constant="15" id="ity-SM-mlS"/>
+                            <constraint firstAttribute="bottom" secondItem="Tw6-J3-Hgx" secondAttribute="bottom" constant="18" id="sAc-oR-lGa"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Hrp-bV-IpG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="ARR-lc-L0N"/>
+                    <constraint firstAttribute="bottom" secondItem="Hrp-bV-IpG" secondAttribute="bottom" id="REP-ff-TzA"/>
+                    <constraint firstAttribute="trailing" secondItem="Hrp-bV-IpG" secondAttribute="trailing" constant="15" id="VSJ-62-KQM"/>
+                    <constraint firstItem="Hrp-bV-IpG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="nYl-vc-D3n"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="amountLabel" destination="Tw6-J3-Hgx" id="K3o-pR-1JP"/>
+                <outlet property="currentButton" destination="5GL-wM-edh" id="pvE-Gn-8Ce"/>
+                <outlet property="nameLabel" destination="7vb-p7-iJO" id="jQY-Z9-e76"/>
+                <outlet property="symbolLabel" destination="oJC-kP-bPX" id="v1X-Jf-1l8"/>
+            </connections>
+            <point key="canvasLocation" x="188.80000000000001" y="170.01499250374815"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="rightItem" width="8" height="14"/>
+        <image name="tanster_copy" width="16" height="16"/>
+    </resources>
+</document>

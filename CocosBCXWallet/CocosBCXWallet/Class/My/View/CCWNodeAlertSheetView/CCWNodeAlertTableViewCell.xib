@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="67" id="o3o-18-0TP" customClass="CCWNodeAlertTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="317" height="58"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o3o-18-0TP" id="9gd-a0-zZu">
+                <rect key="frame" x="0.0" y="0.0" width="317" height="57.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qbl-xn-OEI">
+                        <rect key="frame" x="0.0" y="56.5" width="317" height="1"/>
+                        <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="zfR-KC-mci"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="languageSelect" translatesAutoresizingMaskIntoConstraints="NO" id="a0t-wm-iy9">
+                        <rect key="frame" x="280" y="18" width="22" height="22"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rF-Pb-czs">
+                        <rect key="frame" x="16" y="8" width="37.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.14901960784313725" green="0.16470588235294117" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMF-tv-ATJ">
+                        <rect key="frame" x="16" y="36" width="33" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.14901960780000001" green="0.1647058824" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uo3-9J-Q9G">
+                        <rect key="frame" x="221" y="7" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="LbY-OO-Ck6"/>
+                            <constraint firstAttribute="height" constant="44" id="O3r-AE-wXw"/>
+                        </constraints>
+                        <state key="normal" image="delete"/>
+                        <connections>
+                            <action selector="deletaCustomNode" destination="o3o-18-0TP" eventType="touchUpInside" id="ddy-78-K1a"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2rF-Pb-czs" firstAttribute="leading" secondItem="9gd-a0-zZu" secondAttribute="leading" constant="16" id="55s-9R-Pus"/>
+                    <constraint firstItem="PMF-tv-ATJ" firstAttribute="top" secondItem="2rF-Pb-czs" secondAttribute="bottom" constant="10" id="Ch0-Pk-fsR"/>
+                    <constraint firstAttribute="trailing" secondItem="a0t-wm-iy9" secondAttribute="trailing" constant="15" id="EfE-J3-w5g"/>
+                    <constraint firstItem="a0t-wm-iy9" firstAttribute="centerY" secondItem="uo3-9J-Q9G" secondAttribute="centerY" id="H09-OP-cBd"/>
+                    <constraint firstAttribute="bottom" secondItem="Qbl-xn-OEI" secondAttribute="bottom" id="Kff-1x-n3X"/>
+                    <constraint firstAttribute="trailing" secondItem="Qbl-xn-OEI" secondAttribute="trailing" id="YLi-54-48K"/>
+                    <constraint firstItem="a0t-wm-iy9" firstAttribute="centerY" secondItem="9gd-a0-zZu" secondAttribute="centerY" id="fuz-iD-Wu7"/>
+                    <constraint firstItem="Qbl-xn-OEI" firstAttribute="leading" secondItem="9gd-a0-zZu" secondAttribute="leading" id="j0q-rr-pX6"/>
+                    <constraint firstItem="a0t-wm-iy9" firstAttribute="leading" secondItem="uo3-9J-Q9G" secondAttribute="trailing" constant="15" id="oB7-3b-FDb"/>
+                    <constraint firstItem="2rF-Pb-czs" firstAttribute="top" secondItem="9gd-a0-zZu" secondAttribute="top" constant="8" id="vU5-Cq-Fje"/>
+                    <constraint firstItem="PMF-tv-ATJ" firstAttribute="leading" secondItem="2rF-Pb-czs" secondAttribute="leading" id="vVp-RR-dGL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="coinTypeImageView" destination="a0t-wm-iy9" id="ggn-Cw-3bl"/>
+                <outlet property="deleteButton" destination="uo3-9J-Q9G" id="zTS-aJ-laL"/>
+                <outlet property="nodeLabel" destination="PMF-tv-ATJ" id="tDF-Ds-KIA"/>
+                <outlet property="titleLabel" destination="2rF-Pb-czs" id="jiM-sU-NAi"/>
+            </connections>
+            <point key="canvasLocation" x="48.799999999999997" y="58.020989505247378"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="delete" width="22" height="22"/>
+        <image name="languageSelect" width="22" height="22"/>
+    </resources>
+</document>

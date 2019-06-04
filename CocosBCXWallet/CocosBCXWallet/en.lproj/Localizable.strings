@@ -1,0 +1,215 @@
+/* 
+  Localizable.strings
+  CocosBCXWallet
+
+  Created by 邵银岭 on 2019/1/29.
+  Copyright © 2019年 邵银岭. All rights reserved.
+*/
+
+// 1.登录页
+"登录" = "Log In";
+"注册" = "Register";
+"账户名称" = "Account Name";
+"4-64位小写字母开头+数字" = "Begin with 4-64 lowercase letters+numbers";
+"账户密码" = "Account Passcode";
+"8-12位数字、字母、和特殊符号任两种" = "8-12 digits from two of number/letter/special character";
+"登录钱包" = "Log in to wallet";
+"已有钱包 , 去导入" = "Already have a wallet, import it";
+"设置密码" = "Set Passcode";
+"确认密码" = "Repeat";
+"请再次输入密码" = "Enter passcode again";
+"注册钱包" = "Register Wallet";
+"请输入密码" = "Enter passcode";
+"请输入账户名称" = "Enter account name";
+"密码错误，请重新输入" = "Passcode error, enter again";
+"导入钱包" = "Import Wallet";
+"私钥" = "Private Key";
+"请输入明文私钥" = "Enter cleartext private key";
+"密码" = "Passcode";
+"请设置临时密码" = "Set temporary password";
+"开始导入" = "Start Importing";
+"账号名称不符合设置规则" = "Account name does not meet setting requirements";
+"密码设置不符合规则" = "Passcode does not meet requirements";
+"前后密码设置不一致，请重新设置" = "Passwords do not match, please reset";
+"注册成功" = "Registered";
+"网络繁忙，请检查您的网络连接" = "Network busy,  please check your network connection";
+"账户已存在" = "Account already exists";
+"请输入账户信息" = "Please enter account info";
+"请输入正确的账户名称或者密码" = "Please enter valid account name or passcode";
+"请输入私钥" = "Please enter private key";
+"私钥无效，请重新输入" = "Invalid password, enter again";
+"请设置临时密码" = "Please set temporary passcode";
+"导入成功" = "Imported";
+
+// 首页
+"切换失败" = "Handover failure";
+"(测试)" = "(TEST)";
+"账户名称" = "Account Name";
+"资产" = "Assets";
+"我的资产" = "My Assets";
+"总资产" = "Total Assets";
+"转账" = "Send";
+"收款" = "Receive";
+"道具资产" = "Prop Assets";
+"消息中心" = "Message";
+"添加资产" = "Add assets";
+"钱包" = "Wallet";
+"发现" = "Discover";
+"我的" = "Me";
+"复制成功" = "Copied";
+"您正在跳转至第三方DAPP，确认即同意第三方DAPP的用户协议与隐私政策，由其直接并单独向您承担责任。" = "You're jumping to a  third-party DAPP, which will be directly and solely liable to you once you confirm to agree to its user agreement and privacy policy.";
+"确认" = "Confirm";
+
+
+// 交易记录详情
+"交易记录" = "Transaction History";
+"发送方:" = "From:";
+"接收方:" = "To:";
+"备注:" = "Note:";
+"矿工费用:" = "Gas:";
+"交易ID:" = "Trx ID:";
+"交易哈希值:" = "Txid:";
+"区块高度:" = "Height:";
+"交易时间:" = "Date:";
+
+// 转账页
+"全部" = "All";
+"请输入收款金额" = "Enter amount";
+"复制收款账号" = "Copy Address";
+"收款人钱包账户" = "Address";
+"接收方" = "To";
+"转账数量" = "Amount";
+"余额" = "Balance";
+"备注(选填)" = "Note(Optional)";
+"下一步" = "Next";
+"交易详情" = "Transaction Details";
+"订单信息" = "Order Information";
+"转出账号" = "From";
+"转入账号" = "To";
+"数量" = "Amount";
+"备注" = "Note";
+"确认支付" = "Confirm Payment";
+"输入转账信息" = "Enter transfer information";
+"无法给自己转账" = "You cannot transfer to your own account";
+"请输入转账数量" = "Please enter the amount to be transferred";
+"收款账户不存在" = "Account does not exist";
+
+// 我的
+"资产总览" = "Assets Overview";
+"钱包管理" = "Wallet Management";
+"多语言" = "Language";
+"联系人" = "Contacts";
+"关于我们" = "About";
+
+"资产公钥" = "Asset Public Key";
+"账户公钥" = "Account Public Key";
+"修改密码" = "Change Passcode";
+"导出私钥" = "Export Private Key";
+"退出账号" = "Log Out";
+
+"资产私钥" = "Asset Private Key";
+"资金权限（active）活跃权限用来设定拥有花费本账户资金权限的账户名或公钥" = "The 'active' authority is used to set the account name or public key that has the right to spend money of the account.";
+"复制资产私钥" = "Copy Asset Private Key";
+"账户私钥" = "Account Private Key ";
+"账户权限（owner）账户权限设定谁可以控制本账户。控制人（账户名或公钥）可修改账户相关的各种设置，包括权限设置" = "The 'owner' authority is used to set controller of the account. The controller(account or public key) has the right to change issues related to the account, including authorization.";
+"复制账户私钥" = "Copy Account Private Key";
+"取消" = "Cancel";
+"数字资产" = "Digital Assets";
+"退出账号前，请确保您已保存私钥" = "Please make sure to have saved your private key before logging out";
+"密码错误，请重新输入" = "Passcode error, please enter again";
+"密码设置不符合规则，请重新输入" = "Passcode do not meet setting requirements, please enter again";
+"密码前后输入不一致，请重新输入" = "Passwords do not match, please enter again";
+"密码修改成功" = "Passcode changed";
+"暂无道具资产" = "No prop asset";
+"暂无交易记录" = "No transaction history";
+"自定义节点" = "Custom Node";
+"+ 自定义" = "+ Custom";
+"请输入Node" = "Enter Node";
+"请输入ChainId" = "Enter ChainId";
+"请输入FaucetUrl" = "Enter FaucetUrl";
+"请输入Asset" = "Enter Asset";
+"请输入节点命名" = "Enter Name";
+"测试网" = "Test Net";
+"主网" = "Main Net";
+// 联系人
+"手动添加" = "Manual";
+"扫一扫" = "Scan";
+"删除" = "Delete";
+"确定删除联系人？" = "Really delete this contact?";
+"完成" = "Done";
+"名称" = "Name";
+"钱包地址" = "Address";
+"复制" = "Copy";
+"扫一扫" = "Scan";
+"将二维码放入框中，既能快速扫描" = "Barcode within frame to scan";
+"收款方账户名不能为空" = "Account name cannot be empty";
+"请输入钱包地址" = "Please enter wallet address";
+"删除成功" = "Deleted";
+
+// 关于我们
+"当前版本" = "Version";
+"服务条款" = "Terms of Service";
+"隐私协议" = "Privacy Policy";
+"版本日志" = "Version Logs";
+"加入社群" = "Join Community";
+"关于 COCOS 钱包" = "About COCOS Wallet";
+"官方微信号" = "WeChat Community";
+"微信公众号" = "WeChat Account";
+"等你来撩～" = "Wait For You～";
+"输入转账金额" = "Enter the amount to be transferred";
+"转账成功" = "Transfer Completed";
+"敬请期待" = "To Be Expected";
+"请输入联系人名称" = "Enter contact name";
+"请输入备注" = "Enter note";
+"当前密码" = "Old One";
+"请输入当前密码" = "Enter current passcode";
+"请输入新密码" = "Enter new passcode";
+"请再次确认新密码" = "Enter new passcode again";
+"新密码" = "Reset";
+"系统设置" = "System Setting";
+"网络设置" = "Network Setting";
+"提示" = "Warning";
+
+"请输入账户名" = "Enter username";
+"输入转账金额" = "Enter transfer amount";
+"创建账号" = "Create account";
+"导入账号" = "Import account";
+"通过私钥导入钱包" = "Import account with private key";
+"创建钱包" = "Create wallet";
+"通过账号密码自助创建" = "Create account by setting username and password";
+"选择转账币种" = "Select currency";
+"选择收款币种" = "Select currency";
+"转出数量超过账户余额" = "Transfer amount exceeds account balance";
+"点此解锁来查看备注" = "Click to unlock the memo";
+"私钥用于恢复钱包或重置钱包密码，长按复制，并将它存放在只有您知道的安全地方" = "Private key is for recover wallet or reset wallet password, long press to copy, keep your private key safe";
+
+//发现页
+"注意" = "Take Attention";
+"您正在跳转至第三方dapp，确认即同意第三方dapp的用户协议与隐私政策，由其直接并单独向您承担责任" = "This is a third party DApp, Please go through the User Agreement and Private Policy of the third party DApp, which resume full responsibility for all actions and usage on the DApp.";
+"一款飞行射击类游戏。在 Cocos Shooting 中，玩家可以操纵自己的飞机，通过不断击落敌机来获取资源，以此来强化飞机，战胜每一个BOSS。该游戏已经实现了Cocos-BCX链特有的道具穿越功能，玩家可以使用来自其他游戏的道具角色哦。" = "A flying shooting game. In Cocos Shooting, players can manipulate their aircraft and gain resources by constantly shooting down enemy aircraft to enhance the aircraft and defeat every BOSS. The game has implemented the props-crossing feature unique to the Cocos-BCX chain, and players can use props from other games.";
+"经典摇骰子类百家乐游戏，可在线多人对局。该游戏使用Cocos-BCX链的链内源随机数，使得公平性得以体现。" = "A classic dice-type of Baccarat game that supports multi-player online gaming. This game uses the on-chain random numbers of Cocos-BCX chain to guarantee fairness. ";
+"经典掷骰子类游戏Demo" = "Classic dice rolling game Demo";
+"幸运女神" = "Lucky goddess";
+"水果机" = "Fruit machine";
+"超级热门" = "Super Popular";
+"DApp合作" = "Cooperation";
+"生态" = "Ecology";
+"区块链浏览器" = "Browser";
+"官网" = "Website";
+
+//注册登录
+"账户模式登录" = "Account mode login";
+"钱包模式" = "Wallet mode";
+"账户模式" = "Account mode";
+"钱包模式下注册，仅支持私钥登录，请务必备份好私钥，确保您的钱包安全。" = "In wallet mode, private key to login only, please backup your private key well, make sure your wallet safe";
+"账户模式下注册，可支持账号及私钥两种登录方式，请务必保管好账户信息及私钥，保护您的钱包安全" = "In account mode, you can login with Account name or private key, please backup your private key well, make sure your wallet safe";
+"备份私钥" = "Backup private key";
+"备份钱包" = "Backup wallet";
+"请勿截图" = "Please do not take screenshots";
+"如果有人获得了您的私钥将直接获取您的资产，请抄写下您的私钥并存放在安全的地方" = "Anyone who gets your private key, can have your assets directly, please write your private key down on paper and keep it safe";
+"资产私钥" = "Asset private key";
+"账户私钥" = "Account private key";
+"推荐给朋友" = "Share to friends";
+"开发技术公众号" = "WeChat Official Account";
+"钱包管理" = "Manage wallet";
+"当前钱包" = "Current wallet";

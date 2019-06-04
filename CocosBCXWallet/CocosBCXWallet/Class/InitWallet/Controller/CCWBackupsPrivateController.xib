@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CCWBackupsPrivateController">
+            <connections>
+                <outlet property="active_prikey_lab" destination="deq-nG-hJo" id="IH1-vR-mDI"/>
+                <outlet property="owner_prikey_lab" destination="HRa-jb-ubf" id="3tH-zn-3OH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPx-aF-ZAq" customClass="CCWLabel">
+                    <rect key="frame" x="20" y="80" width="335" height="36"/>
+                    <attributedString key="attributedText">
+                        <fragment content="私钥用于恢复钱包或重置钱包密码，长按复制，并将它存放在只有您知道的安全地方">
+                            <attributes>
+                                <color key="NSColor" red="0.96078431372549022" green="0.38039215686274508" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="13" name=".PingFangSC-Regular"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="10" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egH-0C-5vi" customClass="CCWButton">
+                    <rect key="frame" x="15" y="551" width="345" height="50"/>
+                    <color key="backgroundColor" red="0.28235294119999998" green="0.41960784309999999" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="fgX-OY-6EG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="下一步">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="nextButtonClick:" destination="-1" eventType="touchUpInside" id="7mQ-Qs-3YH"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vue-Lx-bUY">
+                    <rect key="frame" x="20" y="144" width="335" height="131.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="资产私钥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aL-4r-dRY" customClass="CCWLabel">
+                            <rect key="frame" x="12" y="22" width="65.5" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.14901960784313725" green="0.16470588235294117" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="qwertyuiop1234asdfghjkl098zxcvbnml23edw567ujyhtg89j" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deq-nG-hJo" customClass="CCWLabel">
+                            <rect key="frame" x="12" y="63.5" width="310" height="36"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.14901960780000001" green="0.1647058824" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.94509803921568625" green="0.95294117647058818" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="deq-nG-hJo" secondAttribute="trailing" constant="13" id="9GC-XK-KY7"/>
+                        <constraint firstAttribute="bottom" secondItem="deq-nG-hJo" secondAttribute="bottom" constant="32" id="MUK-p6-IwV"/>
+                        <constraint firstItem="deq-nG-hJo" firstAttribute="leading" secondItem="3aL-4r-dRY" secondAttribute="leading" id="Mel-PZ-r8H"/>
+                        <constraint firstItem="3aL-4r-dRY" firstAttribute="leading" secondItem="vue-Lx-bUY" secondAttribute="leading" constant="12" id="W2d-Cv-Bj8"/>
+                        <constraint firstItem="deq-nG-hJo" firstAttribute="top" secondItem="3aL-4r-dRY" secondAttribute="bottom" constant="22" id="jwj-A6-pXA"/>
+                        <constraint firstItem="3aL-4r-dRY" firstAttribute="top" secondItem="vue-Lx-bUY" secondAttribute="top" constant="22" id="u48-rN-suJ"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUT-ii-sph">
+                    <rect key="frame" x="20" y="289.5" width="335" height="131.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账户私钥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33z-4S-c7c" customClass="CCWLabel">
+                            <rect key="frame" x="12" y="22" width="65.5" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.14901960780000001" green="0.1647058824" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="qwertyuiop1234asdfghjkl098zxcvbnml23edw567ujyhtg89j" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRa-jb-ubf" customClass="CCWLabel">
+                            <rect key="frame" x="12" y="63.5" width="310" height="36"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.14901960780000001" green="0.1647058824" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstItem="33z-4S-c7c" firstAttribute="leading" secondItem="AUT-ii-sph" secondAttribute="leading" constant="12" id="36a-ib-m4O"/>
+                        <constraint firstItem="33z-4S-c7c" firstAttribute="top" secondItem="AUT-ii-sph" secondAttribute="top" constant="22" id="KtE-5K-IFi"/>
+                        <constraint firstItem="HRa-jb-ubf" firstAttribute="top" secondItem="33z-4S-c7c" secondAttribute="bottom" constant="22" id="SHd-PE-sgS"/>
+                        <constraint firstAttribute="trailing" secondItem="HRa-jb-ubf" secondAttribute="trailing" constant="13" id="Tor-V7-GI4"/>
+                        <constraint firstAttribute="bottom" secondItem="HRa-jb-ubf" secondAttribute="bottom" constant="32" id="Wu2-hX-rCi"/>
+                        <constraint firstItem="HRa-jb-ubf" firstAttribute="leading" secondItem="33z-4S-c7c" secondAttribute="leading" id="fcz-YP-uvT"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="wPx-aF-ZAq" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="AWd-xa-9GV"/>
+                <constraint firstItem="AUT-ii-sph" firstAttribute="top" secondItem="vue-Lx-bUY" secondAttribute="bottom" constant="14" id="Ai2-3P-G8h"/>
+                <constraint firstItem="wPx-aF-ZAq" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="60" id="D2W-y2-9OV"/>
+                <constraint firstItem="vue-Lx-bUY" firstAttribute="trailing" secondItem="wPx-aF-ZAq" secondAttribute="trailing" id="HRb-Wt-452"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="wPx-aF-ZAq" secondAttribute="trailing" constant="20" id="HRw-Wt-jjk"/>
+                <constraint firstItem="vue-Lx-bUY" firstAttribute="leading" secondItem="wPx-aF-ZAq" secondAttribute="leading" id="JkQ-C7-Afd"/>
+                <constraint firstItem="egH-0C-5vi" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="NEy-qp-gsB"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="egH-0C-5vi" secondAttribute="trailing" constant="15" id="Tfc-sN-45z"/>
+                <constraint firstItem="AUT-ii-sph" firstAttribute="leading" secondItem="vue-Lx-bUY" secondAttribute="leading" id="amp-y6-XNz"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="egH-0C-5vi" secondAttribute="bottom" constant="66" id="fU5-Y0-roM"/>
+                <constraint firstItem="vue-Lx-bUY" firstAttribute="top" secondItem="wPx-aF-ZAq" secondAttribute="bottom" constant="28" id="u23-ZG-OQd"/>
+                <constraint firstItem="AUT-ii-sph" firstAttribute="trailing" secondItem="vue-Lx-bUY" secondAttribute="trailing" id="vwV-sv-gQt"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+</document>

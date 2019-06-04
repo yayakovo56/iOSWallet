@@ -1,0 +1,76 @@
+//
+//  CocosBCXWallet.pch
+//  CocosBCXWallet
+//
+//  Created by 邵银岭 on 2019/1/29.
+//  Copyright © 2019年 邵银岭. All rights reserved.
+//
+
+#ifndef CocosBCXWallet_pch
+#define CocosBCXWallet_pch
+//添加混淆作用的头文件（这个文件名是脚本confuse.sh中定义的）
+#ifdef DEBUG
+//#import "codeObfuscation.h"
+#else
+#import "codeObfuscation.h"
+#endif
+
+#ifdef __OBJC__
+
+
+
+
+
+
+#import "AppMacro.h"
+#import "AppNilOrNull.h"
+
+// 模块
+#import "CCWMediator.h"
+#import "CCWInitModuleProtocol.h"
+#import "CCWWalletModuleProtocol.h"
+#import "CCWFindModuleProtocol.h"
+#import "CCWMyModuleProtocol.h"
+
+// 基类
+#import "CCWInitBaseViewController.h"
+#import "CCWWalletBaseViewController.h"
+
+// 工具
+
+#import "CCWNavigation.h"
+#import "CCWKit.h"
+#import "CCWFoundation.h"
+#import "CCWHelpers.h"
+#import "CCWEncryptTool.h"
+
+// 第三方库
+#import <MJExtension/MJExtension.h>
+#import <Masonry/Masonry.h>
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+
+// 业务分类
+#import "CCWCategory.h"
+
+// 基类
+#import "CCWSDKRequest.h"
+//#import "CCWWalletAccountTool.h"
+#import "CCWWalletAccount.h"
+
+// 数据库
+#import "CCWDataBase.h"
+#import "CCWDataBase+CCWContact.h"
+
+#endif
+
+#define CCWSETAccountName(object) [CCWSaveTool setObject:object forKey:@"account_name"]  // 写
+#define CCWAccountName [CCWSaveTool objectForKey:@"account_name"]
+
+#define CCWSETAccountId(object) [CCWSaveTool setObject:object forKey:@"account_id"]  // 写
+#define CCWAccountId [CCWSaveTool objectForKey:@"account_id"]
+
+#define CCWSETNodeInfo(object) [CCWSaveTool setObject:object forKey:@"node_info"]  // 写
+#define CCWNodeInfo [CCWSaveTool objectForKey:@"node_info"]
+
+#endif /* CocosBCXWallet_pch */
+

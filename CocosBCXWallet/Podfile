@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'CocosBCXWallet' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for CocosBCXWallet
+    pod 'SGQRCode' , '2.2.0'# 二维码
+    pod 'SDWebImage'
+#    pod 'AFNetworking'
+    pod 'MJExtension'
+    pod 'Masonry'
+    pod 'IQKeyboardManager', '~> 3.3.7'
+    pod 'MJRefresh'
+    pod 'FMDB'
+    pod 'DZNEmptyDataSet', '1.7.3' # tableView 缺省页面
+    pod 'AFNetworking'
+    pod 'SocketRocket'
+#    pod 'MLeaksFinder' #循环引用
+end
