@@ -148,6 +148,8 @@
     } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
         if (error.code == 116) {
             [weakSelf.view makeToast:CCWLocalizable(@"收款账户不存在")];
+        }else if (error.code == 107) {
+            [weakSelf.view makeToast:CCWLocalizable(errorAlert)];
         }else{
             [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         }
@@ -175,6 +177,8 @@
     } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
         if (error.code == 116) {
             [weakSelf.view makeToast:CCWLocalizable(@"收款账户不存在")];
+        }else if (error.code == 112) {
+            [weakSelf.view makeToast:CCWLocalizable(@"xxxxxxxx")];
         }else{
             [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         }
