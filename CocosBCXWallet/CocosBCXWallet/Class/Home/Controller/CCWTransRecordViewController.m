@@ -47,7 +47,7 @@
     
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = CCWLocalizable(@"交易记录");
+    self.title = self.assetsModel.symbol;
     [self ccw_setNavBackgroundColor:[UIColor getColor:@"D2D9F3"]];
     self.view.backgroundColor = [UIColor whiteColor];
     

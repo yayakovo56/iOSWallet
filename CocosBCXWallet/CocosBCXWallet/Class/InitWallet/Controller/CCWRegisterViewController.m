@@ -119,7 +119,7 @@
         [weakSelf.navigationController pushViewController:tipVC animated:YES];
     } Error:^(NSString * _Nonnull errorAlert, NSError * _Nonnull error) {
         [MBProgressHUD hideHUD];
-        if (error.code == 159) {
+        if (error.code == 400) {
             [weakSelf.view makeToast:CCWLocalizable(@"账户已存在")];
         }else{
             [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];

@@ -13,13 +13,69 @@
 #import "CCWEncryptTool.h"
 #import "CCWDataBase+CCWNodeINfo.h"
 
+#import "Cocos_Key_Account.h"
+
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
+-(NSString *)randomStringWithLength:(NSInteger)len {
+    NSString *letters = @"abcdefghijklmnopqrstuvwxyz";
+    NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
+    
+    for (NSInteger i = 0; i < len; i++) {
+        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform([letters length])]];
+    }
+    return randomString;
+}
+
+- (void)createName:(NSString *)accountName addPassword:(NSString *)password withArray:(NSMutableArray *)array{
+    NSString *owner = @"owner";
+    NSString *active = @"active";
+    NSString *ownerSeed = [NSString stringWithFormat:@"%@%@%@",accountName,owner,password];
+    NSString *activeSeed = [NSString stringWithFormat:@"%@%@%@",accountName,active,password];
+    NSString *owner_key = [Cocos_Key_Account private_with_seed:ownerSeed];
+    NSString *active_key = [Cocos_Key_Account private_with_seed:activeSeed];
+    NSString *owner_pubkey = [Cocos_Key_Account publicKey_with_seed:ownerSeed];
+    NSString *active_pubkey = [Cocos_Key_Account publicKey_with_seed:activeSeed];
+    
+    NSDictionary *dic = @{
+                          @"account":accountName,
+                          @"password":password,
+                          @"owner_key":owner_key,
+                          @"active_key":active_key
+                          };
+    
+    NSMutableDictionary *paramAccount = [NSMutableDictionary dictionary];
+    paramAccount[@"name"] = accountName;
+    paramAccount[@"owner_key"] = owner_pubkey;
+    paramAccount[@"referror"] = @"";
+    paramAccount[@"memo_key"] = active_pubkey;
+    paramAccount[@"active_key"] = active_pubkey;
+    NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObject:paramAccount forKey:@"account"];
+    [[CocosHTTPManager CCW_shareHTTPManager] CCW_POST:@"http://47.93.62.96:8041/api/v1/accounts" Param:param Success:^(id responseObject) {
+        
+        [array addObject:dic];
+        [array writeToFile:@"/Users/SYLApple/Desktop/robot1.plist" atomically:YES];
+        NSLog(@"+++++++++++Success+++++++++++:%zd",array.count);
+    } Error:^(NSError *error) {
+        NSLog(@"--------error-------%@",accountName);
+    }];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+//    NSMutableArray *mulArray = [NSMutableArray array];
+//    NSTimer *timer = [NSTimer ccw_timerWithTimeInterval:1 repeats:YES block:^(NSTimer *timer) {
+//        [self createName:[self randomStringWithLength:7] addPassword:[self randomStringWithLength:6] withArray:mulArray];
+//    }];
+//    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    
+//    NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"robot1" ofType:@"plist"];
+//    NSArray *array = [NSArray arrayWithContentsOfFile:dataPath];
+//    [[array mj_JSONString] writeToFile:@"/Users/SYLApple/Desktop/robotjson.txt" atomically:YES];
     
     CCWWeakSelf;
     // 请求连接节点

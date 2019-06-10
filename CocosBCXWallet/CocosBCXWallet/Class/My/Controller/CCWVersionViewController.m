@@ -18,13 +18,6 @@
     [super viewDidLoad];
 
     self.title = CCWLocalizable(@"版本日志");
-    self.view.backgroundColor = [UIColor whiteColor];
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    NSString *bundleStr = [[NSBundle mainBundle] pathForResource:@"VersionLog" ofType:@"html"];
-    NSURL *TermsUrl = [NSURL fileURLWithPath:bundleStr];
-    [webView loadRequest:[NSURLRequest requestWithURL:TermsUrl]];
-    [self.view addSubview:webView];
-
 }
 
 @end

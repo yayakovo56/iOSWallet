@@ -62,6 +62,7 @@
 
 // 登录
 - (IBAction)loginButtonClick:(UIButton *)sender {
+    [self.view endEditing:YES];
     
     NSString *accountStr = self.loginAccountTextField.text;
     NSString *pwdStr = self.loginPwdTextField.text;

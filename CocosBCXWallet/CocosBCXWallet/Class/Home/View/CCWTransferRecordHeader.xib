@@ -101,12 +101,6 @@
                         <action selector="copyAddressButtonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="QZc-17-2vb"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(测试)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJe-EE-ect" customClass="CCWLabel">
-                    <rect key="frame" x="123.5" y="50" width="26" height="11"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="9"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -118,7 +112,6 @@
                 <constraint firstItem="a7A-Q8-0Tg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="A6n-LO-l9S"/>
                 <constraint firstItem="ddu-Rh-5JX" firstAttribute="centerY" secondItem="Dvt-Xy-FMI" secondAttribute="centerY" id="Ac5-J3-q1W"/>
                 <constraint firstAttribute="trailing" secondItem="voC-ln-scw" secondAttribute="trailing" constant="15" id="CbH-lO-pdN"/>
-                <constraint firstItem="AJe-EE-ect" firstAttribute="leading" secondItem="JYs-tf-cpB" secondAttribute="trailing" constant="5" id="CtB-SK-8dX"/>
                 <constraint firstItem="B4U-ZJ-Am9" firstAttribute="leading" secondItem="iDP-cg-wMw" secondAttribute="leading" constant="24" id="Hx5-11-QgN"/>
                 <constraint firstItem="voC-ln-scw" firstAttribute="height" secondItem="oEl-3h-zcG" secondAttribute="height" id="Ic0-CV-2jo"/>
                 <constraint firstItem="iDP-cg-wMw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="4" id="MsX-VO-05g"/>
@@ -135,7 +128,6 @@
                 <constraint firstItem="oEl-3h-zcG" firstAttribute="top" secondItem="iDP-cg-wMw" secondAttribute="bottom" id="squ-Rv-dzb"/>
                 <constraint firstItem="oEl-3h-zcG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="uR2-Ra-Wgj"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="a7A-Q8-0Tg" secondAttribute="trailing" id="voJ-P6-EOL"/>
-                <constraint firstItem="AJe-EE-ect" firstAttribute="top" secondItem="JYs-tf-cpB" secondAttribute="top" id="wjF-fn-3JL"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iDP-cg-wMw" secondAttribute="trailing" constant="15" id="zKT-rE-Dqy"/>
                 <constraint firstItem="JYs-tf-cpB" firstAttribute="bottom" secondItem="B4U-ZJ-Am9" secondAttribute="bottom" constant="-3" id="zPM-ni-7eo"/>
             </constraints>

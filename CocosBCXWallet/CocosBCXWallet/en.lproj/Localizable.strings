@@ -93,7 +93,7 @@
 "无法给自己转账" = "You cannot transfer to your own account";
 "请输入转账数量" = "Please enter the amount to be transferred";
 "收款账户不存在" = "Account does not exist";
-"请先导入私钥" = "Please import the private key";
+
 // 我的
 "资产总览" = "Assets Overview";
 "钱包管理" = "Wallet Management";
@@ -193,7 +193,7 @@
 "水果机" = "Fruit machine";
 "超级热门" = "Super Popular";
 "DApp合作" = "Cooperation";
-"生态" = "Ecology";
+"生态" = "Ecosystem";
 "区块链浏览器" = "Browser";
 "官网" = "Website";
 

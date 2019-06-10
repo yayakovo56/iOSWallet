@@ -39,6 +39,7 @@
     [self.navigationController pushViewController:[NSClassFromString(@"CCWLoginViewController") new] animated:YES];
 }
 - (IBAction)importClick:(UIButton *)sender {
+    [self.view endEditing:YES];
     
     NSString *privateKeyStr = self.privateTextView.text;
     NSString *pwdStr = self.pwdTextField.text;

@@ -334,7 +334,7 @@
                 assetsModel.asset_id = asset.asset_id;
                 assetsModel.amount = [[CCWDecimalTool CCW_decimalNumberWithString:[NSString stringWithFormat:@"%@",asset.amount]] decimalNumberByMultiplyingByPowerOf10:-[assetsModel.precision integerValue]];
                 [tempArray addObject:assetsModel];
-                if (myassetArr.count == tempArray.count) {
+                if (idx+1 == myassetArr.count) {
                     !successBlock?:successBlock(tempArray);
                 }
             } Error:errorBlock];
@@ -427,7 +427,7 @@
                 walletAccountAsset.amount = [[CCWDecimalTool CCW_decimalNumberWithString:[NSString stringWithFormat:@"%@",walletAccountAsset.amount]] decimalNumberByMultiplyingByPowerOf10:-[assetsModel.precision integerValue]];
                 walletAccount.cocosAssets = walletAccountAsset;
                 [tempArray addObject:walletAccount];
-                if (tempArray.count == accountArray.count) {
+                if (idx+1 == accountArray.count) {
                     !successBlock?:successBlock(tempArray);
                 }
             } Error:errorBlock];
