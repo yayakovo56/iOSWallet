@@ -38,9 +38,11 @@
             makeStr = self.publicWeChatLabel.text;
             break;
         case 2:
-            makeStr = self.developLabel.text;
+            makeStr = @"https://discordapp.com/invite/jdJMNtC";
             break;
-            
+        case 3:
+            makeStr = @"https://t.me/cocosbcxen";
+            break;
         default:
             break;
     }

@@ -16,6 +16,10 @@ target 'CocosBCXWallet' do
     pod 'FMDB'
     pod 'DZNEmptyDataSet', '1.7.3' # tableView 缺省页面
     pod 'AFNetworking'
-    pod 'SocketRocket'
+    pod 'SocketRocket','0.5.1'
+    
+#    pod 'UMCAnalytics' ,'5.5.0' #    统计 SDK
+    pod 'UMCCommon' ,'1.5.2'    #    基础依赖库
+    
 #    pod 'MLeaksFinder' #循环引用
 end

@@ -72,7 +72,7 @@
     NSString *accountId = CCWAccountId;
     // 查询交易记录
     CCWWeakSelf
-    [CCWSDKRequest CCW_QueryUserOperations:accountId limit:20 Success:^(NSArray * _Nonnull responseObject) {
+    [CCWSDKRequest CCW_QueryUserOperations:accountId limit:100 Success:^(NSArray * _Nonnull responseObject) {
         [responseObject enumerateObjectsUsingBlock:^(CCWTransRecordModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if (obj.opTypeTransfer) {
                 [weakSelf.transferArray addObject:obj];

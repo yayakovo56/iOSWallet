@@ -19,4 +19,6 @@ NSString * CCWNewAppUpdateNotes;//!< 新App的更新内容
 NSString * const CCWCurrencyType = @"CCWCurrencyType";//(YES是USD,NO是CNY)
 NSString * const CCWCurrencyValueKey = @"CCWCurrencyValueKey";//!< 缓存汇率的值
 
+#pragma mark - 第三方Key
+NSString * const UMengAppKey = @"5d006f774ca35713eb0007d0";// 友盟AppKey
 

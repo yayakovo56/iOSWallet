@@ -20,4 +20,5 @@ UIKIT_EXTERN NSString * const CCWCurrencyType;//!< 当前显示CNY或者USD(YES�
 UIKIT_EXTERN NSString * const CCWCurrencyValueKey;//!< 缓存汇率的值
 
 
-#pragma mark - 通知Key
+#pragma mark - 第三方Key
+UIKIT_EXTERN NSString * const UMengAppKey;// 友盟AppKey
