@@ -11,6 +11,8 @@
 #import "CCWFindFirstTableViewCell.h"
 #import "CCWFindModel.h"
 #import "CCWDappViewController.h"
+#import "CCWSearchDAppViewController.h"
+#import "CCWNavigationController.h"
 
 @interface CCWFindViewController ()<UITableViewDataSource,UITableViewDelegate,CCWFindFirstTableViewCellDelegate>
 
@@ -29,6 +31,7 @@
     self.title = CCWLocalizable(@"发现");
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Find_search"] style:UIBarButtonItemStylePlain target:self action:@selector(searchDApp)];
     
     NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"findData" ofType:@"plist"];
     [NSMutableDictionary dictionaryWithContentsOfFile:dataPath];
@@ -57,6 +60,14 @@
     [self.view addSubview:tableView];
     self.tableView = tableView;
 }
+
+// 搜索
+- (void)searchDApp
+{
+    CCWSearchDAppViewController *search = [[CCWSearchDAppViewController alloc] init];
+    [self.navigationController pushViewController:search animated:YES];
+}
+
 
 #pragma mark - UITableViewDataSource,UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

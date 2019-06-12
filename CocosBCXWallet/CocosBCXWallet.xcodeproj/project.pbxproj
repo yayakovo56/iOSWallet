@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3123E22222B0DD7500874CBF /* Terms of Service.html in Resources */ = {isa = PBXBuildFile; fileRef = 3123E22022B0DD7500874CBF /* Terms of Service.html */; };
+		3123E22322B0DD7500874CBF /* PRIVACY POLICY.html in Resources */ = {isa = PBXBuildFile; fileRef = 3123E22122B0DD7500874CBF /* PRIVACY POLICY.html */; };
+		3123E22522B0DDDD00874CBF /* VersionLog.html in Resources */ = {isa = PBXBuildFile; fileRef = 3123E22422B0DDDD00874CBF /* VersionLog.html */; };
+		3123E22922B0ED0A00874CBF /* CCWSearchDAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3123E22722B0ED0A00874CBF /* CCWSearchDAppViewController.m */; };
+		3123E22B22B100C700874CBF /* CCWSearchDAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3123E22A22B100C700874CBF /* CCWSearchDAppViewController.xib */; };
 		31288E95221D1BC7002EE5EA /* CCWTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 31288E94221D1BC7002EE5EA /* CCWTextField.m */; };
 		31288E97221D4726002EE5EA /* Foundation Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 31288E96221D4725002EE5EA /* Foundation Log.m */; };
 		31288E9B221D57DD002EE5EA /* CCWAssetsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 31288E9A221D57DD002EE5EA /* CCWAssetsModel.m */; };
@@ -106,14 +111,11 @@
 		3184B4A02292B8C500985B22 /* CCWTermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3184B49E2292B8C500985B22 /* CCWTermsViewController.m */; };
 		3184B4A52292B8DE00985B22 /* CCWPrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3184B4A32292B8DE00985B22 /* CCWPrivacyViewController.m */; };
 		3184B4AA2292BDD800985B22 /* CCWVersionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3184B4A82292BDD800985B22 /* CCWVersionViewController.m */; };
-		3184B4AB2292BDD800985B22 /* CCWVersionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3184B4A92292BDD800985B22 /* CCWVersionViewController.xib */; };
 		3186E8022293A08200A269C6 /* CCWAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186E7F92293A08200A269C6 /* CCWAlertController.m */; };
 		3186E8032293A08200A269C6 /* CCWAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186E7FB2293A08200A269C6 /* CCWAnimator.m */; };
 		3186E8042293A08200A269C6 /* CCWBaseAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186E7FD2293A08200A269C6 /* CCWBaseAlert.m */; };
 		3186E8052293A08200A269C6 /* CCWPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186E7FF2293A08200A269C6 /* CCWPresentationController.m */; };
 		3186E8062293A08200A269C6 /* CCWCheckVisionAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186E8012293A08200A269C6 /* CCWCheckVisionAlert.m */; };
-		3186E8092293A5BB00A269C6 /* Terms of Service.html in Resources */ = {isa = PBXBuildFile; fileRef = 3186E8072293A5BB00A269C6 /* Terms of Service.html */; };
-		3186E80A2293A5BB00A269C6 /* PRIVACY POLICY.html in Resources */ = {isa = PBXBuildFile; fileRef = 3186E8082293A5BB00A269C6 /* PRIVACY POLICY.html */; };
 		31881F4F221657B6006C31A2 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 31881F4E221657B6006C31A2 /* UIView+Toast.m */; };
 		31881F532216593D006C31A2 /* CCWTipScreenShotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31881F512216593D006C31A2 /* CCWTipScreenShotViewController.m */; };
 		31881F542216593D006C31A2 /* CCWTipScreenShotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31881F522216593D006C31A2 /* CCWTipScreenShotViewController.xib */; };
@@ -273,6 +275,12 @@
 
 /* Begin PBXFileReference section */
 		2402E49331AF22918E4044D3 /* Pods-CocosBCXWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocosBCXWallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CocosBCXWallet/Pods-CocosBCXWallet.debug.xcconfig"; sourceTree = "<group>"; };
+		3123E22022B0DD7500874CBF /* Terms of Service.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "Terms of Service.html"; sourceTree = "<group>"; };
+		3123E22122B0DD7500874CBF /* PRIVACY POLICY.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "PRIVACY POLICY.html"; sourceTree = "<group>"; };
+		3123E22422B0DDDD00874CBF /* VersionLog.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = VersionLog.html; sourceTree = "<group>"; };
+		3123E22722B0ED0A00874CBF /* CCWSearchDAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWSearchDAppViewController.m; sourceTree = "<group>"; };
+		3123E22822B0ED0A00874CBF /* CCWSearchDAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWSearchDAppViewController.h; sourceTree = "<group>"; };
+		3123E22A22B100C700874CBF /* CCWSearchDAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWSearchDAppViewController.xib; sourceTree = "<group>"; };
 		31288E93221D1BC7002EE5EA /* CCWTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWTextField.h; sourceTree = "<group>"; };
 		31288E94221D1BC7002EE5EA /* CCWTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWTextField.m; sourceTree = "<group>"; };
 		31288E96221D4725002EE5EA /* Foundation Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation Log.m"; sourceTree = "<group>"; };
@@ -470,7 +478,6 @@
 		3184B4A32292B8DE00985B22 /* CCWPrivacyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWPrivacyViewController.m; sourceTree = "<group>"; };
 		3184B4A72292BDD800985B22 /* CCWVersionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWVersionViewController.h; sourceTree = "<group>"; };
 		3184B4A82292BDD800985B22 /* CCWVersionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWVersionViewController.m; sourceTree = "<group>"; };
-		3184B4A92292BDD800985B22 /* CCWVersionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWVersionViewController.xib; sourceTree = "<group>"; };
 		3186E7F82293A08200A269C6 /* CCWAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWAlertController.h; sourceTree = "<group>"; };
 		3186E7F92293A08200A269C6 /* CCWAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWAlertController.m; sourceTree = "<group>"; };
 		3186E7FA2293A08200A269C6 /* CCWAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWAnimator.h; sourceTree = "<group>"; };
@@ -481,8 +488,6 @@
 		3186E7FF2293A08200A269C6 /* CCWPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWPresentationController.m; sourceTree = "<group>"; };
 		3186E8002293A08200A269C6 /* CCWCheckVisionAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWCheckVisionAlert.h; sourceTree = "<group>"; };
 		3186E8012293A08200A269C6 /* CCWCheckVisionAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWCheckVisionAlert.m; sourceTree = "<group>"; };
-		3186E8072293A5BB00A269C6 /* Terms of Service.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "Terms of Service.html"; sourceTree = "<group>"; };
-		3186E8082293A5BB00A269C6 /* PRIVACY POLICY.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "PRIVACY POLICY.html"; sourceTree = "<group>"; };
 		31881F4D221657B5006C31A2 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		31881F4E221657B6006C31A2 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		31881F502216593D006C31A2 /* CCWTipScreenShotViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWTipScreenShotViewController.h; sourceTree = "<group>"; };
@@ -954,6 +959,9 @@
 			children = (
 				3144D09022003CBD00CDA62A /* CCWFindViewController.h */,
 				3144D09122003CBD00CDA62A /* CCWFindViewController.m */,
+				3123E22822B0ED0A00874CBF /* CCWSearchDAppViewController.h */,
+				3123E22722B0ED0A00874CBF /* CCWSearchDAppViewController.m */,
+				3123E22A22B100C700874CBF /* CCWSearchDAppViewController.xib */,
 				3165106922266BAA00F573F9 /* CCWDappViewController.h */,
 				3165106A22266BAA00F573F9 /* CCWDappViewController.m */,
 				318A67E022893D23001D0157 /* CCWDappWebTool.h */,
@@ -1052,7 +1060,6 @@
 				3184B4A32292B8DE00985B22 /* CCWPrivacyViewController.m */,
 				3184B4A72292BDD800985B22 /* CCWVersionViewController.h */,
 				3184B4A82292BDD800985B22 /* CCWVersionViewController.m */,
-				3184B4A92292BDD800985B22 /* CCWVersionViewController.xib */,
 				31E198C4221FEF2F0076A822 /* CCWJoinUsViewController.h */,
 				31E198C5221FEF2F0076A822 /* CCWJoinUsViewController.m */,
 				31D90F0F222D452800F718E7 /* CCWJoinUsViewController.xib */,
@@ -1782,8 +1789,9 @@
 		31C35A4A221E490400E8B455 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3186E8082293A5BB00A269C6 /* PRIVACY POLICY.html */,
-				3186E8072293A5BB00A269C6 /* Terms of Service.html */,
+				3123E22422B0DDDD00874CBF /* VersionLog.html */,
+				3123E22122B0DD7500874CBF /* PRIVACY POLICY.html */,
+				3123E22022B0DD7500874CBF /* Terms of Service.html */,
 				31C35A4B221E491900E8B455 /* CCWContactModel.h */,
 				31C35A4C221E491900E8B455 /* CCWContactModel.m */,
 				3191A0E6225F1D41003AB263 /* CCWWalletAccountModel.h */,
@@ -1966,10 +1974,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				316739B5221AD952008D85C4 /* XRPlaceholder.png in Resources */,
-				3186E80A2293A5BB00A269C6 /* PRIVACY POLICY.html in Resources */,
 				3154F3D92223CF2700511FA8 /* MBProgressHUD.bundle in Resources */,
+				3123E22B22B100C700874CBF /* CCWSearchDAppViewController.xib in Resources */,
 				318FF5ED22155F3200AB5696 /* CCWTransferDetailViewController.xib in Resources */,
 				313FD4B422A4D6CB0058A8A2 /* CCWNodeAlertTableViewCell.xib in Resources */,
+				3123E22322B0DD7500874CBF /* PRIVACY POLICY.html in Resources */,
 				318FF5FD2215757700AB5696 /* CCWLoginViewController.xib in Resources */,
 				31FC8D322213C9320036C8F8 /* CCWWalletTableViewCell.xib in Resources */,
 				31E198AC221EB22F0076A822 /* CCWAboutUsViewController.xib in Resources */,
@@ -1982,7 +1991,6 @@
 				3165861F22169CB70039B439 /* CCWTransferViewController.xib in Resources */,
 				317948DC221E529900F4EA69 /* CCWEditContactViewController.xib in Resources */,
 				318FF605221580D900AB5696 /* CCWImportViewController.xib in Resources */,
-				3186E8092293A5BB00A269C6 /* Terms of Service.html in Resources */,
 				317784D52200429F00525237 /* Localizable.strings in Resources */,
 				31CDB7EA222531DC00D377B2 /* confuse.sh in Resources */,
 				316739B7221AD952008D85C4 /* XRPlaceholder@3x.png in Resources */,
@@ -1996,12 +2004,13 @@
 				317948D6221E4BC000F4EA69 /* CCWContactTableViewCell.xib in Resources */,
 				3191A0E5225F15CB003AB263 /* CCWMyWalletTableViewCell.xib in Resources */,
 				316739A2221ACBC7008D85C4 /* CCWMyViewController.xib in Resources */,
-				3184B4AB2292BDD800985B22 /* CCWVersionViewController.xib in Resources */,
 				3191A0D7225DDFC3003AB263 /* CCWRegisterViewController.xib in Resources */,
 				31881F542216593D006C31A2 /* CCWTipScreenShotViewController.xib in Resources */,
 				31D90F10222D452800F718E7 /* CCWJoinUsViewController.xib in Resources */,
 				31881F5922165EB7006C31A2 /* CCWBackupsPrivateController.xib in Resources */,
+				3123E22522B0DDDD00874CBF /* VersionLog.html in Resources */,
 				318FF5E322153FB400AB5696 /* CCWTransferRecordHeader.xib in Resources */,
+				3123E22222B0DD7500874CBF /* Terms of Service.html in Resources */,
 				3165861A221689190039B439 /* CCWReceiveViewController.xib in Resources */,
 				31725B9521FEB02B005962C6 /* Assets.xcassets in Resources */,
 				31E198A7221EA5B30076A822 /* CCWExportViewController.xib in Resources */,
@@ -2022,7 +2031,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$PROJECT_DIR/CocosBCXWallet/Resources/confuse.sh";
+			shellScript = $PROJECT_DIR/CocosBCXWallet/Resources/confuse.sh;
 		};
 		34A43CFB599D4D6E4B2D5B98 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2169,6 +2178,7 @@
 				3191A0A9225C6DE2003AB263 /* CocosCallContractOperation.m in Sources */,
 				3167398F221AA536008D85C4 /* CCWDataBase.m in Sources */,
 				3191A098225C6DE2003AB263 /* Diggest.m in Sources */,
+				3123E22922B0ED0A00874CBF /* CCWSearchDAppViewController.m in Sources */,
 				316739A9221AD84B008D85C4 /* CCWFindFirstTableViewCell.m in Sources */,
 				3191A0B4225C6DE2003AB263 /* ChainAssetOption.m in Sources */,
 				3191A0BB225C6DE2003AB263 /* ChainObjectId.m in Sources */,
@@ -2409,7 +2419,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 8497T2NJ7P;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2431,7 +2441,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.io.cocosbcx.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = pp_cocos;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 arm64e armv7s";
 			};

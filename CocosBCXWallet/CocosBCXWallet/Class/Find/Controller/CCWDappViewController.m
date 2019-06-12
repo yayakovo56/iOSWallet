@@ -33,6 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setAutomaticallyAdjustsScrollViewInsets:NO];
     
     [self CCW_SetupView];
     
