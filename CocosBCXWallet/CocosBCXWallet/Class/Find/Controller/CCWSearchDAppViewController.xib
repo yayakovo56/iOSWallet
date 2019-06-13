@@ -21,23 +21,60 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Xw1-E5-1kp" customClass="CCWTextField">
-                    <rect key="frame" x="16" y="20" width="343" height="36"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入DApp网址" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Xw1-E5-1kp" customClass="CCWTextField">
+                    <rect key="frame" x="16" y="30" width="263" height="36"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="Xpk-OX-5BL"/>
                     </constraints>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="23e-lV-AWc"/>
+                    </connections>
                 </textField>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noData" translatesAutoresizingMaskIntoConstraints="NO" id="AfD-Xq-ow0">
+                    <rect key="frame" x="119.5" y="244.5" width="136" height="98"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="在地址栏输入你想玩的DApp网址  进入即可试玩" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9L-hk-EF5" customClass="CCWLabel">
+                    <rect key="frame" x="82" y="352.5" width="211" height="33.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.78823529410000004" green="0.78823529410000004" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ub-4b-W9o" customClass="CCWButton">
+                    <rect key="frame" x="289" y="30" width="70" height="36"/>
+                    <color key="backgroundColor" red="0.1803921568627451" green="0.43137254901960786" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="yXF-Pn-PyY"/>
+                    </constraints>
+                    <state key="normal" title="确认">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0Ub-4b-W9o" secondAttribute="trailing" constant="16" id="91S-BH-5Qk"/>
+                <constraint firstItem="H9L-hk-EF5" firstAttribute="top" secondItem="AfD-Xq-ow0" secondAttribute="bottom" constant="10" id="MQz-Dc-dho"/>
+                <constraint firstItem="0Ub-4b-W9o" firstAttribute="leading" secondItem="Xw1-E5-1kp" secondAttribute="trailing" constant="10" id="SL4-lP-IGQ"/>
+                <constraint firstItem="0Ub-4b-W9o" firstAttribute="centerY" secondItem="Xw1-E5-1kp" secondAttribute="centerY" id="Umx-bJ-8xx"/>
+                <constraint firstItem="H9L-hk-EF5" firstAttribute="centerX" secondItem="AfD-Xq-ow0" secondAttribute="centerX" id="ZfL-nd-Wii"/>
                 <constraint firstItem="Xw1-E5-1kp" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="ccS-Nm-Q4I"/>
-                <constraint firstItem="Xw1-E5-1kp" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="hcR-Q4-VlB"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Xw1-E5-1kp" secondAttribute="trailing" constant="16" id="mbb-ws-fPh"/>
+                <constraint firstItem="Xw1-E5-1kp" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="hcR-Q4-VlB"/>
+                <constraint firstItem="AfD-Xq-ow0" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-40" id="hh9-Kw-bXi"/>
+                <constraint firstItem="0Ub-4b-W9o" firstAttribute="height" secondItem="Xw1-E5-1kp" secondAttribute="height" id="lIg-8G-2ys"/>
+                <constraint firstItem="AfD-Xq-ow0" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ngt-sr-vVH"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
     </objects>
+    <resources>
+        <image name="noData" width="136" height="98"/>
+    </resources>
 </document>

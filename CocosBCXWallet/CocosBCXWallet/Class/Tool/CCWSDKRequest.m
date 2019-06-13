@@ -55,6 +55,15 @@
     }];
 }
 
+/** 查询发现页 */
++ (void)CCW_QueryFindDappListSuccess:(SuccessBlock)successBlock Error:(ErrorBlock)errorBlock
+{
+    [[CocosHTTPManager CCW_shareHTTPManager] CCW_GET:@"http://backend.test.cjfan.net/getBanInfo" Param:nil Success:successBlock Error:^(NSError *error) {
+        !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
+    }];
+}
+
+
 /**
  创建账户
 

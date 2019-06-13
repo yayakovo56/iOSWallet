@@ -48,10 +48,9 @@
 - (void)setDappModel:(CCWDappModel *)dappModel
 {
     _dappModel = dappModel;
-    
-    self.iconImageView.image = [UIImage imageNamed:dappModel.image];
-    self.nameLabel.text = CCWLocalizable(dappModel.name);
-    self.detaiDeslLabel.text = CCWLocalizable(dappModel.desc);
+    [self.iconImageView CCW_SetImageWithURL:dappModel.imageUrl];
+    self.nameLabel.text = CCWLocalizable(dappModel.title);
+    self.detaiDeslLabel.text = CCWLocalizable(dappModel.dec);
 }
 
 - (void)setupSubView

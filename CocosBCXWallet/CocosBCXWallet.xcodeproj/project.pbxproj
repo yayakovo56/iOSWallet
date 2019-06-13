@@ -216,7 +216,6 @@
 		3191A0E4225F15CB003AB263 /* CCWMyWalletTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191A0E2225F15CB003AB263 /* CCWMyWalletTableViewCell.m */; };
 		3191A0E5225F15CB003AB263 /* CCWMyWalletTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3191A0E3225F15CB003AB263 /* CCWMyWalletTableViewCell.xib */; };
 		3191A0E8225F1D41003AB263 /* CCWWalletAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191A0E7225F1D41003AB263 /* CCWWalletAccountModel.m */; };
-		319D45BE221BAB2300D1E6D2 /* findData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 319D45BD221BAB2300D1E6D2 /* findData.plist */; };
 		319D45C1221BAB3600D1E6D2 /* CCWFindModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 319D45BF221BAB3500D1E6D2 /* CCWFindModel.m */; };
 		319D45CE221BD00200D1E6D2 /* CCWWalletManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 319D45CC221BD00200D1E6D2 /* CCWWalletManagerViewController.m */; };
 		319D45CF221BD00200D1E6D2 /* CCWWalletManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 319D45CD221BD00200D1E6D2 /* CCWWalletManagerViewController.xib */; };
@@ -679,7 +678,6 @@
 		3191A0E3225F15CB003AB263 /* CCWMyWalletTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWMyWalletTableViewCell.xib; sourceTree = "<group>"; };
 		3191A0E6225F1D41003AB263 /* CCWWalletAccountModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWWalletAccountModel.h; sourceTree = "<group>"; };
 		3191A0E7225F1D41003AB263 /* CCWWalletAccountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWWalletAccountModel.m; sourceTree = "<group>"; };
-		319D45BD221BAB2300D1E6D2 /* findData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = findData.plist; sourceTree = "<group>"; };
 		319D45BF221BAB3500D1E6D2 /* CCWFindModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWFindModel.m; sourceTree = "<group>"; };
 		319D45C0221BAB3600D1E6D2 /* CCWFindModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWFindModel.h; sourceTree = "<group>"; };
 		319D45CB221BD00200D1E6D2 /* CCWWalletManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWWalletManagerViewController.h; sourceTree = "<group>"; };
@@ -1135,7 +1133,6 @@
 			isa = PBXGroup;
 			children = (
 				318A67ED22896642001D0157 /* cocos.js */,
-				319D45BD221BAB2300D1E6D2 /* findData.plist */,
 				316739AC221AD8F3008D85C4 /* CCWDappModel.h */,
 				316739AB221AD8F3008D85C4 /* CCWDappModel.m */,
 				319D45C0221BAB3600D1E6D2 /* CCWFindModel.h */,
@@ -1994,7 +1991,6 @@
 				317784D52200429F00525237 /* Localizable.strings in Resources */,
 				31CDB7EA222531DC00D377B2 /* confuse.sh in Resources */,
 				316739B7221AD952008D85C4 /* XRPlaceholder@3x.png in Resources */,
-				319D45BE221BAB2300D1E6D2 /* findData.plist in Resources */,
 				31E198A2221E90C00076A822 /* CCWTransferInfoTableViewCell.xib in Resources */,
 				31881F5E2216692E006C31A2 /* CCWCreateViewController.xib in Resources */,
 				318FF5E82215518800AB5696 /* CCWTransRecordTableViewCell.xib in Resources */,

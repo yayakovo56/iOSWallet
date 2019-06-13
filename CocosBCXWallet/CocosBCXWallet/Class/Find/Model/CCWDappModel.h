@@ -10,12 +10,16 @@
 
 @interface CCWDappModel : NSObject
 /** 图片 */
-@property (nonatomic, copy) NSString *image;
-/** 标题 */
-@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *imageUrl;
+/** 英文标题 */
+@property (nonatomic, copy) NSString *enTitle;
+/** 英文标题 */
+@property (nonatomic, copy) NSString *title;
 /** 描述 */
-@property (nonatomic, copy) NSString *desc;
+@property (nonatomic, copy) NSString *dec;
+/** 英文描述 */
+@property (nonatomic, copy) NSString *enDec;
 /** 链接 */
-@property (nonatomic, copy) NSString *url;
+@property (nonatomic, copy) NSString *linkUrl;
 
 @end

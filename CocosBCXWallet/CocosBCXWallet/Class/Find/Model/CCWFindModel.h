@@ -10,9 +10,7 @@
 
 @interface CCWFindModel : NSObject
 /** 分组名称 */
-@property (nonatomic, copy) NSString *title;
-/** 分组 类型 0 未上榜,1 超级热门,2 精选游戏,3 常用工具 */
-@property (nonatomic, copy) NSString *type;
+@property (nonatomic, copy) NSString *header;
 /** 内容 */
-@property (nonatomic, strong) NSArray *items;
+@property (nonatomic, strong) NSArray *data;
 @end

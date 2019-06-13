@@ -33,16 +33,24 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Find_search"] style:UIBarButtonItemStylePlain target:self action:@selector(searchDApp)];
     
-    NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"findData" ofType:@"plist"];
-    [NSMutableDictionary dictionaryWithContentsOfFile:dataPath];
-    NSDictionary *responseObject = [NSDictionary dictionaryWithContentsOfFile:dataPath];
-    self.banerSource = [CCWDappModel mj_objectArrayWithKeyValuesArray:responseObject[@"banner"]];
-    self.navArraySource = [CCWDappModel mj_objectArrayWithKeyValuesArray:responseObject[@"nav"]];
-    self.dataSource = [CCWFindModel mj_objectArrayWithKeyValuesArray:responseObject[@"dapp"]];
-    
     // tablew
     [self CCW_SetupTableView];
-    
+   
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    CCWWeakSelf;
+    [CCWSDKRequest CCW_QueryFindDappListSuccess:^(id  _Nonnull responseObject) {
+        NSDictionary *dic = responseObject[@"data"];
+        weakSelf.banerSource = [CCWDappModel mj_objectArrayWithKeyValuesArray:dic[@"banner"]];
+        weakSelf.navArraySource = [CCWDappModel mj_objectArrayWithKeyValuesArray:dic[@"nav"]];
+        weakSelf.dataSource = [CCWFindModel mj_objectArrayWithKeyValuesArray:dic[@"list"]];
+        [weakSelf.tableView reloadData];
+    } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
+        [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+    }];
 }
 
 - (void)CCW_SetupTableView
@@ -79,7 +87,7 @@
 {
     if (section) {
         CCWFindModel *findModel = self.dataSource[section-1];
-        return findModel.items.count;
+        return findModel.data.count;
     }else{
         return 1;
     }
@@ -90,7 +98,7 @@
     if (indexPath.section) {
         CCWFindTableViewCell *cell = [CCWFindTableViewCell cellWithTableView:tableView WithIdentifier:@"FindCellIdentifier"];
         CCWFindModel *findModel = self.dataSource[indexPath.section-1];
-        cell.dappModel = findModel.items[indexPath.row];;
+        cell.dappModel = findModel.data[indexPath.row];;
         return cell;
     }else{
         CCWFindFirstTableViewCell *cell = [CCWFindFirstTableViewCell cellWithTableView:tableView WithIdentifier:@"FindCellFirstIdentifier"];
@@ -107,7 +115,7 @@
         CCWWeakSelf
         CCWVCShowAlertCancelWithMsgHandler(CCWLocalizable(@"注意"), CCWLocalizable(@"您正在跳转至第三方dapp，确认即同意第三方dapp的用户协议与隐私政策，由其直接并单独向您承担责任"), ^(UIAlertAction * _Nonnull action) {
             CCWFindModel *findModel = weakSelf.dataSource[indexPath.section-1];
-            CCWDappModel *dappModel = findModel.items[indexPath.row];
+            CCWDappModel *dappModel = findModel.data[indexPath.row];
             [weakSelf CCW_PushDappViewControllerWithDapp:dappModel];
         });
     }
@@ -135,7 +143,7 @@
             titleLabel.font = CCWMediumFont(20);
         }
         CCWFindModel *findModel = self.dataSource[section-1];
-        titleLabel.text = CCWLocalizable(findModel.title);
+        titleLabel.text = CCWLocalizable(findModel.header);
         [titleLabel sizeToFit];
         if (iPhone5) {
             titleLabel.y = 46 - titleLabel.height - 2;
@@ -190,7 +198,7 @@
 
 - (void)CCW_PushDappViewControllerWithDapp:(CCWDappModel *)dappModel
 {
-    CCWDappViewController *dappVC = [[CCWDappViewController alloc] initWithTitle:dappModel.name loadDappURLString:dappModel.url];
+    CCWDappViewController *dappVC = [[CCWDappViewController alloc] initWithTitle:CCWLocalizable(dappModel.title) loadDappURLString:dappModel.linkUrl];
     [self.navigationController pushViewController:dappVC animated:YES];
 }
 @end

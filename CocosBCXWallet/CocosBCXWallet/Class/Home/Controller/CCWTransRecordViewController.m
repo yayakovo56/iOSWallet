@@ -43,6 +43,22 @@
     } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
         [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
     }];
+    
+    // 查询交易记录
+    [CCWSDKRequest CCW_QueryUserOperations:accountId limit:100 Success:^(NSArray * _Nonnull responseObject) {
+        [responseObject enumerateObjectsUsingBlock:^(CCWTransRecordModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (obj.opTypeTransfer) {
+                [weakSelf.transferArray addObject:obj];
+            }
+            if (idx + 1 == responseObject.count) {
+                // 刷新
+                [weakSelf.tableView reloadData];
+            }
+        }];
+        
+    } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
+        [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+    }];
 }
     
 - (void)viewDidLoad {
@@ -69,23 +85,6 @@
     });
     self.tableView = tableView;
     
-    NSString *accountId = CCWAccountId;
-    // 查询交易记录
-    CCWWeakSelf
-    [CCWSDKRequest CCW_QueryUserOperations:accountId limit:100 Success:^(NSArray * _Nonnull responseObject) {
-        [responseObject enumerateObjectsUsingBlock:^(CCWTransRecordModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (obj.opTypeTransfer) {
-                [weakSelf.transferArray addObject:obj];
-            }
-            if (idx + 1 == responseObject.count) {
-                // 刷新
-                [weakSelf.tableView reloadData];
-            }
-        }];
-        
-    } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-        [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
-    }];
 }
 
 #pragma mark - tableViewDataSource

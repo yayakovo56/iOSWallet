@@ -7,10 +7,11 @@
 //
 
 #import "CCWSearchDAppViewController.h"
+#import "CCWDappViewController.h"
+#import "CCWDappModel.h"
 
-@interface CCWSearchDAppViewController ()
+@interface CCWSearchDAppViewController ()<UITextFieldDelegate>
 
-//@property (nonatomic, weak) UITextField *searchTextField;
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 
 @end
@@ -24,12 +25,44 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.title = CCWLocalizable(@"搜索Dapp");
+    self.searchTextField.layer.cornerRadius = 2;
+    self.searchTextField.layer.borderColor = [UIColor getColor:@"f0f2f3"].CGColor;
+    self.searchTextField.layer.borderWidth = 0.5;
     
 }
 
-- (void)dissmissVC
+- (NSString *)getCompleteWebsite:(NSString *)urlStr{
+    NSString *returnUrlStr = nil;
+    NSString *scheme = nil;
+    
+    assert(urlStr != nil);
+    
+    urlStr = [urlStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if ( (urlStr != nil) && (urlStr.length != 0) ) {
+        NSRange  urlRange = [urlStr rangeOfString:@"://"];
+        if (urlRange.location == NSNotFound) {
+            returnUrlStr = [NSString stringWithFormat:@"http://%@", urlStr];
+        } else {
+            scheme = [urlStr substringWithRange:NSMakeRange(0, urlRange.location)];
+            assert(scheme != nil);
+            
+            if ( ([scheme compare:@"http"  options:NSCaseInsensitiveSearch] == NSOrderedSame)
+                || ([scheme compare:@"https" options:NSCaseInsensitiveSearch] == NSOrderedSame) ) {
+                returnUrlStr = urlStr;
+            } else {
+                //不支持的URL方案
+                NSLog(@"不支持的URL方案");
+            }
+        }
+    }
+    return returnUrlStr;
+}
+
+
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self pushFindLoadWebViewWithURLString:self.searchTextField.text title:@"DApp"];
 }
 
 #pragma mark - textFieldAction
@@ -44,16 +77,19 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField endEditing:YES];
     [self pushFindLoadWebViewWithURLString:textField.text title:@"DApp"];
+    [textField endEditing:YES];
     return YES;
 }
 
 /** 跳转搜索加载WebView */
 - (void)pushFindLoadWebViewWithURLString:(NSString *)urlString title:(NSString *)title {
-    if ([urlString isEqualToString:@""]) {
+    NSString *urlStr = [self getCompleteWebsite:urlString];
+    if ([urlStr isEqualToString:@""] || !urlStr) {
         return;
     }
+    CCWDappViewController *dappVC = [[CCWDappViewController alloc] initWithTitle:title loadDappURLString:urlStr];
+    [self.navigationController pushViewController:dappVC animated:YES];
 }
 
 @end

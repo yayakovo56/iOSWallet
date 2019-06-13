@@ -86,14 +86,15 @@
 {
     NSMutableArray *carouImageArray = [NSMutableArray array];
     for (CCWDappModel *dappModel in imageArray) {
-        [carouImageArray addObject:[UIImage imageNamed:dappModel.image]];
+        [carouImageArray addObject:dappModel.imageUrl];
     }
     self.carouselView.imageArray = carouImageArray;
     for (int i = 0; i < dappArray.count; i++) {
         CCWDappModel *dappModel = dappArray[i];
         UIButton *button = [self viewWithTag:i+100];
-        [button setTitle:CCWLocalizable(dappModel.name) forState:UIControlStateNormal];
-        [button setImage:[UIImage imageNamed:dappModel.image] forState:UIControlStateNormal];
+        [button setTitle:CCWLocalizable(dappModel.title) forState:UIControlStateNormal];
+        [button CCW_SetImageWithURL:dappModel.imageUrl];
+//        [button setImage:[UIImage imageNamed:dappModel.image] forState:UIControlStateNormal];
     }
 }
 

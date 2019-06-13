@@ -36,6 +36,10 @@ typedef void (^ErrorBlock)(NSString *errorAlert,id responseObject);// 失败回�
 
 /** 查询版本信息 */
 + (void)CCW_QueryVersionInfoSuccess:(SuccessBlock)successBlock Error:(ErrorBlock)errorBlock;
+
+/** 查询发现页 */
++ (void)CCW_QueryFindDappListSuccess:(SuccessBlock)successBlock Error:(ErrorBlock)errorBlock;
+
 /**
  创建账户
  
