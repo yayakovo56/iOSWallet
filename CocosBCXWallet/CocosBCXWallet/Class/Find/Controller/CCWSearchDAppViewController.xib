@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CCWSearchDAppViewController">
             <connections>
                 <outlet property="searchTextField" destination="Xw1-E5-1kp" id="smJ-Ep-q8s"/>
+                <outlet property="tipLabel" destination="H9L-hk-EF5" id="9Cq-m0-0jh"/>
                 <outlet property="view" destination="iN0-l3-epB" id="boF-Wy-Uxw"/>
             </connections>
         </placeholder>

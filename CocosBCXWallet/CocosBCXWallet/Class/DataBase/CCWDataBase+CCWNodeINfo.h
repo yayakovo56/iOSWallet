@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSMutableArray<CCWNodeInfoModel *> *)CCW_QueryNodeInfo;
 
 /* 删除节点 */
-- (void)CCW_DeleteNodeInfo:(CCWNodeInfoModel *)nodeInfo;
+- (NSMutableArray<CCWNodeInfoModel *> *)CCW_DeleteNodeInfo:(CCWNodeInfoModel *)nodeInfo;
 
 /* 删除所有网络节点 */
 - (void)CCW_DeleteServerNodeInfo;

@@ -25,7 +25,7 @@
     _nodeInfoModel = nodeInfoModel;
     self.titleLabel.text = nodeInfoModel.name;
     self.nodeLabel.text = nodeInfoModel.ws;
-//    self.deleteButton.hidden = !nodeInfoModel.isSelfSave;
+    self.deleteButton.hidden = !nodeInfoModel.isSelfSave;
 
     CCWNodeInfoModel *saveNodelInfo = [CCWNodeInfoModel mj_objectWithKeyValues:CCWNodeInfo];
     if ([saveNodelInfo.ws isEqualToString:nodeInfoModel.ws] && [saveNodelInfo.chainId isEqualToString:nodeInfoModel.chainId] && [saveNodelInfo.faucetUrl isEqualToString:nodeInfoModel.faucetUrl] && [saveNodelInfo.coreAsset isEqualToString:nodeInfoModel.coreAsset]) {

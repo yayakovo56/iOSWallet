@@ -16,6 +16,9 @@
 // 添加自定义节点
 - (void)CCW_NodeAlertSheetViewAddCustomNode:(CCWNodeAlertSheetView *)alertSheetView;
 
+// 删除节点
+- (void)CCW_NodeAlertCellDeleteNodel:(CCWNodeAlertSheetView *)alertCell nodeArray:(NSMutableArray *)nodeArray;
+
 @end
 
 @interface CCWNodeAlertSheetView : UIView

@@ -62,11 +62,12 @@
 }
 
 /* 删除节点 */
-- (void)CCW_DeleteNodeInfo:(CCWNodeInfoModel *)nodeInfo
+- (NSMutableArray<CCWNodeInfoModel *> *)CCW_DeleteNodeInfo:(CCWNodeInfoModel *)nodeInfo
 {
     [_dataBaseQueue inDatabase:^(FMDatabase *db) {
         [db executeUpdateWithFormat:@"DELETE FROM t_nodeInfotable WHERE ws = %@ and faucetUrl = %@ and chainId = %@;",nodeInfo.ws, nodeInfo.faucetUrl,nodeInfo.chainId];
     }];
+    return [self CCW_QueryNodeInfo];
 }
 
 /* 删除所有网络节点 */

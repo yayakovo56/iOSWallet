@@ -29,12 +29,6 @@
     self.currentLanguageLabel.text = [CCWLocalizableTool userLanguageString];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.nodeInfoArray = [[CCWDataBase CCW_shareDatabase] CCW_QueryNodeInfo];
-}
-
 - (IBAction)CCW_SetViewdidSelectIndexPath:(UIButton *)button
 {
     NSInteger tagInteger = button.tag;
@@ -50,12 +44,18 @@
         {
             CCWNodeAlertSheetView *nodeSheetView = [[CCWNodeAlertSheetView alloc] init];
             nodeSheetView.delegate = self;
+            self.nodeInfoArray = [[CCWDataBase CCW_shareDatabase] CCW_QueryNodeInfo];
             [nodeSheetView CCW_ShowWithDataArray:self.nodeInfoArray];
         }
             break;
         default:
             break;
     }
+}
+
+- (void)CCW_NodeAlertCellDeleteNodel:(id)alertCell nodeArray:(NSMutableArray *)nodeArray
+{
+    self.nodeInfoArray = nodeArray;
 }
 
 - (void)CCW_MyAlertSheetView:(CCWMyAlertSheetView *)alertSheetView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

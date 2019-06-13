@@ -13,6 +13,7 @@
 @interface CCWSearchDAppViewController ()<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
+@property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 
 @end
 
@@ -23,7 +24,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.tipLabel.text = CCWLocalizable(@"在地址栏输入你想玩的DApp网址\n进入即可试玩");
     self.title = CCWLocalizable(@"搜索Dapp");
     self.searchTextField.layer.cornerRadius = 2;
     self.searchTextField.layer.borderColor = [UIColor getColor:@"f0f2f3"].CGColor;

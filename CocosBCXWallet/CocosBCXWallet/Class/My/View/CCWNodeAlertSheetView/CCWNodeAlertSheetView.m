@@ -152,7 +152,12 @@
 
 - (void)CCW_NodeAlertCell:(CCWNodeAlertTableViewCell *)alertCell nodeInfo:(CCWNodeInfoModel *)nodeInfoModel
 {
-    [[CCWDataBase CCW_shareDatabase] CCW_DeleteNodeInfo:nodeInfoModel];
+    
+    self.dataSource = [[CCWDataBase CCW_shareDatabase] CCW_DeleteNodeInfo:nodeInfoModel];
+    
+    if ([self.delegate respondsToSelector:@selector(CCW_NodeAlertCellDeleteNodel:nodeArray:)]) {
+        [self.delegate CCW_NodeAlertCellDeleteNodel:self nodeArray:self.dataSource];
+    }
     [self.tableView reloadData];
 }
 

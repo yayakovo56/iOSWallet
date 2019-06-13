@@ -13,7 +13,6 @@ CCW_CreateWalletAccountTable
 CCW_CreateWalletViewController
 CCW_DecodeMemo
 CCW_DeleteContact
-CCW_DeleteNodeInfo
 CCW_DeleteServerNodeInfo
 CCW_FindFirstCellClickCarouselViewWithTableViewCell
 CCW_FindFirstCellClickNavButtonWithTableViewCell
@@ -31,6 +30,7 @@ CCW_MyAlertSheetView
 CCW_MyContactViewControllerWithBlock
 CCW_MyViewController
 CCW_NodeAlertCell
+CCW_NodeAlertCellDeleteNodel
 CCW_NodeAlertSheetView
 CCW_NodeAlertSheetViewAddCustomNode
 CCW_POST
