@@ -8,6 +8,8 @@
 
 #import "CCWRegisterViewController.h"
 #import "CCWTipScreenShotViewController.h"
+// 埋点统计
+#import <UMAnalytics/MobClick.h>
 
 @interface CCWRegisterViewController ()
 
@@ -70,8 +72,8 @@
 
 -(void)textFieldTextChange:(UITextField *)textField{
     NSString *account = textField.text;
-    if (![account ys_regexValidate:@"^[a-z][a-z0-9.-]{3,63}$"]) {
-        self.remindLabel.text = @"4-64位小写字母开头+数字";
+    if (![account ys_regexValidate:@"^[a-z][a-z0-9.-]{4,63}$"]) {
+        self.remindLabel.text = CCWLocalizable(@"5-64位小写字母开头+数字");
     }else{
         self.remindLabel.text = @"";
     }
@@ -90,7 +92,7 @@
     }
 
     if (![accountStr ys_regexValidate:@"^[a-z][a-z0-9.-]{3,63}$"]) {
-        [self.view makeToast:CCWLocalizable(@"账户名称不符合设置规则")];
+        [self.view makeToast:CCWLocalizable(@"账号名称不符合设置规则")];
         return;
     }
 
@@ -117,6 +119,7 @@
         CCWTipScreenShotViewController *tipVC = [[CCWTipScreenShotViewController alloc] init];
         tipVC.account = responseObject;
         [weakSelf.navigationController pushViewController:tipVC animated:YES];
+        [MobClick event:@"register" attributes:nil];
     } Error:^(NSString * _Nonnull errorAlert, NSError * _Nonnull error) {
         [MBProgressHUD hideHUD];
         if (error.code == 400) {

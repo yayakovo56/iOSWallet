@@ -114,7 +114,10 @@
         // 4.1 Determine whether to log in automatically
         if (autoLogin) {
             // 4.2 Save account information
-            [self SaveAccountInfo:accountName OwnerPrivate:owner_key ActivePrivate:active_key Password:password WalletMode:walletMode Success:nil Error:errorBlock];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self SaveAccountInfo:accountName OwnerPrivate:owner_key ActivePrivate:active_key Password:password WalletMode:walletMode Success:nil Error:^(NSError *error) {
+                }];
+            });
         }
         if ([creatResponseObject[@"code"] integerValue] == 200) {
             NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:creatResponseObject[@"data"][@"account"]];

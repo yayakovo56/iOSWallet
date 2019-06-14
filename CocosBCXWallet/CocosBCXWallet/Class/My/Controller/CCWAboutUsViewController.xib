@@ -125,7 +125,7 @@
                         <constraint firstItem="FlQ-yX-OCf" firstAttribute="top" secondItem="wxm-j8-8ZF" secondAttribute="top" id="wog-oR-2DO"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VXo-k7-hg1" userLabel="版本日志">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VXo-k7-hg1" userLabel="版本日志">
                     <rect key="frame" x="0.0" y="262" width="375" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本日志" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Lh-A6-6Jh" customClass="CCWLabel">
@@ -169,7 +169,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNj-NZ-eCe" userLabel="加入社群">
-                    <rect key="frame" x="0.0" y="312" width="375" height="50"/>
+                    <rect key="frame" x="0.0" y="262" width="375" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="加入社群" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5e-oy-evw" customClass="CCWLabel">
                             <rect key="frame" x="15" y="16" width="61.5" height="18"/>
@@ -220,13 +220,13 @@
                 <constraint firstItem="wxm-j8-8ZF" firstAttribute="leading" secondItem="PC4-48-CFt" secondAttribute="leading" id="7VF-3e-lhp"/>
                 <constraint firstItem="VXo-k7-hg1" firstAttribute="top" secondItem="wxm-j8-8ZF" secondAttribute="bottom" id="Bx6-6j-ldT"/>
                 <constraint firstItem="PC4-48-CFt" firstAttribute="top" secondItem="Vmg-Mc-nBQ" secondAttribute="bottom" constant="43" id="ELY-2g-Rac"/>
-                <constraint firstItem="mNj-NZ-eCe" firstAttribute="top" secondItem="VXo-k7-hg1" secondAttribute="bottom" id="OR1-Mn-uCO"/>
                 <constraint firstItem="mNj-NZ-eCe" firstAttribute="trailing" secondItem="PC4-48-CFt" secondAttribute="trailing" id="P0z-VF-ozY"/>
                 <constraint firstItem="rxd-y9-4O2" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="12" id="PGt-8P-qMK"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="PC4-48-CFt" secondAttribute="trailing" id="Qt3-x5-aAn"/>
                 <constraint firstItem="Ljg-A2-Xl2" firstAttribute="leading" secondItem="Vmg-Mc-nBQ" secondAttribute="trailing" constant="11" id="cP2-od-Ir5"/>
                 <constraint firstItem="mNj-NZ-eCe" firstAttribute="leading" secondItem="PC4-48-CFt" secondAttribute="leading" id="fC2-Ia-4dU"/>
                 <constraint firstItem="Vmg-Mc-nBQ" firstAttribute="top" secondItem="rxd-y9-4O2" secondAttribute="bottom" constant="20" id="fe7-j0-rDe"/>
+                <constraint firstItem="mNj-NZ-eCe" firstAttribute="top" secondItem="wxm-j8-8ZF" secondAttribute="bottom" id="iLe-wb-wcg"/>
                 <constraint firstItem="Ljg-A2-Xl2" firstAttribute="centerY" secondItem="Vmg-Mc-nBQ" secondAttribute="centerY" id="jEF-ss-pIK"/>
                 <constraint firstItem="wxm-j8-8ZF" firstAttribute="trailing" secondItem="PC4-48-CFt" secondAttribute="trailing" id="neo-3J-tYP"/>
                 <constraint firstItem="VXo-k7-hg1" firstAttribute="leading" secondItem="PC4-48-CFt" secondAttribute="leading" id="rnL-Ki-NlO"/>
@@ -234,6 +234,7 @@
                 <constraint firstItem="rxd-y9-4O2" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="wez-ev-ovY"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="138.40000000000001" y="152.47376311844079"/>
         </view>
     </objects>
     <resources>

@@ -27,6 +27,8 @@ PODS:
   - SDWebImage/Core (4.4.3)
   - SGQRCode (2.2.0)
   - SocketRocket (0.5.1)
+  - UMCAnalytics (5.5.0):
+    - UMCCommon
   - UMCCommon (1.5.2)
 
 DEPENDENCIES:
@@ -39,7 +41,8 @@ DEPENDENCIES:
   - MJRefresh
   - SDWebImage
   - SGQRCode (= 2.2.0)
-  - SocketRocket
+  - SocketRocket (= 0.5.1)
+  - UMCAnalytics (= 5.5.0)
   - UMCCommon (= 1.5.2)
 
 SPEC REPOS:
@@ -54,6 +57,7 @@ SPEC REPOS:
     - SDWebImage
     - SGQRCode
     - SocketRocket
+    - UMCAnalytics
     - UMCCommon
 
 SPEC CHECKSUMS:
@@ -67,8 +71,9 @@ SPEC CHECKSUMS:
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SGQRCode: 6cd7f03ea6b74d1267820d427b07d1451b387c79
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+  UMCAnalytics: 4667788559a72f2fa5077117d1b8802a3b6eb6bb
   UMCCommon: 4392868ac47ff1b101663106bb114ba616fabbad
 
-PODFILE CHECKSUM: 7b9e3aea91784530182d9ed36304f2e888399b74
+PODFILE CHECKSUM: c913565ab7f744ab0b4b04299973a360552fc075
 
 COCOAPODS: 1.7.0

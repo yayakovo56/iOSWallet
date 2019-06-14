@@ -18,7 +18,7 @@ target 'CocosBCXWallet' do
     pod 'AFNetworking'
     pod 'SocketRocket','0.5.1'
     
-#    pod 'UMCAnalytics' ,'5.5.0' #    统计 SDK
+    pod 'UMCAnalytics' ,'5.5.0' #    统计 SDK
     pod 'UMCCommon' ,'1.5.2'    #    基础依赖库
     
 #    pod 'MLeaksFinder' #循环引用
