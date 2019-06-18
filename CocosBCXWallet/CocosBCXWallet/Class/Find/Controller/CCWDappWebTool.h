@@ -29,10 +29,12 @@
 #define JS_METHODNAME_CALLBACKRESULT                @"callbackResult"
 
 NS_ASSUME_NONNULL_BEGIN
+// 执行回调
+typedef void (^CallbackBlock)(NSString *serialNumber,NSString *response);
 
 @interface CCWDappWebTool : NSObject
 
-+ (void)JSHandle_ReceiveMessageName:(NSString *)name messageBody:(NSDictionary *)body response:(void(^)(NSString *serialNumber, NSString *response))block;
++ (void)JSHandle_ReceiveMessageName:(NSString *)name messageBody:(NSDictionary *)body response:(CallbackBlock)block;
 
 @end
 

@@ -14,6 +14,7 @@ BOOL CCWIsForceUpdate;//!< 是否需要强制更新
 NSString * CCWAppNewVersion;//!< 新的App版本号
 NSString * CCWNewAppDownloadurl;//!< 新App的下载链接
 NSString * CCWNewAppUpdateNotes;//!< 新App的更新内容
+NSString * CCWNewAppUpdateEnNotes;//!< 新App的更新内容,英文
 
 #pragma mark - 汇率
 NSString * const CCWCurrencyType = @"CCWCurrencyType";//(YES是USD,NO是CNY)

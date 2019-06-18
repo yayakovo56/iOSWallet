@@ -92,9 +92,10 @@
     for (int i = 0; i < dappArray.count; i++) {
         CCWDappModel *dappModel = dappArray[i];
         UIButton *button = [self viewWithTag:i+100];
-        [button setTitle:CCWLocalizable(dappModel.title) forState:UIControlStateNormal];
+        BOOL isChinese = [[CCWLocalizableTool userLanguageString] isEqualToString:@"中文"];
+        NSString *buttonTitle = isChinese?dappModel.title:dappModel.enTitle;
+        [button setTitle:buttonTitle forState:UIControlStateNormal];
         [button CCW_SetImageWithURL:dappModel.imageUrl];
-//        [button setImage:[UIImage imageNamed:dappModel.image] forState:UIControlStateNormal];
     }
 }
 

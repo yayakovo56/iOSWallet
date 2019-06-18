@@ -37,7 +37,9 @@
 - (NSString *)showWithMessage {
     
     NSString *newVisionTitle = CCWLocalizable(@"有新的版本");
-    return [NSString stringWithFormat:@"%@V%@\n%@", newVisionTitle, CCWAppNewVersion,CCWNewAppUpdateNotes];;
+    BOOL isChinese = [[CCWLocalizableTool userLanguageString] isEqualToString:@"中文"];
+    NSString *upDataInfo = isChinese?CCWNewAppUpdateNotes:CCWNewAppUpdateEnNotes;
+    return [NSString stringWithFormat:@"%@V%@\n%@", newVisionTitle, CCWAppNewVersion,upDataInfo];;
 }
 
 // 自定义消息栏

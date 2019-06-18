@@ -11,7 +11,7 @@
 
 @implementation CCWDappWebTool
 
-+ (void)JSHandle_ReceiveMessageName:(NSString *)name messageBody:(NSDictionary *)body response:(nonnull void (^)(NSString * _Nonnull, NSString * _Nonnull))block
++ (void)JSHandle_ReceiveMessageName:(NSString *)name messageBody:(NSDictionary *)body response:(CallbackBlock)block
 {
     if ([name isEqualToString:JS_PUSHMESSAGE]) {
         if ([body[@"methodName"] isEqualToString:JS_METHOD_getCocosAccount]) {
@@ -52,7 +52,7 @@
 
 #pragma mark - Action
 // 获取账号信息
-+ (void)js_getCocosAccount:(NSDictionary *)param response:(nonnull void (^)(NSString * _Nonnull, NSString * _Nonnull))block{
++ (void)js_getCocosAccount:(NSDictionary *)param response:(CallbackBlock)block{
     NSDictionary *jsMessage = @{
                                 @"account_id":CCWAccountId,
                                 @"account_name":CCWAccountName
@@ -61,9 +61,8 @@
 }
 
 //获取账户余额
-+ (void)JS_getAccountBalances:(NSDictionary *)param response:(nonnull void (^)(NSString * _Nonnull, NSString * _Nonnull))block
++ (void)JS_getAccountBalances:(NSDictionary *)param response:(CallbackBlock)block
 {
-
     NSDictionary *js_params = param[@"params"];
     NSString *account = js_params[@"account"];
     NSString *asset = js_params[@"assetId"];
@@ -84,7 +83,7 @@
 }
 
 // 转账
-+ (void)JS_transfer:(NSDictionary *)param response:(nonnull void (^)(NSString * _Nonnull, NSString * _Nonnull))block
++ (void)JS_transfer:(NSDictionary *)param response:(CallbackBlock)block
 {   
     NSDictionary *transferParam = param[@"params"];
     NSString *from = transferParam[@"fromAccount"];
@@ -115,19 +114,11 @@
                 !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
             }];
         }
-    } cancel:^{
-        NSDictionary *message = @{
-          @"type":@"signature_rejected",
-          @"message":@"User rejected the signature request",
-          @"code":@"402",
-          @"isError":@1
-          };
-        !block?:block(param[@"serialNumber"],[message mj_JSONString]);
-    }];
+    } serialNumber:param[@"serialNumber"] cancel:block];
 }
 
 // 调用合约
-+ (void)JS_callContract:(NSDictionary *)param response:(nonnull void (^)(NSString * _Nonnull, NSString * _Nonnull))block
++ (void)JS_callContract:(NSDictionary *)param response:(CallbackBlock)block
 {
     NSDictionary *callContractParam = param[@"params"];
     NSString *nameOrId = callContractParam[@"nameOrId"];
@@ -147,27 +138,18 @@
             }];
         }else{
             [CCWSDKRequest CCW_CallContract:nameOrId ContractMethodParam:valueList ContractMethod:functionName CallerAccount:CCWAccountId feePayingAsset:@"1.3.0" Password:password CallContractSuccess:^(id  _Nonnull responseObject) {
-                NSDictionary *jsMessage = @{
-                                            @"trx_id":responseObject,
-                                            };
-                !block?:block(param[@"serialNumber"],[@{@"data":@[],@"code":@1,@"trx_data":jsMessage} mj_JSONString]);
+                NSString *jsString = [responseObject mj_JSONString];
+                jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
+                !block?:block(param[@"serialNumber"],jsString);
             } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
                 !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
             }];
         }
-    } cancel:^{
-        NSDictionary *message = @{
-                                  @"type":@"signature_rejected",
-                                  @"message":@"User rejected the signature request",
-                                  @"code":@"402",
-                                  @"isError":@1
-                                  };
-        !block?:block(param[@"serialNumber"],[message mj_JSONString]);
-    }];
+    } serialNumber:param[@"serialNumber"] cancel:block];
 }
 
 // 查询合约
-+ (void)JS_queryContra:(NSDictionary *)param response:(nonnull void (^)(NSString * _Nonnull, NSString * _Nonnull))block
++ (void)JS_queryContra:(NSDictionary *)param response:(CallbackBlock)block
 {
     NSDictionary *contractParam = param[@"params"];
     [CCWSDKRequest CCW_queryContra:contractParam[@"nameOrId"] Success:^(id  _Nonnull responseObject) {
@@ -178,7 +160,7 @@
 }
 
 // 查询用户信息
-+ (void)JS_queryAccoInfo:(NSDictionary *)param response:(nonnull void (^)(NSString * _Nonnull, NSString * _Nonnull))block
++ (void)JS_queryAccoInfo:(NSDictionary *)param response:(CallbackBlock)block
 {
     NSDictionary *accountParam = param[@"params"];
     [CCWSDKRequest CCW_queryFullAccountInfo:accountParam[@"account"] Success:^(id  _Nonnull responseObject) {
@@ -190,7 +172,7 @@
 }
 
 // 查询NH资产
-+ (void)JS_QueryNHAssets:(NSDictionary *)param response:(nonnull void (^)(NSString * _Nonnull, NSString * _Nonnull))block
++ (void)JS_QueryNHAssets:(NSDictionary *)param response:(CallbackBlock)block
 {
     NSDictionary *accountParam = param[@"params"];
     [CCWSDKRequest CCW_queryNHAssets:accountParam[@"NHAssetIds"] Success:^(id  _Nonnull responseObject) {
@@ -203,7 +185,7 @@
 }
 
 // 查询账户下所拥有的NH资产售卖订单
-+ (void)JS_QueryAccountNHAssetOrders:(NSDictionary *)param response:(nonnull void (^)(NSString * _Nonnull, NSString * _Nonnull))block
++ (void)JS_QueryAccountNHAssetOrders:(NSDictionary *)param response:(CallbackBlock)block
 {
     NSDictionary *nhorderParam = param[@"params"];
     NSString *accountNameOrId = nhorderParam[@"account"];
@@ -225,7 +207,7 @@
 }
 
 // 查询全网NH资产售卖单
-+ (void)JS_QuerytNHAssetOrders:(NSDictionary *)param response:(nonnull void (^)(NSString * _Nonnull, NSString * _Nonnull))block
++ (void)JS_QuerytNHAssetOrders:(NSDictionary *)param response:(CallbackBlock)block
 {
     NSDictionary *nhParam = param[@"params"];
     NSString *assetIds = nhParam[@"assetIds"];
@@ -243,7 +225,7 @@
 }
 
 // 查询账户下所拥有的道具NH资产
-+ (void)JS_QueryAccountNHAssets:(NSDictionary *)param response:(nonnull void (^)(NSString * _Nonnull, NSString * _Nonnull))block
++ (void)JS_QueryAccountNHAssets:(NSDictionary *)param response:(CallbackBlock)block
 {
     NSDictionary *nhParam = param[@"params"];
     NSString *accountNameOrId = nhParam[@"account"];
@@ -264,7 +246,7 @@
     }];
 }
 // 解密备注
-+ (void)JS_DecodeMemo:(NSDictionary *)param response:(nonnull void (^)(NSString * _Nonnull, NSString * _Nonnull))block
++ (void)JS_DecodeMemo:(NSDictionary *)param response:(CallbackBlock)block
 {
     NSDictionary *memoParam = param[@"params"];
     NSDictionary *memoDic = memoParam;
@@ -274,18 +256,10 @@
         } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
             !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
         }];
-    } cancel:^{
-        NSDictionary *message = @{
-                                  @"type":@"signature_rejected",
-                                  @"message":@"User rejected the signature request",
-                                  @"code":@"402",
-                                  @"isError":@1
-                                  };
-        !block?:block(param[@"serialNumber"],[message mj_JSONString]);
-    }];
+    } serialNumber:param[@"serialNumber"] cancel:block];
 }
 // 转移资产
-+ (void)JS_TransferNHAsset:(NSDictionary *)param response:(nonnull void (^)(NSString * _Nonnull, NSString * _Nonnull))block
++ (void)JS_TransferNHAsset:(NSDictionary *)param response:(CallbackBlock)block
 {
     NSDictionary *trnhParam = param[@"params"];
     NSString *toAccount = trnhParam[@"toAccount"];
@@ -299,19 +273,11 @@
         } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
             !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
         }];
-    } cancel:^{
-        NSDictionary *message = @{
-                                  @"type":@"signature_rejected",
-                                  @"message":@"User rejected the signature request",
-                                  @"code":@"402",
-                                  @"isError":@1
-                                  };
-        !block?:block(param[@"serialNumber"],[message mj_JSONString]);
-    }];
+    } serialNumber:param[@"serialNumber"] cancel:block];
 }
 
 //  购买NH资产
-+ (void)JS_fillNHAssetOrder:(NSDictionary *)param response:(nonnull void (^)(NSString * _Nonnull, NSString * _Nonnull))block
++ (void)JS_fillNHAssetOrder:(NSDictionary *)param response:(CallbackBlock)block
 {
     NSDictionary *nhassetParam = param[@"params"];
     NSString *orderId = nhassetParam[@"orderId"];
@@ -337,19 +303,11 @@
                !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
             }];
         }
-    } cancel:^{
-        NSDictionary *message = @{
-                                  @"type":@"signature_rejected",
-                                  @"message":@"User rejected the signature request",
-                                  @"code":@"402",
-                                  @"isError":@1
-                                  };
-        !block?:block(param[@"serialNumber"],[message mj_JSONString]);
-    }];
+    } serialNumber:param[@"serialNumber"] cancel:block];
 
 }
 // 输入密码
-+ (void)alertInputPwdBlock:(void(^)(NSString * password))sureClick cancel:(void(^)())cancel{
++ (void)alertInputPwdBlock:(void(^)(NSString * password))sureClick serialNumber:(NSString *)serialNumber cancel:(CallbackBlock)cancel{
     // 输入密码
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:CCWLocalizable(@"提示") message:nil preferredStyle:UIAlertControllerStyleAlert];
     // 添加输入框 (注意:在UIAlertControllerStyleActionSheet样式下是不能添加下面这行代码的)
@@ -362,7 +320,13 @@
         !sureClick?:sureClick(password);
     }];
     UIAlertAction *action2 = [UIAlertAction actionWithTitle:CCWLocalizable(@"取消") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        !cancel?:cancel();
+        NSDictionary *message = @{
+                                  @"type":@"signature_rejected",
+                                  @"message":@"User rejected the signature request",
+                                  @"code":@"402",
+                                  @"isError":@1
+                                  };
+        !cancel?:cancel(serialNumber,[message mj_JSONString]);
     }];
     // 添加行为
     [alertVc addAction:action2];

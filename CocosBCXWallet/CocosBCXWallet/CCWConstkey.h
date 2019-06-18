@@ -14,6 +14,7 @@ UIKIT_EXTERN BOOL CCWIsForceUpdate;//!< 是否需要强制更新
 UIKIT_EXTERN NSString * CCWAppNewVersion;//!< 新的App版本号
 UIKIT_EXTERN NSString * CCWNewAppDownloadurl;//!< 新App的下载链接
 UIKIT_EXTERN NSString * CCWNewAppUpdateNotes;//!< 新App的更新内容
+UIKIT_EXTERN NSString * CCWNewAppUpdateEnNotes;//!< 新App的更新内容,英文
 
 #pragma mark - 汇率
 UIKIT_EXTERN NSString * const CCWCurrencyType;//!< 当前显示CNY或者USD(YES是CNY,NO是USD)

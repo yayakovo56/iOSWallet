@@ -49,8 +49,11 @@
 {
     _dappModel = dappModel;
     [self.iconImageView CCW_SetImageWithURL:dappModel.imageUrl];
-    self.nameLabel.text = CCWLocalizable(dappModel.title);
-    self.detaiDeslLabel.text = CCWLocalizable(dappModel.dec);
+    BOOL isChinese = [[CCWLocalizableTool userLanguageString] isEqualToString:@"中文"];
+    NSString *name = isChinese?dappModel.title:dappModel.enTitle;
+    NSString *detailDes = isChinese?dappModel.dec:dappModel.enDec;
+    self.nameLabel.text = name;
+    self.detaiDeslLabel.text = detailDes;
 }
 
 - (void)setupSubView

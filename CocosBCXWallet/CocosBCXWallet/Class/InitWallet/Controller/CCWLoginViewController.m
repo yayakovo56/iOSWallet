@@ -46,6 +46,7 @@
             CCWAppNewVersion = version;
             CCWNewAppDownloadurl = dataDic[@"download_url"];
             CCWNewAppUpdateNotes = dataDic[@"info"];
+            CCWNewAppUpdateEnNotes = dataDic[@"en_info"];
             // 更新
             [[CCWCheckVisionAlert new] alertWithRootViewController];
         }
