@@ -46,13 +46,13 @@
                             <rect key="frame" x="25" y="248.5" width="240" height="50"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COCOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Yw-Zb-Eoa">
-                                    <rect key="frame" x="172.5" y="16" width="53.5" height="18"/>
+                                    <rect key="frame" x="144" y="16" width="53.5" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" red="0.14901960784313725" green="0.16470588235294117" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入收款金额" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fId-Rs-EUt" customClass="CCWTextField">
-                                    <rect key="frame" x="10" y="5" width="152.5" height="40"/>
+                                    <rect key="frame" x="10" y="5" width="124" height="40"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -60,14 +60,22 @@
                                         <outlet property="delegate" destination="-1" id="29c-gu-iGb"/>
                                     </connections>
                                 </textField>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(测试)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uQ-OI-PLP" customClass="CCWLabel">
+                                    <rect key="frame" x="197.5" y="16" width="28.5" height="12"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <color key="textColor" red="0.43137254899999999" green="0.47058823529999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" red="0.96470588235294119" green="0.97254901960784312" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="7Yw-Zb-Eoa" secondAttribute="trailing" constant="14" id="71K-GQ-WqE"/>
                                 <constraint firstItem="7Yw-Zb-Eoa" firstAttribute="leading" secondItem="fId-Rs-EUt" secondAttribute="trailing" constant="10" id="Ilt-hc-yqc"/>
+                                <constraint firstAttribute="trailing" secondItem="4uQ-OI-PLP" secondAttribute="trailing" constant="14" id="K4O-iN-s9g"/>
                                 <constraint firstItem="fId-Rs-EUt" firstAttribute="leading" secondItem="odJ-RP-uQm" secondAttribute="leading" constant="10" id="Ns2-Br-ScE"/>
+                                <constraint firstItem="4uQ-OI-PLP" firstAttribute="top" secondItem="7Yw-Zb-Eoa" secondAttribute="top" id="Nx2-Az-2Rd"/>
                                 <constraint firstAttribute="height" constant="50" id="OcK-ch-rVH"/>
                                 <constraint firstItem="fId-Rs-EUt" firstAttribute="top" secondItem="odJ-RP-uQm" secondAttribute="top" constant="5" id="S2Z-mz-gkI"/>
+                                <constraint firstItem="4uQ-OI-PLP" firstAttribute="leading" secondItem="7Yw-Zb-Eoa" secondAttribute="trailing" id="bXW-b2-xdz"/>
                                 <constraint firstItem="7Yw-Zb-Eoa" firstAttribute="centerY" secondItem="odJ-RP-uQm" secondAttribute="centerY" id="r93-lT-6Lo"/>
                                 <constraint firstAttribute="bottom" secondItem="fId-Rs-EUt" secondAttribute="bottom" constant="5" id="zuU-23-xOQ"/>
                             </constraints>
@@ -116,15 +124,23 @@
                                 <action selector="makeAccountClick:" destination="-1" eventType="touchUpInside" id="pyW-r4-sAf"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(测试)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EC5-x0-4o7" customClass="CCWLabel">
+                            <rect key="frame" x="174" y="28" width="26" height="11"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                            <color key="textColor" red="0.43137254899999999" green="0.47058823529999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="EC5-x0-4o7" firstAttribute="leading" secondItem="VHh-b0-HPh" secondAttribute="trailing" id="0TK-5o-3wb"/>
                         <constraint firstItem="Now-c4-MEu" firstAttribute="leading" secondItem="bJQ-cU-viZ" secondAttribute="leading" constant="73" id="3j4-V0-s6V"/>
                         <constraint firstItem="VHh-b0-HPh" firstAttribute="centerX" secondItem="bJQ-cU-viZ" secondAttribute="centerX" id="3xF-bg-CxK"/>
                         <constraint firstAttribute="trailing" secondItem="odJ-RP-uQm" secondAttribute="trailing" constant="25" id="7UE-gy-VXc"/>
                         <constraint firstItem="Now-c4-MEu" firstAttribute="top" secondItem="VHh-b0-HPh" secondAttribute="bottom" constant="22" id="A3i-Jd-wkk"/>
                         <constraint firstAttribute="bottom" secondItem="4tA-gV-hLh" secondAttribute="bottom" constant="50" id="BDi-Ui-Vou"/>
                         <constraint firstItem="Nci-X5-WQl" firstAttribute="trailing" secondItem="odJ-RP-uQm" secondAttribute="trailing" id="CA5-Gc-9Gx"/>
+                        <constraint firstItem="EC5-x0-4o7" firstAttribute="top" secondItem="VHh-b0-HPh" secondAttribute="top" id="DmY-hX-v0v"/>
                         <constraint firstItem="4tA-gV-hLh" firstAttribute="top" secondItem="odJ-RP-uQm" secondAttribute="bottom" constant="22" id="Lv0-zQ-N84"/>
                         <constraint firstItem="Nci-X5-WQl" firstAttribute="centerY" secondItem="4tA-gV-hLh" secondAttribute="centerY" id="NKY-4D-nQ1"/>
                         <constraint firstItem="VHh-b0-HPh" firstAttribute="top" secondItem="bJQ-cU-viZ" secondAttribute="top" constant="28" id="YX9-ZO-ojz"/>
@@ -149,6 +165,7 @@
                 <constraint firstItem="bJQ-cU-viZ" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="38" id="wjx-g1-rdy"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="63.75" y="55.985915492957744"/>
         </view>
     </objects>
 </document>
