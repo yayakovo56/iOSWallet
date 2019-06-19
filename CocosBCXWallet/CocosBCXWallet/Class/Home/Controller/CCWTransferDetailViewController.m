@@ -32,32 +32,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.title = CCWLocalizable(@"交易详情");
     [self ccw_setNavBackgroundColor:[UIColor getColor:@"D2D9F3"]];
     self.gradientView.backgroundColor = [UIColor gradientColorFromColors:@[[UIColor getColor:@"D2D9F3"],[UIColor getColor:@"F6F7F8"]] gradientType:CCWGradientTypeTopToBottom colorSize:CGSizeMake(CCWScreenW, 200)];
-    if ([self.transRecordModel.from isEqualToString:CCWAccountName]) {
-        self.transferAccountLabel.text = [NSString stringWithFormat:@"-%@ %@",self.transRecordModel.operation.amount.amount,self.transRecordModel.operation.amount.symbol];
+    self.title = CCWLocalizable(@"交易详情");
+    
+    if (self.transRecordModel.oprationType == CCWOpTypeCallContract) { // 合约交易
+        
+        
     }else{
-        self.transferAccountLabel.text = [NSString stringWithFormat:@"+%@ %@",self.transRecordModel.operation.amount.amount,self.transRecordModel.operation.amount.symbol];
-    }
-    self.outAccountLabel.text = self.transRecordModel.from;
-    self.inAccountLabel.text = self.transRecordModel.to;
-    self.blockHeightLabel.text = [NSString stringWithFormat:@"%@",self.transRecordModel.block_num];
-    self.transferTimeLabel.text = self.transRecordModel.timestamp;
-    self.transferHashLabel.text = self.transRecordModel.ID;
-    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(decodeMemoTap:)];
-    [self.remarkLabel addGestureRecognizer:tapGes];
-    CCWWeakSelf;
-    [CCWSDKRequest CCW_QueryAssetInfo:self.transRecordModel.operation.fee.asset_id Success:^(CCWAssetsModel *assetsModel) {
-         NSNumber *amount = [[CCWDecimalTool CCW_decimalNumberWithString:[NSString stringWithFormat:@"%@",weakSelf.transRecordModel.operation.fee.amount]] decimalNumberByMultiplyingByPowerOf10:-[assetsModel.precision integerValue]];
-        weakSelf.transferFeeLabel.text = [NSString stringWithFormat:@"%@ %@",amount,assetsModel.symbol];;
-    } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-        [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
-    }];
-    if (self.transRecordModel.operation.memo) {
-        self.remarkLabel.text = CCWLocalizable(@"使用密码解锁备注");
-        weakSelf.remarkLabel.textColor = [UIColor getColor:@"4868DC"];
+        if ([self.transRecordModel.from isEqualToString:CCWAccountName]) {
+            self.transferAccountLabel.text = [NSString stringWithFormat:@"-%@ %@",self.transRecordModel.operation.amount.amount,self.transRecordModel.operation.amount.symbol];
+        }else{
+            self.transferAccountLabel.text = [NSString stringWithFormat:@"+%@ %@",self.transRecordModel.operation.amount.amount,self.transRecordModel.operation.amount.symbol];
+        }
+        self.outAccountLabel.text = self.transRecordModel.from;
+        self.inAccountLabel.text = self.transRecordModel.to;
+        self.blockHeightLabel.text = [NSString stringWithFormat:@"%@",self.transRecordModel.block_num];
+        self.transferTimeLabel.text = self.transRecordModel.timestamp;
+        self.transferHashLabel.text = self.transRecordModel.ID;
+        UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(decodeMemoTap:)];
+        [self.remarkLabel addGestureRecognizer:tapGes];
+        CCWWeakSelf;
+        [CCWSDKRequest CCW_QueryAssetInfo:self.transRecordModel.operation.fee.asset_id Success:^(CCWAssetsModel *assetsModel) {
+            NSNumber *amount = [[CCWDecimalTool CCW_decimalNumberWithString:[NSString stringWithFormat:@"%@",weakSelf.transRecordModel.operation.fee.amount]] decimalNumberByMultiplyingByPowerOf10:-[assetsModel.precision integerValue]];
+            weakSelf.transferFeeLabel.text = [NSString stringWithFormat:@"%@ %@",amount,assetsModel.symbol];;
+        } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
+            [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+        }];
+        if (self.transRecordModel.operation.memo) {
+            self.remarkLabel.text = CCWLocalizable(@"使用密码解锁备注");
+            weakSelf.remarkLabel.textColor = [UIColor getColor:@"4868DC"];
+        }
     }
 }
 

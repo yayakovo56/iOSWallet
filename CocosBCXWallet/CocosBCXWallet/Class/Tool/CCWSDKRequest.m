@@ -187,10 +187,9 @@
     }];
 }
 
-
 /**
  查询账户记录
-
+ 
  @param accountId 账号
  @param limit 条数
  */
@@ -201,38 +200,28 @@
 {
     [[CocosSDK shareInstance] Cocos_GetAccountHistory:accountId Limit:limit Success:^(id responseObject) {
         NSMutableArray *transRecordModelArray = [CCWTransRecordModel mj_objectArrayWithKeyValuesArray:responseObject];
-        // 遍历过滤
-        // 一共多少个转账
-        __block NSUInteger optransfer = 0;
-        // 一共回调了多少个转账
-        __block NSUInteger optransfercallback = 0;
         if (transRecordModelArray.count == 0) {
             !successBlock?:successBlock(transRecordModelArray);
             return;
         }
-        [transRecordModelArray enumerateObjectsUsingBlock:^(CCWTransRecordModel * _Nonnull transRecordModel, NSUInteger idx, BOOL * _Nonnull stop) {
-            NSNumber *operationType = [transRecordModel.op firstObject];
-            __block CCWOperation *operation = [CCWOperation mj_objectWithKeyValues:[transRecordModel.op lastObject]];
-            
-            if ([operationType integerValue] == 0) {
-                transRecordModel.opTypeTransfer = YES;
-                optransfer += 1;
-                // 用ID 查用户名
-                NSString *transferID = @"";
-                if ([operation.from isEqualToString:CCWAccountId]) {
-                    transRecordModel.from = CCWAccountName;
-                    transferID = operation.to;
-                }else{
-                    transRecordModel.to = CCWAccountName;
-                    transferID = operation.from;
-                }
-                // 实现同步
-                dispatch_queue_t queue = dispatch_queue_create("LYTChatListManager", DISPATCH_QUEUE_SERIAL);
-                dispatch_async(queue, ^{
-                    dispatch_semaphore_t disp = dispatch_semaphore_create(0);
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            dispatch_semaphore_t disp = dispatch_semaphore_create(0);
+            for (CCWTransRecordModel * transRecordModel in transRecordModelArray) {
+                NSNumber *operationType = [transRecordModel.op firstObject];
+                __block CCWOperation *operation = [CCWOperation mj_objectWithKeyValues:[transRecordModel.op lastObject]];
+                if ([operationType integerValue] == 0) {
+                    transRecordModel.oprationType = CCWOpTypeTransition;
+                    // 用ID 查用户名
+                    NSString *transferID = @"";
+                    if ([operation.from isEqualToString:CCWAccountId]) {
+                        transRecordModel.from = CCWAccountName;
+                        transferID = operation.to;
+                    }else{
+                        transRecordModel.to = CCWAccountName;
+                        transferID = operation.from;
+                    }
                     // 查询用户信息
                     [self CCW_QueryAccountInfo:transferID Success:^(id  _Nonnull responseObject) {
-                        
                         if ([transRecordModel.from isEqualToString:CCWAccountName]) {
                             transRecordModel.to = responseObject[@"name"];
                         }else{
@@ -247,22 +236,39 @@
                             
                             [[CocosSDK shareInstance] Cocos_GetBlockHeaderWithBlockNum:transRecordModel.block_num Success:^(id responseObject) {
                                 transRecordModel.timestamp = responseObject[@"timestamp"];
-                                optransfercallback += 1;
-                                if (optransfercallback == optransfer) {
-                                    dispatch_semaphore_signal(disp);
-                                }
+                                dispatch_semaphore_signal(disp);
                             } Error:^(NSError *error) {
                                 !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
                             }];
                         } Error:errorBlock];
                     } Error:errorBlock];
-                    dispatch_semaphore_wait(disp, DISPATCH_TIME_FOREVER);
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        !successBlock?:successBlock(transRecordModelArray);
-                    });
-                });
+                }else if ([operationType integerValue] == 44) {
+                    transRecordModel.oprationType = CCWOpTypeCallContract;
+                    transRecordModel.caller = CCWAccountName;
+                    // 用ID 查用户名
+                    NSString *contractID = operation.contract_id;
+                    // 查询合约信息
+                    [[CocosSDK shareInstance] Cocos_GetContract:contractID Success:^(id contractRes) {
+                        transRecordModel.contractInfo = [CCWContractInfo mj_objectWithKeyValues:contractRes];
+                        [[CocosSDK shareInstance] Cocos_GetBlockHeaderWithBlockNum:transRecordModel.block_num Success:^(id responseObject) {
+                            transRecordModel.timestamp = responseObject[@"timestamp"];
+                            dispatch_semaphore_signal(disp);
+                        } Error:^(NSError *error) {
+                            !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
+                        }];
+                    } Error:^(NSError *error) {
+                        !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
+                    }];
+                }else{
+                    dispatch_semaphore_signal(disp);
+                }
+                // 2. 等待信号
+                dispatch_semaphore_wait(disp, DISPATCH_TIME_FOREVER);
             }
-        }];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                !successBlock?:successBlock(transRecordModelArray);
+            });
+        });
     } Error:^(NSError *error) {
         !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
     }];

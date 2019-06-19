@@ -33,18 +33,25 @@
 {
     _transRecordModel = transRecordModel;
     CCWOperation *operation = transRecordModel.operation;
-    
-    if ([transRecordModel.from isEqualToString:CCWAccountName]) {
-        self.transferAccountNameLabel.text = transRecordModel.to;
-        self.transferTypeImageView.image = [UIImage imageNamed:@"transfer_out"];
-        self.transferCountLabel.textColor = [UIColor getColor:@"4868DC"];
-        self.transferCountLabel.text = [NSString stringWithFormat:@"-%@ %@",operation.amount.amount,operation.amount.symbol];
-    }else{
-        self.transferAccountNameLabel.text = transRecordModel.from;
-        self.transferTypeImageView.image = [UIImage imageNamed:@"transfer_in"];
-        self.transferCountLabel.textColor = [UIColor getColor:@"2FC49F"];
-        self.transferCountLabel.text = [NSString stringWithFormat:@"+%@ %@",operation.amount.amount,operation.amount.symbol];
+    if (transRecordModel.oprationType == CCWOpTypeTransition) {
+        if ([transRecordModel.from isEqualToString:CCWAccountName]) {
+            self.transferAccountNameLabel.text = transRecordModel.to;
+            self.transferTypeImageView.image = [UIImage imageNamed:@"transfer_out"];
+            self.transferCountLabel.textColor = [UIColor getColor:@"4868DC"];
+            self.transferCountLabel.text = [NSString stringWithFormat:@"-%@ %@",operation.amount.amount,operation.amount.symbol];
+        }else{
+            self.transferAccountNameLabel.text = transRecordModel.from;
+            self.transferTypeImageView.image = [UIImage imageNamed:@"transfer_in"];
+            self.transferCountLabel.textColor = [UIColor getColor:@"2FC49F"];
+            self.transferCountLabel.text = [NSString stringWithFormat:@"+%@ %@",operation.amount.amount,operation.amount.symbol];
+        }
+    }else if (transRecordModel.oprationType == CCWOpTypeCallContract) {
+        self.transferAccountNameLabel.text = transRecordModel.caller;
+        self.transferTypeImageView.image = [UIImage imageNamed:@"trx_contract"];
+        self.transferCountLabel.textColor = [UIColor getColor:@"4B4BD9"];
+        self.transferCountLabel.text = transRecordModel.contractInfo.name;
     }
+    
     self.transferTimeLabel.text = transRecordModel.timestamp;
 }
 @end

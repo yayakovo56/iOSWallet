@@ -8,6 +8,16 @@
 
 #import "CCWTransRecordModel.h"
 
+@implementation CCWContractInfo : NSObject
+
++ (NSDictionary *)replacedKeyFromPropertyName
+{
+    return @{
+             @"ID":@"id"
+             };
+}
+@end
+
 @implementation CCWAmountFee
 
 

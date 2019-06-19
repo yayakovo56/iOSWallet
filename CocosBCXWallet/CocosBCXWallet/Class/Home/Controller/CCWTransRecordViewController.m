@@ -45,9 +45,9 @@
     }];
     
     // 查询交易记录
-    [CCWSDKRequest CCW_QueryUserOperations:accountId limit:100 Success:^(NSArray * _Nonnull responseObject) {
+    [CCWSDKRequest CCW_QueryUserOperations:accountId limit:10 Success:^(NSArray * _Nonnull responseObject) {
         [responseObject enumerateObjectsUsingBlock:^(CCWTransRecordModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (obj.opTypeTransfer) {
+            if ( obj.oprationType == CCWOpTypeTransition || obj.oprationType == CCWOpTypeCallContract) {
                 [weakSelf.transferArray addObject:obj];
             }
             if (idx + 1 == responseObject.count) {
