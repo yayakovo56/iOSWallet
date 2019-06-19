@@ -45,7 +45,9 @@
     }];
     
     // 查询交易记录
-    [CCWSDKRequest CCW_QueryUserOperations:accountId limit:10 Success:^(NSArray * _Nonnull responseObject) {
+    [MBProgressHUD showLoadingMessage:@"Loading..."];
+    [CCWSDKRequest CCW_QueryUserOperations:accountId limit:100 Success:^(NSArray * _Nonnull responseObject) {
+        [MBProgressHUD hideHUD];
         [responseObject enumerateObjectsUsingBlock:^(CCWTransRecordModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if ( obj.oprationType == CCWOpTypeTransition || obj.oprationType == CCWOpTypeCallContract) {
                 [weakSelf.transferArray addObject:obj];
@@ -55,8 +57,8 @@
                 [weakSelf.tableView reloadData];
             }
         }];
-        
     } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
+        [MBProgressHUD hideHUD];
         [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
     }];
 }

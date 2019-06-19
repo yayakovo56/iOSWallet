@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *transferAccountNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *transferTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *transferCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 
 @end
 
@@ -45,11 +46,13 @@
             self.transferCountLabel.textColor = [UIColor getColor:@"2FC49F"];
             self.transferCountLabel.text = [NSString stringWithFormat:@"+%@ %@",operation.amount.amount,operation.amount.symbol];
         }
+        self.tipLabel.text = CCWLocalizable(@"(测试)");
     }else if (transRecordModel.oprationType == CCWOpTypeCallContract) {
         self.transferAccountNameLabel.text = transRecordModel.caller;
         self.transferTypeImageView.image = [UIImage imageNamed:@"trx_contract"];
         self.transferCountLabel.textColor = [UIColor getColor:@"4B4BD9"];
         self.transferCountLabel.text = transRecordModel.contractInfo.name;
+        self.tipLabel.text = @"";
     }
     
     self.transferTimeLabel.text = transRecordModel.timestamp;

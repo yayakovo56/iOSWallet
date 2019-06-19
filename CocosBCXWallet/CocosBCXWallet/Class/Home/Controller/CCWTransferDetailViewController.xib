@@ -13,7 +13,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CCWTransferDetailViewController">
             <connections>
                 <outlet property="blockHeightLabel" destination="IHc-zV-8Sn" id="iin-JX-uzT"/>
-                <outlet property="gradientView" destination="Q9X-RK-thB" id="n9O-Ti-cWY"/>
                 <outlet property="inAccountLabel" destination="AlW-hN-mNf" id="ESY-EK-dAA"/>
                 <outlet property="outAccountLabel" destination="ksU-Qw-QBy" id="qge-hc-X12"/>
                 <outlet property="remarkLabel" destination="rPI-fN-B3m" id="0Zl-4Q-7S7"/>
@@ -31,13 +30,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q9X-RK-thB">
-                    <rect key="frame" x="0.0" y="20" width="375" height="200"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="200" id="27c-YO-3Cd"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUO-Qm-2sn">
                     <rect key="frame" x="15" y="67" width="345" height="432.5"/>
                     <subviews>
@@ -225,11 +217,8 @@
             <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="aUO-Qm-2sn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="Aeg-jH-dJD"/>
-                <constraint firstItem="Q9X-RK-thB" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="IVy-Um-XWR"/>
-                <constraint firstItem="Q9X-RK-thB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="NT4-So-FQY"/>
                 <constraint firstItem="aUO-Qm-2sn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="47" id="WgR-kZ-yT4"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aUO-Qm-2sn" secondAttribute="trailing" constant="15" id="mRE-lN-1gn"/>
-                <constraint firstItem="Q9X-RK-thB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="yot-F6-Kto"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>
