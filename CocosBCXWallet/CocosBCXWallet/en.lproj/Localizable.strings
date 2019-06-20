@@ -70,6 +70,11 @@
 
 // 交易记录详情
 "交易记录" = "Transaction History";
+"授权人:" = "Author:";
+"合约调用" = "Contract call";
+"合约名称:" = "Name:";
+"动作:" = "Action:";
+"数据:" = "Data:";
 "发送方:" = "From:";
 "接收方:" = "To:";
 "备注:" = "Note:";
@@ -78,6 +83,8 @@
 "交易哈希值:" = "Txid:";
 "区块高度:" = "Height:";
 "交易时间:" = "Date:";
+"NH资产ID:" = "NH Asset ID:";
+"NH资产转移" = "NH Asset Transfer";
 
 // 转账页
 "全部" = "All";

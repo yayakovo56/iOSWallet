@@ -34,17 +34,32 @@
 {
     _transRecordModel = transRecordModel;
     CCWOperation *operation = transRecordModel.operation;
-    if (transRecordModel.oprationType == CCWOpTypeTransition) {
-        if ([transRecordModel.from isEqualToString:CCWAccountName]) {
-            self.transferAccountNameLabel.text = transRecordModel.to;
-            self.transferTypeImageView.image = [UIImage imageNamed:@"transfer_out"];
-            self.transferCountLabel.textColor = [UIColor getColor:@"4868DC"];
-            self.transferCountLabel.text = [NSString stringWithFormat:@"-%@ %@",operation.amount.amount,operation.amount.symbol];
+    if (transRecordModel.oprationType == CCWOpTypeTransition || transRecordModel.oprationType == CCWOpTypeNHTransfer) {
+       
+        // NH 资产
+        if (transRecordModel.oprationType == CCWOpTypeNHTransfer) {
+            if ([transRecordModel.from isEqualToString:CCWAccountName]) {
+                self.transferAccountNameLabel.text = transRecordModel.to;
+                self.transferTypeImageView.image = [UIImage imageNamed:@"transfer_out_nh"];
+                self.transferCountLabel.textColor = [UIColor getColor:@"4868DC"];
+            }else{
+                self.transferAccountNameLabel.text = transRecordModel.from;
+                self.transferTypeImageView.image = [UIImage imageNamed:@"transfer_in_nh"];
+                self.transferCountLabel.textColor = [UIColor getColor:@"2FC49F"];
+            }
+            self.transferCountLabel.text = operation.nh_asset;
         }else{
-            self.transferAccountNameLabel.text = transRecordModel.from;
-            self.transferTypeImageView.image = [UIImage imageNamed:@"transfer_in"];
-            self.transferCountLabel.textColor = [UIColor getColor:@"2FC49F"];
-            self.transferCountLabel.text = [NSString stringWithFormat:@"+%@ %@",operation.amount.amount,operation.amount.symbol];
+            if ([transRecordModel.from isEqualToString:CCWAccountName]) {
+                self.transferAccountNameLabel.text = transRecordModel.to;
+                self.transferTypeImageView.image = [UIImage imageNamed:@"transfer_out"];
+                self.transferCountLabel.textColor = [UIColor getColor:@"4868DC"];
+                self.transferCountLabel.text = [NSString stringWithFormat:@"-%@ %@",operation.amount.amount,operation.amount.symbol];
+            }else{
+                self.transferAccountNameLabel.text = transRecordModel.from;
+                self.transferTypeImageView.image = [UIImage imageNamed:@"transfer_in"];
+                self.transferCountLabel.textColor = [UIColor getColor:@"2FC49F"];
+                self.transferCountLabel.text = [NSString stringWithFormat:@"+%@ %@",operation.amount.amount,operation.amount.symbol];
+            }
         }
         self.tipLabel.text = CCWLocalizable(@"(测试)");
     }else if (transRecordModel.oprationType == CCWOpTypeCallContract) {

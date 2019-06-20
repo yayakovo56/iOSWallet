@@ -32,9 +32,9 @@
     return _transferArray;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
     NSString *accountId = CCWAccountId;
     CCWWeakSelf
     // 查询资产个数
@@ -48,8 +48,9 @@
     [MBProgressHUD showLoadingMessage:@"Loading..."];
     [CCWSDKRequest CCW_QueryUserOperations:accountId limit:100 Success:^(NSArray * _Nonnull responseObject) {
         [MBProgressHUD hideHUD];
+        [weakSelf.transferArray removeAllObjects];
         [responseObject enumerateObjectsUsingBlock:^(CCWTransRecordModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if ( obj.oprationType == CCWOpTypeTransition || obj.oprationType == CCWOpTypeCallContract) {
+            if (obj.oprationType == CCWOpTypeNHTransfer || obj.oprationType == CCWOpTypeTransition || obj.oprationType == CCWOpTypeCallContract) {
                 [weakSelf.transferArray addObject:obj];
             }
             if (idx + 1 == responseObject.count) {

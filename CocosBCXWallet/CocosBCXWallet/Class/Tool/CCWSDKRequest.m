@@ -209,8 +209,8 @@
             for (CCWTransRecordModel * transRecordModel in transRecordModelArray) {
                 NSNumber *operationType = [transRecordModel.op firstObject];
                 __block CCWOperation *operation = [CCWOperation mj_objectWithKeyValues:[transRecordModel.op lastObject]];
-                if ([operationType integerValue] == 0) {
-                    transRecordModel.oprationType = CCWOpTypeTransition;
+                if ([operationType integerValue] == 0 || [operationType integerValue] == 51) {
+                    transRecordModel.oprationType = [operationType integerValue];
                     // 用ID 查用户名
                     NSString *transferID = @"";
                     if ([operation.from isEqualToString:CCWAccountId]) {
@@ -227,22 +227,44 @@
                         }else{
                             transRecordModel.from = responseObject[@"name"];
                         }
-                        // 查询转账币种信息
-                        [self CCW_QueryAssetInfo:operation.amount.asset_id Success:^(CCWAssetsModel *assetsModel) {
-                            operation.amount.symbol = assetsModel.symbol;
-                            operation.amount.precision = assetsModel.precision;
-                            operation.amount.amount = [[CCWDecimalTool CCW_decimalNumberWithString:[NSString stringWithFormat:@"%@",operation.amount.amount]] decimalNumberByMultiplyingByPowerOf10:-[assetsModel.precision integerValue]];
-                            transRecordModel.operation = operation;
-                            
-                            [[CocosSDK shareInstance] Cocos_GetBlockHeaderWithBlockNum:transRecordModel.block_num Success:^(id responseObject) {
-                                transRecordModel.timestamp = responseObject[@"timestamp"];
+                        // 查询时间
+                        [[CocosSDK shareInstance] Cocos_GetBlockHeaderWithBlockNum:transRecordModel.block_num Success:^(id responseObject) {
+                            transRecordModel.timestamp = responseObject[@"timestamp"];
+                            if ([operationType integerValue] == 0) {
+                                // 查询转账币种信息
+                                [self CCW_QueryAssetInfo:operation.amount.asset_id Success:^(CCWAssetsModel *assetsModel) {
+                                    operation.amount.symbol = assetsModel.symbol;
+                                    operation.amount.precision = assetsModel.precision;
+                                    operation.amount.amount = [[CCWDecimalTool CCW_decimalNumberWithString:[NSString stringWithFormat:@"%@",operation.amount.amount]] decimalNumberByMultiplyingByPowerOf10:-[assetsModel.precision integerValue]];
+                                    transRecordModel.operation = operation;
+                                    dispatch_semaphore_signal(disp);
+                                } Error:errorBlock];
+                            }else{
+                                transRecordModel.operation = operation;
                                 dispatch_semaphore_signal(disp);
-                            } Error:^(NSError *error) {
-                                !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
-                            }];
-                        } Error:errorBlock];
+                            }
+                        } Error:^(NSError *error) {
+                            !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
+                        }];
+
+//                        // 查询转账币种信息
+//                        [self CCW_QueryAssetInfo:operation.amount.asset_id Success:^(CCWAssetsModel *assetsModel) {
+//                            operation.amount.symbol = assetsModel.symbol;
+//                            operation.amount.precision = assetsModel.precision;
+//                            operation.amount.amount = [[CCWDecimalTool CCW_decimalNumberWithString:[NSString stringWithFormat:@"%@",operation.amount.amount]] decimalNumberByMultiplyingByPowerOf10:-[assetsModel.precision integerValue]];
+//                            transRecordModel.operation = operation;
+//
+//                            [[CocosSDK shareInstance] Cocos_GetBlockHeaderWithBlockNum:transRecordModel.block_num Success:^(id responseObject) {
+//                                transRecordModel.timestamp = responseObject[@"timestamp"];
+//                                dispatch_semaphore_signal(disp);
+//                            } Error:^(NSError *error) {
+//                                !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
+//                            }];
+//                        } Error:errorBlock];
                     } Error:errorBlock];
                 }else if ([operationType integerValue] == 44) {
+                    
+                    transRecordModel.operation = operation;
                     transRecordModel.oprationType = CCWOpTypeCallContract;
                     transRecordModel.caller = CCWAccountName;
                     // 用ID 查用户名

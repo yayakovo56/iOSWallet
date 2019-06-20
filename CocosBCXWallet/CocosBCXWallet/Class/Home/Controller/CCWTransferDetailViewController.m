@@ -13,12 +13,17 @@
 // 渐变层
 @property (weak, nonatomic) IBOutlet UIView *gradientView;
 
-
-@property (weak, nonatomic) IBOutlet UIImageView *transferTypeImageView;
+// 转账成功title
 @property (weak, nonatomic) IBOutlet UILabel *transferTypeLabel;
+// 转账的b个数
 @property (weak, nonatomic) IBOutlet UILabel *transferAccountLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *outTitle;
 @property (weak, nonatomic) IBOutlet UILabel *outAccountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *inTitle;
 @property (weak, nonatomic) IBOutlet UILabel *inAccountLabel;
+@property (weak, nonatomic) IBOutlet UIButton *inAccountButton;
+@property (weak, nonatomic) IBOutlet UILabel *remarkTitle;
 @property (weak, nonatomic) IBOutlet UILabel *remarkLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *transferFeeLabel;
@@ -37,9 +42,49 @@
     self.title = CCWLocalizable(@"交易详情");
     
     if (self.transRecordModel.oprationType == CCWOpTypeCallContract) { // 合约交易
+        self.transferTypeLabel.text = CCWLocalizable(@"合约调用");;
+        self.transferAccountLabel.text = self.transRecordModel.contractInfo.name;
+        self.outTitle.text = CCWLocalizable(@"授权人:");
+        self.outAccountLabel.text = CCWAccountName;
+        self.inTitle.text = CCWLocalizable(@"动作:");
+        self.inAccountLabel.text = self.transRecordModel.operation.function_name;
+        self.inAccountButton.hidden = YES;
+        self.remarkTitle.text = CCWLocalizable(@"数据:");
         
-        
+        // 寻找参数
+        NSMutableArray *valueArray = [NSMutableArray array];
+        for (NSArray *valueArr in self.transRecordModel.operation.value_list) {
+            NSDictionary *value = [valueArr lastObject];
+            [valueArray addObject:value[@"v"]];
+        }
+        // 寻找参数名
+        NSArray *abiArray = self.transRecordModel.contractInfo.contract_ABI;
+        for (NSArray *abi in abiArray) {
+            NSDictionary *abiFunDic = [abi firstObject];
+            NSArray *funkey = abiFunDic[@"key"];
+            NSDictionary *funDic = [funkey lastObject];
+            if ([funDic[@"v"] isEqualToString:self.transRecordModel.operation.function_name]) {
+                NSDictionary *abiParamDic = [[abi lastObject] lastObject];
+                NSArray *argArray = abiParamDic[@"arglist"];
+                NSMutableString *paramStr = [NSMutableString string];
+                [paramStr appendString:@"{"];
+                for (int i = 0; i< argArray.count; i++) {
+                    [paramStr appendString:@"\""];
+                    [paramStr appendString:argArray[i]];
+                    [paramStr appendString:@"\":\""];
+                    [paramStr appendString:valueArray[i]];
+                    [paramStr appendString:@"\""];
+                    if (i < argArray.count - 1) {
+                        [paramStr appendString:@","];
+                    }
+                }
+                [paramStr appendString:@"}"];
+                self.remarkLabel.text = paramStr;
+                break;
+            }
+        }
     }else{
+        
         if ([self.transRecordModel.from isEqualToString:CCWAccountName]) {
             self.transferAccountLabel.text = [NSString stringWithFormat:@"-%@ %@",self.transRecordModel.operation.amount.amount,self.transRecordModel.operation.amount.symbol];
         }else{
@@ -47,23 +92,32 @@
         }
         self.outAccountLabel.text = self.transRecordModel.from;
         self.inAccountLabel.text = self.transRecordModel.to;
-        self.blockHeightLabel.text = [NSString stringWithFormat:@"%@",self.transRecordModel.block_num];
-        self.transferTimeLabel.text = self.transRecordModel.timestamp;
-        self.transferHashLabel.text = self.transRecordModel.ID;
+        
         UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(decodeMemoTap:)];
         [self.remarkLabel addGestureRecognizer:tapGes];
-        CCWWeakSelf;
-        [CCWSDKRequest CCW_QueryAssetInfo:self.transRecordModel.operation.fee.asset_id Success:^(CCWAssetsModel *assetsModel) {
-            NSNumber *amount = [[CCWDecimalTool CCW_decimalNumberWithString:[NSString stringWithFormat:@"%@",weakSelf.transRecordModel.operation.fee.amount]] decimalNumberByMultiplyingByPowerOf10:-[assetsModel.precision integerValue]];
-            weakSelf.transferFeeLabel.text = [NSString stringWithFormat:@"%@ %@",amount,assetsModel.symbol];;
-        } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-            [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
-        }];
+        
         if (self.transRecordModel.operation.memo) {
             self.remarkLabel.text = CCWLocalizable(@"使用密码解锁备注");
-            weakSelf.remarkLabel.textColor = [UIColor getColor:@"4868DC"];
+            self.remarkLabel.textColor = [UIColor getColor:@"4868DC"];
+        }
+        // NH资产
+        if (self.transRecordModel.oprationType == CCWOpTypeNHTransfer) {
+            self.transferTypeLabel.text = CCWLocalizable(@"NH资产转移");;
+            self.transferAccountLabel.hidden = YES;
+            self.remarkTitle.text = CCWLocalizable(@"NH资产ID:");
+            self.remarkLabel.text = self.transRecordModel.operation.nh_asset;
         }
     }
+    CCWWeakSelf;
+    [CCWSDKRequest CCW_QueryAssetInfo:self.transRecordModel.operation.fee.asset_id Success:^(CCWAssetsModel *assetsModel) {
+        NSNumber *amount = [[CCWDecimalTool CCW_decimalNumberWithString:[NSString stringWithFormat:@"%@",weakSelf.transRecordModel.operation.fee.amount]] decimalNumberByMultiplyingByPowerOf10:-[assetsModel.precision integerValue]];
+        weakSelf.transferFeeLabel.text = [NSString stringWithFormat:@"%@ %@",amount,assetsModel.symbol];;
+    } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
+        [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+    }];
+    self.blockHeightLabel.text = [NSString stringWithFormat:@"%@",self.transRecordModel.block_num];
+    self.transferTimeLabel.text = self.transRecordModel.timestamp;
+    self.transferHashLabel.text = self.transRecordModel.ID;
 }
 
 - (void)decodeMemoTap:(UITapGestureRecognizer *)tapGesRecognizer

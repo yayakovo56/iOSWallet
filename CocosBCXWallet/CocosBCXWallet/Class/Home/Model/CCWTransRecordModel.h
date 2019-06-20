@@ -14,6 +14,7 @@ typedef NS_ENUM(NSInteger, CCWOpType) {
     CCWOpTypeNoKnow = -1,          // 未做
     CCWOpTypeTransition = 0,          // 转账
     CCWOpTypeCallContract = 44,        // 合约
+    CCWOpTypeNHTransfer = 51,        // NH资产转账
 };
 
 @interface CCWContractInfo : NSObject
@@ -64,6 +65,9 @@ typedef NS_ENUM(NSInteger, CCWOpType) {
 @property (nonatomic, copy) NSString *contract_id;
 @property (nonatomic, copy) NSString *function_name;
 @property (nonatomic, strong) NSArray *value_list;
+
+// NH资产
+@property (nonatomic, copy) NSString *nh_asset;
 @end
 
 @interface CCWTransRecordModel : NSObject
