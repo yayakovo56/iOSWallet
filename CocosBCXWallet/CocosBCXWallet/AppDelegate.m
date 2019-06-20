@@ -47,10 +47,13 @@
     // 设置 Toast
     [self CCW_SetToast];
     
+#ifdef DEBUG
+    
+#else
     // 友盟配置
     [UMConfigure setEncryptEnabled:YES];//打开加密传输
     [UMConfigure initWithAppkey:UMengAppKey channel:nil];
-    
+#endif
     // 设置主窗口,并设置根控制器
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     // 设置跟控制器

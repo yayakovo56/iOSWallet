@@ -260,6 +260,7 @@
                         !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
                     }];
                 }else{
+                    transRecordModel.oprationType = CCWOpTypeNoKnow;// 未处理类型
                     dispatch_semaphore_signal(disp);
                 }
                 // 2. 等待信号

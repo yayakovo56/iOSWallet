@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 // -----------------------------------------------------------------------------
 typedef NS_ENUM(NSInteger, CCWOpType) {
+    CCWOpTypeNoKnow = -1,          // 未做
     CCWOpTypeTransition = 0,          // 转账
     CCWOpTypeCallContract = 44,        // 合约
 };

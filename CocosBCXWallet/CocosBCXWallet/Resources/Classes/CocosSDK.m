@@ -114,9 +114,7 @@
         // 4.1 Determine whether to log in automatically
         if (autoLogin) {
             // 4.2 Save account information
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self SaveAccountInfo:accountName OwnerPrivate:owner_key ActivePrivate:active_key Password:password WalletMode:walletMode Success:nil Error:errorBlock];
-            });
+            [self SaveAccountInfo:accountName isNewAccount:YES OwnerPrivate:owner_key ActivePrivate:active_key Password:password WalletMode:walletMode Success:nil Error:errorBlock];
         }
         if ([creatResponseObject[@"code"] integerValue] == 200) {
             NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:creatResponseObject[@"data"][@"account"]];
@@ -154,14 +152,14 @@
             if (result.count) {
                 if (walletMode == CocosWalletModeAccount) {
                     // 3. Verify pass, query account information and save
-                    [self SaveAccountInfo:[result firstObject] OwnerPrivate:nil ActivePrivate:private_key Password:tempPassword WalletMode:walletMode Success:successBlock Error:errorBlock];
+                    [self SaveAccountInfo:[result firstObject] isNewAccount:NO OwnerPrivate:nil ActivePrivate:private_key Password:tempPassword WalletMode:walletMode Success:successBlock Error:errorBlock];
                 }else if (walletMode == CocosWalletModeWallet){
                     NSMutableOrderedSet *mutableOrderedSet = [NSMutableOrderedSet new];
                     for (NSString *str in result) {
                         [mutableOrderedSet addObject:str];
                     }
                     for (NSString *accountID in mutableOrderedSet.array) {
-                        [self SaveAccountInfo:accountID OwnerPrivate:nil ActivePrivate:private_key Password:tempPassword WalletMode:walletMode Success:successBlock Error:errorBlock];
+                        [self SaveAccountInfo:accountID isNewAccount:NO OwnerPrivate:nil ActivePrivate:private_key Password:tempPassword WalletMode:walletMode Success:successBlock Error:errorBlock];
                     }
                 }
             }else{
@@ -302,7 +300,7 @@
             // 4. Authentication passes, encryption saves
             NSString *owner_key = [Cocos_Key_Account private_with_seed:ownerSeed];
             NSString *active_key = [Cocos_Key_Account private_with_seed:activeSeed];
-            [self SaveAccountInfo:[result firstObject] OwnerPrivate:owner_key ActivePrivate:active_key Password:password WalletMode:CocosWalletModeAccount Success:successBlock Error:errorBlock];
+            [self SaveAccountInfo:[result firstObject] isNewAccount:NO OwnerPrivate:owner_key ActivePrivate:active_key Password:password WalletMode:CocosWalletModeAccount Success:successBlock Error:errorBlock];
         }else{
             NSError *error = [NSError errorWithDomain:@"User name or password error (please confirm that your account is registered in account mode, and the account registered in wallet mode cannot be logged in using account mode)" code:SDKErrorCodeAccountNameOrPasswordError userInfo:@{@"account":accountName,@"password":password}];
             !errorBlock?:errorBlock(error);
@@ -989,16 +987,27 @@
                         // 8. Call contract
                         [self signedTransaction:signedTran activePrivate:private Success:^(id transactionhash) {
                             // 9. Get Transfer Block with hash
-                            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                                [self Cocos_GetTransactionBlockWithHash:transactionhash Success:^(id blockResponse) {
-                                    // 10. Get Block with Block Num
-                                    [self Cocos_GetBlockWithBlockNum:blockResponse[@"block_num"] Success:^(id responseObject) {
-                                        [self CallContractSuccessResponseWithTrxHash:transactionhash blockNum:blockResponse[@"block_num"] resultData:responseObject succeed:^(NSMutableDictionary *callContractRes) {
-                                            
-                                            !successBlock?:successBlock(callContractRes);
-                                        }];
+                            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                                dispatch_semaphore_t disp = dispatch_semaphore_create(0);
+                                do {
+                                    [self Cocos_GetTransactionBlockWithHash:transactionhash Success:^(id blockResponse) {
+                                        if (blockResponse == nil || blockResponse[@"block_num"] == nil) {
+                                            dispatch_semaphore_signal(disp);
+                                        }else{
+                                            // 10. Get Block with Block Num
+                                            [self Cocos_GetBlockWithBlockNum:blockResponse[@"block_num"] Success:^(id responseObject) {
+                                                [self CallContractSuccessResponseWithTrxHash:transactionhash blockNum:blockResponse[@"block_num"] resultData:responseObject succeed:^(NSMutableDictionary *callContractRes) {
+                                                    // 主线程回调
+                                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                                        !successBlock?:successBlock(callContractRes);
+                                                    });
+                                                }];
+                                            } Error:errorBlock];
+                                        }
                                     } Error:errorBlock];
-                                } Error:errorBlock];
+                                    // 2. 等待信号
+                                    dispatch_semaphore_wait(disp, DISPATCH_TIME_FOREVER);
+                                } while (1);
                             });
                         } Error:errorBlock];
                     } Error:errorBlock];
@@ -1285,7 +1294,7 @@
         operation.nh_asset = [ChainObjectId createFromString:NHAssetID];
         operation.requiredAuthority = fromModel.active.publicKeys;
         // 3. Inquiry fee
-        [self Cocos_OperationFees:operation OperationType:52 FeePayingAsset:feePayingAssetID Success:successBlock Error:errorBlock];
+        [self Cocos_OperationFees:operation OperationType:51 FeePayingAsset:feePayingAssetID Success:successBlock Error:errorBlock];
     } Error:errorBlock];
 }
 
@@ -1313,7 +1322,7 @@
                 operation.nh_asset = [ChainObjectId createFromString:NHAssetID];
                 operation.requiredAuthority = fromModel.active.publicKeys;
                 // 3. Inquiry fee
-                [self Cocos_OperationFees:operation OperationType:52 FeePayingAsset:feePayingAssetID Success:^(NSArray * feeObject) {
+                [self Cocos_OperationFees:operation OperationType:51 FeePayingAsset:feePayingAssetID Success:^(NSArray * feeObject) {
                     // 4. Stitching fee
                     NSDictionary *feeDic = feeObject.firstObject;
                     operation.fee = [ChainAssetAmountObject generateFromObject:feeDic];
@@ -1561,6 +1570,7 @@
 
 /** Save account information */
 - (void)SaveAccountInfo:(NSString *)accountName
+           isNewAccount:(BOOL)newAccount
            OwnerPrivate:(NSString *)ownerPrivate
           ActivePrivate:(NSString *)activePrivate
                Password:(NSString *)password
@@ -1568,45 +1578,75 @@
                 Success:(SuccessBlock)successBlock
                   Error:(Error)errorBlock
 {
-    // 1. Query account information
-    [self Cocos_GetAccount:accountName Success:^(id account) {
-        ChainAccountModel *accountModel =[ChainAccountModel generateFromObject:account];
-        KeystoneFile *keystone = [[KeystoneFile alloc] init];
-        BOOL ActivekeyStoneBool = YES;
-        BOOL OwnerkeyStoneBool = YES;
-        if (ownerPrivate) {
-            CocosPrivateKey *private = [[CocosPrivateKey alloc] initWithPrivateKey:ownerPrivate];
-            OwnerkeyStoneBool = [keystone importKey:private ForAccount:accountModel];
-        }
-        if (activePrivate) {
-            CocosPrivateKey *private = [[CocosPrivateKey alloc] initWithPrivateKey:activePrivate];
-            ActivekeyStoneBool = [keystone importKey:private ForAccount:accountModel];
-        }
-        [keystone lockKeyWithString:password];
-        
-        if (OwnerkeyStoneBool && ActivekeyStoneBool) {
-            // 2. Encrypted private key preservation
-            CocosDBAccountModel *dbWalletModel = [[CocosDBAccountModel alloc] init];
-            dbWalletModel.name = accountModel.name;
-            dbWalletModel.ID = [accountModel.identifier generateToTransferObject];
-            NSDictionary *keystoneDic = [keystone generateToTransferObject];
-            NSData *keystoneData = [NSJSONSerialization dataWithJSONObject:keystoneDic options:NSJSONWritingPrettyPrinted error:nil];
-            NSString *keystoneString = [[NSString alloc]initWithData:keystoneData encoding:NSUTF8StringEncoding];;
-            NSMutableString *mutStr = [NSMutableString stringWithString:keystoneString];
-            NSRange range2 = {0,mutStr.length};
-            //去掉字符串中的换行符
-            [mutStr replaceOccurrencesOfString:@"\n" withString:@"" options:NSLiteralSearch range:range2];
-            dbWalletModel.keystone = keystoneString;
-            dbWalletModel.walletMode = walletMode;
-            dbWalletModel.chainid = [CocosConfig chainId];
-            dbWalletModel.chainname = [NSString stringWithFormat:@"%@%@",[CocosConfig chainId],accountModel.name];
-            [[CocosDataBase Cocos_shareDatabase] Cocos_SaveAccountModel:dbWalletModel];
-            !successBlock?:successBlock(accountModel.name);
-        }else{
-            NSError *error = [NSError errorWithDomain:@"Private key is not owner by account name" code:SDKErrorCodeAccountNameError userInfo:@{@"accountName":accountName}];
-            !errorBlock?:errorBlock(error);
-        }
-    } Error:errorBlock];
+    if (newAccount) {
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            dispatch_semaphore_t disp = dispatch_semaphore_create(0);
+            do {
+                [self Cocos_GetAccount:accountName Success:^(id account) {
+                    // 主线程回调
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self acountThenSaveWithAccount:accountName accountInfo:account OwnerPrivate:ownerPrivate ActivePrivate:activePrivate Password:password WalletMode:walletMode Success:successBlock Error:errorBlock];
+                    });
+                } Error:^(NSError *error) {
+                    dispatch_semaphore_signal(disp);
+                }];
+                // 2. 等待信号
+                dispatch_semaphore_wait(disp, DISPATCH_TIME_FOREVER);
+            } while (1);
+        });
+    }else{
+        // 1. Query account information
+        [self Cocos_GetAccount:accountName Success:^(id account) {
+            [self acountThenSaveWithAccount:accountName accountInfo:account OwnerPrivate:ownerPrivate ActivePrivate:activePrivate Password:password WalletMode:walletMode Success:successBlock Error:errorBlock];
+        } Error:errorBlock];
+    }
+}
+
+- (void)acountThenSaveWithAccount:(NSString *)accountName
+            accountInfo:(id)account
+           OwnerPrivate:(NSString *)ownerPrivate
+          ActivePrivate:(NSString *)activePrivate
+               Password:(NSString *)password
+             WalletMode:(CocosWalletMode)walletMode
+                Success:(SuccessBlock)successBlock
+                  Error:(Error)errorBlock
+{
+    ChainAccountModel *accountModel =[ChainAccountModel generateFromObject:account];
+    KeystoneFile *keystone = [[KeystoneFile alloc] init];
+    BOOL ActivekeyStoneBool = YES;
+    BOOL OwnerkeyStoneBool = YES;
+    if (ownerPrivate) {
+        CocosPrivateKey *private = [[CocosPrivateKey alloc] initWithPrivateKey:ownerPrivate];
+        OwnerkeyStoneBool = [keystone importKey:private ForAccount:accountModel];
+    }
+    if (activePrivate) {
+        CocosPrivateKey *private = [[CocosPrivateKey alloc] initWithPrivateKey:activePrivate];
+        ActivekeyStoneBool = [keystone importKey:private ForAccount:accountModel];
+    }
+    [keystone lockKeyWithString:password];
+    
+    if (OwnerkeyStoneBool && ActivekeyStoneBool) {
+        // 2. Encrypted private key preservation
+        CocosDBAccountModel *dbWalletModel = [[CocosDBAccountModel alloc] init];
+        dbWalletModel.name = accountModel.name;
+        dbWalletModel.ID = [accountModel.identifier generateToTransferObject];
+        NSDictionary *keystoneDic = [keystone generateToTransferObject];
+        NSData *keystoneData = [NSJSONSerialization dataWithJSONObject:keystoneDic options:NSJSONWritingPrettyPrinted error:nil];
+        NSString *keystoneString = [[NSString alloc]initWithData:keystoneData encoding:NSUTF8StringEncoding];;
+        NSMutableString *mutStr = [NSMutableString stringWithString:keystoneString];
+        NSRange range2 = {0,mutStr.length};
+        //去掉字符串中的换行符
+        [mutStr replaceOccurrencesOfString:@"\n" withString:@"" options:NSLiteralSearch range:range2];
+        dbWalletModel.keystone = keystoneString;
+        dbWalletModel.walletMode = walletMode;
+        dbWalletModel.chainid = [CocosConfig chainId];
+        dbWalletModel.chainname = [NSString stringWithFormat:@"%@%@",[CocosConfig chainId],accountModel.name];
+        [[CocosDataBase Cocos_shareDatabase] Cocos_SaveAccountModel:dbWalletModel];
+        !successBlock?:successBlock(accountModel.name);
+    }else{
+        NSError *error = [NSError errorWithDomain:@"Private key is not owner by account name" code:SDKErrorCodeAccountNameError userInfo:@{@"accountName":accountName}];
+        !errorBlock?:errorBlock(error);
+    }
 }
 
 // Decrypt Private Key Transfer

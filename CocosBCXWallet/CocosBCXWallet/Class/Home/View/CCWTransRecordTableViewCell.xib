@@ -48,13 +48,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(测试)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mv-cd-gCU" customClass="CCWLabel">
-                                <rect key="frame" x="290" y="23" width="29" height="12"/>
+                                <rect key="frame" x="290" y="20" width="29" height="12"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                 <color key="textColor" red="0.93434911966323853" green="0.55896025896072388" blue="0.32149976491928101" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-0.221 COCOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URC-4M-6qe">
-                                <rect key="frame" x="187" y="23" width="103" height="18"/>
+                                <rect key="frame" x="187" y="20" width="103" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <color key="textColor" red="0.28235294119999998" green="0.40784313729999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -69,7 +69,7 @@
                             <constraint firstItem="RLy-ir-0WE" firstAttribute="leading" secondItem="JZp-1I-P18" secondAttribute="trailing" constant="8" id="FSr-R0-zo3"/>
                             <constraint firstItem="URC-4M-6qe" firstAttribute="top" secondItem="3Mv-cd-gCU" secondAttribute="top" id="NH6-gY-Y5b"/>
                             <constraint firstItem="mp7-Yp-gdg" firstAttribute="trailing" secondItem="3Mv-cd-gCU" secondAttribute="trailing" constant="12" id="Upm-cR-fp1"/>
-                            <constraint firstItem="3Mv-cd-gCU" firstAttribute="centerY" secondItem="RLy-ir-0WE" secondAttribute="centerY" id="fum-Nf-csj"/>
+                            <constraint firstItem="URC-4M-6qe" firstAttribute="centerY" secondItem="RLy-ir-0WE" secondAttribute="centerY" id="Zue-3z-7y4"/>
                             <constraint firstItem="RLy-ir-0WE" firstAttribute="top" secondItem="JZp-1I-P18" secondAttribute="top" id="lDQ-eO-o5F"/>
                             <constraint firstItem="JZp-1I-P18" firstAttribute="leading" secondItem="N3O-O8-FAT" secondAttribute="leading" constant="12" id="wmr-sM-cUL"/>
                         </constraints>

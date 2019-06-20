@@ -54,7 +54,6 @@
         self.transferCountLabel.text = transRecordModel.contractInfo.name;
         self.tipLabel.text = @"";
     }
-    
     self.transferTimeLabel.text = transRecordModel.timestamp;
 }
 @end
