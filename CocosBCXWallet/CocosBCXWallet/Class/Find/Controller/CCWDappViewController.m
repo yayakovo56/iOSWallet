@@ -239,7 +239,7 @@
         [_wkWebView.configuration.userContentController addScriptMessageHandler:self name:JS_PUSHMESSAGE];
         [self.view addSubview:_wkWebView];
         if (@available(iOS 9.0, *)) {
-            self.wkWebView.customUserAgent = @"iOS";
+//            self.wkWebView.customUserAgent = @"iOS";
         } else {
             // Fallback on earlier versions
         }

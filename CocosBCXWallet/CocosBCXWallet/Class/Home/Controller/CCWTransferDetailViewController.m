@@ -72,7 +72,7 @@
                     [paramStr appendString:@"\""];
                     [paramStr appendString:argArray[i]];
                     [paramStr appendString:@"\":\""];
-                    [paramStr appendString:valueArray[i]];
+                    [paramStr appendString:[NSString stringWithFormat:@"%@",valueArray[i]]];
                     [paramStr appendString:@"\""];
                     if (i < argArray.count - 1) {
                         [paramStr appendString:@","];
@@ -93,19 +93,20 @@
         self.outAccountLabel.text = self.transRecordModel.from;
         self.inAccountLabel.text = self.transRecordModel.to;
         
-        UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(decodeMemoTap:)];
-        [self.remarkLabel addGestureRecognizer:tapGes];
-        
-        if (self.transRecordModel.operation.memo) {
-            self.remarkLabel.text = CCWLocalizable(@"使用密码解锁备注");
-            self.remarkLabel.textColor = [UIColor getColor:@"4868DC"];
-        }
         // NH资产
         if (self.transRecordModel.oprationType == CCWOpTypeNHTransfer) {
             self.transferTypeLabel.text = CCWLocalizable(@"NH资产转移");;
             self.transferAccountLabel.hidden = YES;
             self.remarkTitle.text = CCWLocalizable(@"NH资产ID:");
             self.remarkLabel.text = self.transRecordModel.operation.nh_asset;
+        }else{
+            UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(decodeMemoTap:)];
+            [self.remarkLabel addGestureRecognizer:tapGes];
+            
+            if (self.transRecordModel.operation.memo) {
+                self.remarkLabel.text = CCWLocalizable(@"使用密码解锁备注");
+                self.remarkLabel.textColor = [UIColor getColor:@"4868DC"];
+            }
         }
     }
     CCWWeakSelf;

@@ -83,7 +83,7 @@
 "交易哈希值:" = "Txid:";
 "区块高度:" = "Height:";
 "交易时间:" = "Date:";
-"NH资产ID:" = "NH Asset ID:";
+"NH资产ID:" = "NHAssetID:";
 "NH资产转移" = "NH Asset Transfer";
 
 // 转账页

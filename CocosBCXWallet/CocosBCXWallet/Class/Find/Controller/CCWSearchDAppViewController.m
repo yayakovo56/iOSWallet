@@ -59,7 +59,10 @@
     return returnUrlStr;
 }
 
-
+- (IBAction)searchUrl:(id)sender
+{
+    [self pushFindLoadWebViewWithURLString:self.searchTextField.text title:@"DApp"];
+}
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
