@@ -126,6 +126,7 @@
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:CCWLocalizable(@"提示") message:nil preferredStyle:UIAlertControllerStyleAlert];
     // 添加输入框 (注意:在UIAlertControllerStyleActionSheet样式下是不能添加下面这行代码的)
     [alertVc addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.secureTextEntry = YES;
         textField.placeholder = CCWLocalizable(@"请输入密码");
     }];
     CCWWeakSelf
