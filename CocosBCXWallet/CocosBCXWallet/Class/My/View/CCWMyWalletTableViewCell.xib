@@ -22,14 +22,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hrp-bV-IpG">
                         <rect key="frame" x="15" y="12" width="354" height="107.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vb-p7-iJO">
-                                <rect key="frame" x="15" y="18" width="0.0" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="asdfasdfasfasdfasdf" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vb-p7-iJO">
+                                <rect key="frame" x="15" y="18" width="152" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <color key="textColor" red="0.14901960784313725" green="0.16470588235294117" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5E-dm-tKn">
-                                <rect key="frame" x="20" y="7" width="16" height="22"/>
+                                <rect key="frame" x="172" y="17" width="16" height="22"/>
                                 <state key="normal" image="tanster_copy"/>
                                 <connections>
                                     <action selector="makeAddress:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8d3-cf-7wd"/>
@@ -48,10 +48,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightItem" translatesAutoresizingMaskIntoConstraints="NO" id="buK-FF-ENt">
-                                <rect key="frame" x="331" y="11" width="8" height="14"/>
+                                <rect key="frame" x="331" y="21" width="8" height="14"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5GL-wM-edh" customClass="CCWButton">
-                                <rect key="frame" x="45" y="9" width="51" height="18"/>
+                                <rect key="frame" x="197" y="19" width="51" height="18"/>
                                 <color key="backgroundColor" red="0.28235294117647058" green="0.40784313725490196" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <inset key="contentEdgeInsets" minX="3" minY="2" maxX="3" maxY="2"/>
@@ -79,6 +79,7 @@
                             <constraint firstItem="5GL-wM-edh" firstAttribute="leading" secondItem="z5E-dm-tKn" secondAttribute="trailing" constant="9" id="HdK-3f-0QT"/>
                             <constraint firstItem="z5E-dm-tKn" firstAttribute="centerY" secondItem="7vb-p7-iJO" secondAttribute="centerY" id="L69-3F-WJg"/>
                             <constraint firstItem="z5E-dm-tKn" firstAttribute="leading" secondItem="7vb-p7-iJO" secondAttribute="trailing" constant="5" id="LLA-H7-icn"/>
+                            <constraint firstAttribute="centerX" relation="greaterThanOrEqual" secondItem="7vb-p7-iJO" secondAttribute="trailing" id="P5V-wb-u0V"/>
                             <constraint firstItem="7vb-p7-iJO" firstAttribute="top" secondItem="Hrp-bV-IpG" secondAttribute="top" constant="18" id="aqR-Ij-4nW"/>
                             <constraint firstItem="Tw6-J3-Hgx" firstAttribute="leading" secondItem="7vb-p7-iJO" secondAttribute="leading" id="dr1-an-uVs"/>
                             <constraint firstItem="oJC-kP-bPX" firstAttribute="centerY" secondItem="Tw6-J3-Hgx" secondAttribute="centerY" constant="1" id="f1a-Qv-SR7"/>

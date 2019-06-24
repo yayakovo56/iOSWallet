@@ -22,8 +22,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GqC-s0-grx">
                         <rect key="frame" x="15" y="5" width="328" height="69.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="qinjieqiong1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxJ-xD-ZQs">
-                                <rect key="frame" x="18" y="25" width="91" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="qinjieqiong1" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxJ-xD-ZQs">
+                                <rect key="frame" x="18" y="25" width="146" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" red="0.14901960784313725" green="0.16470588235294117" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -42,6 +42,7 @@
                         <constraints>
                             <constraint firstItem="LPv-3j-dGd" firstAttribute="top" secondItem="mxJ-xD-ZQs" secondAttribute="bottom" constant="1" id="0je-cE-LoH"/>
                             <constraint firstItem="mxJ-xD-ZQs" firstAttribute="leading" secondItem="GqC-s0-grx" secondAttribute="leading" constant="18" id="359-JI-wpo"/>
+                            <constraint firstAttribute="centerX" secondItem="mxJ-xD-ZQs" secondAttribute="trailing" id="9dI-0g-R54"/>
                             <constraint firstAttribute="trailing" secondItem="ZaB-Ue-S2U" secondAttribute="trailing" constant="18" id="UYz-Yw-zQv"/>
                             <constraint firstItem="ZaB-Ue-S2U" firstAttribute="centerY" secondItem="mxJ-xD-ZQs" secondAttribute="centerY" id="gSO-Ti-6eX"/>
                             <constraint firstItem="ZaB-Ue-S2U" firstAttribute="centerY" secondItem="GqC-s0-grx" secondAttribute="centerY" id="xfH-n7-KzG"/>

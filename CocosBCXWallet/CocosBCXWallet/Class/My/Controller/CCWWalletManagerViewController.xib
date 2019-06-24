@@ -45,8 +45,8 @@
                                 <constraint firstAttribute="width" constant="50" id="V4q-fv-7Ke"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wdsfqde" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04Y-mh-tfv">
-                            <rect key="frame" x="84" y="36.5" width="57" height="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="account" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04Y-mh-tfv">
+                            <rect key="frame" x="84" y="36.5" width="53.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                             <color key="textColor" red="0.14901960784313725" green="0.16470588235294117" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -76,6 +76,7 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="centerX" relation="greaterThanOrEqual" secondItem="04Y-mh-tfv" secondAttribute="trailing" id="3fI-3a-cYB"/>
                         <constraint firstItem="YOT-oX-Chm" firstAttribute="leading" secondItem="ssa-dq-K7a" secondAttribute="trailing" id="6wp-cG-pnZ"/>
                         <constraint firstAttribute="height" constant="145" id="7x9-Pc-sxy"/>
                         <constraint firstItem="zhT-zc-qMi" firstAttribute="top" secondItem="Ybw-xY-6IG" secondAttribute="top" constant="20" id="82V-Bn-Zk9"/>

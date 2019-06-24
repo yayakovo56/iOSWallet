@@ -72,8 +72,8 @@
 
 -(void)textFieldTextChange:(UITextField *)textField{
     NSString *account = textField.text;
-    if (![account ys_regexValidate:@"^[a-z][a-z0-9.-]{4,63}$"]) {
-        self.remindLabel.text = CCWLocalizable(@"5-64位小写字母开头+数字");
+    if (![account ys_regexValidate:@"^[a-z][a-z0-9.-]{4,62}$"]) {
+        self.remindLabel.text = CCWLocalizable(@"5-63位小写字母开头+数字");
     }else{
         self.remindLabel.text = @"";
     }
@@ -91,7 +91,7 @@
         return;
     }
 
-    if (![accountStr ys_regexValidate:@"^[a-z][a-z0-9.-]{3,63}$"]) {
+    if (![accountStr ys_regexValidate:@"^[a-z][a-z0-9.-]{3,62}$"]) {
         [self.view makeToast:CCWLocalizable(@"账号名称不符合设置规则")];
         return;
     }
