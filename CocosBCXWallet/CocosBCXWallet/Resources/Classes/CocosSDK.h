@@ -146,6 +146,11 @@ NS_ASSUME_NONNULL_BEGIN
               Error:(Error)errorBlock;
 
 #pragma mark - Information Operation of Accounts
+/** Verify that the password is correct */
+- (void)validateAccount:(NSString *)accountName
+               Password:(NSString *)password
+                Success:(SuccessBlock)successBlock
+                  Error:(Error)errorBlock;
 /**
  Get private key
 

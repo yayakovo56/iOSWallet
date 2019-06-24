@@ -99,9 +99,16 @@
         // 通过数组拿到textTF的值
         NSString *password = [[alertVc textFields] objectAtIndex:0].text;
         [CCWSDKRequest CCW_GetPrivateKey:weakSelf.walletAccountModel.dbAccountModel.name password:password Success:^(id  _Nonnull responseObject) {
-            CCWExportViewController *exportVC = [[CCWExportViewController alloc] init];
-            exportVC.keys = responseObject;
-            [weakSelf.navigationController pushViewController:exportVC animated:YES];
+            NSString *activekey = responseObject[@"active_key"];
+            NSString *ownerkey = responseObject[@"owner_key"];
+            if (activekey == nil && ownerkey == nil) {
+                [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
+            }else{
+                CCWExportViewController *exportVC = [[CCWExportViewController alloc] init];
+                exportVC.keys = responseObject;
+                [weakSelf.navigationController pushViewController:exportVC animated:YES];
+            }
+            
         } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
             [weakSelf.view makeToast:CCWLocalizable(errorAlert)];
         }];

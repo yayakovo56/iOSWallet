@@ -31,13 +31,13 @@
 
 - (IBAction)makeActivePrivateKey:(UIButton *)sender {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    [pasteboard setString:self.assetsPrivateKey.text];
+    [pasteboard setString:self.assetsPrivateKey.text?:@""];
     [self.view makeToast:CCWLocalizable(@"复制成功")];
 }
 
 - (IBAction)makeOwnerPrivateKey:(UIButton *)sender {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    [pasteboard setString:self.accountPrivateKey.text];
+    [pasteboard setString:self.accountPrivateKey.text?:@""];
     [self.view makeToast:CCWLocalizable(@"复制成功")];
 }
 @end
