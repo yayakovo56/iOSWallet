@@ -85,8 +85,12 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
- 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:CCWAccountName style:UIBarButtonItemStylePlain target:self action:@selector(switchAccountClick)];
+    NSString *accountName = CCWAccountName;
+    if (accountName.length > 13) {
+        accountName = [accountName substringToIndex:13];//截取掉下标5之前的字符串
+        accountName = [NSString stringWithFormat:@"%@...",accountName];
+    }
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%@ >",accountName] style:UIBarButtonItemStylePlain target:self action:@selector(switchAccountClick)];
     [self connectSuccess];
 }
 
@@ -221,7 +225,12 @@
     CCWSETAccountId(dbAccountModel.ID);
     CCWSETAccountName(dbAccountModel.name);
     [self connectSuccess];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:CCWAccountName style:UIBarButtonItemStylePlain target:self action:@selector(switchAccountClick)];
+    NSString *accountName = CCWAccountName;
+    if (accountName.length > 13) {
+        accountName = [accountName substringToIndex:13];//截取掉下标5之前的字符串
+        accountName = [NSString stringWithFormat:@"%@...",accountName];
+    }
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%@ >",accountName] style:UIBarButtonItemStylePlain target:self action:@selector(switchAccountClick)];
 }
 
 - (void)CCW_SwitchViewAddAccountClick:(CCWSwitchAccountView *)switchAccountView
