@@ -104,6 +104,7 @@
 "数量" = "Amount";
 "备注" = "Note";
 "确认支付" = "Confirm Payment";
+"owner key不能进行转账，请导入active key" = "Owner key cannot transfer,Please import active key";
 "输入转账信息" = "Enter transfer information";
 "无法给自己转账" = "You cannot transfer to your own account";
 "请输入转账数量" = "Please enter the amount to be transferred";

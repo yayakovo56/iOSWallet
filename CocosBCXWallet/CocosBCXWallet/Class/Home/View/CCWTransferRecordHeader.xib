@@ -70,8 +70,8 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxxxx" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvt-Xy-FMI">
-                    <rect key="frame" x="39" y="135" width="34" height="16"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="account" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvt-Xy-FMI">
+                    <rect key="frame" x="39" y="135" width="49" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -95,7 +95,7 @@
                     <viewLayoutGuide key="safeArea" id="oMu-4n-ooK"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddu-Rh-5JX">
-                    <rect key="frame" x="83" y="132" width="16" height="22"/>
+                    <rect key="frame" x="98" y="132" width="16" height="22"/>
                     <state key="normal" image="copyImage"/>
                     <connections>
                         <action selector="copyAddressButtonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="QZc-17-2vb"/>
@@ -123,6 +123,7 @@
                 <constraint firstItem="voC-ln-scw" firstAttribute="height" secondItem="oEl-3h-zcG" secondAttribute="height" id="Ic0-CV-2jo"/>
                 <constraint firstItem="iDP-cg-wMw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="4" id="MsX-VO-05g"/>
                 <constraint firstItem="ddu-Rh-5JX" firstAttribute="leading" secondItem="Dvt-Xy-FMI" secondAttribute="trailing" constant="10" id="Nch-xt-7On"/>
+                <constraint firstItem="iDP-cg-wMw" firstAttribute="centerX" relation="greaterThanOrEqual" secondItem="Dvt-Xy-FMI" secondAttribute="trailing" constant="50" id="Shh-nN-lBC"/>
                 <constraint firstItem="mQC-Xt-8hR" firstAttribute="centerY" secondItem="oEl-3h-zcG" secondAttribute="centerY" id="UYy-Gv-wDn"/>
                 <constraint firstItem="Dvt-Xy-FMI" firstAttribute="leading" secondItem="pPo-ti-iHQ" secondAttribute="leading" id="W1w-UH-njs"/>
                 <constraint firstItem="Dvt-Xy-FMI" firstAttribute="top" secondItem="pPo-ti-iHQ" secondAttribute="bottom" constant="39" id="aa5-SF-EX5"/>

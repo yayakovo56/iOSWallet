@@ -60,7 +60,7 @@
                             <color key="textColor" red="0.38431372549019605" green="0.40000000000000002" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksU-Qw-QBy">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksU-Qw-QBy">
                             <rect key="frame" x="105" y="154.5" width="0.0" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.14901960784313725" green="0.16470588235294117" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -199,6 +199,7 @@
                         <constraint firstItem="Ug8-f3-Yxe" firstAttribute="leading" secondItem="CLK-1l-F6b" secondAttribute="leading" id="S2U-x0-trG"/>
                         <constraint firstItem="Ug8-f3-Yxe" firstAttribute="top" secondItem="rPI-fN-B3m" secondAttribute="bottom" constant="26" id="U2q-EW-Ap5"/>
                         <constraint firstItem="voz-5c-jBj" firstAttribute="leading" secondItem="pCu-Ph-fak" secondAttribute="trailing" constant="16" id="WHb-Tv-AVb"/>
+                        <constraint firstAttribute="centerX" relation="greaterThanOrEqual" secondItem="ksU-Qw-QBy" secondAttribute="trailing" constant="-50" id="WyE-yY-QaA"/>
                         <constraint firstItem="CLK-1l-F6b" firstAttribute="width" secondItem="x63-0D-YpB" secondAttribute="width" id="XT8-L7-WbF"/>
                         <constraint firstItem="CLK-1l-F6b" firstAttribute="leading" secondItem="x63-0D-YpB" secondAttribute="leading" id="YGY-EA-U0U"/>
                         <constraint firstItem="CSe-WO-How" firstAttribute="top" secondItem="Ug8-f3-Yxe" secondAttribute="bottom" constant="26" id="a7v-HS-JL4"/>

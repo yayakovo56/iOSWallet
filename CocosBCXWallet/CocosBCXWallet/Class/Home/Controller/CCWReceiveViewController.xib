@@ -91,8 +91,8 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4tA-gV-hLh">
                                     <rect key="frame" x="25" y="320.5" width="124" height="50"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="qinjieqiong1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91T-Tg-VzE">
-                                            <rect key="frame" x="14" y="16" width="82" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="qinjieqiong1" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91T-Tg-VzE">
+                                            <rect key="frame" x="14" y="16" width="105" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.38431372549019605" green="0.40000000000000002" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -102,6 +102,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="4Na-1O-dzl"/>
                                         <constraint firstItem="91T-Tg-VzE" firstAttribute="centerY" secondItem="4tA-gV-hLh" secondAttribute="centerY" id="6q1-8s-ab8"/>
+                                        <constraint firstAttribute="trailing" secondItem="91T-Tg-VzE" secondAttribute="trailing" constant="5" id="M3l-T7-zOL"/>
                                         <constraint firstItem="91T-Tg-VzE" firstAttribute="leading" secondItem="4tA-gV-hLh" secondAttribute="leading" constant="14" id="a1e-7T-Vov"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
