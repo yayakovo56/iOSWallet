@@ -13,15 +13,24 @@
 @property (weak, nonatomic) IBOutlet UILabel *active_prikey_lab;
 @property (weak, nonatomic) IBOutlet UILabel *owner_prikey_lab;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *keyTopConstraint;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *keyBottomConstraint;
+
 @end
 
 @implementation CCWBackupsPrivateController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = CCWLocalizable(@"备份私钥");
     
+    if (iPhone5) {
+        self.keyTopConstraint.constant = 12;
+        self.keyBottomConstraint.constant = 22;
+    }
     self.active_prikey_lab.attributedText = [self textset2AttrbuteString:self.account[@"active_pri_key"]];
     self.owner_prikey_lab.attributedText = [self textset2AttrbuteString:self.account[@"owner_pri_key"]];
     
