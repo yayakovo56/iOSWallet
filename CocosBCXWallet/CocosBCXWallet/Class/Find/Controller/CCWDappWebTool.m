@@ -71,14 +71,14 @@
         [CCWSDKRequest CCW_QueryAssetInfo:asset Success:^(CCWAssetsModel *assetsModel) {
             [CCWSDKRequest CCW_QueryAccountBalances:accountId assetId:assetsModel.asset_id?assetsModel.asset_id:assetsModel.ID Success:^(CCWAssetsModel *resassets) {
                 !block?:block(param[@"serialNumber"],[@{@"data":@{resassets.symbol:resassets.amount},@"code":@1} mj_JSONString]);
-            } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-                !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+            } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+                !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
             }];
-        } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-            !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+        } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+            !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
         }];
-    } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-        !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
     }];
 }
 
@@ -101,8 +101,8 @@
                                             @"fee_symbol":assetsModel.symbol,
                                             };
                 !block?:block(param[@"serialNumber"],[@{@"data":jsMessage,@"code":@1} mj_JSONString]);
-            } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-                !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+            } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+                !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
             }];
         }else{
             [CCWSDKRequest CCW_TransferAsset:from toAccount:to password:password assetId:assetId feeAssetId:feeAssetId amount:amount memo:memo Success:^(id  _Nonnull responseObject) {
@@ -110,8 +110,8 @@
                                             @"trx_id":responseObject,
                                             };
                 !block?:block(param[@"serialNumber"],[@{@"data":@[],@"code":@1,@"trx_data":jsMessage} mj_JSONString]);
-            } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-                !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+            } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+                !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
             }];
         }
     } serialNumber:param[@"serialNumber"] cancel:block];
@@ -133,16 +133,16 @@
                                             @"fee_symbol":assetsModel.symbol,
                                             };
                 !block?:block(param[@"serialNumber"],[@{@"data":jsMessage,@"code":@1} mj_JSONString]);
-            } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-                !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+            } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+                !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
             }];
         }else{
             [CCWSDKRequest CCW_CallContract:nameOrId ContractMethodParam:valueList ContractMethod:functionName CallerAccount:CCWAccountId feePayingAsset:@"1.3.0" Password:password CallContractSuccess:^(id  _Nonnull responseObject) {
                 NSString *jsString = [responseObject mj_JSONString];
                 jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
                 !block?:block(param[@"serialNumber"],jsString);
-            } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-                !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+            } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
+                !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
             }];
         }
     } serialNumber:param[@"serialNumber"] cancel:block];
@@ -154,8 +154,8 @@
     NSDictionary *contractParam = param[@"params"];
     [CCWSDKRequest CCW_queryContra:contractParam[@"nameOrId"] Success:^(id  _Nonnull responseObject) {
         !block?:block(param[@"serialNumber"],[@{@"data":responseObject,@"code":@1} mj_JSONString]);
-    } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-        !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
     }];
 }
 
@@ -166,8 +166,8 @@
     [CCWSDKRequest CCW_queryFullAccountInfo:accountParam[@"account"] Success:^(id  _Nonnull responseObject) {
         NSDictionary *data = [[responseObject lastObject] lastObject];
         !block?:block(param[@"serialNumber"],[@{@"data":data,@"code":@1} mj_JSONString]);
-    } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-        !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
     }];
 }
 
@@ -179,8 +179,8 @@
         NSString *jsString = [@{@"data":responseObject,@"code":@1} mj_JSONString];
         jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
         !block?:block(param[@"serialNumber"],jsString);
-    } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-        !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
     }];
 }
 
@@ -198,11 +198,11 @@
             NSString *jsString = [@{@"data":[responseObject firstObject],@"total":[responseObject  lastObject],@"code":@1} mj_JSONString];
             jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
             !block?:block(param[@"serialNumber"],jsString);
-        } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-            !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+        } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+            !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
         }];
-    } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-        !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
     }];
 }
 
@@ -219,8 +219,8 @@
         NSString *jsString = [@{@"data":[responseObject firstObject],@"total":[responseObject  lastObject],@"code":@1} mj_JSONString];
         jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
         !block?:block(param[@"serialNumber"],jsString);
-    } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-        !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
     }];
 }
 
@@ -238,11 +238,11 @@
             NSString *jsString = [@{@"data":[responseObject firstObject],@"total":[responseObject  lastObject],@"code":@1} mj_JSONString];
             jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
             !block?:block(param[@"serialNumber"],jsString);
-        } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-            !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+        } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+            !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
         }];
-    } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-        !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
     }];
 }
 // 解密备注
@@ -253,8 +253,8 @@
     [self alertInputPwdBlock:^(NSString *password) {
         [CCWSDKRequest CCW_DecodeMemo:memoDic Password:password Success:^(id  _Nonnull responseObject) {
             !block?:block(param[@"serialNumber"],[@{@"data":@{@"text":responseObject},@"code":@1} mj_JSONString]);
-        } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-            !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+        } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+            !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
         }];
     } serialNumber:param[@"serialNumber"] cancel:block];
 }
@@ -270,8 +270,8 @@
                                         @"trx_id":responseObject,
                                         };
             !block?:block(param[@"serialNumber"],[@{@"data":@[],@"code":@1,@"trx_data":jsMessage} mj_JSONString]);
-        } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-            !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+        } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+            !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
         }];
     } serialNumber:param[@"serialNumber"] cancel:block];
 }
@@ -290,8 +290,8 @@
                                             @"fee_symbol":assetsModel.symbol,
                                             };
                 !block?:block(param[@"serialNumber"],[@{@"data":jsMessage,@"code":@1} mj_JSONString]);
-            } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-                !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+            } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+                !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
             }];
         }else{
             [CCWSDKRequest CCW_BuyNHAssetOrderID:orderId Account:CCWAccountId Password:password FeePayingAsset:@"1.3.0" Success:^(id  _Nonnull responseObject) {
@@ -299,13 +299,20 @@
                                             @"trx_id":responseObject,
                                             };
                 !block?:block(param[@"serialNumber"],[@{@"data":@[],@"code":@1,@"trx_data":jsMessage} mj_JSONString]);
-            } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-               !block?:block(param[@"serialNumber"],@"ERROR:ERROR");
+            } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+               !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
             }];
         }
     } serialNumber:param[@"serialNumber"] cancel:block];
 
 }
+
+// 所有错误处理
++ (NSString *)errorBlockWithError:(NSString *)error ResponseObject:(NSError *)errorObj
+{
+    return [@{@"message":error,@"code":@(errorObj.code)} mj_JSONString];
+}
+
 // 输入密码
 + (void)alertInputPwdBlock:(void(^)(NSString * password))sureClick serialNumber:(NSString *)serialNumber cancel:(CallbackBlock)cancel{
     // 输入密码
