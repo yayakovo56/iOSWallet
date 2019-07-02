@@ -18,7 +18,8 @@ NSString * const CCWLanEn = @"en";//英文文件
 NSString * const CCWLanzhHans = @"zh-Hans-CN";//简体
 NSString * const CCWLanEn_us = @"en-US";//美文
 NSString * const CCWLanBase = @"Base";// 默认语言
-//NSString * const CCWLanzhHant = @"zh-Hant";//繁体
-//NSString * const CCWLanzh_CCW = @"zh-CCW";//台湾
-//NSString * const CCWLanzh_HK = @"zh-HK";//香港
+NSString * const CCWLanzhHant = @"zh-Hant";//繁体
+NSString * const CCWLanzh_CCW = @"zh-CCW";//台湾
+NSString * const CCWLanzh_HK = @"zh-HK";//香港
+NSString * const CCWLanzhHansUS = @"zh-Hans-US";// 澳门
 

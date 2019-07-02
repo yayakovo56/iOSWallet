@@ -112,12 +112,20 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section) {
-        CCWWeakSelf
-        CCWVCShowAlertCancelWithMsgHandler(CCWLocalizable(@"注意"), CCWLocalizable(@"您正在跳转至第三方dapp，确认即同意第三方dapp的用户协议与隐私政策，由其直接并单独向您承担责任"), ^(UIAlertAction * _Nonnull action) {
-            CCWFindModel *findModel = weakSelf.dataSource[indexPath.section-1];
-            CCWDappModel *dappModel = findModel.data[indexPath.row];
-            [weakSelf CCW_PushDappViewControllerWithDapp:dappModel];
-        });
+        CCWFindModel *findModel = self.dataSource[indexPath.section-1];
+        CCWDappModel *dappModel = findModel.data[indexPath.row];
+        
+        // 获取是否同意过
+        BOOL isjumpVC = [CCWSaveTool boolForKey:dappModel.linkUrl];
+        if (isjumpVC) {
+            [self CCW_PushDappViewControllerWithDapp:dappModel];
+        }else{
+            CCWWeakSelf
+            CCWVCShowAlertCancelWithMsgHandler(CCWLocalizable(@"注意"), CCWLocalizable(@"您正在跳转至第三方dapp，确认即同意第三方dapp的用户协议与隐私政策，由其直接并单独向您承担责任"), ^(UIAlertAction * _Nonnull action) {
+                [weakSelf CCW_PushDappViewControllerWithDapp:dappModel];
+                [CCWSaveTool setBool:YES forKey:dappModel.linkUrl];
+            });
+        }
     }
 
 }

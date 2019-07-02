@@ -11,19 +11,20 @@
 #define JS_PUSHMESSAGE                  @"pushMessage"
 
 #define JS_METHOD_getCocosAccount       @"getAccountInfo"
-#define JS_METHOD_getAccountBalances    @"getAccountBalances"
 #define JS_METHOD_transfer              @"transferAsset"
 #define JS_METHOD_callContract          @"callContractFunction"
-#define JS_METHOD_queryContra           @"queryContract"
-#define JS_METHOD_queryContraD          @"queryAccountContractData"
-#define JS_METHOD_queryAccoInfo         @"queryAccountInfo"
-#define JS_METHOD_queryNHAsset          @"queryNHAssets"
-#define JS_METHOD_queryAccoNHOrders     @"queryAccountNHAssetOrders"
-#define JS_METHOD_queryNHOrders         @"queryNHAssetOrders"
-#define JS_METHOD_queryAccoNH           @"queryAccountNHAssets"
 #define JS_METHOD_decodeMemo            @"decodeMemo"
 #define JS_METHOD_transferNH            @"transferNHAsset"
 #define JS_METHOD_fillNHAssetOrder      @"fillNHAssetOrder"
+
+//#define JS_METHOD_getAccountBalances    @"getAccountBalances"
+//#define JS_METHOD_queryContra           @"queryContract"
+//#define JS_METHOD_queryContraD          @"queryAccountContractData"
+//#define JS_METHOD_queryAccoInfo         @"queryAccountInfo"
+//#define JS_METHOD_queryNHAsset          @"queryNHAssets"
+//#define JS_METHOD_queryAccoNHOrders     @"queryAccountNHAssetOrders"
+//#define JS_METHOD_queryNHOrders         @"queryNHAssetOrders"
+//#define JS_METHOD_queryAccoNH           @"queryAccountNHAssets"
 
 
 #define JS_METHODNAME_CALLBACKRESULT                @"callbackResult"

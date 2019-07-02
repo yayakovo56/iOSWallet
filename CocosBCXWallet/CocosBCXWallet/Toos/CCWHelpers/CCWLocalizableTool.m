@@ -54,21 +54,39 @@ static NSBundle *bundle = nil;
 
 + (NSString *)convertLanguageStringWithCurrentLan:(NSString *)currntStr
 {
-    NSString *convertStr = CCWLanBase;
-    NSArray *lanArray = @[CCWLanEn_us, CCWLanEn, CCWLanzhHans];
+    NSString *convertStr = CCWLanEn;
+    NSArray *lanArray = @[CCWLanEn_us, CCWLanEn, CCWLanzhHans, CCWLanzhHant, CCWLanzh_CCW, CCWLanzh_HK, CCWLanzhHansUS];
     for (NSString *lanstr in lanArray) {
         if ([currntStr containsString:lanstr]) {
             convertStr = lanstr;
-            if (lanstr == CCWLanEn_us || lanstr == CCWLanEn) {
-                convertStr = CCWLanEn;
-            } else {
+            if (lanstr == CCWLanzhHans || lanstr == CCWLanzhHant || lanstr == CCWLanzh_CCW || lanstr == CCWLanzh_HK || lanstr == CCWLanzhHansUS) {
                 convertStr = CCWLanzh;
+            } else {
+                convertStr = CCWLanEn;
             }
             break;
         }
     }
     return convertStr;
 }
+
+//+ (NSString *)convertLanguageStringWithCurrentLan:(NSString *)currntStr
+//{
+//    NSString *convertStr = CCWLanBase;
+//    NSArray *lanArray = @[CCWLanEn_us, CCWLanEn, CCWLanzhHans];
+//    for (NSString *lanstr in lanArray) {
+//        if ([currntStr containsString:lanstr]) {
+//            convertStr = lanstr;
+//            if (lanstr == CCWLanEn_us || lanstr == CCWLanEn) {
+//                convertStr = CCWLanEn;
+//            } else {
+//                convertStr = CCWLanzh;
+//            }
+//            break;
+//        }
+//    }
+//    return convertStr;
+//}
 
 //+ (NSString *)convertLanguageStringWithCurrentLan:(NSString *)currntStr
 //{

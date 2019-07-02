@@ -16,38 +16,18 @@
     if ([name isEqualToString:JS_PUSHMESSAGE]) {
         if ([body[@"methodName"] isEqualToString:JS_METHOD_getCocosAccount]) {
             [self js_getCocosAccount:body response:block];
-        }else if ([body[@"methodName"] isEqualToString:JS_METHOD_getAccountBalances]){
-            [self JS_getAccountBalances:body response:block];
         }else if([body[@"methodName"] isEqualToString:JS_METHOD_transfer]) {
             [self JS_transfer:body response:block];
         }else if([body[@"methodName"] isEqualToString:JS_METHOD_callContract]) {
             [self JS_callContract:body response:block];
-        }else if([body[@"methodName"] isEqualToString:JS_METHOD_queryContra]) {
-//            [self JS_queryContra:body response:block];
-            // 暂无
-        }else if([body[@"methodName"] isEqualToString:JS_METHOD_queryContraD]) {
-            // 暂无
-        }else if([body[@"methodName"] isEqualToString:JS_METHOD_queryAccoInfo]) {
-            [self JS_queryAccoInfo:body response:block];
-        }else if([body[@"methodName"] isEqualToString:JS_METHOD_queryNHAsset]) {
-            [self JS_QueryNHAssets:body response:block];
-        }else if([body[@"methodName"] isEqualToString:JS_METHOD_queryAccoNHOrders]) {
-            [self JS_QueryAccountNHAssetOrders:body response:block];
-        }else if([body[@"methodName"] isEqualToString:JS_METHOD_queryNHOrders]) {
-            [self JS_QuerytNHAssetOrders:body response:block];
-        }else if([body[@"methodName"] isEqualToString:JS_METHOD_queryAccoNH]) {
-            [self JS_QueryAccountNHAssets:body response:block];
         }else if([body[@"methodName"] isEqualToString:JS_METHOD_decodeMemo]) {
             [self JS_DecodeMemo:body response:block];
-        }else if([body[@"methodName"] isEqualToString:JS_METHOD_transferNH]) {
-            [self JS_TransferNHAsset:body response:block];
         }else if([body[@"methodName"] isEqualToString:JS_METHOD_transferNH]) {
             [self JS_TransferNHAsset:body response:block];
         }else if([body[@"methodName"] isEqualToString:JS_METHOD_fillNHAssetOrder]) {
             [self JS_fillNHAssetOrder:body response:block];
         }
     }
-    
 }
 
 #pragma mark - Action
@@ -60,27 +40,6 @@
     !block?:block(param[@"serialNumber"],[jsMessage mj_JSONString]);
 }
 
-//获取账户余额
-+ (void)JS_getAccountBalances:(NSDictionary *)param response:(CallbackBlock)block
-{
-    NSDictionary *js_params = param[@"params"];
-    NSString *account = js_params[@"account"];
-    NSString *asset = js_params[@"assetId"];
-    [CCWSDKRequest CCW_QueryAccountInfo:account Success:^(id  _Nonnull responseObject) {
-        NSString *accountId = responseObject[@"id"];
-        [CCWSDKRequest CCW_QueryAssetInfo:asset Success:^(CCWAssetsModel *assetsModel) {
-            [CCWSDKRequest CCW_QueryAccountBalances:accountId assetId:assetsModel.asset_id?assetsModel.asset_id:assetsModel.ID Success:^(CCWAssetsModel *resassets) {
-                !block?:block(param[@"serialNumber"],[@{@"data":@{resassets.symbol:resassets.amount},@"code":@1} mj_JSONString]);
-            } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
-                !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
-            }];
-        } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
-            !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
-        }];
-    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
-        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
-    }];
-}
 
 // 转账
 + (void)JS_transfer:(NSDictionary *)param response:(CallbackBlock)block
@@ -148,103 +107,6 @@
     } serialNumber:param[@"serialNumber"] cancel:block];
 }
 
-// 查询合约
-+ (void)JS_queryContra:(NSDictionary *)param response:(CallbackBlock)block
-{
-    NSDictionary *contractParam = param[@"params"];
-    [CCWSDKRequest CCW_queryContra:contractParam[@"nameOrId"] Success:^(id  _Nonnull responseObject) {
-        !block?:block(param[@"serialNumber"],[@{@"data":responseObject,@"code":@1} mj_JSONString]);
-    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
-        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
-    }];
-}
-
-// 查询用户信息
-+ (void)JS_queryAccoInfo:(NSDictionary *)param response:(CallbackBlock)block
-{
-    NSDictionary *accountParam = param[@"params"];
-    [CCWSDKRequest CCW_queryFullAccountInfo:accountParam[@"account"] Success:^(id  _Nonnull responseObject) {
-        NSDictionary *data = [[responseObject lastObject] lastObject];
-        !block?:block(param[@"serialNumber"],[@{@"data":data,@"code":@1} mj_JSONString]);
-    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
-        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
-    }];
-}
-
-// 查询NH资产
-+ (void)JS_QueryNHAssets:(NSDictionary *)param response:(CallbackBlock)block
-{
-    NSDictionary *accountParam = param[@"params"];
-    [CCWSDKRequest CCW_queryNHAssets:accountParam[@"NHAssetIds"] Success:^(id  _Nonnull responseObject) {
-        NSString *jsString = [@{@"data":responseObject,@"code":@1} mj_JSONString];
-        jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
-        !block?:block(param[@"serialNumber"],jsString);
-    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
-        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
-    }];
-}
-
-// 查询账户下所拥有的NH资产售卖订单
-+ (void)JS_QueryAccountNHAssetOrders:(NSDictionary *)param response:(CallbackBlock)block
-{
-    NSDictionary *nhorderParam = param[@"params"];
-    NSString *accountNameOrId = nhorderParam[@"account"];
-    NSInteger pageSize = [nhorderParam[@"pageSize"] integerValue];
-    NSInteger page = [nhorderParam[@"page"] integerValue];
-    
-    [CCWSDKRequest CCW_QueryAccountInfo:accountNameOrId Success:^(id  _Nonnull responseObject) {
-        NSString *accountId = responseObject[@"id"];
-        [CCWSDKRequest CCW_ListAccountNHAssetOrder:accountId PageSize:pageSize Page:page Success:^(id  _Nonnull responseObject) {
-            NSString *jsString = [@{@"data":[responseObject firstObject],@"total":[responseObject  lastObject],@"code":@1} mj_JSONString];
-            jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
-            !block?:block(param[@"serialNumber"],jsString);
-        } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
-            !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
-        }];
-    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
-        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
-    }];
-}
-
-// 查询全网NH资产售卖单
-+ (void)JS_QuerytNHAssetOrders:(NSDictionary *)param response:(CallbackBlock)block
-{
-    NSDictionary *nhParam = param[@"params"];
-    NSString *assetIds = nhParam[@"assetIds"];
-    NSString *worldViews = nhParam[@"worldViews"];
-    NSString *baseDescribe = nhParam[@"baseDescribe"];
-    NSInteger pageSize = [nhParam[@"pageSize"] integerValue];
-    NSInteger page = [nhParam[@"page"] integerValue];
-    [CCWSDKRequest CCW_QueryAllNHAssetOrder:assetIds WorldView:worldViews BaseDescribe:baseDescribe PageSize:pageSize Page:page Success:^(id  _Nonnull responseObject) {
-        NSString *jsString = [@{@"data":[responseObject firstObject],@"total":[responseObject  lastObject],@"code":@1} mj_JSONString];
-        jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
-        !block?:block(param[@"serialNumber"],jsString);
-    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
-        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
-    }];
-}
-
-// 查询账户下所拥有的道具NH资产
-+ (void)JS_QueryAccountNHAssets:(NSDictionary *)param response:(CallbackBlock)block
-{
-    NSDictionary *nhParam = param[@"params"];
-    NSString *accountNameOrId = nhParam[@"account"];
-    NSArray *wordViewNameOrId = nhParam[@"worldViews"];
-    NSInteger pageSize = [nhParam[@"pageSize"] integerValue];
-    NSInteger page = [nhParam[@"page"] integerValue];
-    [CCWSDKRequest CCW_QueryAccountInfo:accountNameOrId Success:^(id  _Nonnull responseObject) {
-        NSString *accountId = responseObject[@"id"];
-        [CCWSDKRequest CCW_QueryAccountNHAsset:accountId WorldView:wordViewNameOrId PageSize:pageSize Page:page Success:^(id  _Nonnull responseObject) {
-            NSString *jsString = [@{@"data":[responseObject firstObject],@"total":[responseObject  lastObject],@"code":@1} mj_JSONString];
-            jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
-            !block?:block(param[@"serialNumber"],jsString);
-        } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
-            !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
-        }];
-    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
-        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
-    }];
-}
 // 解密备注
 + (void)JS_DecodeMemo:(NSDictionary *)param response:(CallbackBlock)block
 {
@@ -310,7 +172,7 @@
 // 所有错误处理
 + (NSString *)errorBlockWithError:(NSString *)error ResponseObject:(NSError *)errorObj
 {
-    return [@{@"message":error,@"code":@(errorObj.code)} mj_JSONString];
+    return [@{@"message":errorObj.domain.description,@"code":@(errorObj.code)} mj_JSONString];
 }
 
 // 输入密码
@@ -341,4 +203,125 @@
     [alertVc addAction:action1];
     [[UIViewController topViewController] presentViewController:alertVc animated:YES completion:nil];
 }
+
+
+
+////获取账户余额
+//+ (void)JS_getAccountBalances:(NSDictionary *)param response:(CallbackBlock)block
+//{
+//    NSDictionary *js_params = param[@"params"];
+//    NSString *account = js_params[@"account"];
+//    NSString *asset = js_params[@"assetId"];
+//    [CCWSDKRequest CCW_QueryAccountInfo:account Success:^(id  _Nonnull responseObject) {
+//        NSString *accountId = responseObject[@"id"];
+//        [CCWSDKRequest CCW_QueryAssetInfo:asset Success:^(CCWAssetsModel *assetsModel) {
+//            [CCWSDKRequest CCW_QueryAccountBalances:accountId assetId:assetsModel.asset_id?assetsModel.asset_id:assetsModel.ID Success:^(CCWAssetsModel *resassets) {
+//                !block?:block(param[@"serialNumber"],[@{@"data":@{resassets.symbol:resassets.amount},@"code":@1} mj_JSONString]);
+//            } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+//                !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
+//            }];
+//        } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+//            !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
+//        }];
+//    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+//        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
+//    }];
+//}
+//// 查询合约
+//+ (void)JS_queryContra:(NSDictionary *)param response:(CallbackBlock)block
+//{
+//    NSDictionary *contractParam = param[@"params"];
+//    [CCWSDKRequest CCW_queryContra:contractParam[@"nameOrId"] Success:^(id  _Nonnull responseObject) {
+//        !block?:block(param[@"serialNumber"],[@{@"data":responseObject,@"code":@1} mj_JSONString]);
+//    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+//        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
+//    }];
+//}
+//
+//// 查询用户信息
+//+ (void)JS_queryAccoInfo:(NSDictionary *)param response:(CallbackBlock)block
+//{
+//    NSDictionary *accountParam = param[@"params"];
+//    [CCWSDKRequest CCW_queryFullAccountInfo:accountParam[@"account"] Success:^(id  _Nonnull responseObject) {
+//        NSDictionary *data = [[responseObject lastObject] lastObject];
+//        !block?:block(param[@"serialNumber"],[@{@"data":data,@"code":@1} mj_JSONString]);
+//    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+//        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
+//    }];
+//}
+//
+//// 查询NH资产
+//+ (void)JS_QueryNHAssets:(NSDictionary *)param response:(CallbackBlock)block
+//{
+//    NSDictionary *accountParam = param[@"params"];
+//    [CCWSDKRequest CCW_queryNHAssets:accountParam[@"NHAssetIds"] Success:^(id  _Nonnull responseObject) {
+//        NSString *jsString = [@{@"data":responseObject,@"code":@1} mj_JSONString];
+//        jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
+//        !block?:block(param[@"serialNumber"],jsString);
+//    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+//        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
+//    }];
+//}
+//
+//// 查询账户下所拥有的NH资产售卖订单
+//+ (void)JS_QueryAccountNHAssetOrders:(NSDictionary *)param response:(CallbackBlock)block
+//{
+//    NSDictionary *nhorderParam = param[@"params"];
+//    NSString *accountNameOrId = nhorderParam[@"account"];
+//    NSInteger pageSize = [nhorderParam[@"pageSize"] integerValue];
+//    NSInteger page = [nhorderParam[@"page"] integerValue];
+//
+//    [CCWSDKRequest CCW_QueryAccountInfo:accountNameOrId Success:^(id  _Nonnull responseObject) {
+//        NSString *accountId = responseObject[@"id"];
+//        [CCWSDKRequest CCW_ListAccountNHAssetOrder:accountId PageSize:pageSize Page:page Success:^(id  _Nonnull responseObject) {
+//            NSString *jsString = [@{@"data":[responseObject firstObject],@"total":[responseObject  lastObject],@"code":@1} mj_JSONString];
+//            jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
+//            !block?:block(param[@"serialNumber"],jsString);
+//        } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+//            !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
+//        }];
+//    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+//        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
+//    }];
+//}
+//
+//// 查询全网NH资产售卖单
+//+ (void)JS_QuerytNHAssetOrders:(NSDictionary *)param response:(CallbackBlock)block
+//{
+//    NSDictionary *nhParam = param[@"params"];
+//    NSString *assetIds = nhParam[@"assetIds"];
+//    NSString *worldViews = nhParam[@"worldViews"];
+//    NSString *baseDescribe = nhParam[@"baseDescribe"];
+//    NSInteger pageSize = [nhParam[@"pageSize"] integerValue];
+//    NSInteger page = [nhParam[@"page"] integerValue];
+//    [CCWSDKRequest CCW_QueryAllNHAssetOrder:assetIds WorldView:worldViews BaseDescribe:baseDescribe PageSize:pageSize Page:page Success:^(id  _Nonnull responseObject) {
+//        NSString *jsString = [@{@"data":[responseObject firstObject],@"total":[responseObject  lastObject],@"code":@1} mj_JSONString];
+//        jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
+//        !block?:block(param[@"serialNumber"],jsString);
+//    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+//        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
+//    }];
+//}
+//
+//// 查询账户下所拥有的道具NH资产
+//+ (void)JS_QueryAccountNHAssets:(NSDictionary *)param response:(CallbackBlock)block
+//{
+//    NSDictionary *nhParam = param[@"params"];
+//    NSString *accountNameOrId = nhParam[@"account"];
+//    NSArray *wordViewNameOrId = nhParam[@"worldViews"];
+//    NSInteger pageSize = [nhParam[@"pageSize"] integerValue];
+//    NSInteger page = [nhParam[@"page"] integerValue];
+//    [CCWSDKRequest CCW_QueryAccountInfo:accountNameOrId Success:^(id  _Nonnull responseObject) {
+//        NSString *accountId = responseObject[@"id"];
+//        [CCWSDKRequest CCW_QueryAccountNHAsset:accountId WorldView:wordViewNameOrId PageSize:pageSize Page:page Success:^(id  _Nonnull responseObject) {
+//            NSString *jsString = [@{@"data":[responseObject firstObject],@"total":[responseObject  lastObject],@"code":@1} mj_JSONString];
+//            jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
+//            !block?:block(param[@"serialNumber"],jsString);
+//        } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+//            !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
+//        }];
+//    } Error:^(NSString * _Nonnull errorAlert, NSError *error)  {
+//        !block?:block(param[@"serialNumber"],[self errorBlockWithError:errorAlert ResponseObject:error]);
+//    }];
+//}
 @end

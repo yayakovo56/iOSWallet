@@ -25,7 +25,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.tipLabel.text = CCWLocalizable(@"在地址栏输入你想玩的DApp网址\n进入即可试玩");
-    self.title = CCWLocalizable(@"搜索Dapp");
+    self.title = CCWLocalizable(@"搜索DApp");
     self.searchTextField.layer.cornerRadius = 2;
     self.searchTextField.layer.borderColor = [UIColor getColor:@"f0f2f3"].CGColor;
     self.searchTextField.layer.borderWidth = 0.5;

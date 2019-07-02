@@ -10,6 +10,7 @@
 #import <WebKit/WebKit.h>
 #import "UIView+EmptyView.h"
 #import "CCWDappWebTool.h"
+#import "CCWNodeInfoModel.h"
 
 @interface CCWDappViewController ()<WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler>
 @property (nonatomic, copy) NSString *dappTitle;
@@ -148,13 +149,23 @@
 //加载完成
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     CCWLog(@"加载完成");
+    CCWNodeInfoModel *saveNodelInfo = [CCWNodeInfoModel mj_objectWithKeyValues:CCWNodeInfo];
+    NSString *jsStr = [NSString stringWithFormat:@"BcxWeb.initConnect('%@', '%@','%@','%@')",saveNodelInfo.ws, saveNodelInfo.coreAsset, saveNodelInfo.faucetUrl, saveNodelInfo.chainId];
+    [self.wkWebView evaluateJavaScript:jsStr completionHandler:nil];
     //加载完成后隐藏progressView
     //    self.progressView.hidden = YES;
     [self.view configWithHasData:YES noDataImage:nil noDataTitle:nil hasError:NO reloadBlock:^(id sender) {
         
     }];
 }
-
+- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler
+{
+    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {  NSURLCredential *card = [[NSURLCredential alloc]initWithTrust:challenge.protectionSpace.serverTrust];
+        
+        completionHandler(NSURLSessionAuthChallengeUseCredential,card);
+    
+        }
+}
 //加载失败
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error {
     CCWLog(@"加载失败");
@@ -248,7 +259,7 @@
 }
 
 
-- (NSString *)getInjectJS{
+- (NSString *)getInjectJS {
     //compress_xinxin testScatterSONG
     NSString *JSfilePath = [[NSBundle mainBundle]pathForResource:@"cocos" ofType:@"js"];
     

@@ -17,11 +17,6 @@
 
 #ifdef __OBJC__
 
-
-
-
-
-
 #import "AppMacro.h"
 #import "AppNilOrNull.h"
 
