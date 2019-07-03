@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3110368222CC48F100DE14DD /* CCWPasswordAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3110368122CC48F100DE14DD /* CCWPasswordAlertView.m */; };
+		3110369622CC7D7200DE14DD /* CCWPwdContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3110369122CC7D7200DE14DD /* CCWPwdContent.m */; };
+		3110369722CC7D7200DE14DD /* CCWPwdAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3110369222CC7D7200DE14DD /* CCWPwdAlertView.m */; };
+		3110369822CC7D7200DE14DD /* CCWPwdContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3110369522CC7D7200DE14DD /* CCWPwdContent.xib */; };
 		3123E22222B0DD7500874CBF /* Terms of Service.html in Resources */ = {isa = PBXBuildFile; fileRef = 3123E22022B0DD7500874CBF /* Terms of Service.html */; };
 		3123E22322B0DD7500874CBF /* PRIVACY POLICY.html in Resources */ = {isa = PBXBuildFile; fileRef = 3123E22122B0DD7500874CBF /* PRIVACY POLICY.html */; };
 		3123E22522B0DDDD00874CBF /* VersionLog.html in Resources */ = {isa = PBXBuildFile; fileRef = 3123E22422B0DDDD00874CBF /* VersionLog.html */; };
@@ -274,6 +278,13 @@
 
 /* Begin PBXFileReference section */
 		2402E49331AF22918E4044D3 /* Pods-CocosBCXWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocosBCXWallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CocosBCXWallet/Pods-CocosBCXWallet.debug.xcconfig"; sourceTree = "<group>"; };
+		3110368022CC48F100DE14DD /* CCWPasswordAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWPasswordAlertView.h; sourceTree = "<group>"; };
+		3110368122CC48F100DE14DD /* CCWPasswordAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWPasswordAlertView.m; sourceTree = "<group>"; };
+		3110369122CC7D7200DE14DD /* CCWPwdContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWPwdContent.m; sourceTree = "<group>"; };
+		3110369222CC7D7200DE14DD /* CCWPwdAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWPwdAlertView.m; sourceTree = "<group>"; };
+		3110369322CC7D7200DE14DD /* CCWPwdContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWPwdContent.h; sourceTree = "<group>"; };
+		3110369422CC7D7200DE14DD /* CCWPwdAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWPwdAlertView.h; sourceTree = "<group>"; };
+		3110369522CC7D7200DE14DD /* CCWPwdContent.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWPwdContent.xib; sourceTree = "<group>"; };
 		3123E22022B0DD7500874CBF /* Terms of Service.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "Terms of Service.html"; sourceTree = "<group>"; };
 		3123E22122B0DD7500874CBF /* PRIVACY POLICY.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "PRIVACY POLICY.html"; sourceTree = "<group>"; };
 		3123E22422B0DDDD00874CBF /* VersionLog.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = VersionLog.html; sourceTree = "<group>"; };
@@ -769,6 +780,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3110369022CC7D7200DE14DD /* CCWPwdAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				3110369422CC7D7200DE14DD /* CCWPwdAlertView.h */,
+				3110369222CC7D7200DE14DD /* CCWPwdAlertView.m */,
+				3110369322CC7D7200DE14DD /* CCWPwdContent.h */,
+				3110369122CC7D7200DE14DD /* CCWPwdContent.m */,
+				3110369522CC7D7200DE14DD /* CCWPwdContent.xib */,
+			);
+			path = CCWPwdAlertView;
+			sourceTree = "<group>";
+		};
 		3144D00722003BE700CDA62A /* Toos */ = {
 			isa = PBXGroup;
 			children = (
@@ -1295,6 +1318,8 @@
 				3186E8012293A08200A269C6 /* CCWCheckVisionAlert.m */,
 				316C57A622980D5500F8AE33 /* CCWLogOutAlert.h */,
 				316C57A722980D5500F8AE33 /* CCWLogOutAlert.m */,
+				3110368022CC48F100DE14DD /* CCWPasswordAlertView.h */,
+				3110368122CC48F100DE14DD /* CCWPasswordAlertView.m */,
 			);
 			path = CCWAlertView;
 			sourceTree = "<group>";
@@ -1760,6 +1785,7 @@
 		319D45C2221BADE700D1E6D2 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				3110369022CC7D7200DE14DD /* CCWPwdAlertView */,
 				3186E7F62293A08200A269C6 /* CCWAlertView */,
 				317948CA221E4B7800F4EA69 /* Category */,
 				317948C0221E4B5E00F4EA69 /* YBPopupMenu */,
@@ -1970,6 +1996,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3110369822CC7D7200DE14DD /* CCWPwdContent.xib in Resources */,
 				316739B5221AD952008D85C4 /* XRPlaceholder.png in Resources */,
 				3154F3D92223CF2700511FA8 /* MBProgressHUD.bundle in Resources */,
 				3123E22B22B100C700874CBF /* CCWSearchDAppViewController.xib in Resources */,
@@ -2112,6 +2139,7 @@
 				3191A0E0225F12CB003AB263 /* CCWWalletListViewController.m in Sources */,
 				3191A0B0225C6DE2003AB263 /* SpecialAuthorityObject.m in Sources */,
 				3191A091225C6DE2003AB263 /* sha2.c in Sources */,
+				3110369622CC7D7200DE14DD /* CCWPwdContent.m in Sources */,
 				3144D06822003BE700CDA62A /* UIImage+YSAdd.m in Sources */,
 				3191A090225C6DE2003AB263 /* rmd160.c in Sources */,
 				3191A0CD225C6DE2003AB263 /* WebsocketResultErrorParse.m in Sources */,
@@ -2145,6 +2173,7 @@
 				31E198B3221FA1260076A822 /* CCWMyAlertSheetView.m in Sources */,
 				318FF5FB22156D5A00AB5696 /* CCWInitWalletModule.m in Sources */,
 				319D45CE221BD00200D1E6D2 /* CCWWalletManagerViewController.m in Sources */,
+				3110368222CC48F100DE14DD /* CCWPasswordAlertView.m in Sources */,
 				317948DB221E529900F4EA69 /* CCWEditContactViewController.m in Sources */,
 				3165106E22266C9300F573F9 /* UIView+EmptyView.m in Sources */,
 				3191A0B5225C6DE2003AB263 /* ChainAssetPermissionObject.m in Sources */,
@@ -2220,6 +2249,7 @@
 				3191A0E8225F1D41003AB263 /* CCWWalletAccountModel.m in Sources */,
 				317948C8221E4B5F00F4EA69 /* YBPopupMenuPath.m in Sources */,
 				3144D05522003BE700CDA62A /* NSData+CommonCrypto.m in Sources */,
+				3110369722CC7D7200DE14DD /* CCWPwdAlertView.m in Sources */,
 				3144D05422003BE700CDA62A /* NSData+Base64.m in Sources */,
 				31E198BE221FE2FC0076A822 /* CCWAssetsOverviewCollectionViewCell.m in Sources */,
 				3167399D221AB2CE008D85C4 /* CCWTabViewController.m in Sources */,

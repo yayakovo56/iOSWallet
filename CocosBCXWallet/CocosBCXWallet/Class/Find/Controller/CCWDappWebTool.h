@@ -31,11 +31,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 // 执行回调
-typedef void (^CallbackBlock)(NSString *serialNumber,NSString *response);
+typedef void (^CallbackBlock)(NSDictionary *response);
 
 @interface CCWDappWebTool : NSObject
 
-+ (void)JSHandle_ReceiveMessageName:(NSString *)name messageBody:(NSDictionary *)body response:(CallbackBlock)block;
+/**
+ 处理消息
+
+ @param body 请求提
+ @param password 密码
+ @param block 回调
+ */
++ (void)JSHandle_ReceiveMessageBody:(NSDictionary *)body
+                           password:(NSString *)password
+                           response:(CallbackBlock)block;
 
 @end
 

@@ -11,6 +11,7 @@
 #import "UIView+EmptyView.h"
 #import "CCWDappWebTool.h"
 #import "CCWNodeInfoModel.h"
+#import "CCWPwdAlertView.h"
 
 @interface CCWDappViewController ()<WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler>
 @property (nonatomic, copy) NSString *dappTitle;
@@ -94,6 +95,7 @@
         // Done
     }];
 }
+
 // 左侧返回按钮
 - (void)CCW_GoBackAction
 {
@@ -149,23 +151,18 @@
 //加载完成
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     CCWLog(@"加载完成");
+    // 初始化节点
     CCWNodeInfoModel *saveNodelInfo = [CCWNodeInfoModel mj_objectWithKeyValues:CCWNodeInfo];
     NSString *jsStr = [NSString stringWithFormat:@"BcxWeb.initConnect('%@', '%@','%@','%@')",saveNodelInfo.ws, saveNodelInfo.coreAsset, saveNodelInfo.faucetUrl, saveNodelInfo.chainId];
     [self.wkWebView evaluateJavaScript:jsStr completionHandler:nil];
+    
     //加载完成后隐藏progressView
     //    self.progressView.hidden = YES;
     [self.view configWithHasData:YES noDataImage:nil noDataTitle:nil hasError:NO reloadBlock:^(id sender) {
         
     }];
 }
-- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler
-{
-    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {  NSURLCredential *card = [[NSURLCredential alloc]initWithTrust:challenge.protectionSpace.serverTrust];
-        
-        completionHandler(NSURLSessionAuthChallengeUseCredential,card);
-    
-        }
-}
+
 //加载失败
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error {
     CCWLog(@"加载失败");
@@ -189,9 +186,38 @@
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
 {
     NSLog(@"\n name:%@\n body:%@\n",message.name,message.body);
-    [CCWDappWebTool JSHandle_ReceiveMessageName:message.name messageBody:message.body response:^(NSString * _Nonnull serialNumber, NSString * _Nonnull response) {
-        [self responseToJsWithJSMethodName:JS_METHODNAME_CALLBACKRESULT SerialNumber:serialNumber andMessage:response];
-    }];
+    if (![message.name isEqualToString:JS_PUSHMESSAGE]) {
+        return;
+    }
+    NSDictionary *messagebody = message.body;
+    // 弹窗
+    if ([self isVaildPasswordWithMessageBody:message.body]) {
+        // 判断是否有密码保存
+        
+        CCWPwdAlertView *alert = [CCWPwdAlertView passwordAlertWithCancelClick:^{
+                    NSDictionary *message = @{
+                                              @"type":@"signature_rejected",
+                                              @"message":@"User rejected the signature request",
+                                              @"code":@"402",
+                                              @"isError":@1
+                                              };
+            [self responseToJsWithJSMethodName:JS_METHODNAME_CALLBACKRESULT SerialNumber:messagebody[@"serialNumber"] andMessage:[message mj_JSONString]];
+        } confirmClick:^(NSString *pwd, BOOL isIgnoreConfirm) {
+//            NSLog(@"pwd  confirm pwd: %@ isNo: %d",pwd,isIgnoreConfirm);
+            [CCWDappWebTool JSHandle_ReceiveMessageBody:messagebody password:pwd response:^(NSDictionary * _Nonnull response) {
+                NSString *jsString = [response mj_JSONString];
+                jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
+                [self responseToJsWithJSMethodName:JS_METHODNAME_CALLBACKRESULT SerialNumber:messagebody[@"serialNumber"]  andMessage:jsString];
+            }];
+        }];
+        [alert show];
+    }else{
+        [CCWDappWebTool JSHandle_ReceiveMessageBody:messagebody password:nil response:^(NSDictionary * _Nonnull response) {
+            NSString *jsString = [response mj_JSONString];
+            jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
+            [self responseToJsWithJSMethodName:JS_METHODNAME_CALLBACKRESULT SerialNumber:messagebody[@"serialNumber"]  andMessage:jsString];
+        }];
+    }
 }
 
 #pragma mark - callbackResult
@@ -269,6 +295,41 @@
                        "script.text = \""
                        stringByAppendingString:content];
     return final;
+}
+
+
+#pragma mark - 私有方法
+// 过滤方法是否给提示窗，输入密码
+- (BOOL)isVaildPasswordWithMessageBody:(NSDictionary *)body
+{
+    // 先过滤一遍
+    if([body[@"methodName"] isEqualToString:JS_METHOD_transfer]) {
+        return YES;
+    }else if([body[@"methodName"] isEqualToString:JS_METHOD_callContract]) {
+        return YES;
+    }else if([body[@"methodName"] isEqualToString:JS_METHOD_decodeMemo]) {
+        return YES;
+    }else if([body[@"methodName"] isEqualToString:JS_METHOD_transferNH]) {
+        return YES;
+    }else if([body[@"methodName"] isEqualToString:JS_METHOD_fillNHAssetOrder]) {
+        return YES;
+    }
+    return NO;
+}
+
+
+// 获取网站域名
+- (NSString *)getDappURLStringHost:(NSString *)dappURLString
+{
+    NSString *url = @"http://tools.jb51.net/code/jscompress";
+    NSString *regexString = @"https?://(www\\.)?[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)+";
+    NSRange range = [url rangeOfString:regexString options:NSRegularExpressionSearch];
+    @try {
+        NSString *urlHost = [url substringWithRange:range];
+        return urlHost;
+    } @catch (NSException *exception) {
+        return nil;
+    }
 }
 
 @end
