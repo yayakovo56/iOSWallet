@@ -20,6 +20,8 @@
 /* 1.添加UIProgressView属性 */
 @property (nonatomic, strong) UIProgressView *progressView;
 
+// 临时密码
+@property (nonatomic, copy) NSString *viewpassword;
 @end
 
 @implementation CCWDappViewController
@@ -193,24 +195,34 @@
     // 弹窗
     if ([self isVaildPasswordWithMessageBody:message.body]) {
         // 判断是否有密码保存
-        
-        CCWPwdAlertView *alert = [CCWPwdAlertView passwordAlertWithCancelClick:^{
-                    NSDictionary *message = @{
-                                              @"type":@"signature_rejected",
-                                              @"message":@"User rejected the signature request",
-                                              @"code":@"402",
-                                              @"isError":@1
-                                              };
-            [self responseToJsWithJSMethodName:JS_METHODNAME_CALLBACKRESULT SerialNumber:messagebody[@"serialNumber"] andMessage:[message mj_JSONString]];
-        } confirmClick:^(NSString *pwd, BOOL isIgnoreConfirm) {
-//            NSLog(@"pwd  confirm pwd: %@ isNo: %d",pwd,isIgnoreConfirm);
-            [CCWDappWebTool JSHandle_ReceiveMessageBody:messagebody password:pwd response:^(NSDictionary * _Nonnull response) {
+        CCWWeakSelf;
+        if (self.viewpassword) {
+            [CCWDappWebTool JSHandle_ReceiveMessageBody:messagebody password:self.viewpassword response:^(NSDictionary * _Nonnull response) {
                 NSString *jsString = [response mj_JSONString];
                 jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
                 [self responseToJsWithJSMethodName:JS_METHODNAME_CALLBACKRESULT SerialNumber:messagebody[@"serialNumber"]  andMessage:jsString];
             }];
-        }];
-        [alert show];
+        }else{
+            CCWPwdAlertView *alert = [CCWPwdAlertView passwordAlertWithCancelClick:^{
+                NSDictionary *message = @{
+                                          @"type":@"signature_rejected",
+                                          @"message":@"User rejected the signature request",
+                                          @"code":@"402",
+                                          @"isError":@1
+                                          };
+                [self responseToJsWithJSMethodName:JS_METHODNAME_CALLBACKRESULT SerialNumber:messagebody[@"serialNumber"] andMessage:[message mj_JSONString]];
+            } confirmClick:^(NSString *pwd, BOOL isIgnoreConfirm) {
+                [CCWDappWebTool JSHandle_ReceiveMessageBody:messagebody password:pwd response:^(NSDictionary * _Nonnull response) {
+                    if (([response[@"code"] integerValue] == 1) && isIgnoreConfirm == YES) {
+                        weakSelf.viewpassword = pwd;
+                    }
+                    NSString *jsString = [response mj_JSONString];
+                    jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
+                    [self responseToJsWithJSMethodName:JS_METHODNAME_CALLBACKRESULT SerialNumber:messagebody[@"serialNumber"]  andMessage:jsString];
+                }];
+            }];
+            [alert show];
+        }
     }else{
         [CCWDappWebTool JSHandle_ReceiveMessageBody:messagebody password:nil response:^(NSDictionary * _Nonnull response) {
             NSString *jsString = [response mj_JSONString];
