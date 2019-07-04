@@ -180,9 +180,13 @@
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
     //允许页面跳转
     //    TWLog(@"%@",navigationAction.request.URL);
+    //如果是跳转一个新页面
+    if (navigationAction.targetFrame == nil) {
+        [webView loadRequest:navigationAction.request];
+    }
+    
     decisionHandler(WKNavigationActionPolicyAllow);
 }
-
 
 #pragma mark - WKWKNavigationDelegate Methods
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
@@ -192,15 +196,15 @@
         return;
     }
     NSDictionary *messagebody = message.body;
+    CCWWeakSelf;
     // 弹窗
     if ([self isVaildPasswordWithMessageBody:message.body]) {
         // 判断是否有密码保存
-        CCWWeakSelf;
         if (self.viewpassword) {
             [CCWDappWebTool JSHandle_ReceiveMessageBody:messagebody password:self.viewpassword response:^(NSDictionary * _Nonnull response) {
                 NSString *jsString = [response mj_JSONString];
                 jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
-                [self responseToJsWithJSMethodName:JS_METHODNAME_CALLBACKRESULT SerialNumber:messagebody[@"serialNumber"]  andMessage:jsString];
+                [weakSelf responseToJsWithJSMethodName:JS_METHODNAME_CALLBACKRESULT SerialNumber:messagebody[@"serialNumber"]  andMessage:jsString];
             }];
         }else{
             CCWPwdAlertView *alert = [CCWPwdAlertView passwordAlertWithCancelClick:^{
@@ -210,7 +214,7 @@
                                           @"code":@"402",
                                           @"isError":@1
                                           };
-                [self responseToJsWithJSMethodName:JS_METHODNAME_CALLBACKRESULT SerialNumber:messagebody[@"serialNumber"] andMessage:[message mj_JSONString]];
+                [weakSelf responseToJsWithJSMethodName:JS_METHODNAME_CALLBACKRESULT SerialNumber:messagebody[@"serialNumber"] andMessage:[message mj_JSONString]];
             } confirmClick:^(NSString *pwd, BOOL isIgnoreConfirm) {
                 [CCWDappWebTool JSHandle_ReceiveMessageBody:messagebody password:pwd response:^(NSDictionary * _Nonnull response) {
                     if (([response[@"code"] integerValue] == 1) && isIgnoreConfirm == YES) {
@@ -218,7 +222,7 @@
                     }
                     NSString *jsString = [response mj_JSONString];
                     jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
-                    [self responseToJsWithJSMethodName:JS_METHODNAME_CALLBACKRESULT SerialNumber:messagebody[@"serialNumber"]  andMessage:jsString];
+                    [weakSelf responseToJsWithJSMethodName:JS_METHODNAME_CALLBACKRESULT SerialNumber:messagebody[@"serialNumber"]  andMessage:jsString];
                 }];
             }];
             [alert show];
@@ -227,7 +231,7 @@
         [CCWDappWebTool JSHandle_ReceiveMessageBody:messagebody password:nil response:^(NSDictionary * _Nonnull response) {
             NSString *jsString = [response mj_JSONString];
             jsString = [jsString stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
-            [self responseToJsWithJSMethodName:JS_METHODNAME_CALLBACKRESULT SerialNumber:messagebody[@"serialNumber"]  andMessage:jsString];
+            [weakSelf responseToJsWithJSMethodName:JS_METHODNAME_CALLBACKRESULT SerialNumber:messagebody[@"serialNumber"]  andMessage:jsString];
         }];
     }
 }
@@ -333,7 +337,7 @@
 // 获取网站域名
 - (NSString *)getDappURLStringHost:(NSString *)dappURLString
 {
-    NSString *url = @"http://tools.jb51.net/code/jscompress";
+    NSString *url = dappURLString;
     NSString *regexString = @"https?://(www\\.)?[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)+";
     NSRange range = [url rangeOfString:regexString options:NSRegularExpressionSearch];
     @try {

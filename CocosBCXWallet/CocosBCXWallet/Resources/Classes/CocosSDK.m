@@ -54,7 +54,7 @@
                  ConnectedStatus:(void (^)(WebsocketConnectStatus connectStatus))connectedStatus
 
 {
-    if (_client.connectStatus == WebsocketConnectStatusConnected) return;
+//    if (_client.connectStatus == WebsocketConnectStatusConnected) return;
     self.client = [[WebsocketClient alloc] initWithUrl:url closedCallBack:nil];
     [self.client connectWithTimeOut:timeOut];
     // Connection state callback
@@ -75,7 +75,7 @@
 {
     // 1.1 Validation parameters
     if (IsStrEmpty(accountName) || IsStrEmpty(password)) {
-        NSError *error = [NSError errorWithDomain:@"Parameter 'accountName' or 'password'  is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
+        NSError *error = [NSError errorWithDomain:@"Parameter ‘accountName‘ or ‘password‘  is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
         !errorBlock?:errorBlock(error);
         return;
     }
@@ -137,7 +137,7 @@
 {
     // 1.Validation parameters
     if (IsStrEmpty(private_key) || IsStrEmpty(tempPassword)) {
-        NSError *error = [NSError errorWithDomain:@"Parameter 'private' or 'tempPassword' is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
+        NSError *error = [NSError errorWithDomain:@"Parameter ‘private‘ or ‘tempPassword‘ is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
         !errorBlock?:errorBlock(error);
         return;
     }
@@ -181,7 +181,7 @@
 {
     // 1. Validation parameters
     if (IsStrEmpty(accountName)) {
-        NSError *error = [NSError errorWithDomain:@"Parameter 'accountName' is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
+        NSError *error = [NSError errorWithDomain:@"Parameter ‘accountName‘ is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
         !errorBlock?:errorBlock(error);
         return;
     }
@@ -206,7 +206,7 @@
 {
     // 1. Validation parameters
     if (IsStrEmpty(accountName)) {
-        NSError *error = [NSError errorWithDomain:@"Parameter 'accountName' is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
+        NSError *error = [NSError errorWithDomain:@"Parameter ‘accountName‘ is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
         !errorBlock?:errorBlock(error);
         return;
     }
@@ -280,7 +280,7 @@
 {
     // 1. Validation parameters
     if (IsStrEmpty(accountName) || IsStrEmpty(password)) {
-        NSError *error = [NSError errorWithDomain:@"Parameter 'accountName' or 'password' is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
+        NSError *error = [NSError errorWithDomain:@"Parameter ‘accountName‘ or ‘password‘ is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
         !errorBlock?:errorBlock(error);
         return;
     }
@@ -317,7 +317,7 @@
 {
     // 1. Validation parameters
     if (IsStrEmpty(accountName) || IsStrEmpty(password)) {
-        NSError *error = [NSError errorWithDomain:@"Parameter 'accountName' is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
+        NSError *error = [NSError errorWithDomain:@"Parameter ‘accountName‘ is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
         !errorBlock?:errorBlock(error);
         return;
     }
@@ -351,7 +351,7 @@
 {
     // 1. Validation parameters
     if (IsStrEmpty(accountName)) {
-        NSError *error = [NSError errorWithDomain:@"Parameter 'accountName' is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
+        NSError *error = [NSError errorWithDomain:@"Parameter ‘accountName‘ is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
         !errorBlock?:errorBlock(error);
         return;
     }
@@ -373,7 +373,7 @@
 {
     // 1. Validation parameters
     if (IsStrEmpty(accountIdOrName)) {
-        NSError *error = [NSError errorWithDomain:@"Parameter 'accountIdOrName' is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
+        NSError *error = [NSError errorWithDomain:@"Parameter ‘accountIdOrName‘ is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
         !errorBlock?:errorBlock(error);
         return;
     }
@@ -415,7 +415,7 @@
 {
     // 1. Validation parameters
     if (IsStrEmpty(accountID)) {
-        NSError *error = [NSError errorWithDomain:@"Parameter 'accountID' is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
+        NSError *error = [NSError errorWithDomain:@"Parameter ‘accountID‘ is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
         !errorBlock?:errorBlock(error);
         return;
     }
@@ -470,7 +470,7 @@
         return;
     }
     if (IsStrEmpty(active_key)) {
-        NSError *error = [NSError errorWithDomain:@"Parameter 'active_key' is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
+        NSError *error = [NSError errorWithDomain:@"Parameter ‘active_key‘ is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
         !errorBlock?:errorBlock(error);
         return;
     }
@@ -579,7 +579,7 @@
 {
     // 1. Validation parameters
     if (IsStrEmpty(assetIdOrName)) {
-        NSError *error = [NSError errorWithDomain:@"Parameter 'assetIdOrName' is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
+        NSError *error = [NSError errorWithDomain:@"Parameter ‘assetIdOrName‘ is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
         !errorBlock?:errorBlock(error);
         return;
     }
@@ -737,7 +737,7 @@
 {
     // 1. Validation parameters
     if (IsStrEmpty(receiver) || IsStrEmpty(symbol) || IsStrEmpty(fee_symbol)) {
-        NSError *error = [NSError errorWithDomain:@"Parameter 'receiver' 、'symbol' Or 'fee_symbol' is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
+        NSError *error = [NSError errorWithDomain:@"Parameter ‘receiver‘ 、‘symbol‘ Or ‘fee_symbol‘ is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
         !errorBlock?:errorBlock(error);
         return;
     }
@@ -1212,7 +1212,7 @@
     [self sendWithChainApi:WebsocketBlockChainApiDataBase method:(WebsocketBlockChainMethodApiCall) params:uploadParams callBack:callBackModel];
 }
 
-// Get account's NH assets' sell list
+// Get account's NH assets‘ sell list
 - (void)Cocos_ListAccountNHAssetOrder:(NSString *)accountID
                              PageSize:(NSInteger)pageSize
                                  Page:(NSInteger)page
@@ -1541,7 +1541,7 @@
 {
     // 1. Validation parameters
     if (IsStrEmpty(accountName) || IsStrEmpty(password)) {
-        NSError *error = [NSError errorWithDomain:@"Parameter 'accountName' or 'password' is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
+        NSError *error = [NSError errorWithDomain:@"Parameter ‘accountName‘ or ‘password‘ is missing" code:SDKErrorCodeErrorParameterError userInfo:nil];
         !errorBlock?:errorBlock(error);
         return;
     }
