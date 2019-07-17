@@ -112,6 +112,16 @@
 		317948D7221E4BC000F4EA69 /* CCWContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 317948D5221E4BC000F4EA69 /* CCWContactTableViewCell.m */; };
 		317948DB221E529900F4EA69 /* CCWEditContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 317948D8221E529900F4EA69 /* CCWEditContactViewController.m */; };
 		317948DC221E529900F4EA69 /* CCWEditContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317948D9221E529900F4EA69 /* CCWEditContactViewController.xib */; };
+		317D2D4422DEFBBF00559A7C /* CocosTransferOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 317D2D3122DEFBBF00559A7C /* CocosTransferOperation.m */; };
+		317D2D4522DEFBBF00559A7C /* CocosUpgradeMemberOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 317D2D3322DEFBBF00559A7C /* CocosUpgradeMemberOperation.m */; };
+		317D2D4622DEFBBF00559A7C /* CocosSellNHAssetOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 317D2D3422DEFBBF00559A7C /* CocosSellNHAssetOperation.m */; };
+		317D2D4722DEFBBF00559A7C /* CocosTransferNHOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 317D2D3622DEFBBF00559A7C /* CocosTransferNHOperation.m */; };
+		317D2D4822DEFBBF00559A7C /* CocosDeleteNHOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 317D2D3922DEFBBF00559A7C /* CocosDeleteNHOperation.m */; };
+		317D2D4922DEFBBF00559A7C /* CocosOperationContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 317D2D3A22DEFBBF00559A7C /* CocosOperationContent.m */; };
+		317D2D4A22DEFBBF00559A7C /* CocosSellNHAssetCancelOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 317D2D3C22DEFBBF00559A7C /* CocosSellNHAssetCancelOperation.m */; };
+		317D2D4B22DEFBBF00559A7C /* CocosBuyNHOrderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 317D2D3F22DEFBBF00559A7C /* CocosBuyNHOrderOperation.m */; };
+		317D2D4C22DEFBBF00559A7C /* CocosBaseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 317D2D4222DEFBBF00559A7C /* CocosBaseOperation.m */; };
+		317D2D4D22DEFBBF00559A7C /* CocosCallContractOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 317D2D4322DEFBBF00559A7C /* CocosCallContractOperation.m */; };
 		3184B4A02292B8C500985B22 /* CCWTermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3184B49E2292B8C500985B22 /* CCWTermsViewController.m */; };
 		3184B4A52292B8DE00985B22 /* CCWPrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3184B4A32292B8DE00985B22 /* CCWPrivacyViewController.m */; };
 		3184B4AA2292BDD800985B22 /* CCWVersionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3184B4A82292BDD800985B22 /* CCWVersionViewController.m */; };
@@ -128,8 +138,6 @@
 		31881F5D2216692E006C31A2 /* CCWCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31881F5B2216692E006C31A2 /* CCWCreateViewController.m */; };
 		31881F5E2216692E006C31A2 /* CCWCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31881F5C2216692E006C31A2 /* CCWCreateViewController.xib */; };
 		318A67E222893D23001D0157 /* CCWDappWebTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 318A67E122893D23001D0157 /* CCWDappWebTool.m */; };
-		318A67E7228947E9001D0157 /* CocosBuyNHOrderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 318A67E3228947E9001D0157 /* CocosBuyNHOrderOperation.m */; };
-		318A67E8228947E9001D0157 /* CocosTransferNHOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 318A67E5228947E9001D0157 /* CocosTransferNHOperation.m */; };
 		318A67EC228948AE001D0157 /* ChainNHAssetOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 318A67EB228948AE001D0157 /* ChainNHAssetOrder.m */; };
 		318A67EE22896642001D0157 /* cocos.js in Resources */ = {isa = PBXBuildFile; fileRef = 318A67ED22896642001D0157 /* cocos.js */; };
 		318FF5DD221510EC00AB5696 /* CCWTransRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 318FF5DC221510EC00AB5696 /* CCWTransRecordViewController.m */; };
@@ -174,10 +182,6 @@
 		3191A0A5225C6DE2003AB263 /* KeystoneFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191A029225C6DE2003AB263 /* KeystoneFile.m */; };
 		3191A0A6225C6DE2003AB263 /* PlainKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191A02B225C6DE2003AB263 /* PlainKey.m */; };
 		3191A0A7225C6DE2003AB263 /* WalletExtraKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191A02D225C6DE2003AB263 /* WalletExtraKey.m */; };
-		3191A0A8225C6DE2003AB263 /* CocosBaseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191A030225C6DE2003AB263 /* CocosBaseOperation.m */; };
-		3191A0A9225C6DE2003AB263 /* CocosCallContractOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191A032225C6DE2003AB263 /* CocosCallContractOperation.m */; };
-		3191A0AA225C6DE2003AB263 /* CocosOperationContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191A034225C6DE2003AB263 /* CocosOperationContent.m */; };
-		3191A0AB225C6DE2003AB263 /* CocosTransferOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191A036225C6DE2003AB263 /* CocosTransferOperation.m */; };
 		3191A0AC225C6DE2003AB263 /* AccountAuthoriyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191A03B225C6DE2003AB263 /* AccountAuthoriyObject.m */; };
 		3191A0AD225C6DE2003AB263 /* AuthorityObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191A03D225C6DE2003AB263 /* AuthorityObject.m */; };
 		3191A0AE225C6DE2003AB263 /* BitAddressAuthorityObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191A03F225C6DE2003AB263 /* BitAddressAuthorityObject.m */; };
@@ -482,6 +486,26 @@
 		317948D8221E529900F4EA69 /* CCWEditContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWEditContactViewController.m; sourceTree = "<group>"; };
 		317948D9221E529900F4EA69 /* CCWEditContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWEditContactViewController.xib; sourceTree = "<group>"; };
 		317948DA221E529900F4EA69 /* CCWEditContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWEditContactViewController.h; sourceTree = "<group>"; };
+		317D2D3022DEFBBF00559A7C /* CocosBuyNHOrderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosBuyNHOrderOperation.h; sourceTree = "<group>"; };
+		317D2D3122DEFBBF00559A7C /* CocosTransferOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosTransferOperation.m; sourceTree = "<group>"; };
+		317D2D3222DEFBBF00559A7C /* CocosSellNHAssetCancelOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosSellNHAssetCancelOperation.h; sourceTree = "<group>"; };
+		317D2D3322DEFBBF00559A7C /* CocosUpgradeMemberOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosUpgradeMemberOperation.m; sourceTree = "<group>"; };
+		317D2D3422DEFBBF00559A7C /* CocosSellNHAssetOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosSellNHAssetOperation.m; sourceTree = "<group>"; };
+		317D2D3522DEFBBF00559A7C /* CocosOperationContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosOperationContent.h; sourceTree = "<group>"; };
+		317D2D3622DEFBBF00559A7C /* CocosTransferNHOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosTransferNHOperation.m; sourceTree = "<group>"; };
+		317D2D3722DEFBBF00559A7C /* CocosCallContractOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosCallContractOperation.h; sourceTree = "<group>"; };
+		317D2D3822DEFBBF00559A7C /* CocosBaseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosBaseOperation.h; sourceTree = "<group>"; };
+		317D2D3922DEFBBF00559A7C /* CocosDeleteNHOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosDeleteNHOperation.m; sourceTree = "<group>"; };
+		317D2D3A22DEFBBF00559A7C /* CocosOperationContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosOperationContent.m; sourceTree = "<group>"; };
+		317D2D3B22DEFBBF00559A7C /* CocosSellNHAssetOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosSellNHAssetOperation.h; sourceTree = "<group>"; };
+		317D2D3C22DEFBBF00559A7C /* CocosSellNHAssetCancelOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosSellNHAssetCancelOperation.m; sourceTree = "<group>"; };
+		317D2D3D22DEFBBF00559A7C /* CocosUpgradeMemberOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosUpgradeMemberOperation.h; sourceTree = "<group>"; };
+		317D2D3E22DEFBBF00559A7C /* CocosTransferOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosTransferOperation.h; sourceTree = "<group>"; };
+		317D2D3F22DEFBBF00559A7C /* CocosBuyNHOrderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosBuyNHOrderOperation.m; sourceTree = "<group>"; };
+		317D2D4022DEFBBF00559A7C /* CocosTransferNHOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosTransferNHOperation.h; sourceTree = "<group>"; };
+		317D2D4122DEFBBF00559A7C /* CocosDeleteNHOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosDeleteNHOperation.h; sourceTree = "<group>"; };
+		317D2D4222DEFBBF00559A7C /* CocosBaseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosBaseOperation.m; sourceTree = "<group>"; };
+		317D2D4322DEFBBF00559A7C /* CocosCallContractOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosCallContractOperation.m; sourceTree = "<group>"; };
 		3184B49D2292B8C500985B22 /* CCWTermsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWTermsViewController.h; sourceTree = "<group>"; };
 		3184B49E2292B8C500985B22 /* CCWTermsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWTermsViewController.m; sourceTree = "<group>"; };
 		3184B4A22292B8DE00985B22 /* CCWPrivacyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWPrivacyViewController.h; sourceTree = "<group>"; };
@@ -511,10 +535,6 @@
 		31881F5C2216692E006C31A2 /* CCWCreateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWCreateViewController.xib; sourceTree = "<group>"; };
 		318A67E022893D23001D0157 /* CCWDappWebTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWDappWebTool.h; sourceTree = "<group>"; };
 		318A67E122893D23001D0157 /* CCWDappWebTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWDappWebTool.m; sourceTree = "<group>"; };
-		318A67E3228947E9001D0157 /* CocosBuyNHOrderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosBuyNHOrderOperation.m; sourceTree = "<group>"; };
-		318A67E4228947E9001D0157 /* CocosTransferNHOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosTransferNHOperation.h; sourceTree = "<group>"; };
-		318A67E5228947E9001D0157 /* CocosTransferNHOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosTransferNHOperation.m; sourceTree = "<group>"; };
-		318A67E6228947E9001D0157 /* CocosBuyNHOrderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosBuyNHOrderOperation.h; sourceTree = "<group>"; };
 		318A67EA228948AE001D0157 /* ChainNHAssetOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainNHAssetOrder.h; sourceTree = "<group>"; };
 		318A67EB228948AE001D0157 /* ChainNHAssetOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainNHAssetOrder.m; sourceTree = "<group>"; };
 		318A67ED22896642001D0157 /* cocos.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = cocos.js; sourceTree = "<group>"; };
@@ -599,14 +619,6 @@
 		3191A02B225C6DE2003AB263 /* PlainKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlainKey.m; sourceTree = "<group>"; };
 		3191A02C225C6DE2003AB263 /* WalletExtraKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletExtraKey.h; sourceTree = "<group>"; };
 		3191A02D225C6DE2003AB263 /* WalletExtraKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletExtraKey.m; sourceTree = "<group>"; };
-		3191A02F225C6DE2003AB263 /* CocosBaseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosBaseOperation.h; sourceTree = "<group>"; };
-		3191A030225C6DE2003AB263 /* CocosBaseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosBaseOperation.m; sourceTree = "<group>"; };
-		3191A031225C6DE2003AB263 /* CocosCallContractOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosCallContractOperation.h; sourceTree = "<group>"; };
-		3191A032225C6DE2003AB263 /* CocosCallContractOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosCallContractOperation.m; sourceTree = "<group>"; };
-		3191A033225C6DE2003AB263 /* CocosOperationContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosOperationContent.h; sourceTree = "<group>"; };
-		3191A034225C6DE2003AB263 /* CocosOperationContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosOperationContent.m; sourceTree = "<group>"; };
-		3191A035225C6DE2003AB263 /* CocosTransferOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosTransferOperation.h; sourceTree = "<group>"; };
-		3191A036225C6DE2003AB263 /* CocosTransferOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosTransferOperation.m; sourceTree = "<group>"; };
 		3191A03A225C6DE2003AB263 /* AccountAuthoriyObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountAuthoriyObject.h; sourceTree = "<group>"; };
 		3191A03B225C6DE2003AB263 /* AccountAuthoriyObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountAuthoriyObject.m; sourceTree = "<group>"; };
 		3191A03C225C6DE2003AB263 /* AuthorityObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorityObject.h; sourceTree = "<group>"; };
@@ -1310,6 +1322,33 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		317D2D2F22DEFBBF00559A7C /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				317D2D3022DEFBBF00559A7C /* CocosBuyNHOrderOperation.h */,
+				317D2D3122DEFBBF00559A7C /* CocosTransferOperation.m */,
+				317D2D3222DEFBBF00559A7C /* CocosSellNHAssetCancelOperation.h */,
+				317D2D3322DEFBBF00559A7C /* CocosUpgradeMemberOperation.m */,
+				317D2D3422DEFBBF00559A7C /* CocosSellNHAssetOperation.m */,
+				317D2D3522DEFBBF00559A7C /* CocosOperationContent.h */,
+				317D2D3622DEFBBF00559A7C /* CocosTransferNHOperation.m */,
+				317D2D3722DEFBBF00559A7C /* CocosCallContractOperation.h */,
+				317D2D3822DEFBBF00559A7C /* CocosBaseOperation.h */,
+				317D2D3922DEFBBF00559A7C /* CocosDeleteNHOperation.m */,
+				317D2D3A22DEFBBF00559A7C /* CocosOperationContent.m */,
+				317D2D3B22DEFBBF00559A7C /* CocosSellNHAssetOperation.h */,
+				317D2D3C22DEFBBF00559A7C /* CocosSellNHAssetCancelOperation.m */,
+				317D2D3D22DEFBBF00559A7C /* CocosUpgradeMemberOperation.h */,
+				317D2D3E22DEFBBF00559A7C /* CocosTransferOperation.h */,
+				317D2D3F22DEFBBF00559A7C /* CocosBuyNHOrderOperation.m */,
+				317D2D4022DEFBBF00559A7C /* CocosTransferNHOperation.h */,
+				317D2D4122DEFBBF00559A7C /* CocosDeleteNHOperation.h */,
+				317D2D4222DEFBBF00559A7C /* CocosBaseOperation.m */,
+				317D2D4322DEFBBF00559A7C /* CocosCallContractOperation.m */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
 		3186E7F62293A08200A269C6 /* CCWAlertView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1404,7 +1443,7 @@
 				3191A01B225C6DE2003AB263 /* DataBase */,
 				3191A022225C6DE2003AB263 /* HttpRequest */,
 				3191A027225C6DE2003AB263 /* Keystone */,
-				3191A02E225C6DE2003AB263 /* Operations */,
+				317D2D2F22DEFBBF00559A7C /* Operations */,
 				3191A037225C6DE2003AB263 /* SDKModel */,
 				3191A067225C6DE2003AB263 /* secp256k1 */,
 				3191A06E225C6DE2003AB263 /* Setting */,
@@ -1573,25 +1612,6 @@
 				3191A02D225C6DE2003AB263 /* WalletExtraKey.m */,
 			);
 			path = Keystone;
-			sourceTree = "<group>";
-		};
-		3191A02E225C6DE2003AB263 /* Operations */ = {
-			isa = PBXGroup;
-			children = (
-				318A67E6228947E9001D0157 /* CocosBuyNHOrderOperation.h */,
-				318A67E3228947E9001D0157 /* CocosBuyNHOrderOperation.m */,
-				318A67E4228947E9001D0157 /* CocosTransferNHOperation.h */,
-				318A67E5228947E9001D0157 /* CocosTransferNHOperation.m */,
-				3191A02F225C6DE2003AB263 /* CocosBaseOperation.h */,
-				3191A030225C6DE2003AB263 /* CocosBaseOperation.m */,
-				3191A031225C6DE2003AB263 /* CocosCallContractOperation.h */,
-				3191A032225C6DE2003AB263 /* CocosCallContractOperation.m */,
-				3191A033225C6DE2003AB263 /* CocosOperationContent.h */,
-				3191A034225C6DE2003AB263 /* CocosOperationContent.m */,
-				3191A035225C6DE2003AB263 /* CocosTransferOperation.h */,
-				3191A036225C6DE2003AB263 /* CocosTransferOperation.m */,
-			);
-			path = Operations;
 			sourceTree = "<group>";
 		};
 		3191A037225C6DE2003AB263 /* SDKModel */ = {
@@ -2120,7 +2140,6 @@
 				3191A0B6225C6DE2003AB263 /* ChainAssetObject.m in Sources */,
 				31E198BA221FD55B0076A822 /* CCWAssetsOverviewViewController.m in Sources */,
 				31881F5822165EB7006C31A2 /* CCWBackupsPrivateController.m in Sources */,
-				318A67E8228947E9001D0157 /* CocosTransferNHOperation.m in Sources */,
 				31E198B4221FA1260076A822 /* CCWMySheetTableViewCell.m in Sources */,
 				313FD4B822A506D00058A8A2 /* CCWAddNodeViewController.m in Sources */,
 				317948C7221E4B5F00F4EA69 /* YBPopupMenu.m in Sources */,
@@ -2158,7 +2177,6 @@
 				3184B4A52292B8DE00985B22 /* CCWPrivacyViewController.m in Sources */,
 				3191A0B3225C6DE2003AB263 /* VoteIdObject.m in Sources */,
 				318FF604221580D900AB5696 /* CCWImportViewController.m in Sources */,
-				3191A0AB225C6DE2003AB263 /* CocosTransferOperation.m in Sources */,
 				3144D05D22003BE700CDA62A /* NSMutableAttributedString+Helper.m in Sources */,
 				318FF5EB22155A8000AB5696 /* CCWTransferDetailViewController.m in Sources */,
 				3191A0C6225C6DE2003AB263 /* CocosSetting.m in Sources */,
@@ -2168,6 +2186,7 @@
 				3191A0C9225C6DE2003AB263 /* CallBackModel.m in Sources */,
 				316739AD221AD8F3008D85C4 /* CCWDappModel.m in Sources */,
 				318FF5F622156CA800AB5696 /* CCWLoginViewController.m in Sources */,
+				317D2D4622DEFBBF00559A7C /* CocosSellNHAssetOperation.m in Sources */,
 				3191A08D225C6DE2003AB263 /* base58.c in Sources */,
 				31E19887221E84270076A822 /* CCWSwitchAccountCell.m in Sources */,
 				31E198B3221FA1260076A822 /* CCWMyAlertSheetView.m in Sources */,
@@ -2179,14 +2198,15 @@
 				3191A0B5225C6DE2003AB263 /* ChainAssetPermissionObject.m in Sources */,
 				317948C9221E4B5F00F4EA69 /* YBRectConst.m in Sources */,
 				3149E5FE2227AAE400EAF5B4 /* CCWSDKRequest.m in Sources */,
-				3191A0A8225C6DE2003AB263 /* CocosBaseOperation.m in Sources */,
 				3191A0BD225C6DE2003AB263 /* CocosBitAddress.m in Sources */,
 				318A67E222893D23001D0157 /* CCWDappWebTool.m in Sources */,
 				317784F322004A0F00525237 /* CCWFindModule.m in Sources */,
 				3191A0B7225C6DE2003AB263 /* ChainAccountHistory.m in Sources */,
 				317948D7221E4BC000F4EA69 /* CCWContactTableViewCell.m in Sources */,
+				317D2D4D22DEFBBF00559A7C /* CocosCallContractOperation.m in Sources */,
 				3144D05B22003BE700CDA62A /* NSData+YLBase64.m in Sources */,
 				317948D1221E4B7800F4EA69 /* UIImageView+CCWImageView.m in Sources */,
+				317D2D4B22DEFBBF00559A7C /* CocosBuyNHOrderOperation.m in Sources */,
 				3144D06122003BE700CDA62A /* NSString+YLBase64.m in Sources */,
 				31F331C42265A97A00EC7496 /* ChainContract.m in Sources */,
 				31673992221AA59B008D85C4 /* CCWDataBase+CCWWalletAccount.m in Sources */,
@@ -2194,13 +2214,13 @@
 				3144D05922003BE700CDA62A /* CCWEncryptTool.m in Sources */,
 				316739A8221AD84B008D85C4 /* CCWFindTableViewCell.m in Sources */,
 				3191A0AC225C6DE2003AB263 /* AccountAuthoriyObject.m in Sources */,
+				317D2D4C22DEFBBF00559A7C /* CocosBaseOperation.m in Sources */,
 				316739BA221AD9C3008D85C4 /* CCWFindButton.m in Sources */,
-				318A67E7228947E9001D0157 /* CocosBuyNHOrderOperation.m in Sources */,
 				3191A0CA225C6DE2003AB263 /* UploadBaseModel.m in Sources */,
 				3191A0E4225F15CB003AB263 /* CCWMyWalletTableViewCell.m in Sources */,
 				3191A0A4225C6DE2003AB263 /* CocosHTTPManager.m in Sources */,
 				319D45C1221BAB3600D1E6D2 /* CCWFindModel.m in Sources */,
-				3191A0A9225C6DE2003AB263 /* CocosCallContractOperation.m in Sources */,
+				317D2D4822DEFBBF00559A7C /* CocosDeleteNHOperation.m in Sources */,
 				3167398F221AA536008D85C4 /* CCWDataBase.m in Sources */,
 				3191A098225C6DE2003AB263 /* Diggest.m in Sources */,
 				3123E22922B0ED0A00874CBF /* CCWSearchDAppViewController.m in Sources */,
@@ -2223,6 +2243,7 @@
 				3149E6052227C7DD00EAF5B4 /* CCWSystemSetViewController.m in Sources */,
 				31C819E7222791980083D74D /* CCWInitBaseViewController.m in Sources */,
 				31288E9F221D728C002EE5EA /* CCWTransRecordModel.m in Sources */,
+				317D2D4522DEFBBF00559A7C /* CocosUpgradeMemberOperation.m in Sources */,
 				31FC8D5A2213FBB90036C8F8 /* CCWWalletNavButton.m in Sources */,
 				31E19898221E90880076A822 /* CCWTransferInfoView.m in Sources */,
 				3154F3DA2223CF2700511FA8 /* MBProgressHUD.m in Sources */,
@@ -2249,6 +2270,7 @@
 				3191A0E8225F1D41003AB263 /* CCWWalletAccountModel.m in Sources */,
 				317948C8221E4B5F00F4EA69 /* YBPopupMenuPath.m in Sources */,
 				3144D05522003BE700CDA62A /* NSData+CommonCrypto.m in Sources */,
+				317D2D4922DEFBBF00559A7C /* CocosOperationContent.m in Sources */,
 				3110369722CC7D7200DE14DD /* CCWPwdAlertView.m in Sources */,
 				3144D05422003BE700CDA62A /* NSData+Base64.m in Sources */,
 				31E198BE221FE2FC0076A822 /* CCWAssetsOverviewCollectionViewCell.m in Sources */,
@@ -2267,10 +2289,11 @@
 				31725B9B21FEB02B005962C6 /* main.m in Sources */,
 				3144D05C22003BE700CDA62A /* NSDate+YCExtension.m in Sources */,
 				317948D0221E4B7800F4EA69 /* UIButton+CCWButton.m in Sources */,
+				317D2D4422DEFBBF00559A7C /* CocosTransferOperation.m in Sources */,
 				3191A0A2225C6DE2003AB263 /* CocosDBAccountModel.m in Sources */,
 				3144D06B22003BE700CDA62A /* UIView+Frame.m in Sources */,
+				317D2D4A22DEFBBF00559A7C /* CocosSellNHAssetCancelOperation.m in Sources */,
 				31E198C1221FE3C40076A822 /* CCWDigitalAssetsViewController.m in Sources */,
-				3191A0AA225C6DE2003AB263 /* CocosOperationContent.m in Sources */,
 				317784F722004AC300525237 /* CCWMyModule.m in Sources */,
 				31FC8D2D2213C82B0036C8F8 /* CCWWalletHeaderView.m in Sources */,
 				3186E8022293A08200A269C6 /* CCWAlertController.m in Sources */,
@@ -2279,6 +2302,7 @@
 				31725B8D21FEB02A005962C6 /* AppDelegate.m in Sources */,
 				31C35A4D221E491900E8B455 /* CCWContactModel.m in Sources */,
 				3191A0CB225C6DE2003AB263 /* UploadParams.m in Sources */,
+				317D2D4722DEFBBF00559A7C /* CocosTransferNHOperation.m in Sources */,
 				3191A094225C6DE2003AB263 /* WordList.m in Sources */,
 				31E198A1221E90C00076A822 /* CCWTransferInfoTableViewCell.m in Sources */,
 				316739B4221AD952008D85C4 /* XRCarouselView.m in Sources */,

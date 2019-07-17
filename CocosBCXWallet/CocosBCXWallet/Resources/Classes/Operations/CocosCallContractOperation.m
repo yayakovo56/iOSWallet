@@ -91,8 +91,7 @@
         [mutableData appendData:[CocosPackData packUnsigedInteger:[arr_value.firstObject integerValue]]];
         NSDictionary *baseValueDic = arr_value.lastObject;
         NSString *baseValue = baseValueDic[@"v"];
-//        NSData *baseValueData = [CocosPackData packString:baseValue];
-        // 兼容
+        //        NSData *baseValueData = [CocosPackData packString:baseValue];
         NSData *baseValueData = [CocosPackData packString:[NSString stringWithFormat:@"%@",baseValue]];
         [mutableData appendData:baseValueData];
     }
