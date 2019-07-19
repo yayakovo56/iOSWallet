@@ -127,7 +127,7 @@
 - (NSArray *)buttonTitleArray
 {
     if (!_buttonTitleArray) {
-        _buttonTitleArray = @[CCWLocalizable(@"转账"),CCWLocalizable(@"收款"),CCWLocalizable(@"Prop"),CCWLocalizable(@"消息中心")];
+        _buttonTitleArray = @[CCWLocalizable(@"转账"),CCWLocalizable(@"收款"),CCWLocalizable(@"Prop"),CCWLocalizable(@"订单管理")];
     }
     return _buttonTitleArray;
 }

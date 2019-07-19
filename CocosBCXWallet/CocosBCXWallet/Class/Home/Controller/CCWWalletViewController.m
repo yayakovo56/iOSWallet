@@ -200,7 +200,9 @@
         }
             break;
         case 3:
-            [self.view makeToast:CCWLocalizable(@"敬请期待")];
+        {
+            [self.navigationController pushViewController:[NSClassFromString(@"CCWNHOrderListViewController") new] animated:YES];
+        }
             break;
 
         default:

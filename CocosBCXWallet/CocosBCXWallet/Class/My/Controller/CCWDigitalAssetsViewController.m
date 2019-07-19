@@ -9,7 +9,7 @@
 #import "CCWDigitalAssetsViewController.h"
 #import "CCWWalletTableViewCell.h"
 
-@interface CCWDigitalAssetsViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface CCWDigitalAssetsViewController ()<UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 /** Cocos个数 */
 @property (nonatomic, strong) NSMutableArray *assetsModelArray;
 
@@ -28,10 +28,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
     self.tableView.rowHeight = 82;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.scrollEnabled = NO;
-    
     
     CCWWeakSelf
     // 查询资产
@@ -56,4 +56,25 @@
     return cell;
 }
 
+#pragma mark - DZNEmptyDataSetSource Methods
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"noData"];
+}
+
+- (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIColor whiteColor];
+}
+
+- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return  -90;
+}
+
+#pragma mark - DZNEmptyDataSetDelegate Methods
+- (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView
+{
+    return NO;
+}
 @end
