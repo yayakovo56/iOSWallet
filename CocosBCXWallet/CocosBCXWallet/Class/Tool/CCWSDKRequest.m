@@ -556,7 +556,7 @@
     }];
 }
 // 查询全网NH资产售卖订单
-+ (void)CCW_QueryAllNHAssetOrder:(NSString *)accountID
++ (void)CCW_QueryAllNHAssetOrder:(NSString *)assetid
                        WorldView:(NSString *)worldViewIDOrName
                     BaseDescribe:(NSString *)baseDescribe
                         PageSize:(NSInteger)pageSize
@@ -564,7 +564,7 @@
                          Success:(SuccessBlock)successBlock
                            Error:(ErrorBlock)errorBlock
 {
-    [[CocosSDK shareInstance] Cocos_AllListNHAssetOrder:accountID WorldView:worldViewIDOrName BaseDescribe:baseDescribe PageSize:pageSize Page:page Success:successBlock Error:^(NSError *error) {
+    [[CocosSDK shareInstance] Cocos_AllListNHAssetOrder:assetid WorldView:worldViewIDOrName BaseDescribe:baseDescribe PageSize:pageSize Page:page Success:successBlock Error:^(NSError *error) {
         !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
     }];
 }

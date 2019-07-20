@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)cellWithTableView:(UITableView *)tableView WithIdentifier:(NSString *)identifier;
 
 @property (nonatomic, strong) CCWNHAssetOrderModel *nhAssetOrderModel;
+@property (nonatomic, strong) CCWNHAssetOrderModel *allOrderModel;
 
 @property (nonatomic, weak) id<CCWPropOrderCellDelegate> delegate;
 @end

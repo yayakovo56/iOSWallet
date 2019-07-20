@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,11 +14,11 @@
             <rect key="frame" x="0.0" y="0.0" width="406" height="130"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="406" height="129.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="406" height="130"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7QN-Py-D2T">
-                        <rect key="frame" x="15" y="6" width="376" height="117.5"/>
+                        <rect key="frame" x="15" y="6" width="376" height="118"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x79-nG-3ZM" customClass="CCWLabel">
                                 <rect key="frame" x="15" y="12" width="46.5" height="17"/>
@@ -29,19 +27,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLe-jU-ZEW" customClass="CCWLabel">
-                                <rect key="frame" x="15" y="53" width="33" height="17"/>
+                                <rect key="frame" x="15" y="53" width="38" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.38431372549019605" green="0.40000000000000002" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="66 COCOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWg-Dn-Kdv">
-                                <rect key="frame" x="58" y="52.5" width="62" height="18"/>
+                                <rect key="frame" x="63" y="52.5" width="62" height="18"/>
                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="15"/>
                                 <color key="textColor" red="0.14901960784313725" green="0.16470588235294117" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="无" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeZ-eE-TBQ">
-                                <rect key="frame" x="58" y="80.5" width="14" height="16.5"/>
+                                <rect key="frame" x="63" y="80.5" width="14" height="16.5"/>
                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="14"/>
                                 <color key="textColor" red="0.14901960780000001" green="0.1647058824" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -53,7 +51,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="备注:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rch-UT-Ifn" customClass="CCWLabel">
-                                <rect key="frame" x="15" y="80" width="33" height="17"/>
+                                <rect key="frame" x="15" y="80" width="38" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="FAA-Zy-4cU"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.38431372549999998" green="0.40000000000000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -129,6 +130,7 @@
                             <constraint firstItem="nzx-yV-dJN" firstAttribute="leading" secondItem="e3I-9b-5BI" secondAttribute="leading" constant="12" id="MPW-Kl-cka"/>
                             <constraint firstItem="e3I-9b-5BI" firstAttribute="trailing" secondItem="nzx-yV-dJN" secondAttribute="trailing" constant="12" id="Of4-Iv-e8r"/>
                             <constraint firstItem="x79-nG-3ZM" firstAttribute="leading" secondItem="e3I-9b-5BI" secondAttribute="leading" constant="15" id="PPM-bH-WCb"/>
+                            <constraint firstItem="rch-UT-Ifn" firstAttribute="width" secondItem="SLe-jU-ZEW" secondAttribute="width" id="Q4k-LT-Zup"/>
                             <constraint firstItem="Ffz-VD-DOO" firstAttribute="centerY" secondItem="OeZ-eE-TBQ" secondAttribute="centerY" id="RN5-28-dfo"/>
                             <constraint firstItem="WYd-sr-DPl" firstAttribute="centerY" secondItem="AeF-Cb-jdG" secondAttribute="centerY" id="S8f-El-oIm"/>
                             <constraint firstItem="WYd-sr-DPl" firstAttribute="centerY" secondItem="V0U-2M-8iz" secondAttribute="centerY" id="UAc-CS-XR4"/>
@@ -139,6 +141,7 @@
                             <constraint firstItem="nWg-Dn-Kdv" firstAttribute="centerY" secondItem="SLe-jU-ZEW" secondAttribute="centerY" id="jmF-1B-Ik4"/>
                             <constraint firstItem="wgx-ol-2Jp" firstAttribute="centerY" secondItem="x79-nG-3ZM" secondAttribute="centerY" id="kUl-Wz-aSj"/>
                             <constraint firstItem="WYd-sr-DPl" firstAttribute="centerY" secondItem="wgx-ol-2Jp" secondAttribute="centerY" id="lkN-kr-StP"/>
+                            <constraint firstItem="e3I-9b-5BI" firstAttribute="centerX" relation="greaterThanOrEqual" secondItem="OeZ-eE-TBQ" secondAttribute="trailing" id="nut-V9-yMr"/>
                             <constraint firstItem="rch-UT-Ifn" firstAttribute="top" secondItem="SLe-jU-ZEW" secondAttribute="bottom" constant="10" id="ugM-rd-Ig5"/>
                             <constraint firstItem="STd-m2-xnT" firstAttribute="centerY" secondItem="nWg-Dn-Kdv" secondAttribute="centerY" id="uxy-yy-9Vm"/>
                             <constraint firstItem="WYd-sr-DPl" firstAttribute="leading" secondItem="V0U-2M-8iz" secondAttribute="trailing" id="yCN-fN-djg"/>
@@ -162,6 +165,7 @@
             <connections>
                 <outlet property="expirationLabel" destination="Ffz-VD-DOO" id="7qp-Zb-B1n"/>
                 <outlet property="nodeLabel" destination="OeZ-eE-TBQ" id="GlE-Xl-ize"/>
+                <outlet property="opButton" destination="STd-m2-xnT" id="oSP-GX-crg"/>
                 <outlet property="orderIdLabel" destination="wgx-ol-2Jp" id="XkG-tV-iMG"/>
                 <outlet property="priceLabel" destination="nWg-Dn-Kdv" id="seI-2a-aZT"/>
                 <outlet property="sellerLabel" destination="WYd-sr-DPl" id="ZWy-Ai-GH7"/>

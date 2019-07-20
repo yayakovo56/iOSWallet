@@ -7,11 +7,15 @@
 //
 
 #import "CCWAllOrderViewController.h"
+#import "CCWNHAssetOrderTableViewCell.h"
 
 @interface CCWAllOrderViewController ()<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+{
+    NSInteger page;
+}
+
 
 @property (nonatomic, strong) NSMutableArray *allPropOrderArray;
-
 @end
 
 @implementation CCWAllOrderViewController
@@ -31,8 +35,44 @@
     self.tableView.emptyDataSetDelegate = self;
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.tableView.rowHeight = 120;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    [self.tableView.mj_header beginRefreshing];
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    
 }
 
+
+- (void)loadData
+{
+    page = 1;
+    CCWWeakSelf;
+    [CCWSDKRequest CCW_QueryAllNHAssetOrder:@"" WorldView:@"" BaseDescribe:@"" PageSize:10 Page:page Success:^(id  _Nonnull responseObject) {
+        weakSelf.allPropOrderArray = [CCWNHAssetOrderModel mj_objectArrayWithKeyValuesArray:[responseObject firstObject]];
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.mj_header endRefreshing];
+    } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
+        [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+        // 结束刷新
+        [weakSelf.tableView.mj_header endRefreshing];
+    }];
+}
+
+- (void)loadMoreData
+{
+    page += 1;
+    CCWWeakSelf;
+    [CCWSDKRequest CCW_QueryAllNHAssetOrder:@"" WorldView:@"" BaseDescribe:@"" PageSize:10 Page:page Success:^(id  _Nonnull responseObject) {
+        weakSelf.allPropOrderArray = [CCWNHAssetOrderModel mj_objectArrayWithKeyValuesArray:[responseObject firstObject]];
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.mj_footer endRefreshing];
+    } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
+        [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+        // 结束刷新
+        [weakSelf.tableView.mj_footer endRefreshing];
+    }];
+}
 #pragma mark - tableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -41,11 +81,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"testCell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"testCell"];
-    }
-    cell.textLabel.text = [NSString stringWithFormat:@"%zd--%zd",indexPath.section,indexPath.row];
+    CCWNHAssetOrderTableViewCell *cell = [CCWNHAssetOrderTableViewCell cellWithTableView:tableView WithIdentifier:@"CCWallOrderTableViewCell"];
+    cell.allOrderModel = self.allPropOrderArray[indexPath.row];
     return cell;
 }
 

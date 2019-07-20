@@ -254,7 +254,7 @@ typedef void (^ErrorBlock)(NSString *errorAlert,id responseObject);// 失败回�
                             Success:(SuccessBlock)successBlock
                               Error:(ErrorBlock)errorBlock;
 // 查询全网NH资产售卖订单
-+ (void)CCW_QueryAllNHAssetOrder:(NSString *)accountID
++ (void)CCW_QueryAllNHAssetOrder:(NSString *)assetid
                        WorldView:(NSString *)worldViewIDOrName
                     BaseDescribe:(NSString *)baseDescribe
                         PageSize:(NSInteger)pageSize

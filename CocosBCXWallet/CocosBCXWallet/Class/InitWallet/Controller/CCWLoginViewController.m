@@ -33,6 +33,7 @@
 // 获取版本信息
 - (void)CCW_RequestAPPVersionInfo
 {
+    CCWWeakSelf;
     [CCWSDKRequest CCW_QueryVersionInfoSuccess:^(id  _Nonnull responseObject) {
         NSDictionary *dataDic = responseObject[@"data"];
         NSString *version = dataDic[@"version"];
@@ -51,7 +52,7 @@
             [[CCWCheckVisionAlert new] alertWithRootViewController];
         }
     } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-        NSLog(@"----errorAlert----%@",errorAlert);
+        [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
     }];
 }
 
