@@ -24,8 +24,6 @@
 		313FD4AF22A4BE9F0058A8A2 /* CCWNodeInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 313FD4AE22A4BE9F0058A8A2 /* CCWNodeInfoModel.m */; };
 		313FD4B322A4D6CB0058A8A2 /* CCWNodeAlertTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 313FD4B122A4D6CB0058A8A2 /* CCWNodeAlertTableViewCell.m */; };
 		313FD4B422A4D6CB0058A8A2 /* CCWNodeAlertTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 313FD4B222A4D6CB0058A8A2 /* CCWNodeAlertTableViewCell.xib */; };
-		313FD4B822A506D00058A8A2 /* CCWAddNodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313FD4B622A506CD0058A8A2 /* CCWAddNodeViewController.m */; };
-		313FD4B922A506D00058A8A2 /* CCWAddNodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 313FD4B722A506CD0058A8A2 /* CCWAddNodeViewController.xib */; };
 		3144D05322003BE700CDA62A /* CCWAES.m in Sources */ = {isa = PBXBuildFile; fileRef = 3144D00B22003BE700CDA62A /* CCWAES.m */; };
 		3144D05422003BE700CDA62A /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3144D00D22003BE700CDA62A /* NSData+Base64.m */; };
 		3144D05522003BE700CDA62A /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 3144D00F22003BE700CDA62A /* NSData+CommonCrypto.m */; };
@@ -65,13 +63,9 @@
 		3144D0A02200401900CDA62A /* CCWLocalizableConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 3144D09F2200401900CDA62A /* CCWLocalizableConst.m */; };
 		3149E5FE2227AAE400EAF5B4 /* CCWSDKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3149E5FD2227AAE400EAF5B4 /* CCWSDKRequest.m */; };
 		3149E6012227AC5800EAF5B4 /* CCWSDKErrorHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3149E6002227AC5800EAF5B4 /* CCWSDKErrorHandle.m */; };
-		3149E6052227C7DD00EAF5B4 /* CCWSystemSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3149E6032227C7DD00EAF5B4 /* CCWSystemSetViewController.m */; };
-		3149E6062227C7DD00EAF5B4 /* CCWSystemSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3149E6042227C7DD00EAF5B4 /* CCWSystemSetViewController.xib */; };
-		314D382A2224D88D000FBAB0 /* CCWPropAssetsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 314D38292224D88D000FBAB0 /* CCWPropAssetsTableViewController.m */; };
 		3154F3D92223CF2700511FA8 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3154F3D62223CF2700511FA8 /* MBProgressHUD.bundle */; };
 		3154F3DA2223CF2700511FA8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3154F3D82223CF2700511FA8 /* MBProgressHUD.m */; };
 		3154F3DD2223CFB400511FA8 /* MBProgressHUD+YSAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 3154F3DB2223CFB400511FA8 /* MBProgressHUD+YSAdd.m */; };
-		3154F3E02223D3D900511FA8 /* CCWScanQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3154F3DF2223D3D900511FA8 /* CCWScanQRCodeViewController.m */; };
 		3165106B22266BAA00F573F9 /* CCWDappViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3165106A22266BAA00F573F9 /* CCWDappViewController.m */; };
 		3165106E22266C9300F573F9 /* UIView+EmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3165106C22266C9300F573F9 /* UIView+EmptyView.m */; };
 		31658619221689190039B439 /* CCWReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31658617221689190039B439 /* CCWReceiveViewController.m */; };
@@ -97,12 +91,35 @@
 		31725B8D21FEB02A005962C6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31725B8C21FEB02A005962C6 /* AppDelegate.m */; };
 		31725B9521FEB02B005962C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31725B9421FEB02B005962C6 /* Assets.xcassets */; };
 		31725B9B21FEB02B005962C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 31725B9A21FEB02B005962C6 /* main.m */; };
+		3176CEC822E58FE00022B408 /* CCWWalletManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3176CEA222E58FE00022B408 /* CCWWalletManagerViewController.m */; };
+		3176CEC922E58FE00022B408 /* CCWWalletListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3176CEA322E58FE00022B408 /* CCWWalletListViewController.m */; };
+		3176CECA22E58FE00022B408 /* CCWWalletManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3176CEA422E58FE00022B408 /* CCWWalletManagerViewController.xib */; };
+		3176CECB22E58FE00022B408 /* CCWFixPWDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3176CEA522E58FE00022B408 /* CCWFixPWDViewController.xib */; };
+		3176CECC22E58FE00022B408 /* CCWExportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3176CEA622E58FE00022B408 /* CCWExportViewController.xib */; };
+		3176CECD22E58FE00022B408 /* CCWFixPWDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3176CEA722E58FE00022B408 /* CCWFixPWDViewController.m */; };
+		3176CECE22E58FE00022B408 /* CCWExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3176CEA822E58FE00022B408 /* CCWExportViewController.m */; };
+		3176CECF22E58FE00022B408 /* CCWDigitalAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3176CEAC22E58FE00022B408 /* CCWDigitalAssetsViewController.m */; };
+		3176CED022E58FE00022B408 /* CCWAssetsOverviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3176CEAE22E58FE00022B408 /* CCWAssetsOverviewViewController.xib */; };
+		3176CED122E58FE00022B408 /* CCWAssetsOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3176CEAF22E58FE00022B408 /* CCWAssetsOverviewViewController.m */; };
+		3176CED222E58FE00022B408 /* CCWPropAssetsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3176CEB022E58FE00022B408 /* CCWPropAssetsTableViewController.m */; };
+		3176CED322E58FE00022B408 /* CCWEditContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3176CEB422E58FE00022B408 /* CCWEditContactViewController.m */; };
+		3176CED422E58FE00022B408 /* CCWScanQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3176CEB522E58FE00022B408 /* CCWScanQRCodeViewController.m */; };
+		3176CED522E58FE00022B408 /* CCWEditContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3176CEB922E58FE00022B408 /* CCWEditContactViewController.xib */; };
+		3176CED622E58FE00022B408 /* CCWContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3176CEBA22E58FE00022B408 /* CCWContactViewController.m */; };
+		3176CED722E58FE00022B408 /* CCWPrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3176CEBD22E58FE00022B408 /* CCWPrivacyViewController.m */; };
+		3176CED822E58FE00022B408 /* CCWJoinUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3176CEBE22E58FE00022B408 /* CCWJoinUsViewController.xib */; };
+		3176CED922E58FE00022B408 /* CCWVersionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3176CEC022E58FE00022B408 /* CCWVersionViewController.m */; };
+		3176CEDA22E58FE00022B408 /* CCWJoinUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3176CEC122E58FE00022B408 /* CCWJoinUsViewController.m */; };
+		3176CEDB22E58FE00022B408 /* CCWAboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3176CEC222E58FE00022B408 /* CCWAboutUsViewController.xib */; };
+		3176CEDC22E58FE00022B408 /* CCWAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3176CEC322E58FE00022B408 /* CCWAboutUsViewController.m */; };
+		3176CEDD22E58FE00022B408 /* CCWTermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3176CEC522E58FE00022B408 /* CCWTermsViewController.m */; };
+		3176CEE122E591F40022B408 /* CCWPropDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3176CEDF22E591F40022B408 /* CCWPropDetailViewController.m */; };
+		3176CEE222E591F40022B408 /* CCWPropDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3176CEE022E591F40022B408 /* CCWPropDetailViewController.xib */; };
 		317784D52200429F00525237 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 317784D72200429F00525237 /* Localizable.strings */; };
 		317784E72200473800525237 /* CCWMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 317784DC2200473800525237 /* CCWMediator.m */; };
 		317784EF2200492400525237 /* CCWWalletModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 317784EE2200492400525237 /* CCWWalletModule.m */; };
 		317784F322004A0F00525237 /* CCWFindModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 317784F222004A0F00525237 /* CCWFindModule.m */; };
 		317784F722004AC300525237 /* CCWMyModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 317784F622004AC300525237 /* CCWMyModule.m */; };
-		317948BF221E4B1300F4EA69 /* CCWContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 317948BE221E4B1300F4EA69 /* CCWContactViewController.m */; };
 		317948C7221E4B5F00F4EA69 /* YBPopupMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 317948C2221E4B5E00F4EA69 /* YBPopupMenu.m */; };
 		317948C8221E4B5F00F4EA69 /* YBPopupMenuPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 317948C4221E4B5E00F4EA69 /* YBPopupMenuPath.m */; };
 		317948C9221E4B5F00F4EA69 /* YBRectConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 317948C6221E4B5E00F4EA69 /* YBRectConst.m */; };
@@ -110,8 +127,6 @@
 		317948D1221E4B7800F4EA69 /* UIImageView+CCWImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 317948CF221E4B7800F4EA69 /* UIImageView+CCWImageView.m */; };
 		317948D6221E4BC000F4EA69 /* CCWContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317948D3221E4BC000F4EA69 /* CCWContactTableViewCell.xib */; };
 		317948D7221E4BC000F4EA69 /* CCWContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 317948D5221E4BC000F4EA69 /* CCWContactTableViewCell.m */; };
-		317948DB221E529900F4EA69 /* CCWEditContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 317948D8221E529900F4EA69 /* CCWEditContactViewController.m */; };
-		317948DC221E529900F4EA69 /* CCWEditContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317948D9221E529900F4EA69 /* CCWEditContactViewController.xib */; };
 		317D2D4422DEFBBF00559A7C /* CocosTransferOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 317D2D3122DEFBBF00559A7C /* CocosTransferOperation.m */; };
 		317D2D4522DEFBBF00559A7C /* CocosUpgradeMemberOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 317D2D3322DEFBBF00559A7C /* CocosUpgradeMemberOperation.m */; };
 		317D2D4622DEFBBF00559A7C /* CocosSellNHAssetOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 317D2D3422DEFBBF00559A7C /* CocosSellNHAssetOperation.m */; };
@@ -131,9 +146,6 @@
 		317D2D6122E06F4900559A7C /* CCWNHAssetOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 317D2D6022E06F4900559A7C /* CCWNHAssetOrderModel.m */; };
 		317D2D6522E0713900559A7C /* CCWNHAssetOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 317D2D6322E0713900559A7C /* CCWNHAssetOrderTableViewCell.m */; };
 		317D2D6622E0713900559A7C /* CCWNHAssetOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317D2D6422E0713900559A7C /* CCWNHAssetOrderTableViewCell.xib */; };
-		3184B4A02292B8C500985B22 /* CCWTermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3184B49E2292B8C500985B22 /* CCWTermsViewController.m */; };
-		3184B4A52292B8DE00985B22 /* CCWPrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3184B4A32292B8DE00985B22 /* CCWPrivacyViewController.m */; };
-		3184B4AA2292BDD800985B22 /* CCWVersionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3184B4A82292BDD800985B22 /* CCWVersionViewController.m */; };
 		3186E8022293A08200A269C6 /* CCWAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186E7F92293A08200A269C6 /* CCWAlertController.m */; };
 		3186E8032293A08200A269C6 /* CCWAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186E7FB2293A08200A269C6 /* CCWAnimator.m */; };
 		3186E8042293A08200A269C6 /* CCWBaseAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186E7FD2293A08200A269C6 /* CCWBaseAlert.m */; };
@@ -229,15 +241,10 @@
 		3191A0D2225C8A09003AB263 /* CCWRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191A0D0225C8A09003AB263 /* CCWRegisterViewController.m */; };
 		3191A0D7225DDFC3003AB263 /* CCWRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3191A0D6225DDFC3003AB263 /* CCWRegisterViewController.xib */; };
 		3191A0DA225E11F8003AB263 /* CCWSelectCoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191A0D9225E11F7003AB263 /* CCWSelectCoinViewController.m */; };
-		3191A0E0225F12CB003AB263 /* CCWWalletListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191A0DF225F12CB003AB263 /* CCWWalletListViewController.m */; };
 		3191A0E4225F15CB003AB263 /* CCWMyWalletTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191A0E2225F15CB003AB263 /* CCWMyWalletTableViewCell.m */; };
 		3191A0E5225F15CB003AB263 /* CCWMyWalletTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3191A0E3225F15CB003AB263 /* CCWMyWalletTableViewCell.xib */; };
 		3191A0E8225F1D41003AB263 /* CCWWalletAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191A0E7225F1D41003AB263 /* CCWWalletAccountModel.m */; };
 		319D45C1221BAB3600D1E6D2 /* CCWFindModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 319D45BF221BAB3500D1E6D2 /* CCWFindModel.m */; };
-		319D45CE221BD00200D1E6D2 /* CCWWalletManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 319D45CC221BD00200D1E6D2 /* CCWWalletManagerViewController.m */; };
-		319D45CF221BD00200D1E6D2 /* CCWWalletManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 319D45CD221BD00200D1E6D2 /* CCWWalletManagerViewController.xib */; };
-		319D45D3221BE3B400D1E6D2 /* CCWFixPWDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 319D45D1221BE3B400D1E6D2 /* CCWFixPWDViewController.m */; };
-		319D45D4221BE3B400D1E6D2 /* CCWFixPWDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 319D45D2221BE3B400D1E6D2 /* CCWFixPWDViewController.xib */; };
 		319D45E2221C0FFA00D1E6D2 /* CCWWalletAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 319D45E1221C0FFA00D1E6D2 /* CCWWalletAccountTool.m */; };
 		31B540B6229FEC17002FA33B /* CCWNodeAlertSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B540B2229FEC17002FA33B /* CCWNodeAlertSheetView.m */; };
 		31C35A49221E489E00E8B455 /* CCWDataBase+CCWContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C35A48221E489D00E8B455 /* CCWDataBase+CCWContact.m */; };
@@ -245,7 +252,6 @@
 		31C819E7222791980083D74D /* CCWInitBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C819E6222791980083D74D /* CCWInitBaseViewController.m */; };
 		31C819ED222794F00083D74D /* CCWWalletBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C819EC222794F00083D74D /* CCWWalletBaseViewController.m */; };
 		31CDB7EA222531DC00D377B2 /* confuse.sh in Resources */ = {isa = PBXBuildFile; fileRef = 31CDB7E9222531DC00D377B2 /* confuse.sh */; };
-		31D90F10222D452800F718E7 /* CCWJoinUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D90F0F222D452800F718E7 /* CCWJoinUsViewController.xib */; };
 		31E1987D221E7A4E0076A822 /* CCWDecimalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E1987B221E7A4D0076A822 /* CCWDecimalTool.m */; };
 		31E19880221E7BCF0076A822 /* CCWConstkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E1987E221E7BCF0076A822 /* CCWConstkey.m */; };
 		31E19887221E84270076A822 /* CCWSwitchAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E19883221E84270076A822 /* CCWSwitchAccountCell.m */; };
@@ -254,18 +260,10 @@
 		31E19898221E90880076A822 /* CCWTransferInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E19897221E90880076A822 /* CCWTransferInfoView.m */; };
 		31E198A1221E90C00076A822 /* CCWTransferInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E1989F221E90C00076A822 /* CCWTransferInfoTableViewCell.m */; };
 		31E198A2221E90C00076A822 /* CCWTransferInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31E198A0221E90C00076A822 /* CCWTransferInfoTableViewCell.xib */; };
-		31E198A6221EA5B30076A822 /* CCWExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E198A4221EA5B30076A822 /* CCWExportViewController.m */; };
-		31E198A7221EA5B30076A822 /* CCWExportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31E198A5221EA5B30076A822 /* CCWExportViewController.xib */; };
-		31E198AB221EB22F0076A822 /* CCWAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E198A9221EB22F0076A822 /* CCWAboutUsViewController.m */; };
-		31E198AC221EB22F0076A822 /* CCWAboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31E198AA221EB22F0076A822 /* CCWAboutUsViewController.xib */; };
 		31E198B3221FA1260076A822 /* CCWMyAlertSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E198AF221FA1260076A822 /* CCWMyAlertSheetView.m */; };
 		31E198B4221FA1260076A822 /* CCWMySheetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E198B1221FA1260076A822 /* CCWMySheetTableViewCell.m */; };
 		31E198B5221FA1260076A822 /* CCWMySheetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31E198B2221FA1260076A822 /* CCWMySheetTableViewCell.xib */; };
-		31E198BA221FD55B0076A822 /* CCWAssetsOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E198B8221FD55B0076A822 /* CCWAssetsOverviewViewController.m */; };
 		31E198BE221FE2FC0076A822 /* CCWAssetsOverviewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E198BD221FE2FC0076A822 /* CCWAssetsOverviewCollectionViewCell.m */; };
-		31E198C1221FE3C40076A822 /* CCWDigitalAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E198C0221FE3C40076A822 /* CCWDigitalAssetsViewController.m */; };
-		31E198C3221FE7270076A822 /* CCWAssetsOverviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31E198C2221FE7270076A822 /* CCWAssetsOverviewViewController.xib */; };
-		31E198C7221FEF2F0076A822 /* CCWJoinUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E198C5221FEF2F0076A822 /* CCWJoinUsViewController.m */; };
 		31E198CC221FFAA80076A822 /* CCWTransferRecordTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E198CB221FFAA80076A822 /* CCWTransferRecordTableView.m */; };
 		31E198CF221FFBC10076A822 /* CCWWalletTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E198CE221FFBC10076A822 /* CCWWalletTableView.m */; };
 		31F331C42265A97A00EC7496 /* ChainContract.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F331C32265A97A00EC7496 /* ChainContract.m */; };
@@ -318,9 +316,6 @@
 		313FD4B022A4D6CB0058A8A2 /* CCWNodeAlertTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWNodeAlertTableViewCell.h; sourceTree = "<group>"; };
 		313FD4B122A4D6CB0058A8A2 /* CCWNodeAlertTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWNodeAlertTableViewCell.m; sourceTree = "<group>"; };
 		313FD4B222A4D6CB0058A8A2 /* CCWNodeAlertTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWNodeAlertTableViewCell.xib; sourceTree = "<group>"; };
-		313FD4B522A506CD0058A8A2 /* CCWAddNodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWAddNodeViewController.h; sourceTree = "<group>"; };
-		313FD4B622A506CD0058A8A2 /* CCWAddNodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWAddNodeViewController.m; sourceTree = "<group>"; };
-		313FD4B722A506CD0058A8A2 /* CCWAddNodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWAddNodeViewController.xib; sourceTree = "<group>"; };
 		3144D00A22003BE700CDA62A /* CCWAES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWAES.h; sourceTree = "<group>"; };
 		3144D00B22003BE700CDA62A /* CCWAES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWAES.m; sourceTree = "<group>"; };
 		3144D00C22003BE700CDA62A /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
@@ -404,18 +399,11 @@
 		3149E5FD2227AAE400EAF5B4 /* CCWSDKRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWSDKRequest.m; sourceTree = "<group>"; };
 		3149E5FF2227AC5800EAF5B4 /* CCWSDKErrorHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWSDKErrorHandle.h; sourceTree = "<group>"; };
 		3149E6002227AC5800EAF5B4 /* CCWSDKErrorHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWSDKErrorHandle.m; sourceTree = "<group>"; };
-		3149E6022227C7DD00EAF5B4 /* CCWSystemSetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWSystemSetViewController.h; sourceTree = "<group>"; };
-		3149E6032227C7DD00EAF5B4 /* CCWSystemSetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWSystemSetViewController.m; sourceTree = "<group>"; };
-		3149E6042227C7DD00EAF5B4 /* CCWSystemSetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWSystemSetViewController.xib; sourceTree = "<group>"; };
-		314D38282224D88D000FBAB0 /* CCWPropAssetsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWPropAssetsTableViewController.h; sourceTree = "<group>"; };
-		314D38292224D88D000FBAB0 /* CCWPropAssetsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWPropAssetsTableViewController.m; sourceTree = "<group>"; };
 		3154F3D62223CF2700511FA8 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		3154F3D72223CF2700511FA8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		3154F3D82223CF2700511FA8 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		3154F3DB2223CFB400511FA8 /* MBProgressHUD+YSAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+YSAdd.m"; sourceTree = "<group>"; };
 		3154F3DC2223CFB400511FA8 /* MBProgressHUD+YSAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+YSAdd.h"; sourceTree = "<group>"; };
-		3154F3DE2223D3D900511FA8 /* CCWScanQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWScanQRCodeViewController.h; sourceTree = "<group>"; };
-		3154F3DF2223D3D900511FA8 /* CCWScanQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWScanQRCodeViewController.m; sourceTree = "<group>"; };
 		3165106922266BAA00F573F9 /* CCWDappViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWDappViewController.h; sourceTree = "<group>"; };
 		3165106A22266BAA00F573F9 /* CCWDappViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWDappViewController.m; sourceTree = "<group>"; };
 		3165106C22266C9300F573F9 /* UIView+EmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+EmptyView.m"; sourceTree = "<group>"; };
@@ -460,6 +448,46 @@
 		31725B9421FEB02B005962C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31725B9921FEB02B005962C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31725B9A21FEB02B005962C6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3176CEA022E58FE00022B408 /* CCWExportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWExportViewController.h; sourceTree = "<group>"; };
+		3176CEA122E58FE00022B408 /* CCWFixPWDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWFixPWDViewController.h; sourceTree = "<group>"; };
+		3176CEA222E58FE00022B408 /* CCWWalletManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWWalletManagerViewController.m; sourceTree = "<group>"; };
+		3176CEA322E58FE00022B408 /* CCWWalletListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWWalletListViewController.m; sourceTree = "<group>"; };
+		3176CEA422E58FE00022B408 /* CCWWalletManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWWalletManagerViewController.xib; sourceTree = "<group>"; };
+		3176CEA522E58FE00022B408 /* CCWFixPWDViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWFixPWDViewController.xib; sourceTree = "<group>"; };
+		3176CEA622E58FE00022B408 /* CCWExportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWExportViewController.xib; sourceTree = "<group>"; };
+		3176CEA722E58FE00022B408 /* CCWFixPWDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWFixPWDViewController.m; sourceTree = "<group>"; };
+		3176CEA822E58FE00022B408 /* CCWExportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWExportViewController.m; sourceTree = "<group>"; };
+		3176CEA922E58FE00022B408 /* CCWWalletListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWWalletListViewController.h; sourceTree = "<group>"; };
+		3176CEAA22E58FE00022B408 /* CCWWalletManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWWalletManagerViewController.h; sourceTree = "<group>"; };
+		3176CEAC22E58FE00022B408 /* CCWDigitalAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWDigitalAssetsViewController.m; sourceTree = "<group>"; };
+		3176CEAD22E58FE00022B408 /* CCWPropAssetsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWPropAssetsTableViewController.h; sourceTree = "<group>"; };
+		3176CEAE22E58FE00022B408 /* CCWAssetsOverviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWAssetsOverviewViewController.xib; sourceTree = "<group>"; };
+		3176CEAF22E58FE00022B408 /* CCWAssetsOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWAssetsOverviewViewController.m; sourceTree = "<group>"; };
+		3176CEB022E58FE00022B408 /* CCWPropAssetsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWPropAssetsTableViewController.m; sourceTree = "<group>"; };
+		3176CEB122E58FE00022B408 /* CCWDigitalAssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWDigitalAssetsViewController.h; sourceTree = "<group>"; };
+		3176CEB222E58FE00022B408 /* CCWAssetsOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWAssetsOverviewViewController.h; sourceTree = "<group>"; };
+		3176CEB422E58FE00022B408 /* CCWEditContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWEditContactViewController.m; sourceTree = "<group>"; };
+		3176CEB522E58FE00022B408 /* CCWScanQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWScanQRCodeViewController.m; sourceTree = "<group>"; };
+		3176CEB622E58FE00022B408 /* CCWContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWContactViewController.h; sourceTree = "<group>"; };
+		3176CEB722E58FE00022B408 /* CCWEditContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWEditContactViewController.h; sourceTree = "<group>"; };
+		3176CEB822E58FE00022B408 /* CCWScanQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWScanQRCodeViewController.h; sourceTree = "<group>"; };
+		3176CEB922E58FE00022B408 /* CCWEditContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWEditContactViewController.xib; sourceTree = "<group>"; };
+		3176CEBA22E58FE00022B408 /* CCWContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWContactViewController.m; sourceTree = "<group>"; };
+		3176CEBC22E58FE00022B408 /* CCWAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWAboutUsViewController.h; sourceTree = "<group>"; };
+		3176CEBD22E58FE00022B408 /* CCWPrivacyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWPrivacyViewController.m; sourceTree = "<group>"; };
+		3176CEBE22E58FE00022B408 /* CCWJoinUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWJoinUsViewController.xib; sourceTree = "<group>"; };
+		3176CEBF22E58FE00022B408 /* CCWTermsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWTermsViewController.h; sourceTree = "<group>"; };
+		3176CEC022E58FE00022B408 /* CCWVersionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWVersionViewController.m; sourceTree = "<group>"; };
+		3176CEC122E58FE00022B408 /* CCWJoinUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWJoinUsViewController.m; sourceTree = "<group>"; };
+		3176CEC222E58FE00022B408 /* CCWAboutUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWAboutUsViewController.xib; sourceTree = "<group>"; };
+		3176CEC322E58FE00022B408 /* CCWAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWAboutUsViewController.m; sourceTree = "<group>"; };
+		3176CEC422E58FE00022B408 /* CCWPrivacyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWPrivacyViewController.h; sourceTree = "<group>"; };
+		3176CEC522E58FE00022B408 /* CCWTermsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWTermsViewController.m; sourceTree = "<group>"; };
+		3176CEC622E58FE00022B408 /* CCWJoinUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWJoinUsViewController.h; sourceTree = "<group>"; };
+		3176CEC722E58FE00022B408 /* CCWVersionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWVersionViewController.h; sourceTree = "<group>"; };
+		3176CEDE22E591F40022B408 /* CCWPropDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWPropDetailViewController.h; sourceTree = "<group>"; };
+		3176CEDF22E591F40022B408 /* CCWPropDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWPropDetailViewController.m; sourceTree = "<group>"; };
+		3176CEE022E591F40022B408 /* CCWPropDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWPropDetailViewController.xib; sourceTree = "<group>"; };
 		317784D62200429F00525237 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		317784D9220042E200525237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		317784DB2200473800525237 /* CCWMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWMediator.h; sourceTree = "<group>"; };
@@ -476,8 +504,6 @@
 		317784F222004A0F00525237 /* CCWFindModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWFindModule.m; sourceTree = "<group>"; };
 		317784F522004AC300525237 /* CCWMyModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWMyModule.h; sourceTree = "<group>"; };
 		317784F622004AC300525237 /* CCWMyModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWMyModule.m; sourceTree = "<group>"; };
-		317948BD221E4B1300F4EA69 /* CCWContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWContactViewController.h; sourceTree = "<group>"; };
-		317948BE221E4B1300F4EA69 /* CCWContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWContactViewController.m; sourceTree = "<group>"; };
 		317948C1221E4B5E00F4EA69 /* YBPopupMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBPopupMenu.h; sourceTree = "<group>"; };
 		317948C2221E4B5E00F4EA69 /* YBPopupMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBPopupMenu.m; sourceTree = "<group>"; };
 		317948C3221E4B5E00F4EA69 /* YBPopupMenuPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBPopupMenuPath.h; sourceTree = "<group>"; };
@@ -492,9 +518,6 @@
 		317948D3221E4BC000F4EA69 /* CCWContactTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWContactTableViewCell.xib; sourceTree = "<group>"; };
 		317948D4221E4BC000F4EA69 /* CCWContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWContactTableViewCell.h; sourceTree = "<group>"; };
 		317948D5221E4BC000F4EA69 /* CCWContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWContactTableViewCell.m; sourceTree = "<group>"; };
-		317948D8221E529900F4EA69 /* CCWEditContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWEditContactViewController.m; sourceTree = "<group>"; };
-		317948D9221E529900F4EA69 /* CCWEditContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWEditContactViewController.xib; sourceTree = "<group>"; };
-		317948DA221E529900F4EA69 /* CCWEditContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWEditContactViewController.h; sourceTree = "<group>"; };
 		317D2D3022DEFBBF00559A7C /* CocosBuyNHOrderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosBuyNHOrderOperation.h; sourceTree = "<group>"; };
 		317D2D3122DEFBBF00559A7C /* CocosTransferOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosTransferOperation.m; sourceTree = "<group>"; };
 		317D2D3222DEFBBF00559A7C /* CocosSellNHAssetCancelOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosSellNHAssetCancelOperation.h; sourceTree = "<group>"; };
@@ -531,12 +554,6 @@
 		317D2D6222E0713900559A7C /* CCWNHAssetOrderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWNHAssetOrderTableViewCell.h; sourceTree = "<group>"; };
 		317D2D6322E0713900559A7C /* CCWNHAssetOrderTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWNHAssetOrderTableViewCell.m; sourceTree = "<group>"; };
 		317D2D6422E0713900559A7C /* CCWNHAssetOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWNHAssetOrderTableViewCell.xib; sourceTree = "<group>"; };
-		3184B49D2292B8C500985B22 /* CCWTermsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWTermsViewController.h; sourceTree = "<group>"; };
-		3184B49E2292B8C500985B22 /* CCWTermsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWTermsViewController.m; sourceTree = "<group>"; };
-		3184B4A22292B8DE00985B22 /* CCWPrivacyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWPrivacyViewController.h; sourceTree = "<group>"; };
-		3184B4A32292B8DE00985B22 /* CCWPrivacyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWPrivacyViewController.m; sourceTree = "<group>"; };
-		3184B4A72292BDD800985B22 /* CCWVersionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWVersionViewController.h; sourceTree = "<group>"; };
-		3184B4A82292BDD800985B22 /* CCWVersionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWVersionViewController.m; sourceTree = "<group>"; };
 		3186E7F82293A08200A269C6 /* CCWAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWAlertController.h; sourceTree = "<group>"; };
 		3186E7F92293A08200A269C6 /* CCWAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWAlertController.m; sourceTree = "<group>"; };
 		3186E7FA2293A08200A269C6 /* CCWAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWAnimator.h; sourceTree = "<group>"; };
@@ -719,8 +736,6 @@
 		3191A0D6225DDFC3003AB263 /* CCWRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWRegisterViewController.xib; sourceTree = "<group>"; };
 		3191A0D8225E11F7003AB263 /* CCWSelectCoinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWSelectCoinViewController.h; sourceTree = "<group>"; };
 		3191A0D9225E11F7003AB263 /* CCWSelectCoinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWSelectCoinViewController.m; sourceTree = "<group>"; };
-		3191A0DE225F12CB003AB263 /* CCWWalletListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWWalletListViewController.h; sourceTree = "<group>"; };
-		3191A0DF225F12CB003AB263 /* CCWWalletListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWWalletListViewController.m; sourceTree = "<group>"; };
 		3191A0E1225F15CB003AB263 /* CCWMyWalletTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWMyWalletTableViewCell.h; sourceTree = "<group>"; };
 		3191A0E2225F15CB003AB263 /* CCWMyWalletTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWMyWalletTableViewCell.m; sourceTree = "<group>"; };
 		3191A0E3225F15CB003AB263 /* CCWMyWalletTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWMyWalletTableViewCell.xib; sourceTree = "<group>"; };
@@ -728,12 +743,6 @@
 		3191A0E7225F1D41003AB263 /* CCWWalletAccountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWWalletAccountModel.m; sourceTree = "<group>"; };
 		319D45BF221BAB3500D1E6D2 /* CCWFindModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWFindModel.m; sourceTree = "<group>"; };
 		319D45C0221BAB3600D1E6D2 /* CCWFindModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWFindModel.h; sourceTree = "<group>"; };
-		319D45CB221BD00200D1E6D2 /* CCWWalletManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWWalletManagerViewController.h; sourceTree = "<group>"; };
-		319D45CC221BD00200D1E6D2 /* CCWWalletManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWWalletManagerViewController.m; sourceTree = "<group>"; };
-		319D45CD221BD00200D1E6D2 /* CCWWalletManagerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWWalletManagerViewController.xib; sourceTree = "<group>"; };
-		319D45D0221BE3B400D1E6D2 /* CCWFixPWDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWFixPWDViewController.h; sourceTree = "<group>"; };
-		319D45D1221BE3B400D1E6D2 /* CCWFixPWDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWFixPWDViewController.m; sourceTree = "<group>"; };
-		319D45D2221BE3B400D1E6D2 /* CCWFixPWDViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWFixPWDViewController.xib; sourceTree = "<group>"; };
 		319D45DB221BF95E00D1E6D2 /* AppNilOrNull.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppNilOrNull.h; sourceTree = "<group>"; };
 		319D45E0221C0FFA00D1E6D2 /* CCWWalletAccountTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWWalletAccountTool.h; sourceTree = "<group>"; };
 		319D45E1221C0FFA00D1E6D2 /* CCWWalletAccountTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWWalletAccountTool.m; sourceTree = "<group>"; };
@@ -749,7 +758,6 @@
 		31C819EB222794F00083D74D /* CCWWalletBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWWalletBaseViewController.h; sourceTree = "<group>"; };
 		31C819EC222794F00083D74D /* CCWWalletBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWWalletBaseViewController.m; sourceTree = "<group>"; };
 		31CDB7E9222531DC00D377B2 /* confuse.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = confuse.sh; sourceTree = "<group>"; };
-		31D90F0F222D452800F718E7 /* CCWJoinUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWJoinUsViewController.xib; sourceTree = "<group>"; };
 		31E1987B221E7A4D0076A822 /* CCWDecimalTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWDecimalTool.m; sourceTree = "<group>"; };
 		31E1987C221E7A4D0076A822 /* CCWDecimalTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWDecimalTool.h; sourceTree = "<group>"; };
 		31E1987E221E7BCF0076A822 /* CCWConstkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWConstkey.m; sourceTree = "<group>"; };
@@ -764,26 +772,13 @@
 		31E1989E221E90C00076A822 /* CCWTransferInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWTransferInfoTableViewCell.h; sourceTree = "<group>"; };
 		31E1989F221E90C00076A822 /* CCWTransferInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWTransferInfoTableViewCell.m; sourceTree = "<group>"; };
 		31E198A0221E90C00076A822 /* CCWTransferInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWTransferInfoTableViewCell.xib; sourceTree = "<group>"; };
-		31E198A3221EA5B30076A822 /* CCWExportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWExportViewController.h; sourceTree = "<group>"; };
-		31E198A4221EA5B30076A822 /* CCWExportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWExportViewController.m; sourceTree = "<group>"; };
-		31E198A5221EA5B30076A822 /* CCWExportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWExportViewController.xib; sourceTree = "<group>"; };
-		31E198A8221EB22F0076A822 /* CCWAboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWAboutUsViewController.h; sourceTree = "<group>"; };
-		31E198A9221EB22F0076A822 /* CCWAboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWAboutUsViewController.m; sourceTree = "<group>"; };
-		31E198AA221EB22F0076A822 /* CCWAboutUsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWAboutUsViewController.xib; sourceTree = "<group>"; };
 		31E198AE221FA1260076A822 /* CCWMyAlertSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWMyAlertSheetView.h; sourceTree = "<group>"; };
 		31E198AF221FA1260076A822 /* CCWMyAlertSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWMyAlertSheetView.m; sourceTree = "<group>"; };
 		31E198B0221FA1260076A822 /* CCWMySheetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWMySheetTableViewCell.h; sourceTree = "<group>"; };
 		31E198B1221FA1260076A822 /* CCWMySheetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWMySheetTableViewCell.m; sourceTree = "<group>"; };
 		31E198B2221FA1260076A822 /* CCWMySheetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWMySheetTableViewCell.xib; sourceTree = "<group>"; };
-		31E198B7221FD55B0076A822 /* CCWAssetsOverviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWAssetsOverviewViewController.h; sourceTree = "<group>"; };
-		31E198B8221FD55B0076A822 /* CCWAssetsOverviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWAssetsOverviewViewController.m; sourceTree = "<group>"; };
 		31E198BC221FE2FC0076A822 /* CCWAssetsOverviewCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWAssetsOverviewCollectionViewCell.h; sourceTree = "<group>"; };
 		31E198BD221FE2FC0076A822 /* CCWAssetsOverviewCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWAssetsOverviewCollectionViewCell.m; sourceTree = "<group>"; };
-		31E198BF221FE3C40076A822 /* CCWDigitalAssetsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWDigitalAssetsViewController.h; sourceTree = "<group>"; };
-		31E198C0221FE3C40076A822 /* CCWDigitalAssetsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWDigitalAssetsViewController.m; sourceTree = "<group>"; };
-		31E198C2221FE7270076A822 /* CCWAssetsOverviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWAssetsOverviewViewController.xib; sourceTree = "<group>"; };
-		31E198C4221FEF2F0076A822 /* CCWJoinUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWJoinUsViewController.h; sourceTree = "<group>"; };
-		31E198C5221FEF2F0076A822 /* CCWJoinUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWJoinUsViewController.m; sourceTree = "<group>"; };
 		31E198CA221FFAA80076A822 /* CCWTransferRecordTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWTransferRecordTableView.h; sourceTree = "<group>"; };
 		31E198CB221FFAA80076A822 /* CCWTransferRecordTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWTransferRecordTableView.m; sourceTree = "<group>"; };
 		31E198CD221FFBC10076A822 /* CCWWalletTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWWalletTableView.h; sourceTree = "<group>"; };
@@ -1081,52 +1076,13 @@
 		3144D08722003C7100CDA62A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3176CEBB22E58FE00022B408 /* About */,
+				3176CEAB22E58FE00022B408 /* AssetsOver */,
+				3176CEB322E58FE00022B408 /* Contact */,
+				3176CE9F22E58FE00022B408 /* WalletManager */,
 				3144D08A22003C9200CDA62A /* CCWMyViewController.h */,
 				3144D08B22003C9200CDA62A /* CCWMyViewController.m */,
 				316739A1221ACBC7008D85C4 /* CCWMyViewController.xib */,
-				31E198B7221FD55B0076A822 /* CCWAssetsOverviewViewController.h */,
-				31E198B8221FD55B0076A822 /* CCWAssetsOverviewViewController.m */,
-				31E198C2221FE7270076A822 /* CCWAssetsOverviewViewController.xib */,
-				31E198BF221FE3C40076A822 /* CCWDigitalAssetsViewController.h */,
-				31E198C0221FE3C40076A822 /* CCWDigitalAssetsViewController.m */,
-				314D38282224D88D000FBAB0 /* CCWPropAssetsTableViewController.h */,
-				314D38292224D88D000FBAB0 /* CCWPropAssetsTableViewController.m */,
-				3191A0DE225F12CB003AB263 /* CCWWalletListViewController.h */,
-				3191A0DF225F12CB003AB263 /* CCWWalletListViewController.m */,
-				319D45CB221BD00200D1E6D2 /* CCWWalletManagerViewController.h */,
-				319D45CC221BD00200D1E6D2 /* CCWWalletManagerViewController.m */,
-				319D45CD221BD00200D1E6D2 /* CCWWalletManagerViewController.xib */,
-				3149E6022227C7DD00EAF5B4 /* CCWSystemSetViewController.h */,
-				3149E6032227C7DD00EAF5B4 /* CCWSystemSetViewController.m */,
-				3149E6042227C7DD00EAF5B4 /* CCWSystemSetViewController.xib */,
-				313FD4B522A506CD0058A8A2 /* CCWAddNodeViewController.h */,
-				313FD4B622A506CD0058A8A2 /* CCWAddNodeViewController.m */,
-				313FD4B722A506CD0058A8A2 /* CCWAddNodeViewController.xib */,
-				319D45D0221BE3B400D1E6D2 /* CCWFixPWDViewController.h */,
-				319D45D1221BE3B400D1E6D2 /* CCWFixPWDViewController.m */,
-				319D45D2221BE3B400D1E6D2 /* CCWFixPWDViewController.xib */,
-				31E198A3221EA5B30076A822 /* CCWExportViewController.h */,
-				31E198A4221EA5B30076A822 /* CCWExportViewController.m */,
-				31E198A5221EA5B30076A822 /* CCWExportViewController.xib */,
-				317948BD221E4B1300F4EA69 /* CCWContactViewController.h */,
-				317948BE221E4B1300F4EA69 /* CCWContactViewController.m */,
-				3154F3DE2223D3D900511FA8 /* CCWScanQRCodeViewController.h */,
-				3154F3DF2223D3D900511FA8 /* CCWScanQRCodeViewController.m */,
-				317948DA221E529900F4EA69 /* CCWEditContactViewController.h */,
-				317948D8221E529900F4EA69 /* CCWEditContactViewController.m */,
-				317948D9221E529900F4EA69 /* CCWEditContactViewController.xib */,
-				31E198A8221EB22F0076A822 /* CCWAboutUsViewController.h */,
-				31E198A9221EB22F0076A822 /* CCWAboutUsViewController.m */,
-				31E198AA221EB22F0076A822 /* CCWAboutUsViewController.xib */,
-				3184B49D2292B8C500985B22 /* CCWTermsViewController.h */,
-				3184B49E2292B8C500985B22 /* CCWTermsViewController.m */,
-				3184B4A22292B8DE00985B22 /* CCWPrivacyViewController.h */,
-				3184B4A32292B8DE00985B22 /* CCWPrivacyViewController.m */,
-				3184B4A72292BDD800985B22 /* CCWVersionViewController.h */,
-				3184B4A82292BDD800985B22 /* CCWVersionViewController.m */,
-				31E198C4221FEF2F0076A822 /* CCWJoinUsViewController.h */,
-				31E198C5221FEF2F0076A822 /* CCWJoinUsViewController.m */,
-				31D90F0F222D452800F718E7 /* CCWJoinUsViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1255,6 +1211,74 @@
 				31725B9A21FEB02B005962C6 /* main.m */,
 			);
 			path = CocosBCXWallet;
+			sourceTree = "<group>";
+		};
+		3176CE9F22E58FE00022B408 /* WalletManager */ = {
+			isa = PBXGroup;
+			children = (
+				3176CEA022E58FE00022B408 /* CCWExportViewController.h */,
+				3176CEA122E58FE00022B408 /* CCWFixPWDViewController.h */,
+				3176CEA222E58FE00022B408 /* CCWWalletManagerViewController.m */,
+				3176CEA322E58FE00022B408 /* CCWWalletListViewController.m */,
+				3176CEA422E58FE00022B408 /* CCWWalletManagerViewController.xib */,
+				3176CEA522E58FE00022B408 /* CCWFixPWDViewController.xib */,
+				3176CEA622E58FE00022B408 /* CCWExportViewController.xib */,
+				3176CEA722E58FE00022B408 /* CCWFixPWDViewController.m */,
+				3176CEA822E58FE00022B408 /* CCWExportViewController.m */,
+				3176CEA922E58FE00022B408 /* CCWWalletListViewController.h */,
+				3176CEAA22E58FE00022B408 /* CCWWalletManagerViewController.h */,
+			);
+			path = WalletManager;
+			sourceTree = "<group>";
+		};
+		3176CEAB22E58FE00022B408 /* AssetsOver */ = {
+			isa = PBXGroup;
+			children = (
+				3176CEB222E58FE00022B408 /* CCWAssetsOverviewViewController.h */,
+				3176CEAF22E58FE00022B408 /* CCWAssetsOverviewViewController.m */,
+				3176CEAE22E58FE00022B408 /* CCWAssetsOverviewViewController.xib */,
+				3176CEB122E58FE00022B408 /* CCWDigitalAssetsViewController.h */,
+				3176CEAC22E58FE00022B408 /* CCWDigitalAssetsViewController.m */,
+				3176CEAD22E58FE00022B408 /* CCWPropAssetsTableViewController.h */,
+				3176CEB022E58FE00022B408 /* CCWPropAssetsTableViewController.m */,
+				3176CEDE22E591F40022B408 /* CCWPropDetailViewController.h */,
+				3176CEDF22E591F40022B408 /* CCWPropDetailViewController.m */,
+				3176CEE022E591F40022B408 /* CCWPropDetailViewController.xib */,
+			);
+			path = AssetsOver;
+			sourceTree = "<group>";
+		};
+		3176CEB322E58FE00022B408 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				3176CEB422E58FE00022B408 /* CCWEditContactViewController.m */,
+				3176CEB522E58FE00022B408 /* CCWScanQRCodeViewController.m */,
+				3176CEB622E58FE00022B408 /* CCWContactViewController.h */,
+				3176CEB722E58FE00022B408 /* CCWEditContactViewController.h */,
+				3176CEB822E58FE00022B408 /* CCWScanQRCodeViewController.h */,
+				3176CEB922E58FE00022B408 /* CCWEditContactViewController.xib */,
+				3176CEBA22E58FE00022B408 /* CCWContactViewController.m */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
+		3176CEBB22E58FE00022B408 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				3176CEBC22E58FE00022B408 /* CCWAboutUsViewController.h */,
+				3176CEBD22E58FE00022B408 /* CCWPrivacyViewController.m */,
+				3176CEBE22E58FE00022B408 /* CCWJoinUsViewController.xib */,
+				3176CEBF22E58FE00022B408 /* CCWTermsViewController.h */,
+				3176CEC022E58FE00022B408 /* CCWVersionViewController.m */,
+				3176CEC122E58FE00022B408 /* CCWJoinUsViewController.m */,
+				3176CEC222E58FE00022B408 /* CCWAboutUsViewController.xib */,
+				3176CEC322E58FE00022B408 /* CCWAboutUsViewController.m */,
+				3176CEC422E58FE00022B408 /* CCWPrivacyViewController.h */,
+				3176CEC522E58FE00022B408 /* CCWTermsViewController.m */,
+				3176CEC622E58FE00022B408 /* CCWJoinUsViewController.h */,
+				3176CEC722E58FE00022B408 /* CCWVersionViewController.h */,
+			);
+			path = About;
 			sourceTree = "<group>";
 		};
 		317784DA2200473800525237 /* CCWMediator */ = {
@@ -2063,18 +2087,17 @@
 				3123E22B22B100C700874CBF /* CCWSearchDAppViewController.xib in Resources */,
 				318FF5ED22155F3200AB5696 /* CCWTransferDetailViewController.xib in Resources */,
 				313FD4B422A4D6CB0058A8A2 /* CCWNodeAlertTableViewCell.xib in Resources */,
+				3176CEDB22E58FE00022B408 /* CCWAboutUsViewController.xib in Resources */,
 				3123E22322B0DD7500874CBF /* PRIVACY POLICY.html in Resources */,
 				318FF5FD2215757700AB5696 /* CCWLoginViewController.xib in Resources */,
+				3176CED022E58FE00022B408 /* CCWAssetsOverviewViewController.xib in Resources */,
 				31FC8D322213C9320036C8F8 /* CCWWalletTableViewCell.xib in Resources */,
-				31E198AC221EB22F0076A822 /* CCWAboutUsViewController.xib in Resources */,
-				313FD4B922A506D00058A8A2 /* CCWAddNodeViewController.xib in Resources */,
 				316739B6221AD952008D85C4 /* XRPlaceholder@2x.png in Resources */,
-				319D45CF221BD00200D1E6D2 /* CCWWalletManagerViewController.xib in Resources */,
+				3176CECB22E58FE00022B408 /* CCWFixPWDViewController.xib in Resources */,
 				318A67EE22896642001D0157 /* cocos.js in Resources */,
+				3176CED522E58FE00022B408 /* CCWEditContactViewController.xib in Resources */,
 				31E198B5221FA1260076A822 /* CCWMySheetTableViewCell.xib in Resources */,
-				319D45D4221BE3B400D1E6D2 /* CCWFixPWDViewController.xib in Resources */,
 				3165861F22169CB70039B439 /* CCWTransferViewController.xib in Resources */,
-				317948DC221E529900F4EA69 /* CCWEditContactViewController.xib in Resources */,
 				318FF605221580D900AB5696 /* CCWImportViewController.xib in Resources */,
 				317784D52200429F00525237 /* Localizable.strings in Resources */,
 				31CDB7EA222531DC00D377B2 /* confuse.sh in Resources */,
@@ -2082,24 +2105,24 @@
 				31E198A2221E90C00076A822 /* CCWTransferInfoTableViewCell.xib in Resources */,
 				31881F5E2216692E006C31A2 /* CCWCreateViewController.xib in Resources */,
 				318FF5E82215518800AB5696 /* CCWTransRecordTableViewCell.xib in Resources */,
-				3149E6062227C7DD00EAF5B4 /* CCWSystemSetViewController.xib in Resources */,
 				317D2D6622E0713900559A7C /* CCWNHAssetOrderTableViewCell.xib in Resources */,
+				3176CECC22E58FE00022B408 /* CCWExportViewController.xib in Resources */,
 				31E19888221E84270076A822 /* CCWSwitchAccountCell.xib in Resources */,
-				31E198C3221FE7270076A822 /* CCWAssetsOverviewViewController.xib in Resources */,
 				317948D6221E4BC000F4EA69 /* CCWContactTableViewCell.xib in Resources */,
 				3191A0E5225F15CB003AB263 /* CCWMyWalletTableViewCell.xib in Resources */,
 				316739A2221ACBC7008D85C4 /* CCWMyViewController.xib in Resources */,
 				3191A0D7225DDFC3003AB263 /* CCWRegisterViewController.xib in Resources */,
+				3176CECA22E58FE00022B408 /* CCWWalletManagerViewController.xib in Resources */,
 				31881F542216593D006C31A2 /* CCWTipScreenShotViewController.xib in Resources */,
-				31D90F10222D452800F718E7 /* CCWJoinUsViewController.xib in Resources */,
+				3176CED822E58FE00022B408 /* CCWJoinUsViewController.xib in Resources */,
 				31881F5922165EB7006C31A2 /* CCWBackupsPrivateController.xib in Resources */,
 				317D2D5222E0428E00559A7C /* CCWPropAssetsTableViewCell.xib in Resources */,
 				3123E22522B0DDDD00874CBF /* VersionLog.html in Resources */,
 				318FF5E322153FB400AB5696 /* CCWTransferRecordHeader.xib in Resources */,
 				3123E22222B0DD7500874CBF /* Terms of Service.html in Resources */,
 				3165861A221689190039B439 /* CCWReceiveViewController.xib in Resources */,
+				3176CEE222E591F40022B408 /* CCWPropDetailViewController.xib in Resources */,
 				31725B9521FEB02B005962C6 /* Assets.xcassets in Resources */,
-				31E198A7221EA5B30076A822 /* CCWExportViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2164,7 +2187,6 @@
 				31288E9B221D57DD002EE5EA /* CCWAssetsModel.m in Sources */,
 				3144D05F22003BE700CDA62A /* NSString+CCWHash.m in Sources */,
 				3144D05322003BE700CDA62A /* CCWAES.m in Sources */,
-				314D382A2224D88D000FBAB0 /* CCWPropAssetsTableViewController.m in Sources */,
 				31E198CC221FFAA80076A822 /* CCWTransferRecordTableView.m in Sources */,
 				318FF5F02215654E00AB5696 /* CCWLabel.m in Sources */,
 				3144D07022003BE700CDA62A /* CCWPassWordUtil.m in Sources */,
@@ -2172,6 +2194,7 @@
 				3191A0BF225C6DE2003AB263 /* CocosPublicKey.m in Sources */,
 				31E19880221E7BCF0076A822 /* CCWConstkey.m in Sources */,
 				3144D05A22003BE700CDA62A /* CCWRSAUtill.m in Sources */,
+				3176CECE22E58FE00022B408 /* CCWExportViewController.m in Sources */,
 				3191A0A1225C6DE2003AB263 /* CocosDataBase.m in Sources */,
 				3144D06922003BE700CDA62A /* UILabel+YSAdd.m in Sources */,
 				3186E8062293A08200A269C6 /* CCWCheckVisionAlert.m in Sources */,
@@ -2179,18 +2202,16 @@
 				313FD4AC22A4BE660058A8A2 /* CCWDataBase+CCWNodeINfo.m in Sources */,
 				3191A0A3225C6DE2003AB263 /* CocosHTTPManager+CreateAccount.m in Sources */,
 				318FF6002215794A00AB5696 /* CCWButton.m in Sources */,
-				31E198AB221EB22F0076A822 /* CCWAboutUsViewController.m in Sources */,
 				3191A0B6225C6DE2003AB263 /* ChainAssetObject.m in Sources */,
-				31E198BA221FD55B0076A822 /* CCWAssetsOverviewViewController.m in Sources */,
 				31881F5822165EB7006C31A2 /* CCWBackupsPrivateController.m in Sources */,
+				3176CEDA22E58FE00022B408 /* CCWJoinUsViewController.m in Sources */,
 				31E198B4221FA1260076A822 /* CCWMySheetTableViewCell.m in Sources */,
 				317D2D6522E0713900559A7C /* CCWNHAssetOrderTableViewCell.m in Sources */,
-				313FD4B822A506D00058A8A2 /* CCWAddNodeViewController.m in Sources */,
 				317948C7221E4B5F00F4EA69 /* YBPopupMenu.m in Sources */,
+				3176CED722E58FE00022B408 /* CCWPrivacyViewController.m in Sources */,
 				3144D05822003BE700CDA62A /* NSData+GTMBase64.m in Sources */,
 				3144D06A22003BE700CDA62A /* UITextView+CCWPlaceHolder.m in Sources */,
 				3144D09222003CBD00CDA62A /* CCWFindViewController.m in Sources */,
-				3184B4A02292B8C500985B22 /* CCWTermsViewController.m in Sources */,
 				3165106B22266BAA00F573F9 /* CCWDappViewController.m in Sources */,
 				3191A0AF225C6DE2003AB263 /* PublicKeyAuthorityObject.m in Sources */,
 				317784E72200473800525237 /* CCWMediator.m in Sources */,
@@ -2199,11 +2220,11 @@
 				3144D06D22003BE700CDA62A /* UIView+YSAdd.m in Sources */,
 				3191A0C7225C6DE2003AB263 /* SignedTransaction.m in Sources */,
 				318FF5DD221510EC00AB5696 /* CCWTransRecordViewController.m in Sources */,
-				3191A0E0225F12CB003AB263 /* CCWWalletListViewController.m in Sources */,
 				3191A0B0225C6DE2003AB263 /* SpecialAuthorityObject.m in Sources */,
 				3191A091225C6DE2003AB263 /* sha2.c in Sources */,
 				3110369622CC7D7200DE14DD /* CCWPwdContent.m in Sources */,
 				3144D06822003BE700CDA62A /* UIImage+YSAdd.m in Sources */,
+				3176CED122E58FE00022B408 /* CCWAssetsOverviewViewController.m in Sources */,
 				3191A090225C6DE2003AB263 /* rmd160.c in Sources */,
 				3191A0CD225C6DE2003AB263 /* WebsocketResultErrorParse.m in Sources */,
 				3191A0B8225C6DE2003AB263 /* ChainAssetAmountObject.m in Sources */,
@@ -2215,17 +2236,18 @@
 				3144D0A02200401900CDA62A /* CCWLocalizableConst.m in Sources */,
 				317D2D5B22E0613F00559A7C /* CCWMyOrderViewController.m in Sources */,
 				3144D06622003BE700CDA62A /* CCWPlaceholderTextView.m in Sources */,
+				3176CEDD22E58FE00022B408 /* CCWTermsViewController.m in Sources */,
 				3186E8052293A08200A269C6 /* CCWPresentationController.m in Sources */,
 				3144D06F22003BE700CDA62A /* CCWCheckJailbreak.m in Sources */,
 				313FD4AF22A4BE9F0058A8A2 /* CCWNodeInfoModel.m in Sources */,
 				316739A0221AB2E0008D85C4 /* CCWWalletAccount.m in Sources */,
-				3184B4A52292B8DE00985B22 /* CCWPrivacyViewController.m in Sources */,
 				3191A0B3225C6DE2003AB263 /* VoteIdObject.m in Sources */,
 				318FF604221580D900AB5696 /* CCWImportViewController.m in Sources */,
 				3144D05D22003BE700CDA62A /* NSMutableAttributedString+Helper.m in Sources */,
 				318FF5EB22155A8000AB5696 /* CCWTransferDetailViewController.m in Sources */,
 				3191A0C6225C6DE2003AB263 /* CocosSetting.m in Sources */,
 				3144D07122003BE700CDA62A /* CCWPrivacyPermissionsManager.m in Sources */,
+				3176CED222E58FE00022B408 /* CCWPropAssetsTableViewController.m in Sources */,
 				3191A08C225C6DE2003AB263 /* Cocos_Key_Account.m in Sources */,
 				3191A092225C6DE2003AB263 /* Sha256.m in Sources */,
 				3191A0C9225C6DE2003AB263 /* CallBackModel.m in Sources */,
@@ -2237,10 +2259,9 @@
 				31E198B3221FA1260076A822 /* CCWMyAlertSheetView.m in Sources */,
 				318FF5FB22156D5A00AB5696 /* CCWInitWalletModule.m in Sources */,
 				317D2D5822E05BB600559A7C /* CCWNHOrderListViewController.m in Sources */,
-				319D45CE221BD00200D1E6D2 /* CCWWalletManagerViewController.m in Sources */,
 				3110368222CC48F100DE14DD /* CCWPasswordAlertView.m in Sources */,
-				317948DB221E529900F4EA69 /* CCWEditContactViewController.m in Sources */,
 				3165106E22266C9300F573F9 /* UIView+EmptyView.m in Sources */,
+				3176CED922E58FE00022B408 /* CCWVersionViewController.m in Sources */,
 				3191A0B5225C6DE2003AB263 /* ChainAssetPermissionObject.m in Sources */,
 				317948C9221E4B5F00F4EA69 /* YBRectConst.m in Sources */,
 				3149E5FE2227AAE400EAF5B4 /* CCWSDKRequest.m in Sources */,
@@ -2259,6 +2280,7 @@
 				31881F532216593D006C31A2 /* CCWTipScreenShotViewController.m in Sources */,
 				3144D05922003BE700CDA62A /* CCWEncryptTool.m in Sources */,
 				316739A8221AD84B008D85C4 /* CCWFindTableViewCell.m in Sources */,
+				3176CEE122E591F40022B408 /* CCWPropDetailViewController.m in Sources */,
 				3191A0AC225C6DE2003AB263 /* AccountAuthoriyObject.m in Sources */,
 				317D2D4C22DEFBBF00559A7C /* CocosBaseOperation.m in Sources */,
 				316739BA221AD9C3008D85C4 /* CCWFindButton.m in Sources */,
@@ -2276,8 +2298,10 @@
 				3191A0A0225C6DE2003AB263 /* CocosDataBase+Account.m in Sources */,
 				3144D07222003BE700CDA62A /* CCWSaveTool.m in Sources */,
 				3191A09B225C6DE2003AB263 /* NSData+CopyWithRange.m in Sources */,
+				3176CED622E58FE00022B408 /* CCWContactViewController.m in Sources */,
 				31881F5D2216692E006C31A2 /* CCWCreateViewController.m in Sources */,
 				3191A0BA225C6DE2003AB263 /* ChainMemo.m in Sources */,
+				3176CECF22E58FE00022B408 /* CCWDigitalAssetsViewController.m in Sources */,
 				3191A0A5225C6DE2003AB263 /* KeystoneFile.m in Sources */,
 				3191A08E225C6DE2003AB263 /* Base64.m in Sources */,
 				3144D08C22003C9200CDA62A /* CCWMyViewController.m in Sources */,
@@ -2286,22 +2310,18 @@
 				31FC8D312213C9320036C8F8 /* CCWWalletTableViewCell.m in Sources */,
 				3144D08F22003CAB00CDA62A /* CCWWalletViewController.m in Sources */,
 				31288E97221D4726002EE5EA /* Foundation Log.m in Sources */,
-				3149E6052227C7DD00EAF5B4 /* CCWSystemSetViewController.m in Sources */,
 				31C819E7222791980083D74D /* CCWInitBaseViewController.m in Sources */,
 				31288E9F221D728C002EE5EA /* CCWTransRecordModel.m in Sources */,
 				317D2D4522DEFBBF00559A7C /* CocosUpgradeMemberOperation.m in Sources */,
 				31FC8D5A2213FBB90036C8F8 /* CCWWalletNavButton.m in Sources */,
 				31E19898221E90880076A822 /* CCWTransferInfoView.m in Sources */,
 				3154F3DA2223CF2700511FA8 /* MBProgressHUD.m in Sources */,
-				31E198A6221EA5B30076A822 /* CCWExportViewController.m in Sources */,
 				317D2D5522E04CF700559A7C /* CCWNHAssetsModel.m in Sources */,
 				317D2D5122E0428E00559A7C /* CCWPropAssetsTableViewCell.m in Sources */,
-				319D45D3221BE3B400D1E6D2 /* CCWFixPWDViewController.m in Sources */,
 				3191A0B2225C6DE2003AB263 /* AccountOptionObject.m in Sources */,
 				318FF5E12215143D00AB5696 /* CCWTransferRecordHeader.m in Sources */,
 				3191A0CC225C6DE2003AB263 /* WebsocketClient.m in Sources */,
 				31E19889221E84270076A822 /* CCWSwitchAccountView.m in Sources */,
-				31E198C7221FEF2F0076A822 /* CCWJoinUsViewController.m in Sources */,
 				3144D06422003BE700CDA62A /* YCNSDateFormatter.m in Sources */,
 				3191A0DA225E11F8003AB263 /* CCWSelectCoinViewController.m in Sources */,
 				3191A09C225C6DE2003AB263 /* NSData+Base16.m in Sources */,
@@ -2310,8 +2330,8 @@
 				3154F3DD2223CFB400511FA8 /* MBProgressHUD+YSAdd.m in Sources */,
 				3191A0BE225C6DE2003AB263 /* CocosPrivateKey.mm in Sources */,
 				31B540B6229FEC17002FA33B /* CCWNodeAlertSheetView.m in Sources */,
-				3184B4AA2292BDD800985B22 /* CCWVersionViewController.m in Sources */,
 				31C819ED222794F00083D74D /* CCWWalletBaseViewController.m in Sources */,
+				3176CECD22E58FE00022B408 /* CCWFixPWDViewController.m in Sources */,
 				3167399B221AB2CE008D85C4 /* CCWNavigation.m in Sources */,
 				3191A099225C6DE2003AB263 /* RIPEMD160Diggest.m in Sources */,
 				3191A097225C6DE2003AB263 /* NSObject+DataToObject.m in Sources */,
@@ -2334,7 +2354,6 @@
 				3191A0B9225C6DE2003AB263 /* ChainDynamicGlobalProperties.m in Sources */,
 				319D45E2221C0FFA00D1E6D2 /* CCWWalletAccountTool.m in Sources */,
 				3191A09A225C6DE2003AB263 /* SHA256Diggest.m in Sources */,
-				317948BF221E4B1300F4EA69 /* CCWContactViewController.m in Sources */,
 				31725B9B21FEB02B005962C6 /* main.m in Sources */,
 				3144D05C22003BE700CDA62A /* NSDate+YCExtension.m in Sources */,
 				317948D0221E4B7800F4EA69 /* UIButton+CCWButton.m in Sources */,
@@ -2342,14 +2361,15 @@
 				3191A0A2225C6DE2003AB263 /* CocosDBAccountModel.m in Sources */,
 				3144D06B22003BE700CDA62A /* UIView+Frame.m in Sources */,
 				317D2D4A22DEFBBF00559A7C /* CocosSellNHAssetCancelOperation.m in Sources */,
-				31E198C1221FE3C40076A822 /* CCWDigitalAssetsViewController.m in Sources */,
 				317784F722004AC300525237 /* CCWMyModule.m in Sources */,
 				31FC8D2D2213C82B0036C8F8 /* CCWWalletHeaderView.m in Sources */,
 				3186E8022293A08200A269C6 /* CCWAlertController.m in Sources */,
 				3144D06E22003BE700CDA62A /* UIViewController+LYVisible.m in Sources */,
 				31658619221689190039B439 /* CCWReceiveViewController.m in Sources */,
+				3176CEDC22E58FE00022B408 /* CCWAboutUsViewController.m in Sources */,
 				31725B8D21FEB02A005962C6 /* AppDelegate.m in Sources */,
 				31C35A4D221E491900E8B455 /* CCWContactModel.m in Sources */,
+				3176CED422E58FE00022B408 /* CCWScanQRCodeViewController.m in Sources */,
 				3191A0CB225C6DE2003AB263 /* UploadParams.m in Sources */,
 				317D2D4722DEFBBF00559A7C /* CocosTransferNHOperation.m in Sources */,
 				3191A094225C6DE2003AB263 /* WordList.m in Sources */,
@@ -2359,24 +2379,26 @@
 				3191A08F225C6DE2003AB263 /* PBKDF2.m in Sources */,
 				316C57A822980D5500F8AE33 /* CCWLogOutAlert.m in Sources */,
 				31E1987D221E7A4E0076A822 /* CCWDecimalTool.m in Sources */,
+				3176CED322E58FE00022B408 /* CCWEditContactViewController.m in Sources */,
 				3186E8042293A08200A269C6 /* CCWBaseAlert.m in Sources */,
 				31881F4F221657B6006C31A2 /* UIView+Toast.m in Sources */,
 				3191A0C4225C6DE2003AB263 /* CocosConfig.m in Sources */,
 				317D2D5E22E0614B00559A7C /* CCWAllOrderViewController.m in Sources */,
 				3191A0A6225C6DE2003AB263 /* PlainKey.m in Sources */,
 				3191A09D225C6DE2003AB263 /* NSData+HashData.m in Sources */,
-				3154F3E02223D3D900511FA8 /* CCWScanQRCodeViewController.m in Sources */,
 				3167399C221AB2CE008D85C4 /* CCWNavigationController.m in Sources */,
 				3144D05622003BE700CDA62A /* NSString+Base64.m in Sources */,
 				318A67EC228948AE001D0157 /* ChainNHAssetOrder.m in Sources */,
 				3191A0CE225C6DE2003AB263 /* WebsocketResultModel.m in Sources */,
 				3144D06722003BE700CDA62A /* UIColor+YSAdd.m in Sources */,
+				3176CEC922E58FE00022B408 /* CCWWalletListViewController.m in Sources */,
 				3191A09E225C6DE2003AB263 /* NSDate+UTCDate.m in Sources */,
 				3186E8032293A08200A269C6 /* CCWAnimator.m in Sources */,
 				3191A0D2225C8A09003AB263 /* CCWRegisterViewController.m in Sources */,
 				3191A0A7225C6DE2003AB263 /* WalletExtraKey.m in Sources */,
 				3191A0B1225C6DE2003AB263 /* ChainAccountModel.m in Sources */,
 				3191A09F225C6DE2003AB263 /* CocosSDK.m in Sources */,
+				3176CEC822E58FE00022B408 /* CCWWalletManagerViewController.m in Sources */,
 				318FF5E72215518800AB5696 /* CCWTransRecordTableViewCell.m in Sources */,
 				31E198CF221FFBC10076A822 /* CCWWalletTableView.m in Sources */,
 				31288E95221D1BC7002EE5EA /* CCWTextField.m in Sources */,

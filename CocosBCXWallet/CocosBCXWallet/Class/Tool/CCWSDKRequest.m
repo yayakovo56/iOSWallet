@@ -11,6 +11,7 @@
 #import "CCWAssetsModel.h"
 #import "CCWTransRecordModel.h"
 #import "CCWWalletAccountModel.h"
+#import "CCWNHAssetOrderModel.h"
 
 @implementation CCWSDKRequest
 
@@ -551,10 +552,13 @@
                             Success:(SuccessBlock)successBlock
                               Error:(ErrorBlock)errorBlock
 {
-    [[CocosSDK shareInstance] Cocos_ListAccountNHAssetOrder:accountID PageSize:pageSize Page:page Success:successBlock Error:^(NSError *error) {
+    [[CocosSDK shareInstance] Cocos_ListAccountNHAssetOrder:accountID PageSize:pageSize Page:page Success:^(NSArray *responseObject) {
+        [self queryNHOrderResultHandle:responseObject Success:successBlock Error:errorBlock];
+    } Error:^(NSError *error) {
         !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
     }];
 }
+
 // 查询全网NH资产售卖订单
 + (void)CCW_QueryAllNHAssetOrder:(NSString *)assetid
                        WorldView:(NSString *)worldViewIDOrName
@@ -564,10 +568,48 @@
                          Success:(SuccessBlock)successBlock
                            Error:(ErrorBlock)errorBlock
 {
-    [[CocosSDK shareInstance] Cocos_AllListNHAssetOrder:assetid WorldView:worldViewIDOrName BaseDescribe:baseDescribe PageSize:pageSize Page:page Success:successBlock Error:^(NSError *error) {
+    [[CocosSDK shareInstance] Cocos_AllListNHAssetOrder:assetid WorldView:worldViewIDOrName BaseDescribe:baseDescribe PageSize:pageSize Page:page Success:^(NSArray *responseObject) {
+        [self queryNHOrderResultHandle:responseObject Success:successBlock Error:errorBlock];
+    } Error:^(NSError *error) {
         !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
     }];
 }
+
+// 查询资产后处理
++ (void)queryNHOrderResultHandle:(NSArray *)responseObject
+                         Success:(SuccessBlock _Nonnull)successBlock
+                           Error:(ErrorBlock _Nonnull)errorBlock
+{
+    NSMutableArray *myassetArr = [CCWNHAssetOrderModel mj_objectArrayWithKeyValuesArray:[responseObject firstObject]];
+    __block NSMutableArray *tempArray = [NSMutableArray array];
+    if (myassetArr.count == 0) {
+        !successBlock?:successBlock(tempArray);
+        return;
+    }
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        dispatch_semaphore_t disp = dispatch_semaphore_create(0);
+        for (CCWNHAssetOrderModel *nhAssetOrder in myassetArr) {
+            // 查询卖家
+            [self CCW_QueryAccountInfo:nhAssetOrder.seller Success:^(id  _Nonnull responseObject) {
+                // 用户名称
+                nhAssetOrder.sellername = responseObject[@"name"];
+                // 查询转账币种信息
+                [self CCW_QueryAssetInfo:nhAssetOrder.price[@"asset_id"] Success:^(CCWAssetsModel *assetsModel) {
+                    nhAssetOrder.priceModel = assetsModel;
+                    nhAssetOrder.priceModel.amount = [[CCWDecimalTool CCW_decimalNumberWithString:[NSString stringWithFormat:@"%@",nhAssetOrder.price[@"amount"]]] decimalNumberByMultiplyingByPowerOf10:-[assetsModel.precision integerValue]];
+                    [tempArray addObject:nhAssetOrder];
+                    dispatch_semaphore_signal(disp);
+                } Error:errorBlock];
+            } Error:errorBlock];
+            // 2. 等待信号
+            dispatch_semaphore_wait(disp, DISPATCH_TIME_FOREVER);
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !successBlock?:successBlock(tempArray);
+        });
+    });
+}
+
 // 查询账户所拥有的道具NH资产
 + (void)CCW_QueryAccountNHAsset:(NSString *)accountID
                       WorldView:(NSArray *)worldViewIDArray

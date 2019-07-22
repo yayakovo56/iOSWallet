@@ -25,6 +25,7 @@
     CCWPropAssetsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([CCWPropAssetsTableViewCell class]) owner:nil options:nil] lastObject];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return cell;
 }
@@ -41,7 +42,7 @@
     _nhAssetModel = nhAssetModel;
     self.NHAssetIDLabel.text = [NSString stringWithFormat:@"ID:%@",nhAssetModel.ID];
     self.passAssetsLabel.text = [NSString stringWithFormat:@"%@:%@",CCWLocalizable(@"通行资产"),nhAssetModel.asset_qualifier];
-    self.passAssetsLabel.text = [NSString stringWithFormat:@"%@:%@",CCWLocalizable(@"世界观"),nhAssetModel.world_view];
+    self.worldViewLabel.text = [NSString stringWithFormat:@"%@:%@",CCWLocalizable(@"世界观"),nhAssetModel.world_view];
 }
 
 @end

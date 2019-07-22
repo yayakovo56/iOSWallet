@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class CCWAssetsModel;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CCWNHAssetOrderModel : NSObject
@@ -24,6 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *nh_hash;
 @property (nonatomic, copy) NSString *expiration;
 
+//////////////// 辅助 ////////////////
+@property (nonatomic, copy) NSString *sellername;
+
+@property (nonatomic, strong) CCWAssetsModel *priceModel;
 @end
 
 NS_ASSUME_NONNULL_END

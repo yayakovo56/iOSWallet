@@ -7,6 +7,7 @@
 //
 
 #import "CCWNHAssetOrderTableViewCell.h"
+#import "CCWAssetsModel.h"
 
 @interface CCWNHAssetOrderTableViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
@@ -26,6 +27,7 @@
     CCWNHAssetOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([CCWNHAssetOrderTableViewCell class]) owner:nil options:nil] lastObject];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return cell;
 }
@@ -34,8 +36,8 @@
 {
     _nhAssetOrderModel = nhAssetOrderModel;
     self.orderIdLabel.text = nhAssetOrderModel.ID;
-    self.sellerLabel.text = nhAssetOrderModel.seller;
-    self.priceLabel.text = [nhAssetOrderModel.price mj_JSONString];
+    self.sellerLabel.text = nhAssetOrderModel.sellername;
+    self.priceLabel.text = [NSString stringWithFormat:@"%@ %@",nhAssetOrderModel.priceModel.amount,nhAssetOrderModel.priceModel.symbol];
     self.nodeLabel.text = nhAssetOrderModel.memo;
     self.expirationLabel.text = nhAssetOrderModel.expiration;
     [self.opButton setTitle:CCWLocalizable(@"取消") forState:UIControlStateNormal];
@@ -45,8 +47,8 @@
 {
     _allOrderModel = allOrderModel;
     self.orderIdLabel.text = allOrderModel.ID;
-    self.sellerLabel.text = allOrderModel.seller;
-    self.priceLabel.text = [allOrderModel.price mj_JSONString];
+    self.sellerLabel.text = allOrderModel.sellername;
+    self.priceLabel.text = [NSString stringWithFormat:@"%@ %@",allOrderModel.priceModel.amount,allOrderModel.priceModel.symbol];
     self.nodeLabel.text = allOrderModel.memo;
     self.expirationLabel.text = allOrderModel.expiration;
     [self.opButton setTitle:CCWLocalizable(@"购买") forState:UIControlStateNormal];

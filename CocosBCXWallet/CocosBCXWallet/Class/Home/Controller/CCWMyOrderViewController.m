@@ -46,10 +46,15 @@
 {
     page = 1;
     CCWWeakSelf;
-    [CCWSDKRequest CCW_ListAccountNHAssetOrder:CCWAccountId PageSize:10 Page:page Success:^(NSArray *responseObject) {
-        weakSelf.myPropOrderArray = [CCWNHAssetOrderModel mj_objectArrayWithKeyValuesArray:[responseObject firstObject]];
+    [CCWSDKRequest CCW_ListAccountNHAssetOrder:CCWAccountId PageSize:10 Page:page Success:^(NSMutableArray *responseObject) {
+        weakSelf.myPropOrderArray = responseObject;
         [weakSelf.tableView reloadData];
         [weakSelf.tableView.mj_header endRefreshing];
+        if (responseObject.count < 1) {
+            weakSelf.tableView.mj_footer = nil;
+        }else if (responseObject.count < 10){
+            [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
     } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
         [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         // 结束刷新
@@ -62,10 +67,15 @@
     page += 1;
     CCWWeakSelf;
     [CCWSDKRequest CCW_ListAccountNHAssetOrder:CCWAccountId PageSize:10 Page:page Success:^(NSArray *responseObject) {
-        [weakSelf.myPropOrderArray addObjectsFromArray:[CCWNHAssetOrderModel mj_objectArrayWithKeyValuesArray:[responseObject firstObject]]];
+        [weakSelf.myPropOrderArray addObjectsFromArray:responseObject];
         [weakSelf.tableView reloadData];
         // 结束刷新
         [weakSelf.tableView.mj_footer endRefreshing];
+        
+        if (responseObject.count < 10) {
+            [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
+
     } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
         [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         // 结束刷新

@@ -43,15 +43,19 @@
     
 }
 
-
 - (void)loadData
 {
     page = 1;
     CCWWeakSelf;
-    [CCWSDKRequest CCW_QueryAllNHAssetOrder:@"" WorldView:@"" BaseDescribe:@"" PageSize:10 Page:page Success:^(id  _Nonnull responseObject) {
-        weakSelf.allPropOrderArray = [CCWNHAssetOrderModel mj_objectArrayWithKeyValuesArray:[responseObject firstObject]];
+    [CCWSDKRequest CCW_QueryAllNHAssetOrder:@"" WorldView:@"" BaseDescribe:@"" PageSize:10 Page:page Success:^(NSArray *responseObject) {
+        weakSelf.allPropOrderArray = responseObject.mutableCopy;
         [weakSelf.tableView reloadData];
         [weakSelf.tableView.mj_header endRefreshing];
+        if (responseObject.count < 1) {
+            weakSelf.tableView.mj_footer = nil;
+        }else if (responseObject.count < 10){
+            [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
     } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
         [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         // 结束刷新
@@ -63,10 +67,13 @@
 {
     page += 1;
     CCWWeakSelf;
-    [CCWSDKRequest CCW_QueryAllNHAssetOrder:@"" WorldView:@"" BaseDescribe:@"" PageSize:10 Page:page Success:^(id  _Nonnull responseObject) {
-        weakSelf.allPropOrderArray = [CCWNHAssetOrderModel mj_objectArrayWithKeyValuesArray:[responseObject firstObject]];
+    [CCWSDKRequest CCW_QueryAllNHAssetOrder:@"" WorldView:@"" BaseDescribe:@"" PageSize:10 Page:page Success:^(NSArray *responseObject) {
+        [weakSelf.allPropOrderArray addObjectsFromArray:responseObject];
         [weakSelf.tableView reloadData];
         [weakSelf.tableView.mj_footer endRefreshing];
+        if (responseObject.count < 10) {
+            [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
     } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
         [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         // 结束刷新

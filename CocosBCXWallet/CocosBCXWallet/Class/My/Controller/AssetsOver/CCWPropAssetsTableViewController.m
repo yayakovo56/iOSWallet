@@ -8,6 +8,7 @@
 
 #import "CCWPropAssetsTableViewController.h"
 #import "CCWPropAssetsTableViewCell.h"
+#import "CCWPropDetailViewController.h"
 
 @interface CCWPropAssetsTableViewController ()<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate,CCWPropAssetsCellDelegate>
 {
@@ -50,6 +51,11 @@
         [weakSelf.tableView.mj_header endRefreshing];
         weakSelf.propAssetArray = [CCWNHAssetsModel mj_objectArrayWithKeyValuesArray:[responseObject firstObject]];
         [weakSelf.tableView reloadData];
+        if (weakSelf.propAssetArray.count < 1) {
+            weakSelf.tableView.mj_footer = nil;
+        }else if (weakSelf.propAssetArray.count < 10){
+            [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
     } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
         [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         // 结束刷新
@@ -67,6 +73,9 @@
         [weakSelf.tableView.mj_footer endRefreshing];
         [weakSelf.propAssetArray addObjectsFromArray:[CCWNHAssetsModel mj_objectArrayWithKeyValuesArray:[responseObject firstObject]]];
         [weakSelf.tableView reloadData];
+        if (weakSelf.propAssetArray.count < 10) {
+            [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
     } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
         [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         // 结束刷新
@@ -97,6 +106,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    CCWPropDetailViewController *propDetailVC = [[CCWPropDetailViewController alloc] init];
+    propDetailVC.nhAssetModel = self.propAssetArray[indexPath.row];
+    [[UIViewController topViewController].navigationController pushViewController:propDetailVC animated:YES];
 }
 
 #pragma mark - DZNEmptyDataSetSource Methods
