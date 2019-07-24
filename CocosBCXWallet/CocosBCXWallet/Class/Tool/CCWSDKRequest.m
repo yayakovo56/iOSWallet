@@ -668,4 +668,27 @@
         !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
     }];
 }
+
+// 出售NH资产
++ (void)CCW_SellNHAssetNHAssetId:(NSString *)nhAssetid
+                        Password:(NSString *)password
+                         Memo:(NSString *)memo
+              SellPriceAmount:(NSString *)priceAmount
+                    SellAsset:(NSString *)sellAsset
+                   Expiration:(NSString *)expiration
+                   OnlyGetFee:(BOOL)onlyGetFee
+                      Success:(SuccessBlock)successBlock
+                        Error:(ErrorBlock)errorBlock
+{
+    if (onlyGetFee) {
+        [[CocosSDK shareInstance] Cocos_SellNHAssetFeeSeller:CCWAccountId NHAssetId:nhAssetid Memo:memo SellPriceAmount:priceAmount PendingFeeAmount:@"0" OperationAsset:@"1.3.0" SellAsset:sellAsset Expiration:expiration Success:successBlock Error:^(NSError *error) {
+            !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
+        }];
+    }else{
+        [[CocosSDK shareInstance] Cocos_SellNHAssetSeller:CCWAccountId Password:password NHAssetId:nhAssetid Memo:memo SellPriceAmount:priceAmount PendingFeeAmount:@"0" OperationAsset:@"1.3.0" SellAsset:sellAsset Expiration:expiration Success:successBlock Error:^(NSError *error) {
+            !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
+        }];
+    }
+}
+
 @end

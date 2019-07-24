@@ -97,18 +97,21 @@
     return cell;
 }
 
-// 出售资产
-- (void)CCWPropAssetCellSellClick:(CCWPropAssetsTableViewCell *)propAssetCell
-{
-    
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     CCWPropDetailViewController *propDetailVC = [[CCWPropDetailViewController alloc] init];
     propDetailVC.nhAssetModel = self.propAssetArray[indexPath.row];
     [[UIViewController topViewController].navigationController pushViewController:propDetailVC animated:YES];
+}
+
+// 出售资产
+- (void)CCWPropAssetCellSellClick:(CCWPropAssetsTableViewCell *)propAssetCell
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:propAssetCell];
+    id<CCWWalletModuleProtocol> nhAssetModule = [[CCWMediator sharedInstance] moduleForProtocol:@protocol(CCWWalletModuleProtocol)];
+    UIViewController *viewController = [nhAssetModule CCW_SellAssetsViewControllerWithAsset:self.propAssetArray[indexPath.row]];
+    [[UIViewController topViewController].navigationController pushViewController:viewController animated:YES];
 }
 
 #pragma mark - DZNEmptyDataSetSource Methods

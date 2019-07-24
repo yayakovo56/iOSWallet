@@ -1,53 +1,55 @@
 //
-//  CCWMyOrderViewController.m
+//  CCWAllOrderViewController.m
 //  CocosBCXWallet
 //
 //  Created by 邵银岭 on 2019/7/18.
 //  Copyright © 2019 邵银岭. All rights reserved.
 //
 
-#import "CCWMyOrderViewController.h"
+#import "CCWAllOrderViewController.h"
 #import "CCWNHAssetOrderTableViewCell.h"
+#import "CCWOrderDetailViewController.h"
 
-@interface CCWMyOrderViewController ()<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate,CCWPropOrderCellDelegate>
+@interface CCWAllOrderViewController ()<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 {
     NSInteger page;
 }
 
-@property (nonatomic, strong) NSMutableArray *myPropOrderArray;
 
+@property (nonatomic, strong) NSMutableArray *allPropOrderArray;
 @end
 
-@implementation CCWMyOrderViewController
+@implementation CCWAllOrderViewController
 
-- (NSMutableArray *)myPropOrderArray
+- (NSMutableArray *)allPropOrderArray
 {
-    if (!_myPropOrderArray) {
-        _myPropOrderArray = [NSMutableArray array];
+    if (!_allPropOrderArray) {
+        _allPropOrderArray = [NSMutableArray array];
     }
-    return _myPropOrderArray;
+    return _allPropOrderArray;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
     self.tableView.tableFooterView = [[UIView alloc] init];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.rowHeight = 120;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
     [self.tableView.mj_header beginRefreshing];
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-   
+    
 }
 
 - (void)loadData
 {
     page = 1;
     CCWWeakSelf;
-    [CCWSDKRequest CCW_ListAccountNHAssetOrder:CCWAccountId PageSize:10 Page:page Success:^(NSMutableArray *responseObject) {
-        weakSelf.myPropOrderArray = responseObject;
+    [CCWSDKRequest CCW_QueryAllNHAssetOrder:@"" WorldView:@"" BaseDescribe:@"" PageSize:10 Page:page Success:^(NSArray *responseObject) {
+        weakSelf.allPropOrderArray = responseObject.mutableCopy;
         [weakSelf.tableView reloadData];
         [weakSelf.tableView.mj_header endRefreshing];
         if (responseObject.count < 1) {
@@ -66,16 +68,13 @@
 {
     page += 1;
     CCWWeakSelf;
-    [CCWSDKRequest CCW_ListAccountNHAssetOrder:CCWAccountId PageSize:10 Page:page Success:^(NSArray *responseObject) {
-        [weakSelf.myPropOrderArray addObjectsFromArray:responseObject];
+    [CCWSDKRequest CCW_QueryAllNHAssetOrder:@"" WorldView:@"" BaseDescribe:@"" PageSize:10 Page:page Success:^(NSArray *responseObject) {
+        [weakSelf.allPropOrderArray addObjectsFromArray:responseObject];
         [weakSelf.tableView reloadData];
-        // 结束刷新
         [weakSelf.tableView.mj_footer endRefreshing];
-        
         if (responseObject.count < 10) {
             [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
         }
-
     } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
         [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         // 结束刷新
@@ -85,26 +84,23 @@
 #pragma mark - tableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.myPropOrderArray.count;
+    return self.allPropOrderArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CCWNHAssetOrderTableViewCell *cell = [CCWNHAssetOrderTableViewCell cellWithTableView:tableView WithIdentifier:@"NHAssetOrderTableViewCell"];
-    cell.nhAssetOrderModel = self.myPropOrderArray[indexPath.row];
-    cell.delegate = self;
+    CCWNHAssetOrderTableViewCell *cell = [CCWNHAssetOrderTableViewCell cellWithTableView:tableView WithIdentifier:@"CCWallOrderTableViewCell"];
+    cell.allOrderModel = self.allPropOrderArray[indexPath.row];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-// 点击取消
-- (void)CCWPropOrderCellbuyClick:(CCWNHAssetOrderTableViewCell *)propOrderCell
-{
-    
+    CCWOrderDetailViewController *orderDetailVC = [[CCWOrderDetailViewController alloc] init];
+    orderDetailVC.orderModel = self.allPropOrderArray[indexPath.row];
+    orderDetailVC.orderType = CCWNHAssetOrderTypeAllNet;
+    [[UIViewController topViewController].navigationController pushViewController:orderDetailVC animated:YES];
 }
 
 #pragma mark - DZNEmptyDataSetSource Methods

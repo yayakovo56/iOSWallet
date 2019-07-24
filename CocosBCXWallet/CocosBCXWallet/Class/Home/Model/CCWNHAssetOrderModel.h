@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-@class CCWAssetsModel;
+#import "CCWAssetsModel.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CCWNHAssetOrderModel : NSObject

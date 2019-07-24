@@ -8,12 +8,21 @@
 
 #import "CCWWalletModule.h"
 #import "CCWWalletViewController.h"
+#import "CCWSellNHAssetViewController.h"
 
 @implementation CCWWalletModule
 
 - (UIViewController *)CCW_WalletViewController
 {
     CCWWalletViewController *viewController = [[CCWWalletViewController alloc] init];
+    return viewController;
+}
+
+// 出售道具资产
+- (UIViewController *)CCW_SellAssetsViewControllerWithAsset:(CCWNHAssetsModel *)nhAssetModel
+{
+    CCWSellNHAssetViewController *viewController = [[CCWSellNHAssetViewController alloc] init];
+    viewController.nhAssetModel = nhAssetModel;
     return viewController;
 }
 

@@ -20,6 +20,13 @@
 		31288E97221D4726002EE5EA /* Foundation Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 31288E96221D4725002EE5EA /* Foundation Log.m */; };
 		31288E9B221D57DD002EE5EA /* CCWAssetsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 31288E9A221D57DD002EE5EA /* CCWAssetsModel.m */; };
 		31288E9F221D728C002EE5EA /* CCWTransRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 31288E9E221D728C002EE5EA /* CCWTransRecordModel.m */; };
+		3129ED3322E7FB660028A1CA /* CCWOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3129ED3122E7FB650028A1CA /* CCWOrderDetailViewController.m */; };
+		3129ED3422E7FB660028A1CA /* CCWOrderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3129ED3222E7FB650028A1CA /* CCWOrderDetailViewController.xib */; };
+		3129ED3822E82F240028A1CA /* CCWSellNHAssetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3129ED3622E82F240028A1CA /* CCWSellNHAssetViewController.m */; };
+		3129ED3922E82F240028A1CA /* CCWSellNHAssetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3129ED3722E82F240028A1CA /* CCWSellNHAssetViewController.xib */; };
+		3129ED3C22E875CC0028A1CA /* CCWSelectSellCoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3129ED3B22E875CC0028A1CA /* CCWSelectSellCoinViewController.m */; };
+		3129ED4122E8781F0028A1CA /* CCWSellCoinTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3129ED3F22E8781F0028A1CA /* CCWSellCoinTypeTableViewCell.m */; };
+		3129ED4222E8781F0028A1CA /* CCWSellCoinTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3129ED4022E8781F0028A1CA /* CCWSellCoinTypeTableViewCell.xib */; };
 		313FD4AC22A4BE660058A8A2 /* CCWDataBase+CCWNodeINfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 313FD4AB22A4BE660058A8A2 /* CCWDataBase+CCWNodeINfo.m */; };
 		313FD4AF22A4BE9F0058A8A2 /* CCWNodeInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 313FD4AE22A4BE9F0058A8A2 /* CCWNodeInfoModel.m */; };
 		313FD4B322A4D6CB0058A8A2 /* CCWNodeAlertTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 313FD4B122A4D6CB0058A8A2 /* CCWNodeAlertTableViewCell.m */; };
@@ -309,6 +316,17 @@
 		31288E9A221D57DD002EE5EA /* CCWAssetsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWAssetsModel.m; sourceTree = "<group>"; };
 		31288E9D221D728C002EE5EA /* CCWTransRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWTransRecordModel.h; sourceTree = "<group>"; };
 		31288E9E221D728C002EE5EA /* CCWTransRecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWTransRecordModel.m; sourceTree = "<group>"; };
+		3129ED3022E7FB650028A1CA /* CCWOrderDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWOrderDetailViewController.h; sourceTree = "<group>"; };
+		3129ED3122E7FB650028A1CA /* CCWOrderDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWOrderDetailViewController.m; sourceTree = "<group>"; };
+		3129ED3222E7FB650028A1CA /* CCWOrderDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWOrderDetailViewController.xib; sourceTree = "<group>"; };
+		3129ED3522E82F240028A1CA /* CCWSellNHAssetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWSellNHAssetViewController.h; sourceTree = "<group>"; };
+		3129ED3622E82F240028A1CA /* CCWSellNHAssetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWSellNHAssetViewController.m; sourceTree = "<group>"; };
+		3129ED3722E82F240028A1CA /* CCWSellNHAssetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWSellNHAssetViewController.xib; sourceTree = "<group>"; };
+		3129ED3A22E875CC0028A1CA /* CCWSelectSellCoinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWSelectSellCoinViewController.h; sourceTree = "<group>"; };
+		3129ED3B22E875CC0028A1CA /* CCWSelectSellCoinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWSelectSellCoinViewController.m; sourceTree = "<group>"; };
+		3129ED3E22E8781F0028A1CA /* CCWSellCoinTypeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWSellCoinTypeTableViewCell.h; sourceTree = "<group>"; };
+		3129ED3F22E8781F0028A1CA /* CCWSellCoinTypeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWSellCoinTypeTableViewCell.m; sourceTree = "<group>"; };
+		3129ED4022E8781F0028A1CA /* CCWSellCoinTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCWSellCoinTypeTableViewCell.xib; sourceTree = "<group>"; };
 		313FD4AA22A4BE660058A8A2 /* CCWDataBase+CCWNodeINfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CCWDataBase+CCWNodeINfo.h"; sourceTree = "<group>"; };
 		313FD4AB22A4BE660058A8A2 /* CCWDataBase+CCWNodeINfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CCWDataBase+CCWNodeINfo.m"; sourceTree = "<group>"; };
 		313FD4AD22A4BE9F0058A8A2 /* CCWNodeInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWNodeInfoModel.h; sourceTree = "<group>"; };
@@ -824,6 +842,40 @@
 			path = CCWPwdAlertView;
 			sourceTree = "<group>";
 		};
+		3129ED2F22E7FB310028A1CA /* NHAsset */ = {
+			isa = PBXGroup;
+			children = (
+				317D2D5622E05BB600559A7C /* CCWNHOrderListViewController.h */,
+				317D2D5722E05BB600559A7C /* CCWNHOrderListViewController.m */,
+				317D2D5922E0613F00559A7C /* CCWMyOrderViewController.h */,
+				317D2D5A22E0613F00559A7C /* CCWMyOrderViewController.m */,
+				317D2D5C22E0614B00559A7C /* CCWAllOrderViewController.h */,
+				317D2D5D22E0614B00559A7C /* CCWAllOrderViewController.m */,
+				3129ED3022E7FB650028A1CA /* CCWOrderDetailViewController.h */,
+				3129ED3122E7FB650028A1CA /* CCWOrderDetailViewController.m */,
+				3129ED3222E7FB650028A1CA /* CCWOrderDetailViewController.xib */,
+				3129ED3522E82F240028A1CA /* CCWSellNHAssetViewController.h */,
+				3129ED3622E82F240028A1CA /* CCWSellNHAssetViewController.m */,
+				3129ED3722E82F240028A1CA /* CCWSellNHAssetViewController.xib */,
+				3129ED3A22E875CC0028A1CA /* CCWSelectSellCoinViewController.h */,
+				3129ED3B22E875CC0028A1CA /* CCWSelectSellCoinViewController.m */,
+			);
+			path = NHAsset;
+			sourceTree = "<group>";
+		};
+		3129ED3D22E877DF0028A1CA /* NHAsset */ = {
+			isa = PBXGroup;
+			children = (
+				317D2D6222E0713900559A7C /* CCWNHAssetOrderTableViewCell.h */,
+				317D2D6322E0713900559A7C /* CCWNHAssetOrderTableViewCell.m */,
+				317D2D6422E0713900559A7C /* CCWNHAssetOrderTableViewCell.xib */,
+				3129ED3E22E8781F0028A1CA /* CCWSellCoinTypeTableViewCell.h */,
+				3129ED3F22E8781F0028A1CA /* CCWSellCoinTypeTableViewCell.m */,
+				3129ED4022E8781F0028A1CA /* CCWSellCoinTypeTableViewCell.xib */,
+			);
+			path = NHAsset;
+			sourceTree = "<group>";
+		};
 		3144D00722003BE700CDA62A /* Toos */ = {
 			isa = PBXGroup;
 			children = (
@@ -1037,16 +1089,11 @@
 		3144D08322003C7100CDA62A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3129ED2F22E7FB310028A1CA /* NHAsset */,
 				3144D08D22003CAB00CDA62A /* CCWWalletViewController.h */,
 				3144D08E22003CAB00CDA62A /* CCWWalletViewController.m */,
 				3191A0D8225E11F7003AB263 /* CCWSelectCoinViewController.h */,
 				3191A0D9225E11F7003AB263 /* CCWSelectCoinViewController.m */,
-				317D2D5622E05BB600559A7C /* CCWNHOrderListViewController.h */,
-				317D2D5722E05BB600559A7C /* CCWNHOrderListViewController.m */,
-				317D2D5922E0613F00559A7C /* CCWMyOrderViewController.h */,
-				317D2D5A22E0613F00559A7C /* CCWMyOrderViewController.m */,
-				317D2D5C22E0614B00559A7C /* CCWAllOrderViewController.h */,
-				317D2D5D22E0614B00559A7C /* CCWAllOrderViewController.m */,
 				3165861B22169CB70039B439 /* CCWTransferViewController.h */,
 				3165861C22169CB70039B439 /* CCWTransferViewController.m */,
 				3165861D22169CB70039B439 /* CCWTransferViewController.xib */,
@@ -1965,6 +2012,7 @@
 		31FC8D292213C7FE0036C8F8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3129ED3D22E877DF0028A1CA /* NHAsset */,
 				31E198C9221FFA950076A822 /* MyTableView */,
 				31E1988A221E844B0076A822 /* TransferInfoView */,
 				31E19881221E84270076A822 /* SwitchAccountView */,
@@ -1972,9 +2020,6 @@
 				31FC8D592213FBB90036C8F8 /* CCWWalletNavButton.m */,
 				31FC8D2B2213C82B0036C8F8 /* CCWWalletHeaderView.h */,
 				31FC8D2C2213C82B0036C8F8 /* CCWWalletHeaderView.m */,
-				317D2D6222E0713900559A7C /* CCWNHAssetOrderTableViewCell.h */,
-				317D2D6322E0713900559A7C /* CCWNHAssetOrderTableViewCell.m */,
-				317D2D6422E0713900559A7C /* CCWNHAssetOrderTableViewCell.xib */,
 				31FC8D2E2213C9320036C8F8 /* CCWWalletTableViewCell.h */,
 				31FC8D2F2213C9320036C8F8 /* CCWWalletTableViewCell.m */,
 				31FC8D302213C9320036C8F8 /* CCWWalletTableViewCell.xib */,
@@ -2098,6 +2143,7 @@
 				3176CED522E58FE00022B408 /* CCWEditContactViewController.xib in Resources */,
 				31E198B5221FA1260076A822 /* CCWMySheetTableViewCell.xib in Resources */,
 				3165861F22169CB70039B439 /* CCWTransferViewController.xib in Resources */,
+				3129ED3422E7FB660028A1CA /* CCWOrderDetailViewController.xib in Resources */,
 				318FF605221580D900AB5696 /* CCWImportViewController.xib in Resources */,
 				317784D52200429F00525237 /* Localizable.strings in Resources */,
 				31CDB7EA222531DC00D377B2 /* confuse.sh in Resources */,
@@ -2112,12 +2158,14 @@
 				3191A0E5225F15CB003AB263 /* CCWMyWalletTableViewCell.xib in Resources */,
 				316739A2221ACBC7008D85C4 /* CCWMyViewController.xib in Resources */,
 				3191A0D7225DDFC3003AB263 /* CCWRegisterViewController.xib in Resources */,
+				3129ED4222E8781F0028A1CA /* CCWSellCoinTypeTableViewCell.xib in Resources */,
 				3176CECA22E58FE00022B408 /* CCWWalletManagerViewController.xib in Resources */,
 				31881F542216593D006C31A2 /* CCWTipScreenShotViewController.xib in Resources */,
 				3176CED822E58FE00022B408 /* CCWJoinUsViewController.xib in Resources */,
 				31881F5922165EB7006C31A2 /* CCWBackupsPrivateController.xib in Resources */,
 				317D2D5222E0428E00559A7C /* CCWPropAssetsTableViewCell.xib in Resources */,
 				3123E22522B0DDDD00874CBF /* VersionLog.html in Resources */,
+				3129ED3922E82F240028A1CA /* CCWSellNHAssetViewController.xib in Resources */,
 				318FF5E322153FB400AB5696 /* CCWTransferRecordHeader.xib in Resources */,
 				3123E22222B0DD7500874CBF /* Terms of Service.html in Resources */,
 				3165861A221689190039B439 /* CCWReceiveViewController.xib in Resources */,
@@ -2208,6 +2256,7 @@
 				31E198B4221FA1260076A822 /* CCWMySheetTableViewCell.m in Sources */,
 				317D2D6522E0713900559A7C /* CCWNHAssetOrderTableViewCell.m in Sources */,
 				317948C7221E4B5F00F4EA69 /* YBPopupMenu.m in Sources */,
+				3129ED3322E7FB660028A1CA /* CCWOrderDetailViewController.m in Sources */,
 				3176CED722E58FE00022B408 /* CCWPrivacyViewController.m in Sources */,
 				3144D05822003BE700CDA62A /* NSData+GTMBase64.m in Sources */,
 				3144D06A22003BE700CDA62A /* UITextView+CCWPlaceHolder.m in Sources */,
@@ -2332,6 +2381,7 @@
 				31B540B6229FEC17002FA33B /* CCWNodeAlertSheetView.m in Sources */,
 				31C819ED222794F00083D74D /* CCWWalletBaseViewController.m in Sources */,
 				3176CECD22E58FE00022B408 /* CCWFixPWDViewController.m in Sources */,
+				3129ED3C22E875CC0028A1CA /* CCWSelectSellCoinViewController.m in Sources */,
 				3167399B221AB2CE008D85C4 /* CCWNavigation.m in Sources */,
 				3191A099225C6DE2003AB263 /* RIPEMD160Diggest.m in Sources */,
 				3191A097225C6DE2003AB263 /* NSObject+DataToObject.m in Sources */,
@@ -2358,9 +2408,11 @@
 				3144D05C22003BE700CDA62A /* NSDate+YCExtension.m in Sources */,
 				317948D0221E4B7800F4EA69 /* UIButton+CCWButton.m in Sources */,
 				317D2D4422DEFBBF00559A7C /* CocosTransferOperation.m in Sources */,
+				3129ED3822E82F240028A1CA /* CCWSellNHAssetViewController.m in Sources */,
 				3191A0A2225C6DE2003AB263 /* CocosDBAccountModel.m in Sources */,
 				3144D06B22003BE700CDA62A /* UIView+Frame.m in Sources */,
 				317D2D4A22DEFBBF00559A7C /* CocosSellNHAssetCancelOperation.m in Sources */,
+				3129ED4122E8781F0028A1CA /* CCWSellCoinTypeTableViewCell.m in Sources */,
 				317784F722004AC300525237 /* CCWMyModule.m in Sources */,
 				31FC8D2D2213C82B0036C8F8 /* CCWWalletHeaderView.m in Sources */,
 				3186E8022293A08200A269C6 /* CCWAlertController.m in Sources */,

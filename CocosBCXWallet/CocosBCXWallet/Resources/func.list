@@ -58,6 +58,8 @@ CCW_SaveSerVerNodeInfoArray
 CCW_SaveWalletAccount
 CCW_ScanQRCode
 CCW_ScanQRCodeToTransferWithBlock
+CCW_SellAssetsViewControllerWithAsset
+CCW_SellNHAssetNHAssetId
 CCW_SetImageWithURL
 CCW_SetToast
 CCW_SetupSubView
