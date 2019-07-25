@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CCWNHAssetOrderType orderType;
 
 /** 删除成功 */
-@property (nonatomic, copy) void(^deleteComplete)();
+@property (nonatomic, copy) void(^deleteComplete)(CCWNHAssetOrderType orderType);
 @end
 
 NS_ASSUME_NONNULL_END

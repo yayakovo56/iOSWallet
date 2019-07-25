@@ -1,9 +1,14 @@
 CCW_AddAccountClick
 CCW_AssetsOverviewViewController
+CCW_BugNHAssetOrderId
+CCW_BuyInfoViewNextButtonClick
+CCW_BuyInfoViewShowWithArray
 CCW_BuyNHAssetFeeID
 CCW_BuyNHAssetOrderID
 CCW_CallContract
 CCW_CallContractFee
+CCW_CancelInfoViewShowWithArray
+CCW_CancelOrderInfoViewNextButtonClick
 CCW_CancelSellNHAssetOrderId
 CCW_ChangePassword
 CCW_Close

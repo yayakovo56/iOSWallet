@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class CCWCancelSellNHInfoView;
 @protocol CCWCancelSellNHInfoViewDelegate <NSObject>
 // 添加账号
-- (void)CCW_TransferInfoViewNextButtonClick:(CCWCancelSellNHInfoView *)transferInfoView;
+- (void)CCW_CancelOrderInfoViewNextButtonClick:(CCWCancelSellNHInfoView *)transferInfoView;
 @end
 
 @interface CCWCancelSellNHInfoView : UIView

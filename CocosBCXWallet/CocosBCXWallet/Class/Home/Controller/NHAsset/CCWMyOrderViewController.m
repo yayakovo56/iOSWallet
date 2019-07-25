@@ -120,9 +120,11 @@
     orderDetailVC.orderModel = self.myPropOrderArray[indexPath.row];
     orderDetailVC.orderType = CCWNHAssetOrderTypeMy;
     CCWWeakSelf;
-    orderDetailVC.deleteComplete = ^{
-        [weakSelf.myPropOrderArray removeObjectAtIndex:indexPath.row];
-        [weakSelf.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    orderDetailVC.deleteComplete = ^(CCWNHAssetOrderType orderType) {
+        if (orderType == CCWNHAssetOrderTypeMy) {
+            [weakSelf.myPropOrderArray removeObjectAtIndex:indexPath.row];
+            [weakSelf.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }
     };
     [[UIViewController topViewController].navigationController pushViewController:orderDetailVC animated:YES];
 }

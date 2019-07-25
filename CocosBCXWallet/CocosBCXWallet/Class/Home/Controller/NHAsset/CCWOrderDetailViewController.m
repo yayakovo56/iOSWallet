@@ -8,8 +8,9 @@
 
 #import "CCWOrderDetailViewController.h"
 #import "CCWCancelSellNHInfoView.h"
+#import "CCWBuyNHInfoView.h"
 
-@interface CCWOrderDetailViewController ()
+@interface CCWOrderDetailViewController ()<CCWCancelSellNHInfoViewDelegate,CCWBuyNHInfoViewDelegate>
 {
     NSString *password_;
 }
@@ -29,21 +30,32 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *optionButton;
 
-/** 转账信息 */
-@property (nonatomic, strong) CCWCancelSellNHInfoView *transferInfoView;
+/** 取消订单信息 */
+@property (nonatomic, strong) CCWCancelSellNHInfoView *cancelOrderInfoView;
+/** 购买订单信息 */
+@property (nonatomic, strong) CCWBuyNHInfoView *bugNhInfoView;
+
 @end
 
 @implementation CCWOrderDetailViewController
 
-- (CCWCancelSellNHInfoView *)transferInfoView
+- (CCWCancelSellNHInfoView *)cancelOrderInfoView
 {
-    if (!_transferInfoView) {
-        _transferInfoView = [CCWCancelSellNHInfoView new];
-        _transferInfoView.delegate = self;
+    if (!_cancelOrderInfoView) {
+        _cancelOrderInfoView = [CCWCancelSellNHInfoView new];
+        _cancelOrderInfoView.delegate = self;
     }
-    return _transferInfoView;
+    return _cancelOrderInfoView;
 }
 
+- (CCWBuyNHInfoView *)bugNhInfoView
+{
+    if (!_bugNhInfoView) {
+        _bugNhInfoView = [CCWBuyNHInfoView new];
+        _bugNhInfoView.delegate = self;
+    }
+    return _bugNhInfoView;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = CCWLocalizable(@"详情");
@@ -75,7 +87,7 @@
     if (self.orderType == CCWNHAssetOrderTypeMy) {
         [self cancelNHAssetClick];
     }else{
-        NSLog(@"购买");
+        [self buyNHAssetClick];
     }
 }
 
@@ -125,7 +137,7 @@
                                            @"title":CCWLocalizable(@"旷工费"),
                                            @"info":[NSString stringWithFormat:@"%@ %@",feesymbol.amount,feesymbol.symbol],
                                            }];
-        [weakSelf CCW_TransferInfoViewShowWithArray:transferINfoArray];
+        [weakSelf CCW_CancelInfoViewShowWithArray:transferINfoArray];
         
     } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
         if (error.code == 107){
@@ -138,23 +150,112 @@
     }];
 }
 
-- (void)CCW_TransferInfoViewShowWithArray:(NSArray *)array
+- (void)CCW_CancelInfoViewShowWithArray:(NSArray *)array
 {
-    self.transferInfoView.dataSource = array;
-    if (self.transferInfoView.isShow) {
-        [self.transferInfoView CCW_Close];
+    self.cancelOrderInfoView.dataSource = array;
+    if (self.cancelOrderInfoView.isShow) {
+        [self.cancelOrderInfoView CCW_Close];
     }else{
-        [self.transferInfoView CCW_Show];
+        [self.cancelOrderInfoView CCW_Show];
     }
 }
-
-- (void)CCW_TransferInfoViewNextButtonClick:(CCWCancelSellNHInfoView *)transferInfoView
+- (void)CCW_CancelOrderInfoViewNextButtonClick:(CCWCancelSellNHInfoView *)transferInfoView
 {
     CCWWeakSelf
     [CCWSDKRequest CCW_CancelSellNHAssetOrderId:self.orderModel.ID Password:password_ OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
         [weakSelf.view makeToast:CCWLocalizable(@"取消成功")];
         [weakSelf.navigationController popViewControllerAnimated:YES];
-        !weakSelf.deleteComplete?:weakSelf.deleteComplete();
+        !weakSelf.deleteComplete?:weakSelf.deleteComplete(weakSelf.orderType);
+    } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
+        if (error.code == 107){
+            [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
+        }if (error.code == 105){
+            [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
+        }else{
+            [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+        }
+    }];
+}
+
+#pragma mark - 购买订单
+- (void)buyNHAssetClick
+{
+    // 输入密码
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:CCWLocalizable(@"提示") message:nil preferredStyle:UIAlertControllerStyleAlert];
+    // 添加输入框 (注意:在UIAlertControllerStyleActionSheet样式下是不能添加下面这行代码的)
+    [alertVc addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.secureTextEntry = YES;
+        textField.placeholder = CCWLocalizable(@"请输入密码");
+    }];
+    CCWWeakSelf
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:CCWLocalizable(@"确认") style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        // 通过数组拿到textTF的值
+        NSString *password = [[alertVc textFields] objectAtIndex:0].text;
+        [weakSelf showBuyNHAssetFee:password];
+    }];
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:CCWLocalizable(@"取消") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    // 添加行为
+    [alertVc addAction:action2];
+    [alertVc addAction:action1];
+    [self presentViewController:alertVc animated:YES completion:nil];
+}
+
+- (void)showBuyNHAssetFee:(NSString *)password
+{
+    CCWWeakSelf;
+    [CCWSDKRequest CCW_BugNHAssetOrderId:self.orderModel.ID Password:password OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
+        self->password_ = password;
+        NSArray *transferINfoArray = @[@{
+                                           @"title":CCWLocalizable(@"订单信息"),
+                                           @"info":CCWLocalizable(@"购买订单"),
+                                           },
+                                       @{
+                                           @"title":CCWLocalizable(@"订单ID"),
+                                           @"info":self.orderModel.ID,
+                                           },
+                                       @{
+                                           @"title":CCWLocalizable(@"NH资产ID"),
+                                           @"info":self.orderModel.nh_asset_id,
+                                           },
+                                       @{
+                                           @"title":CCWLocalizable(@"订单价格"),
+                                           @"info":[NSString stringWithFormat:@"%@ %@",self.orderModel.priceModel.amount,self.orderModel.priceModel.symbol],
+                                           },
+                                       @{
+                                           @"title":CCWLocalizable(@"旷工费"),
+                                           @"info":[NSString stringWithFormat:@"%@ %@",feesymbol.amount,feesymbol.symbol],
+                                           }];
+        [weakSelf CCW_BuyInfoViewShowWithArray:transferINfoArray];
+        
+    }  Error:^(NSString * _Nonnull errorAlert, NSError *error) {
+        if (error.code == 107){
+            [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
+        }if (error.code == 105){
+            [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
+        }else{
+            [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+        }
+    }];
+}
+
+- (void)CCW_BuyInfoViewShowWithArray:(NSArray *)array
+{
+    self.bugNhInfoView.dataSource = array;
+    if (self.bugNhInfoView.isShow) {
+        [self.bugNhInfoView CCW_Close];
+    }else{
+        [self.bugNhInfoView CCW_Show];
+    }
+}
+
+- (void)CCW_BuyInfoViewNextButtonClick:(CCWBuyNHInfoView *)transferInfoView
+{
+    CCWWeakSelf
+    [CCWSDKRequest CCW_BugNHAssetOrderId:self.orderModel.ID Password:password_ OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
+        [weakSelf.view makeToast:CCWLocalizable(@"购买成功")];
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+        !weakSelf.deleteComplete?:weakSelf.deleteComplete(weakSelf.orderType);
     } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
         if (error.code == 107){
             [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];

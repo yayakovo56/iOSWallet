@@ -731,4 +731,27 @@
     }
 }
 
+// 购买NH资产
++ (void)CCW_BugNHAssetOrderId:(NSString *)orderId
+                     Password:(NSString *)password
+                   OnlyGetFee:(BOOL)onlyGetFee
+                      Success:(SuccessBlock)successBlock
+                        Error:(ErrorBlock)errorBlock
+{
+    if (onlyGetFee) {
+        [[CocosSDK shareInstance] Cocos_BuyNHAssetFeeOrderID:orderId Account:CCWAccountName FeePayingAsset:@"1.3.0" Success:^(id responseObject) {
+            CCWAssetsModel *assetAmountModel = [CCWAssetsModel mj_objectWithKeyValues:[responseObject firstObject]];
+            [self CCW_QueryAssetInfo:@"1.3.0" Success:^(CCWAssetsModel *assetsModel) {
+                assetsModel.amount = [[CCWDecimalTool CCW_decimalNumberWithString:[NSString stringWithFormat:@"%@",assetAmountModel.amount]] decimalNumberByMultiplyingByPowerOf10:-[assetsModel.precision integerValue]];
+                !successBlock?:successBlock(assetsModel);
+            } Error:errorBlock];
+        } Error:^(NSError *error) {
+            !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
+        }];
+    }else{
+        [[CocosSDK shareInstance] Cocos_BuyNHAssetOrderID:orderId Account:CCWAccountName Password:password FeePayingAsset:@"1.3.0" Success:successBlock Error:^(NSError *error) {
+            !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
+        }];
+    }
+}
 @end

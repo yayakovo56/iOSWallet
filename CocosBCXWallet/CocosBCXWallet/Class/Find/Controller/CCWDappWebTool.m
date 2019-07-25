@@ -85,7 +85,7 @@
     NSArray *valueList = callContractParam[@"valueList"];
     
     if ([callContractParam[@"onlyGetFee"] boolValue]) {
-        [CCWSDKRequest CCW_CallContractFee:nameOrId ContractMethodParam:valueList ContractMethod:functionName CallerAccount:CCWAccountId feePayingAsset:@"1.3.0" Password:password CallContractSuccess:^(CCWAssetsModel *assetsModel) {
+        [CCWSDKRequest CCW_CallContractFee:nameOrId ContractMethodParam:valueList ContractMethod:functionName CallerAccount:CCWAccountName feePayingAsset:@"1.3.0" Password:password CallContractSuccess:^(CCWAssetsModel *assetsModel) {
             NSDictionary *jsMessage = @{
                                         @"fee_amount":assetsModel.amount,
                                         @"fee_symbol":assetsModel.symbol,
@@ -95,7 +95,7 @@
             !block?:block([self errorBlockWithError:errorAlert ResponseObject:error]);
         }];
     }else{
-        [CCWSDKRequest CCW_CallContract:nameOrId ContractMethodParam:valueList ContractMethod:functionName CallerAccount:CCWAccountId feePayingAsset:@"1.3.0" Password:password CallContractSuccess:^(id  _Nonnull responseObject) {
+        [CCWSDKRequest CCW_CallContract:nameOrId ContractMethodParam:valueList ContractMethod:functionName CallerAccount:CCWAccountName feePayingAsset:@"1.3.0" Password:password CallContractSuccess:^(id  _Nonnull responseObject) {
             !block?:block(responseObject);
         } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
             !block?:block([self errorBlockWithError:errorAlert ResponseObject:error]);
@@ -120,7 +120,7 @@
     NSDictionary *trnhParam = param[@"params"];
     NSString *toAccount = trnhParam[@"toAccount"];
     NSArray *NHAssetIds = trnhParam[@"NHAssetIds"];
-    [CCWSDKRequest CCW_TransferNHAsset:CCWAccountId ToAccount:toAccount NHAssetID:[NHAssetIds firstObject] Password:password FeePayingAsset:@"1.3.0" Success:^(id  _Nonnull responseObject) {
+    [CCWSDKRequest CCW_TransferNHAsset:CCWAccountName ToAccount:toAccount NHAssetID:[NHAssetIds firstObject] Password:password FeePayingAsset:@"1.3.0" Success:^(id  _Nonnull responseObject) {
         NSDictionary *jsMessage = @{
                                     @"trx_id":responseObject,
                                     };
@@ -137,7 +137,7 @@
     NSString *orderId = nhassetParam[@"orderId"];
     
     if ([nhassetParam[@"onlyGetFee"] boolValue]) {
-        [CCWSDKRequest CCW_BuyNHAssetFeeID:orderId Account:CCWAccountId FeePayingAsset:@"1.3.0" Success:^(CCWAssetsModel *assetsModel) {
+        [CCWSDKRequest CCW_BuyNHAssetFeeID:orderId Account:CCWAccountName FeePayingAsset:@"1.3.0" Success:^(CCWAssetsModel *assetsModel) {
             NSDictionary *jsMessage = @{
                                         @"fee_amount":assetsModel.amount,
                                         @"fee_symbol":assetsModel.symbol,
@@ -147,7 +147,7 @@
             !block?:block([self errorBlockWithError:errorAlert ResponseObject:error]);
         }];
     }else{
-        [CCWSDKRequest CCW_BuyNHAssetOrderID:orderId Account:CCWAccountId Password:password FeePayingAsset:@"1.3.0" Success:^(id  _Nonnull responseObject) {
+        [CCWSDKRequest CCW_BuyNHAssetOrderID:orderId Account:CCWAccountName Password:password FeePayingAsset:@"1.3.0" Success:^(id  _Nonnull responseObject) {
             NSDictionary *jsMessage = @{
                                         @"trx_id":responseObject,
                                         };

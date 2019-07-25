@@ -170,8 +170,8 @@
 - (void)CCW_nextBtnClick
 {
     [self CCW_Close];
-    if ([self.delegate respondsToSelector:@selector(CCW_TransferInfoViewNextButtonClick:)]) {
-        [self.delegate CCW_TransferInfoViewNextButtonClick:self];
+    if ([self.delegate respondsToSelector:@selector(CCW_CancelOrderInfoViewNextButtonClick:)]) {
+        [self.delegate CCW_CancelOrderInfoViewNextButtonClick:self];
     }
 }
 #pragma mark - tableViewDataSource

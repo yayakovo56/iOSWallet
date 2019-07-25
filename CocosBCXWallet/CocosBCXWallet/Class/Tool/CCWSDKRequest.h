@@ -313,6 +313,13 @@ typedef void (^ErrorBlock)(NSString *errorAlert,id responseObject);// 失败回�
                           OnlyGetFee:(BOOL)onlyGetFee
                              Success:(SuccessBlock)successBlock
                                Error:(ErrorBlock)errorBlock;
+
+// 购买NH资产
++ (void)CCW_BugNHAssetOrderId:(NSString *)orderId
+                     Password:(NSString *)password
+                   OnlyGetFee:(BOOL)onlyGetFee
+                      Success:(SuccessBlock)successBlock
+                        Error:(ErrorBlock)errorBlock;
 ///**
 // 升级成为终身会员账户
 // @param isOnlyGetFee 是否获取手续费
