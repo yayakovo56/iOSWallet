@@ -37,7 +37,6 @@
     return _transferInfoView;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     

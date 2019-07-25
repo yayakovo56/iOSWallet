@@ -1,5 +1,5 @@
 //
-//  CCWSellNHInfoView.h
+//  CCWCancelSellNHInfoView.h
 //  CocosHDWallet
 //
 //  Created by 邵银岭 on 2019/1/14.
@@ -11,13 +11,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class CCWSellNHInfoView;
-@protocol CCWSellNHInfoViewDelegate <NSObject>
+@class CCWCancelSellNHInfoView;
+@protocol CCWCancelSellNHInfoViewDelegate <NSObject>
 // 添加账号
-- (void)CCW_TransferInfoViewNextButtonClick:(CCWSellNHInfoView *)transferInfoView;
+- (void)CCW_TransferInfoViewNextButtonClick:(CCWCancelSellNHInfoView *)transferInfoView;
 @end
 
-@interface CCWSellNHInfoView : UIView
+@interface CCWCancelSellNHInfoView : UIView
 
 /** 数据源 */
 @property (nonatomic, strong) NSArray *dataSource;
@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 关闭
 - (void)CCW_Close;
 
-@property (nonatomic ,weak) id<CCWSellNHInfoViewDelegate> delegate;
+@property (nonatomic ,weak) id<CCWCancelSellNHInfoViewDelegate> delegate;
 
 @end
 

@@ -293,7 +293,6 @@ typedef void (^ErrorBlock)(NSString *errorAlert,id responseObject);// 失败回�
                  FeePayingAsset:(NSString *)feePayingAssetID
                         Success:(SuccessBlock)successBlock
                         Error:(ErrorBlock)errorBlock;
-
 // 出售NH资产
 + (void)CCW_SellNHAssetNHAssetId:(NSString *)nhAssetid
                         Password:(NSString *)password
@@ -304,11 +303,16 @@ typedef void (^ErrorBlock)(NSString *errorAlert,id responseObject);// 失败回�
                       OnlyGetFee:(BOOL)onlyGetFee
                          Success:(SuccessBlock)successBlock
                            Error:(ErrorBlock)errorBlock;
-
 // 查询链上发行的资产
 + (void)CCW_QueryChainListLimit:(NSInteger)nLimit
                         Success:(SuccessBlock)successBlock
                           Error:(ErrorBlock)errorBlock;
+// 取消NH资产
++ (void)CCW_CancelSellNHAssetOrderId:(NSString *)orderId
+                            Password:(NSString *)password
+                          OnlyGetFee:(BOOL)onlyGetFee
+                             Success:(SuccessBlock)successBlock
+                               Error:(ErrorBlock)errorBlock;
 ///**
 // 升级成为终身会员账户
 // @param isOnlyGetFee 是否获取手续费

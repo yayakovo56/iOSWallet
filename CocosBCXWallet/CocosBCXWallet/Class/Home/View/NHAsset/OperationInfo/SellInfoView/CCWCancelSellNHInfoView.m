@@ -1,17 +1,16 @@
 //
-//  CCWSellNHInfoView.m
+//  CCWCancelSellNHInfoView.m
 //  CocosHDWallet
 //
 //  Created by 邵银岭 on 2019/1/14.
 //  Copyright © 2019年 邵银岭. All rights reserved.
 //
-#import "CCWSellNHInfoView.h"
+#import "CCWCancelSellNHInfoView.h"
 #import "CCWTransferInfoTableViewCell.h"
 
-//#define containerViewH iPhone5?395:447
-#define containerViewH iPhone5?409:447
+#define containerViewH iPhone5?341:347
 
-@interface CCWSellNHInfoView ()<UITableViewDelegate,UITableViewDataSource>
+@interface CCWCancelSellNHInfoView ()<UITableViewDelegate,UITableViewDataSource>
 // 背后控件
 @property (nonatomic, strong) UIView *containerView; // Container within the dialog (place your ui elements here)
 
@@ -26,7 +25,7 @@
 
 @end
 
-@implementation CCWSellNHInfoView
+@implementation CCWCancelSellNHInfoView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -106,7 +105,7 @@
 {
     if (!_tableView) {
         // 内容
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 50, CCWScreenW, iPhone5?264:300)];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 50, CCWScreenW, iPhone5?176:200)];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

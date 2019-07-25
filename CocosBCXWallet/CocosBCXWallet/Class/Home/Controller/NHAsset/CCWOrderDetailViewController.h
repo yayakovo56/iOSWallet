@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** 订单类型 */
 @property (nonatomic, assign) CCWNHAssetOrderType orderType;
 
+/** 删除成功 */
+@property (nonatomic, copy) void(^deleteComplete)();
 @end
 
 NS_ASSUME_NONNULL_END

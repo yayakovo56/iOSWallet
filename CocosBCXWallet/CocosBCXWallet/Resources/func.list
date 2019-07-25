@@ -4,6 +4,7 @@ CCW_BuyNHAssetFeeID
 CCW_BuyNHAssetOrderID
 CCW_CallContract
 CCW_CallContractFee
+CCW_CancelSellNHAssetOrderId
 CCW_ChangePassword
 CCW_Close
 CCW_CreateAccountWithWallet
