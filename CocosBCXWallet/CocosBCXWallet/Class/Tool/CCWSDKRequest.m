@@ -681,14 +681,30 @@
                         Error:(ErrorBlock)errorBlock
 {
     if (onlyGetFee) {
-        [[CocosSDK shareInstance] Cocos_SellNHAssetFeeSeller:CCWAccountId NHAssetId:nhAssetid Memo:memo SellPriceAmount:priceAmount PendingFeeAmount:@"0" OperationAsset:@"1.3.0" SellAsset:sellAsset Expiration:expiration Success:successBlock Error:^(NSError *error) {
+        [[CocosSDK shareInstance] Cocos_SellNHAssetFeeSeller:CCWAccountName NHAssetId:nhAssetid Memo:memo SellPriceAmount:priceAmount PendingFeeAmount:@"0" OperationAsset:@"1.3.0" SellAsset:sellAsset Expiration:expiration Success:^(id responseObject) {
+            CCWAssetsModel *assetAmountModel = [CCWAssetsModel mj_objectWithKeyValues:[responseObject firstObject]];
+            [self CCW_QueryAssetInfo:@"1.3.0" Success:^(CCWAssetsModel *assetsModel) {
+                assetsModel.amount = [[CCWDecimalTool CCW_decimalNumberWithString:[NSString stringWithFormat:@"%@",assetAmountModel.amount]] decimalNumberByMultiplyingByPowerOf10:-[assetsModel.precision integerValue]];
+                !successBlock?:successBlock(assetsModel);
+            } Error:errorBlock];
+        } Error:^(NSError *error) {
             !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
         }];
     }else{
-        [[CocosSDK shareInstance] Cocos_SellNHAssetSeller:CCWAccountId Password:password NHAssetId:nhAssetid Memo:memo SellPriceAmount:priceAmount PendingFeeAmount:@"0" OperationAsset:@"1.3.0" SellAsset:sellAsset Expiration:expiration Success:successBlock Error:^(NSError *error) {
+        [[CocosSDK shareInstance] Cocos_SellNHAssetSeller:CCWAccountName Password:password NHAssetId:nhAssetid Memo:memo SellPriceAmount:priceAmount PendingFeeAmount:@"0" OperationAsset:@"1.3.0" SellAsset:sellAsset Expiration:expiration Success:successBlock Error:^(NSError *error) {
             !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
         }];
     }
+}
+
+// 查询链上发行的资产
++ (void)CCW_QueryChainListLimit:(NSInteger)nLimit
+                        Success:(SuccessBlock)successBlock
+                          Error:(ErrorBlock)errorBlock
+{
+    [[CocosSDK shareInstance] Cocos_ChainListLimit:nLimit Success:successBlock Error:^(NSError *error) {
+        !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
+    }];
 }
 
 @end

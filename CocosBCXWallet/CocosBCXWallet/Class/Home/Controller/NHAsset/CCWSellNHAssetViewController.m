@@ -8,31 +8,56 @@
 
 #import "CCWSellNHAssetViewController.h"
 #import "CCWSelectSellCoinViewController.h"
+#import "CCWTransferInfoView.h"
 
-@interface CCWSellNHAssetViewController ()<UITextFieldDelegate,UIScrollViewDelegate>
+@interface CCWSellNHAssetViewController ()<UITextFieldDelegate,UIScrollViewDelegate,CCWTransferInfoViewDelegate>
 {
     NSString *password_;
 }
 @property (nonatomic, weak) IBOutlet UITextField *nhAssetIDTF;
 @property (nonatomic, weak) IBOutlet UITextField *priceTF;
+@property (weak, nonatomic) IBOutlet UIButton *coinButton;
 @property (nonatomic, weak) IBOutlet UITextField *validTimeTF;
 @property (nonatomic, weak) IBOutlet UITextField *noteTF;
 
+@property (nonatomic, strong) CCWAssetsModel *priceModel;
+
+/** 转账信息 */
+@property (nonatomic, strong) CCWTransferInfoView *transferInfoView;
 @end
 
 @implementation CCWSellNHAssetViewController
+
+- (CCWTransferInfoView *)transferInfoView
+{
+    if (!_transferInfoView) {
+        _transferInfoView = [CCWTransferInfoView new];
+        _transferInfoView.delegate = self;
+    }
+    return _transferInfoView;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = CCWLocalizable(@"道具出售");
     self.nhAssetIDTF.text = self.nhAssetModel.ID;
-    
+    self.priceModel = [[CCWAssetsModel alloc] init];
+    self.priceModel.symbol = @"COCOS";
+    self.priceModel.ID = @"1.3.0";
+    [self.coinButton setTitle:self.priceModel.symbol forState:UIControlStateNormal];
 }
 
 // 选择币种
 - (IBAction)selectCoinClick:(UIButton *)sender {
     CCWSelectSellCoinViewController *selectCoinVC = [[CCWSelectSellCoinViewController alloc] init];
+    selectCoinVC.selectAssetModel = self.priceModel;
+    CCWWeakSelf;
+    selectCoinVC.selectBlock = ^(CCWAssetsModel * _Nonnull selectAssetModel) {
+        weakSelf.priceModel = selectAssetModel;
+        [weakSelf.coinButton setTitle:weakSelf.priceModel.symbol forState:UIControlStateNormal];
+    };
     [self.navigationController pushViewController:selectCoinVC animated:YES];
 }
 
@@ -72,49 +97,72 @@
         return;
     }
     CCWWeakSelf;
-    [CCWSDKRequest CCW_SellNHAssetNHAssetId:self.nhAssetModel.ID Password:password Memo:self.noteTF.text SellPriceAmount:price SellAsset:@"1.3.0" Expiration:validTime OnlyGetFee:YES Success:^(id  _Nonnull responseObject) {
+    [CCWSDKRequest CCW_SellNHAssetNHAssetId:self.nhAssetModel.ID Password:password Memo:self.noteTF.text SellPriceAmount:price SellAsset:self.priceModel.ID Expiration:validTime OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
         password_ = password;
-        NSLog(@"%@",responseObject);
-    } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
+        NSArray *transferINfoArray = @[@{
+                                           @"title":CCWLocalizable(@"订单信息"),
+                                           @"info":CCWLocalizable(@"出售"),
+                                           },
+                                       @{
+                                           @"title":CCWLocalizable(@"资产ID"),
+                                           @"info":weakSelf.nhAssetModel.ID,
+                                           },
+                                       @{
+                                           @"title":CCWLocalizable(@"价格"),
+                                           @"info":[NSString stringWithFormat:@"%@ %@",price,weakSelf.priceModel.symbol],
+                                           },
+                                       @{
+                                           @"title":CCWLocalizable(@"有效时间"),
+                                           @"info":[NSString stringWithFormat:@"%@ s",validTime],
+                                           },
+                                       @{
+                                           @"title":CCWLocalizable(@"旷工费"),
+                                           @"info":[NSString stringWithFormat:@"%@%@",feesymbol.amount,feesymbol.symbol],
+                                           },
+                                       @{
+                                           @"title":CCWLocalizable(@"备注"),
+                                           @"info":self.noteTF.text,
+                                           }];
+        [weakSelf CCW_TransferInfoViewShowWithArray:transferINfoArray];
         
+    } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
+        if (error.code == 107){
+            [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
+        }if (error.code == 105){
+            [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
+        }else{
+            [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+        }
     }];
-    //    [CCWSDKRequest CCW_TransferFeeAsset:CCWAccountName toAccount:receiveAddress password:password assetId:self.assetsModel.asset_id feeAssetId:@"COCOS" amount:transferNumStr memo:self.remakeTextField.text Success:^(CCWAssetsModel *feesymbol) {
-    //        password_ = password;
-    //        NSArray *transferINfoArray = @[@{
-    //                                           @"title":CCWLocalizable(@"订单信息"),
-    //                                           @"info":CCWLocalizable(@"转账"),
-    //                                           },
-    //                                       @{
-    //                                           @"title":CCWLocalizable(@"转出账号"),
-    //                                           @"info":CCWAccountName,
-    //                                           },
-    //                                       @{
-    //                                           @"title":CCWLocalizable(@"转入账号"),
-    //                                           @"info":receiveAddress,
-    //                                           },
-    //                                       @{
-    //                                           @"title":CCWLocalizable(@"数量"),
-    //                                           @"info":[NSString stringWithFormat:@"%@%@",transferNumStr,weakSelf.assetsModel.symbol],
-    //                                           },
-    //                                       @{
-    //                                           @"title":CCWLocalizable(@"旷工费"),
-    //                                           @"info":[NSString stringWithFormat:@"%@%@",feesymbol.amount,feesymbol.symbol],
-    //                                           },
-    //                                       @{
-    //                                           @"title":CCWLocalizable(@"备注"),
-    //                                           @"info":self.remakeTextField.text,
-    //                                           },];
-    //        [weakSelf CCW_TransferInfoViewShowWithArray:transferINfoArray];
-    //
-    //    } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
-    //        if (error.code == 116) {
-    //            [weakSelf.view makeToast:CCWLocalizable(@"收款账户不存在")];
-    //        }else if (error.code == 107){
-    //            [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
-    //        }else{
-    //            [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
-    //        }
-    //    }];
+}
+
+- (void)CCW_TransferInfoViewShowWithArray:(NSArray *)array
+{
+    self.transferInfoView.dataSource = array;
+    if (self.transferInfoView.isShow) {
+        [self.transferInfoView CCW_Close];
+    }else{
+        [self.transferInfoView CCW_Show];
+    }
+}
+
+- (void)CCW_TransferInfoViewNextButtonClick:(CCWTransferInfoView *)transferInfoView
+{
+    NSString *price = self.priceTF.text;
+    NSString *validTime = self.validTimeTF.text;
+    CCWWeakSelf
+    [CCWSDKRequest CCW_SellNHAssetNHAssetId:self.nhAssetModel.ID Password:password_ Memo:self.noteTF.text SellPriceAmount:price SellAsset:self.priceModel.ID Expiration:validTime OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
+        [weakSelf.view makeToast:CCWLocalizable(@"出售成功")];
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+    } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
+        if (error.code == 107){
+            [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
+        }if (error.code == 105){
+            [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
+        }else{
+            [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+        }
+    }];
 }
 
 #pragma mark - UITextField

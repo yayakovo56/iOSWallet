@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CCWSellNHAssetViewController">
             <connections>
+                <outlet property="coinButton" destination="15U-Wt-oPz" id="ouM-lH-Xg3"/>
                 <outlet property="nhAssetIDTF" destination="63b-Lx-Gg0" id="4XR-cC-kLp"/>
                 <outlet property="noteTF" destination="Z1A-Oj-hup" id="CeM-JE-PEc"/>
                 <outlet property="priceTF" destination="sQ3-V6-1K5" id="bGL-Rp-eRS"/>
