@@ -230,3 +230,14 @@
 "开发技术公众号" = "WeChat Official Account";
 "钱包管理" = "Wallet Management";
 "当前钱包" = "Current wallet";
+
+//下拉刷新
+"下拉可以刷新" = "Pull down to refresh";
+"松开立即刷新" = "Release to refresh";
+"正在刷新数据中..." = "Loading...";
+"最后更新：无记录" = "Latest update: No Record";
+"最后更新：%@" = "Latest update: %@";
+"今天"="Today";
+"点击或上拉加载更多" = "Click or slide up to load more";
+"正在加载更多的数据..." = "Loading more data...";
+"已经全部加载完毕" = "All loaded";

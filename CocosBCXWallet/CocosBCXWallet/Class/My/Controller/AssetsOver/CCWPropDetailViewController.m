@@ -48,7 +48,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = CCWLocalizable(@"详情");
+    self.title = CCWLocalizable(@"资产详情");
     [self ccw_setNavBackgroundColor:[UIColor getColor:@"D2D9F3"]];
     self.gradientView.backgroundColor = [UIColor gradientColorFromColors:@[[UIColor getColor:@"D2D9F3"],[UIColor getColor:@"F6F7F8"]] gradientType:CCWGradientTypeTopToBottom colorSize:CGSizeMake(CCWScreenW, 280)];
     

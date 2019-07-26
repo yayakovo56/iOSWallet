@@ -79,7 +79,7 @@
         _nextBtn.layer.cornerRadius = 6;
         [_nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_nextBtn.titleLabel setFont:CCWFont(16)];
-        [_nextBtn setTitle:CCWLocalizable(@"确认支付") forState:UIControlStateNormal];
+        [_nextBtn setTitle:CCWLocalizable(@"下一步") forState:UIControlStateNormal];
         [_nextBtn addTarget:self action:@selector(CCW_nextBtnClick) forControlEvents:UIControlEventTouchUpInside];
         [self.containerView addSubview:_nextBtn];
     }

@@ -278,8 +278,11 @@
 		31E198BE221FE2FC0076A822 /* CCWAssetsOverviewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E198BD221FE2FC0076A822 /* CCWAssetsOverviewCollectionViewCell.m */; };
 		31E198CC221FFAA80076A822 /* CCWTransferRecordTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E198CB221FFAA80076A822 /* CCWTransferRecordTableView.m */; };
 		31E198CF221FFBC10076A822 /* CCWWalletTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E198CE221FFBC10076A822 /* CCWWalletTableView.m */; };
-		31E4337922EAAAC400CAFDCA /* CCWSystemSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31E4337622EAAAC300CAFDCA /* CCWSystemSetViewController.xib */; };
-		31E4337A22EAAAC400CAFDCA /* CCWSystemSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E4337822EAAAC400CAFDCA /* CCWSystemSetViewController.m */; };
+		31E4338722EAAB4C00CAFDCA /* CCWAddNodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E4338122EAAB4C00CAFDCA /* CCWAddNodeViewController.m */; };
+		31E4338822EAAB4C00CAFDCA /* CCWSystemSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31E4338222EAAB4C00CAFDCA /* CCWSystemSetViewController.xib */; };
+		31E4338922EAAB4C00CAFDCA /* CCWAddNodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31E4338422EAAB4C00CAFDCA /* CCWAddNodeViewController.xib */; };
+		31E4338A22EAAB4C00CAFDCA /* CCWSystemSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E4338622EAAB4C00CAFDCA /* CCWSystemSetViewController.m */; };
+		31E4338C22EAB05B00CAFDCA /* MJRefresh+Localize.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E4338B22EAB05B00CAFDCA /* MJRefresh+Localize.m */; };
 		31F331C42265A97A00EC7496 /* ChainContract.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F331C32265A97A00EC7496 /* ChainContract.m */; };
 		31FC8D2D2213C82B0036C8F8 /* CCWWalletHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FC8D2C2213C82B0036C8F8 /* CCWWalletHeaderView.m */; };
 		31FC8D312213C9320036C8F8 /* CCWWalletTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FC8D2F2213C9320036C8F8 /* CCWWalletTableViewCell.m */; };
@@ -817,9 +820,13 @@
 		31E198CB221FFAA80076A822 /* CCWTransferRecordTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWTransferRecordTableView.m; sourceTree = "<group>"; };
 		31E198CD221FFBC10076A822 /* CCWWalletTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWWalletTableView.h; sourceTree = "<group>"; };
 		31E198CE221FFBC10076A822 /* CCWWalletTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWWalletTableView.m; sourceTree = "<group>"; };
-		31E4337622EAAAC300CAFDCA /* CCWSystemSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWSystemSetViewController.xib; sourceTree = "<group>"; };
-		31E4337722EAAAC300CAFDCA /* CCWSystemSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWSystemSetViewController.h; sourceTree = "<group>"; };
-		31E4337822EAAAC400CAFDCA /* CCWSystemSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWSystemSetViewController.m; sourceTree = "<group>"; };
+		31E4338122EAAB4C00CAFDCA /* CCWAddNodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWAddNodeViewController.m; sourceTree = "<group>"; };
+		31E4338222EAAB4C00CAFDCA /* CCWSystemSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWSystemSetViewController.xib; sourceTree = "<group>"; };
+		31E4338322EAAB4C00CAFDCA /* CCWSystemSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWSystemSetViewController.h; sourceTree = "<group>"; };
+		31E4338422EAAB4C00CAFDCA /* CCWAddNodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWAddNodeViewController.xib; sourceTree = "<group>"; };
+		31E4338522EAAB4C00CAFDCA /* CCWAddNodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWAddNodeViewController.h; sourceTree = "<group>"; };
+		31E4338622EAAB4C00CAFDCA /* CCWSystemSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWSystemSetViewController.m; sourceTree = "<group>"; };
+		31E4338B22EAB05B00CAFDCA /* MJRefresh+Localize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MJRefresh+Localize.m"; sourceTree = "<group>"; };
 		31F331C22265A97A00EC7496 /* ChainContract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainContract.h; sourceTree = "<group>"; };
 		31F331C32265A97A00EC7496 /* ChainContract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainContract.m; sourceTree = "<group>"; };
 		31FC8D2B2213C82B0036C8F8 /* CCWWalletHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWWalletHeaderView.h; sourceTree = "<group>"; };
@@ -1050,6 +1057,7 @@
 				3144D05022003BE700CDA62A /* CCWPrivacyPermissionsManager.m */,
 				3144D05122003BE700CDA62A /* CCWSaveTool.h */,
 				3144D05222003BE700CDA62A /* CCWSaveTool.m */,
+				31E4338B22EAB05B00CAFDCA /* MJRefresh+Localize.m */,
 				3144D09422003E5300CDA62A /* CCWLocalizableTool.h */,
 				3144D09522003E5300CDA62A /* CCWLocalizableTool.m */,
 				3144D09E2200401900CDA62A /* CCWLocalizableConst.h */,
@@ -1160,9 +1168,7 @@
 				3176CEAB22E58FE00022B408 /* AssetsOver */,
 				3176CEB322E58FE00022B408 /* Contact */,
 				3176CE9F22E58FE00022B408 /* WalletManager */,
-				31E4337722EAAAC300CAFDCA /* CCWSystemSetViewController.h */,
-				31E4337822EAAAC400CAFDCA /* CCWSystemSetViewController.m */,
-				31E4337622EAAAC300CAFDCA /* CCWSystemSetViewController.xib */,
+				31E4338022EAAB4C00CAFDCA /* Set */,
 				3144D08A22003C9200CDA62A /* CCWMyViewController.h */,
 				3144D08B22003C9200CDA62A /* CCWMyViewController.m */,
 				316739A1221ACBC7008D85C4 /* CCWMyViewController.xib */,
@@ -2048,6 +2054,19 @@
 			path = MyTableView;
 			sourceTree = "<group>";
 		};
+		31E4338022EAAB4C00CAFDCA /* Set */ = {
+			isa = PBXGroup;
+			children = (
+				31E4338122EAAB4C00CAFDCA /* CCWAddNodeViewController.m */,
+				31E4338222EAAB4C00CAFDCA /* CCWSystemSetViewController.xib */,
+				31E4338322EAAB4C00CAFDCA /* CCWSystemSetViewController.h */,
+				31E4338422EAAB4C00CAFDCA /* CCWAddNodeViewController.xib */,
+				31E4338522EAAB4C00CAFDCA /* CCWAddNodeViewController.h */,
+				31E4338622EAAB4C00CAFDCA /* CCWSystemSetViewController.m */,
+			);
+			path = Set;
+			sourceTree = "<group>";
+		};
 		31FC8D292213C7FE0036C8F8 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -2192,7 +2211,7 @@
 				31881F5E2216692E006C31A2 /* CCWCreateViewController.xib in Resources */,
 				318FF5E82215518800AB5696 /* CCWTransRecordTableViewCell.xib in Resources */,
 				317D2D6622E0713900559A7C /* CCWNHAssetOrderTableViewCell.xib in Resources */,
-				31E4337922EAAAC400CAFDCA /* CCWSystemSetViewController.xib in Resources */,
+				31E4338822EAAB4C00CAFDCA /* CCWSystemSetViewController.xib in Resources */,
 				3176CECC22E58FE00022B408 /* CCWExportViewController.xib in Resources */,
 				31E19888221E84270076A822 /* CCWSwitchAccountCell.xib in Resources */,
 				317948D6221E4BC000F4EA69 /* CCWContactTableViewCell.xib in Resources */,
@@ -2205,6 +2224,7 @@
 				3176CED822E58FE00022B408 /* CCWJoinUsViewController.xib in Resources */,
 				31881F5922165EB7006C31A2 /* CCWBackupsPrivateController.xib in Resources */,
 				317D2D5222E0428E00559A7C /* CCWPropAssetsTableViewCell.xib in Resources */,
+				31E4338922EAAB4C00CAFDCA /* CCWAddNodeViewController.xib in Resources */,
 				3123E22522B0DDDD00874CBF /* VersionLog.html in Resources */,
 				3129ED3922E82F240028A1CA /* CCWSellNHAssetViewController.xib in Resources */,
 				318FF5E322153FB400AB5696 /* CCWTransferRecordHeader.xib in Resources */,
@@ -2284,6 +2304,7 @@
 				31E19880221E7BCF0076A822 /* CCWConstkey.m in Sources */,
 				3144D05A22003BE700CDA62A /* CCWRSAUtill.m in Sources */,
 				3176CECE22E58FE00022B408 /* CCWExportViewController.m in Sources */,
+				31E4338722EAAB4C00CAFDCA /* CCWAddNodeViewController.m in Sources */,
 				3191A0A1225C6DE2003AB263 /* CocosDataBase.m in Sources */,
 				3144D06922003BE700CDA62A /* UILabel+YSAdd.m in Sources */,
 				3186E8062293A08200A269C6 /* CCWCheckVisionAlert.m in Sources */,
@@ -2307,6 +2328,7 @@
 				317784E72200473800525237 /* CCWMediator.m in Sources */,
 				3191A0C8225C6DE2003AB263 /* Transaction.m in Sources */,
 				3144D06222003BE700CDA62A /* NSString+YSAdd.m in Sources */,
+				31E4338C22EAB05B00CAFDCA /* MJRefresh+Localize.m in Sources */,
 				3144D06D22003BE700CDA62A /* UIView+YSAdd.m in Sources */,
 				3191A0C7225C6DE2003AB263 /* SignedTransaction.m in Sources */,
 				318FF5DD221510EC00AB5696 /* CCWTransRecordViewController.m in Sources */,
@@ -2320,6 +2342,7 @@
 				3191A0B8225C6DE2003AB263 /* ChainAssetAmountObject.m in Sources */,
 				3191A096225C6DE2003AB263 /* CocosPackData.m in Sources */,
 				3144D06522003BE700CDA62A /* CCWPageControl.m in Sources */,
+				31E4338A22EAAB4C00CAFDCA /* CCWSystemSetViewController.m in Sources */,
 				3144D06022003BE700CDA62A /* NSString+CCWNumber.m in Sources */,
 				3144D09622003E5300CDA62A /* CCWLocalizableTool.m in Sources */,
 				3144D05E22003BE700CDA62A /* NSObject+YSAdd.m in Sources */,
@@ -2493,7 +2516,6 @@
 				3186E8032293A08200A269C6 /* CCWAnimator.m in Sources */,
 				3191A0D2225C8A09003AB263 /* CCWRegisterViewController.m in Sources */,
 				3191A0A7225C6DE2003AB263 /* WalletExtraKey.m in Sources */,
-				31E4337A22EAAAC400CAFDCA /* CCWSystemSetViewController.m in Sources */,
 				3191A0B1225C6DE2003AB263 /* ChainAccountModel.m in Sources */,
 				3191A09F225C6DE2003AB263 /* CocosSDK.m in Sources */,
 				3176CEC822E58FE00022B408 /* CCWWalletManagerViewController.m in Sources */,
@@ -2637,9 +2659,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 8497T2NJ7P;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 47W9FMZ53S;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2661,7 +2683,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.io.cocosbcx.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = pp_cocos;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 arm64e armv7s";
 			};
@@ -2673,9 +2695,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 8497T2NJ7P;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 47W9FMZ53S;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2697,7 +2719,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.io.cocosbcx.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = pp_cocos;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 arm64e armv7s";
 			};
