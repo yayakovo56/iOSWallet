@@ -158,6 +158,8 @@
 - (IBAction)transferAsset:(UIButton *)sender {
     CCWTransferNhAssetViewController *transferNhAssetVC = [[CCWTransferNhAssetViewController alloc] init];
     transferNhAssetVC.nhAssetModel = self.nhAssetModel;
+    CCWWeakSelf;
+    transferNhAssetVC.transferNHAssetComplete = weakSelf.deleteNHAssetComplete;
     [self.navigationController pushViewController:transferNhAssetVC animated:YES];
 }
 

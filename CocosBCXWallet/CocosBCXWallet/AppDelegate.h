@@ -6,6 +6,8 @@
 //  Copyright © 2019年 邵银岭. All rights reserved.
 //
 
+//com.io.cocosbcx.www
+
 #import <UIKit/UIKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CCWTransferNhAssetViewController : UIViewController
 /** 资产 */
 @property (nonatomic, strong) CCWNHAssetsModel *nhAssetModel;
+/** 删除成功 */
+@property (nonatomic, copy) void(^transferNHAssetComplete)();
 @end
 
 NS_ASSUME_NONNULL_END

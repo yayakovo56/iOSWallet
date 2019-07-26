@@ -147,11 +147,16 @@
         [self.transferInfoView CCW_Show];
     }
 }
-- (void)CCW_TransferInfoViewNextButtonClick:(CCWBuyNHInfoView *)transferInfoView
+- (void)CCW_BuyInfoViewNextButtonClick:(CCWBuyNHInfoView *)transferInfoView
 {
     CCWWeakSelf
     [CCWSDKRequest CCW_TransferNHAssetToAccount:self.receiveTextField.text NHAssetID:self.nhAssetModel.ID Password:password_ OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
         [weakSelf.view makeToast:CCWLocalizable(@"转移成功")];
+        // 改变Nav的栈
+        NSArray *array = @[weakSelf.navigationController.viewControllers[0],weakSelf.navigationController.viewControllers[1], weakSelf];
+        weakSelf.navigationController.viewControllers = array;
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+        !weakSelf.transferNHAssetComplete?:weakSelf.transferNHAssetComplete();
     } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
         if (error.code == 104) {
             [weakSelf.view makeToast:CCWLocalizable(@"收款账户不存在")];
