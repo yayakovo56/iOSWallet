@@ -40,7 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = CCWLocalizable(@"道具出售");
+    self.title = CCWLocalizable(@"非同质资产出售");
     self.nhAssetIDTF.text = self.nhAssetModel.ID;
     self.priceModel = [[CCWAssetsModel alloc] init];
     self.priceModel.symbol = @"COCOS";
@@ -88,16 +88,16 @@
     NSString *price = self.priceTF.text;
     NSString *validTime = self.validTimeTF.text;
     if (IsStrEmpty(price)) {
-        [self.view makeToast:CCWLocalizable(@"请输入价格")];
+        [self.view makeToast:CCWLocalizable(@"请输入挂单价格")];
         return;
     }
     if (IsStrEmpty(validTime)) {
-        [self.view makeToast:CCWLocalizable(@"请输入有效时间")];
+        [self.view makeToast:CCWLocalizable(@"请输入挂单有效时间")];
         return;
     }
     CCWWeakSelf;
     [CCWSDKRequest CCW_SellNHAssetNHAssetId:self.nhAssetModel.ID Password:password Memo:self.noteTF.text SellPriceAmount:price SellAsset:self.priceModel.ID Expiration:validTime OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
-        password_ = password;
+        self->password_ = password;
         NSArray *transferINfoArray = @[@{
                                            @"title":CCWLocalizable(@"订单信息"),
                                            @"info":CCWLocalizable(@"出售资产"),
@@ -151,7 +151,7 @@
     NSString *validTime = self.validTimeTF.text;
     CCWWeakSelf
     [CCWSDKRequest CCW_SellNHAssetNHAssetId:self.nhAssetModel.ID Password:password_ Memo:self.noteTF.text SellPriceAmount:price SellAsset:self.priceModel.ID Expiration:validTime OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
-        [weakSelf.view makeToast:CCWLocalizable(@"出售成功")];
+        [weakSelf.view makeToast:CCWLocalizable(@"挂单成功")];
         [weakSelf.navigationController popViewControllerAnimated:YES];
     } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
         if (error.code == 107){

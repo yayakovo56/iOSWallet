@@ -17,6 +17,6 @@
 
 // 扫码转账
 - (UIViewController *)CCW_ScanQRCodeToTransferWithBlock:(void(^)(NSDictionary *qrData))blockBack;
-// 道具资产
+// 非同质资产
 - (UIViewController *)CCW_AssetsOverviewViewController;
 @end

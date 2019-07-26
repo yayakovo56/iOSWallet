@@ -610,7 +610,7 @@
     });
 }
 
-// 查询账户所拥有的道具NH资产
+// 查询账户所拥有的非同质资产
 + (void)CCW_QueryAccountNHAsset:(NSString *)accountID
                       WorldView:(NSArray *)worldViewIDArray
                        PageSize:(NSInteger)pageSize

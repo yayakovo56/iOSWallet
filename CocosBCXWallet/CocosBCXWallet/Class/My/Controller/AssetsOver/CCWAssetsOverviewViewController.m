@@ -69,7 +69,7 @@ static NSString *const AssetsCollectionCell = @"AssetsCollectionCell";
 - (NSMutableDictionary *)controllersDict {
     if (_controllersDict == nil) {
         NSMutableArray *objectsArray = [[NSMutableArray alloc] initWithObjects:[CCWDigitalAssetsViewController class], [CCWPropAssetsTableViewController class], nil];
-        NSMutableArray *keysArray = [[NSMutableArray alloc] initWithObjects:CCWLocalizable(@"数字资产"),CCWLocalizable(@"道具资产"), nil];
+        NSMutableArray *keysArray = [[NSMutableArray alloc] initWithObjects:CCWLocalizable(@"数字资产"),CCWLocalizable(@"非同质资产"), nil];
         _controllersDict = [[NSMutableDictionary alloc] initWithObjects:objectsArray forKeys:keysArray];
     }
     return _controllersDict;
@@ -78,7 +78,7 @@ static NSString *const AssetsCollectionCell = @"AssetsCollectionCell";
 - (NSArray *)titlesArray
 {
     if (!_titlesArray) {
-        self.titlesArray = @[CCWLocalizable(@"数字资产"),CCWLocalizable(@"道具资产")];
+        self.titlesArray = @[CCWLocalizable(@"数字资产"),CCWLocalizable(@"非同质资产")];
     }
     return _titlesArray;
 }

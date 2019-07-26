@@ -99,7 +99,7 @@
 {
     CCWWeakSelf;
     [CCWSDKRequest CCW_DeleteNHAssetId:self.nhAssetModel.ID Password:password OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
-        password_ = password;
+        self->password_ = password;
         NSArray *transferINfoArray = @[@{
                                            @"title":CCWLocalizable(@"订单信息"),
                                            @"info":CCWLocalizable(@"删除资产"),

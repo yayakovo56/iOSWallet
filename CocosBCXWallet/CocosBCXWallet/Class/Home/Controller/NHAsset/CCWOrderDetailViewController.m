@@ -87,6 +87,10 @@
     if (self.orderType == CCWNHAssetOrderTypeMy) {
         [self cancelNHAssetClick];
     }else{
+        if ([self.orderModel.seller isEqualToString:CCWAccountId]) {
+            [self.view makeToast:CCWLocalizable(@"不能购买自己创建的订单")];
+            return;
+        }
         [self buyNHAssetClick];
     }
 }

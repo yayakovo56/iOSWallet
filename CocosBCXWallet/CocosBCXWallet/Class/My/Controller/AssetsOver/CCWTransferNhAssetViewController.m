@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = CCWLocalizable(@"道具转移");
+    self.title = CCWLocalizable(@"非同质资产转移");
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"scanQRCode"] style:UIBarButtonItemStylePlain target:self action:@selector(CCW_ScanQRCode)];
     self.nhAssetIDTextField.text = self.nhAssetModel.ID;
 }
@@ -96,7 +96,7 @@
 {
     NSString *receiveAddress = self.receiveTextField.text;
     if (IsStrEmpty(receiveAddress)) {
-        [self.view makeToast:CCWLocalizable(@"请输入转账信息")];
+        [self.view makeToast:CCWLocalizable(@"请输入资产接收方")];
         return;
     }
     CCWWeakSelf;
@@ -125,9 +125,9 @@
         [weakSelf CCW_TransferInfoViewShowWithArray:transferINfoArray];
     } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
         if (error.code == 104) {
-            [weakSelf.view makeToast:CCWLocalizable(@"收款账户不存在")];
+            [weakSelf.view makeToast:CCWLocalizable(@"资产接收方不存在")];
         }else if (error.code == 116) {
-            [weakSelf.view makeToast:CCWLocalizable(@"收款账户不存在")];
+            [weakSelf.view makeToast:CCWLocalizable(@"资产接收方不存在")];
         }else if (error.code == 105){
             [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
         }else if (error.code == 107){
@@ -159,9 +159,9 @@
         !weakSelf.transferNHAssetComplete?:weakSelf.transferNHAssetComplete();
     } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
         if (error.code == 104) {
-            [weakSelf.view makeToast:CCWLocalizable(@"收款账户不存在")];
+            [weakSelf.view makeToast:CCWLocalizable(@"资产接收方不存在")];
         }else if (error.code == 116) {
-            [weakSelf.view makeToast:CCWLocalizable(@"收款账户不存在")];
+            [weakSelf.view makeToast:CCWLocalizable(@"资产接收方不存在")];
         }else if (error.code == 107){
             [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
         }else if (error.code == 105){

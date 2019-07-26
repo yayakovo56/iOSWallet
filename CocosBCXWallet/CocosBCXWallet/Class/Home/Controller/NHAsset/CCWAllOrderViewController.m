@@ -129,8 +129,13 @@
 // 购买
 - (void)CCWPropOrderCellbuyClick:(CCWNHAssetOrderTableViewCell *)propOrderCell
 {
+    
     indexPath_ = [self.tableView indexPathForCell:propOrderCell];
     orderModel_ = self.allPropOrderArray[indexPath_.row];
+    if ([orderModel_.seller isEqualToString:CCWAccountId]) {
+        [self.view makeToast:CCWLocalizable(@"不能购买自己创建的订单")];
+        return;
+    }
     // 输入密码
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:CCWLocalizable(@"提示") message:nil preferredStyle:UIAlertControllerStyleAlert];
     // 添加输入框 (注意:在UIAlertControllerStyleActionSheet样式下是不能添加下面这行代码的)
@@ -180,9 +185,11 @@
         [weakSelf CCW_TransferInfoViewShowWithArray:transferINfoArray];
         
     }  Error:^(NSString * _Nonnull errorAlert, NSError *error) {
-        if (error.code == 107){
+        if (error.code == 1011){
+            [weakSelf.view makeToast:CCWLocalizable(@"订单已失效")];
+        }else if (error.code == 107){
             [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
-        }if (error.code == 105){
+        }else if (error.code == 105){
             [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
         }else{
             [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
@@ -199,7 +206,7 @@
         [self.transferInfoView CCW_Show];
     }
 }
-- (void)CCW_TransferInfoViewNextButtonClick:(CCWBuyNHInfoView *)transferInfoView
+- (void)CCW_BuyInfoViewNextButtonClick:(CCWBuyNHInfoView *)transferInfoView
 {
     CCWWeakSelf
     [CCWSDKRequest CCW_BugNHAssetOrderId:orderModel_.ID Password:password_ OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
@@ -207,9 +214,11 @@
         [weakSelf.allPropOrderArray removeObjectAtIndex:self->indexPath_.row];
         [weakSelf.tableView deleteRowsAtIndexPaths:@[self->indexPath_] withRowAnimation:UITableViewRowAnimationNone];
     } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
-        if (error.code == 107){
+        if ([error.userInfo[@"message"] containsString:@"insufficient_balance"]){
+            [weakSelf.view makeToast:CCWLocalizable(@"余额不足")];
+        }else if (error.code == 107){
             [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
-        }if (error.code == 105){
+        }else if (error.code == 105){
             [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
         }else{
             [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
