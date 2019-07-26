@@ -278,6 +278,8 @@
 		31E198BE221FE2FC0076A822 /* CCWAssetsOverviewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E198BD221FE2FC0076A822 /* CCWAssetsOverviewCollectionViewCell.m */; };
 		31E198CC221FFAA80076A822 /* CCWTransferRecordTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E198CB221FFAA80076A822 /* CCWTransferRecordTableView.m */; };
 		31E198CF221FFBC10076A822 /* CCWWalletTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E198CE221FFBC10076A822 /* CCWWalletTableView.m */; };
+		31E4337922EAAAC400CAFDCA /* CCWSystemSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31E4337622EAAAC300CAFDCA /* CCWSystemSetViewController.xib */; };
+		31E4337A22EAAAC400CAFDCA /* CCWSystemSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E4337822EAAAC400CAFDCA /* CCWSystemSetViewController.m */; };
 		31F331C42265A97A00EC7496 /* ChainContract.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F331C32265A97A00EC7496 /* ChainContract.m */; };
 		31FC8D2D2213C82B0036C8F8 /* CCWWalletHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FC8D2C2213C82B0036C8F8 /* CCWWalletHeaderView.m */; };
 		31FC8D312213C9320036C8F8 /* CCWWalletTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FC8D2F2213C9320036C8F8 /* CCWWalletTableViewCell.m */; };
@@ -815,6 +817,9 @@
 		31E198CB221FFAA80076A822 /* CCWTransferRecordTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWTransferRecordTableView.m; sourceTree = "<group>"; };
 		31E198CD221FFBC10076A822 /* CCWWalletTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWWalletTableView.h; sourceTree = "<group>"; };
 		31E198CE221FFBC10076A822 /* CCWWalletTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWWalletTableView.m; sourceTree = "<group>"; };
+		31E4337622EAAAC300CAFDCA /* CCWSystemSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCWSystemSetViewController.xib; sourceTree = "<group>"; };
+		31E4337722EAAAC300CAFDCA /* CCWSystemSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWSystemSetViewController.h; sourceTree = "<group>"; };
+		31E4337822EAAAC400CAFDCA /* CCWSystemSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCWSystemSetViewController.m; sourceTree = "<group>"; };
 		31F331C22265A97A00EC7496 /* ChainContract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainContract.h; sourceTree = "<group>"; };
 		31F331C32265A97A00EC7496 /* ChainContract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainContract.m; sourceTree = "<group>"; };
 		31FC8D2B2213C82B0036C8F8 /* CCWWalletHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWWalletHeaderView.h; sourceTree = "<group>"; };
@@ -1155,6 +1160,9 @@
 				3176CEAB22E58FE00022B408 /* AssetsOver */,
 				3176CEB322E58FE00022B408 /* Contact */,
 				3176CE9F22E58FE00022B408 /* WalletManager */,
+				31E4337722EAAAC300CAFDCA /* CCWSystemSetViewController.h */,
+				31E4337822EAAAC400CAFDCA /* CCWSystemSetViewController.m */,
+				31E4337622EAAAC300CAFDCA /* CCWSystemSetViewController.xib */,
 				3144D08A22003C9200CDA62A /* CCWMyViewController.h */,
 				3144D08B22003C9200CDA62A /* CCWMyViewController.m */,
 				316739A1221ACBC7008D85C4 /* CCWMyViewController.xib */,
@@ -2184,6 +2192,7 @@
 				31881F5E2216692E006C31A2 /* CCWCreateViewController.xib in Resources */,
 				318FF5E82215518800AB5696 /* CCWTransRecordTableViewCell.xib in Resources */,
 				317D2D6622E0713900559A7C /* CCWNHAssetOrderTableViewCell.xib in Resources */,
+				31E4337922EAAAC400CAFDCA /* CCWSystemSetViewController.xib in Resources */,
 				3176CECC22E58FE00022B408 /* CCWExportViewController.xib in Resources */,
 				31E19888221E84270076A822 /* CCWSwitchAccountCell.xib in Resources */,
 				317948D6221E4BC000F4EA69 /* CCWContactTableViewCell.xib in Resources */,
@@ -2484,6 +2493,7 @@
 				3186E8032293A08200A269C6 /* CCWAnimator.m in Sources */,
 				3191A0D2225C8A09003AB263 /* CCWRegisterViewController.m in Sources */,
 				3191A0A7225C6DE2003AB263 /* WalletExtraKey.m in Sources */,
+				31E4337A22EAAAC400CAFDCA /* CCWSystemSetViewController.m in Sources */,
 				3191A0B1225C6DE2003AB263 /* ChainAccountModel.m in Sources */,
 				3191A09F225C6DE2003AB263 /* CocosSDK.m in Sources */,
 				3176CEC822E58FE00022B408 /* CCWWalletManagerViewController.m in Sources */,
