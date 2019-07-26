@@ -7,8 +7,13 @@
 //
 
 #import "CCWPropDetailViewController.h"
+#import "CCWDeleteNHInfoView.h"
+#import "CCWAssetsModel.h"
 
-@interface CCWPropDetailViewController ()
+@interface CCWPropDetailViewController ()<CCWDeleteNHInfoViewDelegate>
+{
+    NSString *password_;
+}
 // 渐变层
 @property (weak, nonatomic) IBOutlet UIView *gradientView;
 
@@ -24,9 +29,21 @@
 @property (weak, nonatomic) IBOutlet UILabel *createTime;
 @property (weak, nonatomic) IBOutlet UITextView *baseDataLabel;
 
+/** 转账信息 */
+@property (nonatomic, strong) CCWDeleteNHInfoView *deleteInfoView;
+
 @end
 
 @implementation CCWPropDetailViewController
+
+- (CCWDeleteNHInfoView *)deleteInfoView
+{
+    if (!_deleteInfoView) {
+        _deleteInfoView = [CCWDeleteNHInfoView new];
+        _deleteInfoView.delegate = self;
+    }
+    return _deleteInfoView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,13 +72,93 @@
     }];
 }
 
-- (IBAction)transferAsset:(UIButton *)sender {
-    
-}
-
+// 删除
 - (IBAction)deleteAsset:(UIButton *)sender {
-    
+    // 输入密码
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:CCWLocalizable(@"提示") message:nil preferredStyle:UIAlertControllerStyleAlert];
+    // 添加输入框 (注意:在UIAlertControllerStyleActionSheet样式下是不能添加下面这行代码的)
+    [alertVc addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.secureTextEntry = YES;
+        textField.placeholder = CCWLocalizable(@"请输入密码");
+    }];
+    CCWWeakSelf
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:CCWLocalizable(@"确认") style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        // 通过数组拿到textTF的值
+        NSString *password = [[alertVc textFields] objectAtIndex:0].text;
+        [weakSelf showDeleteNHAssetFee:password];
+    }];
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:CCWLocalizable(@"取消") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    // 添加行为
+    [alertVc addAction:action2];
+    [alertVc addAction:action1];
+    [self presentViewController:alertVc animated:YES completion:nil];
 }
 
+- (void)showDeleteNHAssetFee:(NSString *)password
+{
+    CCWWeakSelf;
+    [CCWSDKRequest CCW_DeleteNHAssetId:self.nhAssetModel.ID Password:password OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
+        password_ = password;
+        NSArray *transferINfoArray = @[@{
+                                           @"title":CCWLocalizable(@"订单信息"),
+                                           @"info":CCWLocalizable(@"删除资产"),
+                                           },
+                                       @{
+                                           @"title":CCWLocalizable(@"资产ID"),
+                                           @"info":weakSelf.nhAssetModel.ID,
+                                           },
+                                       @{
+                                           @"title":CCWLocalizable(@"世界观"),
+                                           @"info":weakSelf.nhAssetModel.world_view,
+                                           },
+                                       @{
+                                           @"title":CCWLocalizable(@"旷工费"),
+                                           @"info":[NSString stringWithFormat:@"%@%@",feesymbol.amount,feesymbol.symbol],
+                                           }];
+        [weakSelf CCW_TransferInfoViewShowWithArray:transferINfoArray];
+    } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
+        if (error.code == 107){
+            [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
+        }if (error.code == 105){
+            [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
+        }else{
+            [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+        }
+    }];
+}
+
+- (void)CCW_TransferInfoViewShowWithArray:(NSArray *)array
+{
+    self.deleteInfoView.dataSource = array;
+    if (self.deleteInfoView.isShow) {
+        [self.deleteInfoView CCW_Close];
+    }else{
+        [self.deleteInfoView CCW_Show];
+    }
+}
+
+- (void)CCW_DeleteInfoViewNextButtonClick:(nonnull CCWDeleteNHInfoView *)transferInfoView {
+    CCWWeakSelf;
+    [CCWSDKRequest CCW_DeleteNHAssetId:self.nhAssetModel.ID Password:password_ OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
+        [weakSelf.view makeToast:CCWLocalizable(@"删除成功")];
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+        !weakSelf.deleteNHAssetComplete?:weakSelf.deleteNHAssetComplete();
+    } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
+        if (error.code == 107){
+            [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
+        }if (error.code == 105){
+            [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
+        }else{
+            [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+        }
+    }];
+}
+
+- (IBAction)transferAsset:(UIButton *)sender {
+    CCWTransferNhAssetViewController *transferNhAssetVC = [[CCWTransferNhAssetViewController alloc] init];
+    transferNhAssetVC.nhAssetModel = self.nhAssetModel;
+    [self.navigationController pushViewController:transferNhAssetVC animated:YES];
+}
 
 @end

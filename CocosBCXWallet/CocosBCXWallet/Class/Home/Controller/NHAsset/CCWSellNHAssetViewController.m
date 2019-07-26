@@ -100,7 +100,7 @@
         password_ = password;
         NSArray *transferINfoArray = @[@{
                                            @"title":CCWLocalizable(@"订单信息"),
-                                           @"info":CCWLocalizable(@"出售"),
+                                           @"info":CCWLocalizable(@"出售资产"),
                                            },
                                        @{
                                            @"title":CCWLocalizable(@"资产ID"),

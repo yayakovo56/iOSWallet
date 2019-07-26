@@ -754,4 +754,52 @@
         }];
     }
 }
+
+// 删除NH资产
++ (void)CCW_DeleteNHAssetId:(NSString *)nhAssetId
+                   Password:(NSString *)password
+                 OnlyGetFee:(BOOL)onlyGetFee
+                    Success:(SuccessBlock)successBlock
+                      Error:(ErrorBlock)errorBlock
+{
+    if (onlyGetFee) {
+        [[CocosSDK shareInstance] Cocos_DeleteNHAssetFeeAccount:CCWAccountName FeePayingAsset:@"1.3.0" nhAssetID:nhAssetId Success:^(id responseObject) {
+            CCWAssetsModel *assetAmountModel = [CCWAssetsModel mj_objectWithKeyValues:[responseObject firstObject]];
+            [self CCW_QueryAssetInfo:@"1.3.0" Success:^(CCWAssetsModel *assetsModel) {
+                assetsModel.amount = [[CCWDecimalTool CCW_decimalNumberWithString:[NSString stringWithFormat:@"%@",assetAmountModel.amount]] decimalNumberByMultiplyingByPowerOf10:-[assetsModel.precision integerValue]];
+                !successBlock?:successBlock(assetsModel);
+            } Error:errorBlock];
+        } Error:^(NSError *error) {
+            !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
+        }];
+    }else{
+        [[CocosSDK shareInstance] Cocos_DeleteNHAssetAccount:CCWAccountName Password:password FeePayingAsset:@"1.3.0" nhAssetID:nhAssetId Success:successBlock Error:^(NSError *error) {
+            !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
+        }];
+    }
+}
+
++ (void)CCW_TransferNHAssetToAccount:(NSString *)to
+                           NHAssetID:(NSString *)NHAssetID
+                            Password:(NSString *)password
+                          OnlyGetFee:(BOOL)onlyGetFee
+                             Success:(SuccessBlock)successBlock
+                               Error:(ErrorBlock)errorBlock
+{
+    if (onlyGetFee) {
+        [[CocosSDK shareInstance] Cocos_TransferNHAssetFee:CCWAccountName ToAccount:to NHAssetID:NHAssetID FeePayingAsset:@"1.3.0" Success:^(id responseObject) {
+            CCWAssetsModel *assetAmountModel = [CCWAssetsModel mj_objectWithKeyValues:[responseObject firstObject]];
+            [self CCW_QueryAssetInfo:@"1.3.0" Success:^(CCWAssetsModel *assetsModel) {
+                assetsModel.amount = [[CCWDecimalTool CCW_decimalNumberWithString:[NSString stringWithFormat:@"%@",assetAmountModel.amount]] decimalNumberByMultiplyingByPowerOf10:-[assetsModel.precision integerValue]];
+                !successBlock?:successBlock(assetsModel);
+            } Error:errorBlock];
+        } Error:^(NSError *error) {
+            !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
+        }];
+    }else{
+        [[CocosSDK shareInstance] Cocos_TransferNHAsset:CCWAccountName ToAccount:to NHAssetID:NHAssetID Password:password FeePayingAsset:@"1.3.0" Success:successBlock Error:^(NSError *error) {
+            !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
+        }];
+    }
+}
 @end

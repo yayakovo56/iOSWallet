@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CCWTransferNhAssetViewController">
+            <connections>
+                <outlet property="nhAssetIDTextField" destination="WNm-z0-1D5" id="pYy-zQ-nI0"/>
+                <outlet property="receiveTextField" destination="pD2-d2-bIH" id="k8R-oK-KjT"/>
+                <outlet property="view" destination="QA5-1F-ABD" id="eKf-l2-I7q"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="QA5-1F-ABD">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="资产接收方" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ChS-WY-hPl" customClass="CCWLabel">
+                    <rect key="frame" x="15" y="44" width="76.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.14901960780000001" green="0.1647058824" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入资产接收方" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pD2-d2-bIH" customClass="CCWTextField">
+                    <rect key="frame" x="15" y="62" width="345" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="jBb-Ps-zoH"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xro-Sq-5Q5">
+                    <rect key="frame" x="15" y="106" width="345" height="0.5"/>
+                    <color key="backgroundColor" red="0.84705882349999995" green="0.85882352939999995" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="xZm-A3-4CD"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NH资产ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ye-H4-y4q" customClass="CCWLabel">
+                    <rect key="frame" x="15" y="132.5" width="67" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.14901960780000001" green="0.1647058824" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入转出金额" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WNm-z0-1D5" customClass="CCWTextField">
+                    <rect key="frame" x="15" y="150.5" width="345" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Vjm-7p-e6R"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PyW-1I-ekA">
+                    <rect key="frame" x="15" y="194.5" width="345" height="0.5"/>
+                    <color key="backgroundColor" red="0.84705882349999995" green="0.85882352939999995" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="Ssy-SZ-1NQ"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jte-mG-nQP" customClass="CCWButton">
+                    <rect key="frame" x="15" y="551" width="345" height="50"/>
+                    <color key="backgroundColor" red="0.28235294119999998" green="0.41960784309999999" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="uQH-ki-lrI"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="下一步">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="nextTransferClick:" destination="-1" eventType="touchUpInside" id="DDn-YY-5Hz"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXG-g3-s5e">
+                    <rect key="frame" x="338" y="42" width="22" height="22"/>
+                    <state key="normal" image="addressList"/>
+                    <connections>
+                        <action selector="addressListClick:" destination="-1" eventType="touchUpInside" id="1lZ-Bg-cBu"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="WNm-z0-1D5" firstAttribute="top" secondItem="0ye-H4-y4q" secondAttribute="bottom" id="3os-F7-9Td"/>
+                <constraint firstItem="ChS-WY-hPl" firstAttribute="top" secondItem="mej-rY-wbp" secondAttribute="top" constant="24" id="3pl-Hi-P0O"/>
+                <constraint firstItem="pD2-d2-bIH" firstAttribute="leading" secondItem="ChS-WY-hPl" secondAttribute="leading" id="3ys-iR-mAQ"/>
+                <constraint firstItem="PyW-1I-ekA" firstAttribute="trailing" secondItem="pD2-d2-bIH" secondAttribute="trailing" id="5gF-Ak-hQW"/>
+                <constraint firstItem="WNm-z0-1D5" firstAttribute="leading" secondItem="ChS-WY-hPl" secondAttribute="leading" id="6rA-OI-l4u"/>
+                <constraint firstItem="PyW-1I-ekA" firstAttribute="top" secondItem="WNm-z0-1D5" secondAttribute="bottom" id="9Dp-Da-Zj6"/>
+                <constraint firstItem="jte-mG-nQP" firstAttribute="leading" secondItem="mej-rY-wbp" secondAttribute="leading" constant="15" id="Aaj-Mn-JQE"/>
+                <constraint firstItem="mej-rY-wbp" firstAttribute="trailing" secondItem="pD2-d2-bIH" secondAttribute="trailing" constant="15" id="Bp1-cy-1RW"/>
+                <constraint firstItem="PyW-1I-ekA" firstAttribute="trailing" secondItem="WNm-z0-1D5" secondAttribute="trailing" id="EwG-uV-Alc"/>
+                <constraint firstItem="EXG-g3-s5e" firstAttribute="centerY" secondItem="ChS-WY-hPl" secondAttribute="centerY" id="KJY-yh-0bP"/>
+                <constraint firstItem="ChS-WY-hPl" firstAttribute="leading" secondItem="mej-rY-wbp" secondAttribute="leading" constant="15" id="Ng0-1B-Aj0"/>
+                <constraint firstItem="mej-rY-wbp" firstAttribute="bottom" secondItem="jte-mG-nQP" secondAttribute="bottom" constant="66" id="OAz-8X-CEp"/>
+                <constraint firstItem="PyW-1I-ekA" firstAttribute="leading" secondItem="ChS-WY-hPl" secondAttribute="leading" id="OEz-HG-VBT"/>
+                <constraint firstItem="xro-Sq-5Q5" firstAttribute="leading" secondItem="ChS-WY-hPl" secondAttribute="leading" id="Rm1-ZW-rgg"/>
+                <constraint firstItem="PyW-1I-ekA" firstAttribute="leading" secondItem="0ye-H4-y4q" secondAttribute="leading" id="TW9-AO-Ilu"/>
+                <constraint firstItem="WNm-z0-1D5" firstAttribute="leading" secondItem="0ye-H4-y4q" secondAttribute="leading" id="U8q-nn-Brd"/>
+                <constraint firstItem="EXG-g3-s5e" firstAttribute="trailing" secondItem="pD2-d2-bIH" secondAttribute="trailing" id="WL7-xo-FKf"/>
+                <constraint firstItem="WNm-z0-1D5" firstAttribute="trailing" secondItem="pD2-d2-bIH" secondAttribute="trailing" id="dSw-AY-q1F"/>
+                <constraint firstItem="xro-Sq-5Q5" firstAttribute="top" secondItem="pD2-d2-bIH" secondAttribute="bottom" id="mNM-v9-oHP"/>
+                <constraint firstItem="mej-rY-wbp" firstAttribute="trailing" secondItem="jte-mG-nQP" secondAttribute="trailing" constant="15" id="oOf-DT-pCo"/>
+                <constraint firstItem="pD2-d2-bIH" firstAttribute="top" secondItem="ChS-WY-hPl" secondAttribute="bottom" id="qd6-nb-1f2"/>
+                <constraint firstItem="xro-Sq-5Q5" firstAttribute="trailing" secondItem="pD2-d2-bIH" secondAttribute="trailing" id="qqJ-EL-TUt"/>
+                <constraint firstItem="0ye-H4-y4q" firstAttribute="leading" secondItem="ChS-WY-hPl" secondAttribute="leading" id="r04-em-Bpn"/>
+                <constraint firstItem="0ye-H4-y4q" firstAttribute="top" secondItem="xro-Sq-5Q5" secondAttribute="bottom" constant="26" id="yi5-8v-PU8"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="mej-rY-wbp"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="addressList" width="22" height="18"/>
+    </resources>
+</document>

@@ -19,6 +19,8 @@ CCW_CreateWalletAccountTable
 CCW_CreateWalletViewController
 CCW_DecodeMemo
 CCW_DeleteContact
+CCW_DeleteInfoViewNextButtonClick
+CCW_DeleteNHAssetId
 CCW_DeleteServerNodeInfo
 CCW_FindFirstCellClickCarouselViewWithTableViewCell
 CCW_FindFirstCellClickNavButtonWithTableViewCell
@@ -81,6 +83,7 @@ CCW_TransferFeeAsset
 CCW_TransferInfoViewNextButtonClick
 CCW_TransferInfoViewShowWithArray
 CCW_TransferNHAsset
+CCW_TransferNHAssetToAccount
 CCW_WalletViewController
 CCW_actionWithTitle
 CCW_addAction

@@ -102,6 +102,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     CCWPropDetailViewController *propDetailVC = [[CCWPropDetailViewController alloc] init];
     propDetailVC.nhAssetModel = self.propAssetArray[indexPath.row];
+    CCWWeakSelf;
+    propDetailVC.deleteNHAssetComplete = ^{
+        [weakSelf.propAssetArray removeObjectAtIndex:indexPath.row];
+        [weakSelf.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    };
     [[UIViewController topViewController].navigationController pushViewController:propDetailVC animated:YES];
 }
 

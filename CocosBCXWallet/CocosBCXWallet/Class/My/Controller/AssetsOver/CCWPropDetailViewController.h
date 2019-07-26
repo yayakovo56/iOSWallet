@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CCWNHAssetsModel.h"
+#import "CCWTransferNhAssetViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CCWPropDetailViewController : UIViewController
 /** 资产 */
 @property (nonatomic, strong) CCWNHAssetsModel *nhAssetModel;
+
+/** 删除成功 */
+@property (nonatomic, copy) void(^deleteNHAssetComplete)();
 @end
 
 NS_ASSUME_NONNULL_END

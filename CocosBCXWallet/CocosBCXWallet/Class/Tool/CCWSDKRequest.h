@@ -320,6 +320,19 @@ typedef void (^ErrorBlock)(NSString *errorAlert,id responseObject);// 失败回�
                    OnlyGetFee:(BOOL)onlyGetFee
                       Success:(SuccessBlock)successBlock
                         Error:(ErrorBlock)errorBlock;
+// 删除NH资产
++ (void)CCW_DeleteNHAssetId:(NSString *)nhAssetId
+                     Password:(NSString *)password
+                   OnlyGetFee:(BOOL)onlyGetFee
+                      Success:(SuccessBlock)successBlock
+                        Error:(ErrorBlock)errorBlock;
+// NH资产转移
++ (void)CCW_TransferNHAssetToAccount:(NSString *)to
+                   NHAssetID:(NSString *)NHAssetID
+                    Password:(NSString *)password
+                  OnlyGetFee:(BOOL)onlyGetFee
+                     Success:(SuccessBlock)successBlock
+                       Error:(ErrorBlock)errorBlock;
 ///**
 // 升级成为终身会员账户
 // @param isOnlyGetFee 是否获取手续费
