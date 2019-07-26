@@ -105,7 +105,7 @@
                                            @"info":CCWLocalizable(@"删除资产"),
                                            },
                                        @{
-                                           @"title":CCWLocalizable(@"资产ID"),
+                                           @"title":CCWLocalizable(@"NH资产ID"),
                                            @"info":weakSelf.nhAssetModel.ID,
                                            },
                                        @{
