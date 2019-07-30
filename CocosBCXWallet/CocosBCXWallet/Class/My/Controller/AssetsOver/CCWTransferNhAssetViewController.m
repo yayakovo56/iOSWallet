@@ -69,7 +69,11 @@
 
 // 点击转账
 - (IBAction)nextTransferClick:(UIButton *)sender {
-    
+    NSString *receiveAddress = self.receiveTextField.text;
+    if (IsStrEmpty(receiveAddress)) {
+        [self.view makeToast:CCWLocalizable(@"请输入资产接收方")];
+        return;
+    }
     // 输入密码
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:CCWLocalizable(@"提示") message:nil preferredStyle:UIAlertControllerStyleAlert];
     // 添加输入框 (注意:在UIAlertControllerStyleActionSheet样式下是不能添加下面这行代码的)
@@ -95,10 +99,6 @@
 - (void)showTransferFee:(NSString *)password
 {
     NSString *receiveAddress = self.receiveTextField.text;
-    if (IsStrEmpty(receiveAddress)) {
-        [self.view makeToast:CCWLocalizable(@"请输入资产接收方")];
-        return;
-    }
     CCWWeakSelf;
     [CCWSDKRequest CCW_TransferNHAssetToAccount:receiveAddress NHAssetID:self.nhAssetModel.ID Password:password OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
         password_ = password;

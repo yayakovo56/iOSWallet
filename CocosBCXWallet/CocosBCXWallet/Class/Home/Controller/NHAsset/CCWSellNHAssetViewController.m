@@ -19,7 +19,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *coinButton;
 @property (nonatomic, weak) IBOutlet UITextField *validTimeTF;
 @property (nonatomic, weak) IBOutlet UITextField *noteTF;
-
+// 最大时间
+@property (weak, nonatomic) IBOutlet UILabel *maxTimeLabel;
+// 价格模型
 @property (nonatomic, strong) CCWAssetsModel *priceModel;
 
 /** 转账信息 */
@@ -62,6 +64,16 @@
 
 - (IBAction)sellNHAssetClick
 {
+    NSString *price = self.priceTF.text;
+    NSString *validTime = self.validTimeTF.text;
+    if (IsStrEmpty(price)) {
+        [self.view makeToast:CCWLocalizable(@"请输入挂单价格")];
+        return;
+    }
+    if (IsStrEmpty(validTime)) {
+        [self.view makeToast:CCWLocalizable(@"请输入挂单有效时间")];
+        return;
+    }
     // 输入密码
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:CCWLocalizable(@"提示") message:nil preferredStyle:UIAlertControllerStyleAlert];
     // 添加输入框 (注意:在UIAlertControllerStyleActionSheet样式下是不能添加下面这行代码的)
@@ -87,14 +99,6 @@
 {
     NSString *price = self.priceTF.text;
     NSString *validTime = self.validTimeTF.text;
-    if (IsStrEmpty(price)) {
-        [self.view makeToast:CCWLocalizable(@"请输入挂单价格")];
-        return;
-    }
-    if (IsStrEmpty(validTime)) {
-        [self.view makeToast:CCWLocalizable(@"请输入挂单有效时间")];
-        return;
-    }
     CCWWeakSelf;
     [CCWSDKRequest CCW_SellNHAssetNHAssetId:self.nhAssetModel.ID Password:password Memo:self.noteTF.text SellPriceAmount:price SellAsset:self.priceModel.ID Expiration:validTime OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
         self->password_ = password;

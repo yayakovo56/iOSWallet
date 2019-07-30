@@ -55,9 +55,11 @@
             weakSelf.tableView.mj_footer = nil;
         }else if (weakSelf.propAssetArray.count < 10){
             [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+        }else{
+            [weakSelf.tableView.mj_footer resetNoMoreData];
         }
     } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-        [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+        [CCWKeyWindow makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         // 结束刷新
         [weakSelf.tableView.mj_header endRefreshing];
     }];
@@ -78,7 +80,7 @@
             [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
         }
     } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-        [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+        [CCWKeyWindow makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         // 结束刷新
         [weakSelf.tableView.mj_footer endRefreshing];
     }];

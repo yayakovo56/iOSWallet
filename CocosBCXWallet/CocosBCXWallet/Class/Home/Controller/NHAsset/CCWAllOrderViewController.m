@@ -71,9 +71,11 @@
             weakSelf.tableView.mj_footer = nil;
         }else if (responseObject.count < 10){
             [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+        }else{
+            [weakSelf.tableView.mj_footer resetNoMoreData];
         }
     } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-        [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+        [CCWKeyWindow makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         // 结束刷新
         [weakSelf.tableView.mj_header endRefreshing];
     }];
@@ -91,7 +93,7 @@
             [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
         }
     } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-        [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+        [CCWKeyWindow makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         // 结束刷新
         [weakSelf.tableView.mj_footer endRefreshing];
     }];
@@ -133,7 +135,7 @@
     indexPath_ = [self.tableView indexPathForCell:propOrderCell];
     orderModel_ = self.allPropOrderArray[indexPath_.row];
     if ([orderModel_.seller isEqualToString:CCWAccountId]) {
-        [self.view makeToast:CCWLocalizable(@"不能购买自己创建的订单")];
+        [CCWKeyWindow makeToast:CCWLocalizable(@"不能购买自己创建的订单")];
         return;
     }
     // 输入密码
@@ -186,13 +188,13 @@
         
     }  Error:^(NSString * _Nonnull errorAlert, NSError *error) {
         if (error.code == 1011){
-            [weakSelf.view makeToast:CCWLocalizable(@"订单已失效")];
+            [CCWKeyWindow makeToast:CCWLocalizable(@"订单已失效")];
         }else if (error.code == 107){
-            [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
+            [CCWKeyWindow makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
         }else if (error.code == 105){
-            [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
+            [CCWKeyWindow makeToast:CCWLocalizable(@"密码错误，请重新输入")];
         }else{
-            [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+            [CCWKeyWindow makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         }
     }];
 }
@@ -215,13 +217,13 @@
         [weakSelf.tableView deleteRowsAtIndexPaths:@[self->indexPath_] withRowAnimation:UITableViewRowAnimationNone];
     } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
         if ([error.userInfo[@"message"] containsString:@"insufficient_balance"]){
-            [weakSelf.view makeToast:CCWLocalizable(@"余额不足")];
+            [CCWKeyWindow makeToast:CCWLocalizable(@"余额不足")];
         }else if (error.code == 107){
-            [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
+            [CCWKeyWindow makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
         }else if (error.code == 105){
-            [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
+            [CCWKeyWindow makeToast:CCWLocalizable(@"密码错误，请重新输入")];
         }else{
-            [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+            [CCWKeyWindow makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         }
     }];
 }

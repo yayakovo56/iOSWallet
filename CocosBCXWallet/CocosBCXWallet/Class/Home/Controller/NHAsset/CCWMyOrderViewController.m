@@ -71,9 +71,11 @@
             weakSelf.tableView.mj_footer = nil;
         }else if (responseObject.count < 10){
             [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+        }else{
+            [weakSelf.tableView.mj_footer resetNoMoreData];
         }
     } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-        [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+        [CCWKeyWindow makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         // 结束刷新
         [weakSelf.tableView.mj_header endRefreshing];
     }];
@@ -94,7 +96,7 @@
         }
 
     } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-        [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+        [CCWKeyWindow makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         // 结束刷新
         [weakSelf.tableView.mj_footer endRefreshing];
     }];
@@ -181,11 +183,11 @@
         
     } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
         if (error.code == 107){
-            [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
+            [CCWKeyWindow makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
         }else if (error.code == 105){
-            [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
+            [CCWKeyWindow makeToast:CCWLocalizable(@"密码错误，请重新输入")];
         }else{
-            [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+            [CCWKeyWindow makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         }
     }];
 }
@@ -203,16 +205,16 @@
 {
     CCWWeakSelf
     [CCWSDKRequest CCW_CancelSellNHAssetOrderId:orderModel_.ID Password:password_ OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
-        [weakSelf.view makeToast:CCWLocalizable(@"取消成功")];
+        [CCWKeyWindow makeToast:CCWLocalizable(@"取消成功")];
         [weakSelf.myPropOrderArray removeObjectAtIndex:self->indexPath_.row];
         [weakSelf.tableView deleteRowsAtIndexPaths:@[self->indexPath_] withRowAnimation:UITableViewRowAnimationNone];
     } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
         if (error.code == 107){
-            [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
+            [CCWKeyWindow makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
         }if (error.code == 105){
-            [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
+            [CCWKeyWindow makeToast:CCWLocalizable(@"密码错误，请重新输入")];
         }else{
-            [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+            [CCWKeyWindow makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         }
     }];
 }
