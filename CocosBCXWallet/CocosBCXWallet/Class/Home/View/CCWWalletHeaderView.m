@@ -107,7 +107,7 @@
 {
     if (!_assetsLabel) {
         _assetsLabel = [[UILabel alloc] init];
-        _assetsLabel.text = CCWLocalizable(@"0");
+        _assetsLabel.text = @"0.00";
         _assetsLabel.font = [UIFont fontWithName:@"DINAlternate-Bold" size:38];
         _assetsLabel.textColor = [UIColor whiteColor];
     }

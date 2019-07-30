@@ -22,10 +22,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     webView.delegate = self;
-//    NSString *bundleStr = [[NSBundle mainBundle] pathForResource:@"Terms of Service" ofType:@"html"];
-//    NSURL *TermsUrl = [NSURL fileURLWithPath:bundleStr];
-//    https://www.cocosbcx.io/
-    NSURL *TermsUrl = [NSURL URLWithString:@"https://www.cocosbcx.io/"];
+    NSString *bundleStr = [[NSBundle mainBundle] pathForResource:@"Terms of Service" ofType:@"html"];
+    NSURL *TermsUrl = [NSURL fileURLWithPath:bundleStr];
     [webView loadRequest:[NSURLRequest requestWithURL:TermsUrl]];
     [self.view addSubview:webView];
     self.webView = webView;

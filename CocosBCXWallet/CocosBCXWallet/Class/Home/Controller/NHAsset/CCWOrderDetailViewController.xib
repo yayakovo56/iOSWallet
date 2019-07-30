@@ -74,7 +74,7 @@
                                     <color key="textColor" red="0.14901960780000001" green="0.1647058824" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThC-a7-GHf">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThC-a7-GHf">
                                     <rect key="frame" x="105" y="175.5" width="0.0" height="0.0"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" red="0.14901960780000001" green="0.1647058824" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -172,6 +172,13 @@
                                     <color key="textColor" red="0.38431372549999998" green="0.40000000000000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZ0-Gy-10f">
+                                    <rect key="frame" x="108" y="164.5" width="16" height="22"/>
+                                    <state key="normal" image="tanster_copy"/>
+                                    <connections>
+                                        <action selector="makeAccountCopy:" destination="-1" eventType="touchUpInside" id="F7J-c5-DfF"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -188,6 +195,7 @@
                                 <constraint firstItem="L4b-jr-Oov" firstAttribute="leading" secondItem="MnN-8e-miH" secondAttribute="leading" id="GWK-Gj-JXs"/>
                                 <constraint firstItem="CPl-Z1-KsQ" firstAttribute="top" secondItem="JLA-E7-DLX" secondAttribute="bottom" constant="15" id="IXO-Ty-4yC"/>
                                 <constraint firstItem="rSy-fQ-pzu" firstAttribute="leading" secondItem="8GG-D3-HUf" secondAttribute="leading" id="MWU-BB-8c5"/>
+                                <constraint firstItem="hZ0-Gy-10f" firstAttribute="leading" secondItem="ThC-a7-GHf" secondAttribute="trailing" constant="3" id="Mok-Z9-hRi"/>
                                 <constraint firstItem="wLb-n8-8Pe" firstAttribute="centerY" secondItem="ZYl-4C-NrN" secondAttribute="top" id="Mq8-u5-hQU"/>
                                 <constraint firstItem="MnN-8e-miH" firstAttribute="leading" secondItem="ZYl-4C-NrN" secondAttribute="leading" constant="20" id="NFo-CW-Usb"/>
                                 <constraint firstItem="CPl-Z1-KsQ" firstAttribute="leading" secondItem="JLA-E7-DLX" secondAttribute="leading" id="OMe-Uf-LYR"/>
@@ -203,6 +211,7 @@
                                 <constraint firstItem="bBu-fK-Gj9" firstAttribute="leading" secondItem="sLq-Oy-QZ8" secondAttribute="leading" id="ZDX-SN-ano"/>
                                 <constraint firstItem="ThC-a7-GHf" firstAttribute="centerY" secondItem="L4b-jr-Oov" secondAttribute="centerY" id="Zkm-gH-ipe"/>
                                 <constraint firstItem="oBL-Zd-Qvh" firstAttribute="top" secondItem="dg0-V7-5sN" secondAttribute="bottom" constant="15" id="b3H-5e-N0k"/>
+                                <constraint firstAttribute="centerX" relation="greaterThanOrEqual" secondItem="ThC-a7-GHf" secondAttribute="trailing" constant="-30" id="bwC-fT-53L"/>
                                 <constraint firstItem="Hag-E0-GND" firstAttribute="centerY" secondItem="MnN-8e-miH" secondAttribute="centerY" id="cM1-jU-g7s"/>
                                 <constraint firstItem="dg0-V7-5sN" firstAttribute="top" secondItem="sLq-Oy-QZ8" secondAttribute="bottom" constant="15" id="dSb-wd-6q7"/>
                                 <constraint firstItem="8GG-D3-HUf" firstAttribute="centerY" secondItem="YjE-jy-Zb7" secondAttribute="centerY" id="g3A-Vr-Y55"/>
@@ -214,6 +223,7 @@
                                 <constraint firstItem="YjE-jy-Zb7" firstAttribute="top" secondItem="L4b-jr-Oov" secondAttribute="bottom" constant="15" id="pVc-Zc-hKT"/>
                                 <constraint firstItem="sLq-Oy-QZ8" firstAttribute="leading" secondItem="YjE-jy-Zb7" secondAttribute="leading" id="pvl-ML-JGZ"/>
                                 <constraint firstItem="JLA-E7-DLX" firstAttribute="centerY" secondItem="bBu-fK-Gj9" secondAttribute="centerY" id="qGq-3J-QAY"/>
+                                <constraint firstItem="hZ0-Gy-10f" firstAttribute="centerY" secondItem="ThC-a7-GHf" secondAttribute="centerY" id="rqe-w1-LMd"/>
                                 <constraint firstItem="VTf-NZ-ZMk" firstAttribute="centerX" secondItem="wLb-n8-8Pe" secondAttribute="centerX" id="swV-4l-Or5"/>
                                 <constraint firstItem="RNz-wG-1U3" firstAttribute="leading" secondItem="sLq-Oy-QZ8" secondAttribute="leading" id="uGl-4J-Pdy"/>
                                 <constraint firstItem="ThC-a7-GHf" firstAttribute="leading" secondItem="Hag-E0-GND" secondAttribute="leading" id="wQs-sY-vVB"/>
@@ -271,5 +281,6 @@
     </objects>
     <resources>
         <image name="NHAsset" width="48" height="48"/>
+        <image name="tanster_copy" width="16" height="16"/>
     </resources>
 </document>

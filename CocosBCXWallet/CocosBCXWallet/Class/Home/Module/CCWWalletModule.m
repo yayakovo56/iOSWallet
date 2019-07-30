@@ -19,10 +19,11 @@
 }
 
 // 出售道具资产
-- (UIViewController *)CCW_SellAssetsViewControllerWithAsset:(CCWNHAssetsModel *)nhAssetModel
+- (UIViewController *)CCW_SellAssetsViewControllerWithAsset:(CCWNHAssetsModel *)nhAssetModel success:(void (^)(void))successBlock
 {
     CCWSellNHAssetViewController *viewController = [[CCWSellNHAssetViewController alloc] init];
     viewController.nhAssetModel = nhAssetModel;
+    viewController.sellSuccess = successBlock;
     return viewController;
 }
 

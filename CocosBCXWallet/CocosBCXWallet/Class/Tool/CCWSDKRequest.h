@@ -269,7 +269,6 @@ typedef void (^ErrorBlock)(NSString *errorAlert,id responseObject);// 失败回�
                            Page:(NSInteger)page
                         Success:(SuccessBlock)successBlock
                           Error:(ErrorBlock)errorBlock;
-+ (void)CCW_ListAccountNHAssetOrder;
 // NH资产转移
 + (void)CCW_TransferNHAsset:(NSString *)from
                   ToAccount:(NSString *)to

@@ -14,5 +14,5 @@
 - (UIViewController *)CCW_WalletViewController;
 
 // 出售非同质资产
-- (UIViewController *)CCW_SellAssetsViewControllerWithAsset:(CCWNHAssetsModel *)nhAssetModel;
+- (UIViewController *)CCW_SellAssetsViewControllerWithAsset:(CCWNHAssetsModel *)nhAssetModel success:(void(^)(void))successBlock;
 @end

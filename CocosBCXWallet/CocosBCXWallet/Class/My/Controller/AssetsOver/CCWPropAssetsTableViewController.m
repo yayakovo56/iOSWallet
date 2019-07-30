@@ -71,9 +71,10 @@
     [CCWSDKRequest CCW_QueryAccountNHAsset:CCWAccountId WorldView:@[] PageSize:10 Page:page Success:^(NSArray *responseObject) {
         // 结束刷新
         [weakSelf.tableView.mj_footer endRefreshing];
-        [weakSelf.propAssetArray addObjectsFromArray:[CCWNHAssetsModel mj_objectArrayWithKeyValuesArray:[responseObject firstObject]]];
+        NSMutableArray *requestArray = [CCWNHAssetsModel mj_objectArrayWithKeyValuesArray:[responseObject firstObject]];
+        [weakSelf.propAssetArray addObjectsFromArray:requestArray];
         [weakSelf.tableView reloadData];
-        if (weakSelf.propAssetArray.count < 10) {
+        if (requestArray.count < 10) {
             [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
         }
     } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
@@ -115,7 +116,11 @@
 {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:propAssetCell];
     id<CCWWalletModuleProtocol> nhAssetModule = [[CCWMediator sharedInstance] moduleForProtocol:@protocol(CCWWalletModuleProtocol)];
-    UIViewController *viewController = [nhAssetModule CCW_SellAssetsViewControllerWithAsset:self.propAssetArray[indexPath.row]];
+    CCWWeakSelf;
+    UIViewController *viewController = [nhAssetModule CCW_SellAssetsViewControllerWithAsset:self.propAssetArray[indexPath.row] success:^{
+        [weakSelf.propAssetArray removeObjectAtIndex:indexPath.row];
+        [weakSelf.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }];
     [[UIViewController topViewController].navigationController pushViewController:viewController animated:YES];
 }
 

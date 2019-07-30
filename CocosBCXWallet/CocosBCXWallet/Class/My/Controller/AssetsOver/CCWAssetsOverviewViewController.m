@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIView *headerBgView;
 @property (weak, nonatomic) IBOutlet UIView *assetsBgView;
 @property (weak, nonatomic) IBOutlet UILabel *assetsTitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *assetsLabel;
 @property (weak, nonatomic) IBOutlet UIButton *showAssetsBtn;
 // 所有资产
 @property (weak, nonatomic) IBOutlet UILabel *allAssetsLabel;
@@ -124,7 +123,7 @@ static NSString *const AssetsCollectionCell = @"AssetsCollectionCell";
 
 - (IBAction)assetsShowOrHidden:(UIButton *)sender {
     sender.selected = !sender.selected;
-    NSString *allAssets = sender.selected?@"****":@"0";
+    NSString *allAssets = sender.selected?@"****":@"0.00";
     self.allAssetsLabel.text = allAssets;
 }
 

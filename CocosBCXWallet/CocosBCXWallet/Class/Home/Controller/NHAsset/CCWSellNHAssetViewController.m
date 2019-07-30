@@ -153,6 +153,7 @@
     [CCWSDKRequest CCW_SellNHAssetNHAssetId:self.nhAssetModel.ID Password:password_ Memo:self.noteTF.text SellPriceAmount:price SellAsset:self.priceModel.ID Expiration:validTime OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
         [weakSelf.view makeToast:CCWLocalizable(@"挂单成功")];
         [weakSelf.navigationController popViewControllerAnimated:YES];
+        !weakSelf.sellSuccess?:weakSelf.sellSuccess();
     } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
         if (error.code == 107){
             [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];

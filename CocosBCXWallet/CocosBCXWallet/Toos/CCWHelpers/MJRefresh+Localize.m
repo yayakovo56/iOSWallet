@@ -59,6 +59,9 @@
     [self setTitle:CCWLocalizable(@"下拉可以刷新") forState:MJRefreshStateIdle];
     [self setTitle:CCWLocalizable(@"松开立即刷新") forState:MJRefreshStatePulling];
     [self setTitle:CCWLocalizable(@"正在刷新数据中...") forState:MJRefreshStateRefreshing];
+    
+    // 图标的距离
+    self.labelLeftInset = 10;
 }
 
 @end

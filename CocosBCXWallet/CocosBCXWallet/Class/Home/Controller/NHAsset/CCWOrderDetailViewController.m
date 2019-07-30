@@ -95,6 +95,13 @@
     }
 }
 
+- (IBAction)makeAccountCopy:(UIButton *)sender {
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    [pasteboard setString:self.sellerLabel.text];
+    [self.view makeToast:CCWLocalizable(@"复制成功")];
+}
+
+
 #pragma mark - 取消订单
 - (void)cancelNHAssetClick
 {

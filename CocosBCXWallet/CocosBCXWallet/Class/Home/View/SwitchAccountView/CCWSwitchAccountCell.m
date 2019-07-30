@@ -31,12 +31,19 @@
 
 - (void)setDbAccountModel:(CocosDBAccountModel *)dbAccountModel
 {
+    _dbAccountModel = dbAccountModel;
     self.accountNameLabel.text = dbAccountModel.name;
     if ([dbAccountModel.name isEqualToString:CCWAccountName]) {
         self.selectImageView.hidden = NO;
     }else{
         self.selectImageView.hidden = YES;
     }
+}
+
+- (IBAction)makeAccountCopy:(UIButton *)sender {
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    [pasteboard setString:self.dbAccountModel.name];
+    [CCWKeyWindow makeToast:CCWLocalizable(@"复制成功")];
 }
 
 @end

@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CCWSellNHAssetViewController : UIViewController
 /** 资产 */
 @property (nonatomic, strong) CCWNHAssetsModel *nhAssetModel;
+
+/** 出售成功 */
+@property (nonatomic, copy) void(^sellSuccess)();
 @end
 
 NS_ASSUME_NONNULL_END

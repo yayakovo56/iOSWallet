@@ -71,7 +71,7 @@
                                     <color key="textColor" red="0.14901960780000001" green="0.1647058824" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaO-8t-8Qm">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaO-8t-8Qm">
                                     <rect key="frame" x="105" y="175.5" width="0.0" height="0.0"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" red="0.14901960780000001" green="0.1647058824" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -142,19 +142,36 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </textView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEa-7U-i4y">
+                                    <rect key="frame" x="108" y="164.5" width="16" height="22"/>
+                                    <state key="normal" image="tanster_copy"/>
+                                    <connections>
+                                        <action selector="makeAccountCopy:" destination="-1" eventType="touchUpInside" id="Is1-OD-dt8"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGh-6R-o4f">
+                                    <rect key="frame" x="108" y="132.5" width="16" height="22"/>
+                                    <state key="normal" image="tanster_copy"/>
+                                    <connections>
+                                        <action selector="makeAccountCopy:" destination="-1" eventType="touchUpInside" id="42X-Hc-pR3"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="Omg-tk-dnQ" firstAttribute="leading" secondItem="x1f-cW-S4Q" secondAttribute="leading" id="0D9-nb-BrZ"/>
                                 <constraint firstItem="rRg-nD-aht" firstAttribute="leading" secondItem="x1f-cW-S4Q" secondAttribute="leading" id="1L6-gV-1QI"/>
+                                <constraint firstItem="AGh-6R-o4f" firstAttribute="leading" secondItem="cTs-kP-0fc" secondAttribute="trailing" constant="3" id="2mf-CY-Lh0"/>
                                 <constraint firstItem="F5r-gt-lKM" firstAttribute="centerX" secondItem="Xgf-OQ-HHV" secondAttribute="centerX" id="7cc-Mm-W2G"/>
                                 <constraint firstItem="LM5-11-aPe" firstAttribute="leading" secondItem="mnd-JR-HeI" secondAttribute="leading" id="9gH-pN-S6L"/>
+                                <constraint firstItem="vEa-7U-i4y" firstAttribute="leading" secondItem="VaO-8t-8Qm" secondAttribute="trailing" constant="3" id="BAk-9A-aMy"/>
                                 <constraint firstItem="dkC-gz-kSg" firstAttribute="top" secondItem="kys-Vc-hGW" secondAttribute="bottom" constant="15" id="Blt-hp-gYK"/>
                                 <constraint firstItem="mnd-JR-HeI" firstAttribute="centerY" secondItem="Omg-tk-dnQ" secondAttribute="centerY" id="Bmx-MB-Q7s"/>
                                 <constraint firstItem="bnY-t5-6Uf" firstAttribute="top" secondItem="Omg-tk-dnQ" secondAttribute="bottom" constant="15" id="Bnj-vs-dKH"/>
                                 <constraint firstItem="Omg-tk-dnQ" firstAttribute="top" secondItem="rRg-nD-aht" secondAttribute="bottom" constant="15" id="EcZ-la-CRs"/>
                                 <constraint firstItem="rRg-nD-aht" firstAttribute="top" secondItem="x1f-cW-S4Q" secondAttribute="bottom" constant="15" id="F7r-ER-yHM"/>
                                 <constraint firstItem="cSl-ml-wdh" firstAttribute="centerX" secondItem="F5r-gt-lKM" secondAttribute="centerX" id="FQK-jV-q9v"/>
+                                <constraint firstAttribute="centerX" relation="greaterThanOrEqual" secondItem="VaO-8t-8Qm" secondAttribute="trailing" constant="-30" id="GMG-ci-BAb"/>
                                 <constraint firstItem="Omg-tk-dnQ" firstAttribute="width" secondItem="x1f-cW-S4Q" secondAttribute="width" id="I1A-81-3vP"/>
                                 <constraint firstItem="kys-Vc-hGW" firstAttribute="centerY" secondItem="rLL-QB-G69" secondAttribute="centerY" id="KnG-Pt-iKp"/>
                                 <constraint firstItem="cSl-ml-wdh" firstAttribute="top" secondItem="F5r-gt-lKM" secondAttribute="bottom" constant="12" id="LNz-N2-SZo"/>
@@ -162,6 +179,7 @@
                                 <constraint firstItem="60y-2o-bMP" firstAttribute="leading" secondItem="bnY-t5-6Uf" secondAttribute="leading" id="Lkc-sP-2jb"/>
                                 <constraint firstItem="x1f-cW-S4Q" firstAttribute="top" secondItem="vU4-FW-iq4" secondAttribute="bottom" constant="43" id="MJj-aV-vMt"/>
                                 <constraint firstItem="bnY-t5-6Uf" firstAttribute="leading" secondItem="Omg-tk-dnQ" secondAttribute="leading" id="P1E-Eo-fJY"/>
+                                <constraint firstItem="AGh-6R-o4f" firstAttribute="centerY" secondItem="cTs-kP-0fc" secondAttribute="centerY" id="PAP-9w-zuD"/>
                                 <constraint firstItem="VaO-8t-8Qm" firstAttribute="centerY" secondItem="rRg-nD-aht" secondAttribute="centerY" id="PKQ-wo-G1l"/>
                                 <constraint firstItem="rRg-nD-aht" firstAttribute="width" secondItem="x1f-cW-S4Q" secondAttribute="width" id="R91-iM-Tkp"/>
                                 <constraint firstItem="rLL-QB-G69" firstAttribute="width" secondItem="bnY-t5-6Uf" secondAttribute="width" id="SHS-Kh-rQ6"/>
@@ -171,6 +189,7 @@
                                 <constraint firstAttribute="bottom" secondItem="dkC-gz-kSg" secondAttribute="bottom" constant="48" id="cZE-j9-yov"/>
                                 <constraint firstItem="cTs-kP-0fc" firstAttribute="centerY" secondItem="x1f-cW-S4Q" secondAttribute="centerY" id="cai-eX-eRw"/>
                                 <constraint firstItem="VaO-8t-8Qm" firstAttribute="leading" secondItem="cTs-kP-0fc" secondAttribute="leading" id="fjm-yd-g2o"/>
+                                <constraint firstItem="vEa-7U-i4y" firstAttribute="centerY" secondItem="VaO-8t-8Qm" secondAttribute="centerY" id="gJU-3N-zNA"/>
                                 <constraint firstItem="kys-Vc-hGW" firstAttribute="leading" secondItem="mnd-JR-HeI" secondAttribute="leading" id="gec-I9-Mlq"/>
                                 <constraint firstItem="mnd-JR-HeI" firstAttribute="leading" secondItem="VaO-8t-8Qm" secondAttribute="leading" id="hfz-cN-Bez"/>
                                 <constraint firstItem="x1f-cW-S4Q" firstAttribute="leading" secondItem="Xgf-OQ-HHV" secondAttribute="leading" constant="20" id="jPw-vr-cc4"/>
@@ -178,7 +197,7 @@
                                 <constraint firstItem="cTs-kP-0fc" firstAttribute="leading" secondItem="x1f-cW-S4Q" secondAttribute="trailing" constant="10" id="nVb-bx-1xO"/>
                                 <constraint firstItem="60y-2o-bMP" firstAttribute="width" secondItem="bnY-t5-6Uf" secondAttribute="width" id="q0a-bm-vgt"/>
                                 <constraint firstItem="60y-2o-bMP" firstAttribute="centerY" secondItem="dkC-gz-kSg" secondAttribute="centerY" id="s2J-so-910"/>
-                                <constraint firstAttribute="centerX" relation="greaterThanOrEqual" secondItem="cTs-kP-0fc" secondAttribute="trailing" constant="-50" id="v3j-ZW-UfC"/>
+                                <constraint firstAttribute="centerX" relation="greaterThanOrEqual" secondItem="cTs-kP-0fc" secondAttribute="trailing" constant="-30" id="v3j-ZW-UfC"/>
                                 <constraint firstItem="LM5-11-aPe" firstAttribute="centerY" secondItem="bnY-t5-6Uf" secondAttribute="centerY" id="w63-L5-jYw"/>
                                 <constraint firstItem="cSl-ml-wdh" firstAttribute="centerX" secondItem="vU4-FW-iq4" secondAttribute="centerX" id="zd4-uT-ZmR"/>
                                 <constraint firstItem="dkC-gz-kSg" firstAttribute="leading" secondItem="kys-Vc-hGW" secondAttribute="leading" id="zln-9c-nwS"/>
@@ -243,5 +262,6 @@
     </objects>
     <resources>
         <image name="NHAsset" width="48" height="48"/>
+        <image name="tanster_copy" width="16" height="16"/>
     </resources>
 </document>

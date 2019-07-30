@@ -112,22 +112,28 @@
     
     CCWWeakSelf;
     [MBProgressHUD showLoadingMessage:nil];
-    [CCWSDKRequest CCW_CreateAccountWithWallet:accountStr password:pwdStr walletMode:walletMode autoLogin:YES Success:^(NSDictionary *responseObject) {
+    [CCWSDKRequest CCW_QueryAccountInfo:accountStr Success:^(id  _Nonnull responseObject) {
         [MBProgressHUD hideHUD];
-        CCWSETAccountId(responseObject[@"id"]);
-        CCWSETAccountName(responseObject[@"name"]);
-        CCWTipScreenShotViewController *tipVC = [[CCWTipScreenShotViewController alloc] init];
-        tipVC.account = responseObject;
-        [weakSelf.navigationController pushViewController:tipVC animated:YES];
-        [MobClick event:@"register" attributes:nil];
+        [weakSelf.view makeToast:CCWLocalizable(@"账户已存在")];
     } Error:^(NSString * _Nonnull errorAlert, NSError * _Nonnull error) {
-        [MBProgressHUD hideHUD];
-        if (error.code == 400) {
-            [weakSelf.view makeToast:CCWLocalizable(@"账户已存在")];
+        if (error.code == 104) {
+            [CCWSDKRequest CCW_CreateAccountWithWallet:accountStr password:pwdStr walletMode:walletMode autoLogin:YES Success:^(NSDictionary *responseObject) {
+                [MBProgressHUD hideHUD];
+                CCWSETAccountId(responseObject[@"id"]);
+                CCWSETAccountName(responseObject[@"name"]);
+                CCWTipScreenShotViewController *tipVC = [[CCWTipScreenShotViewController alloc] init];
+                tipVC.account = responseObject;
+                [weakSelf.navigationController pushViewController:tipVC animated:YES];
+                [MobClick event:@"register" attributes:nil];
+            } Error:^(NSString * _Nonnull errorAlert, NSError * _Nonnull error) {
+                [MBProgressHUD hideHUD];
+                [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+            }];
         }else{
             [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         }
     }];
+
 }
 
 @end

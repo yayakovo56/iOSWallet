@@ -22,14 +22,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GqC-s0-grx">
                         <rect key="frame" x="15" y="5" width="328" height="69.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="qinjieqiong1" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxJ-xD-ZQs">
-                                <rect key="frame" x="18" y="25" width="146" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxJ-xD-ZQs">
+                                <rect key="frame" x="18" y="35" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" red="0.14901960784313725" green="0.16470588235294117" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eos2we…23ewfds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPv-3j-dGd">
-                                <rect key="frame" x="18" y="45.5" width="124" height="18"/>
+                                <rect key="frame" x="18" y="36" width="124" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.4823529411764706" green="0.50588235294117645" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -37,14 +37,23 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selectAccount" translatesAutoresizingMaskIntoConstraints="NO" id="ZaB-Ue-S2U">
                                 <rect key="frame" x="288" y="27.5" width="22" height="15"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1f2-gk-esV">
+                                <rect key="frame" x="21" y="24" width="16" height="22"/>
+                                <state key="normal" image="tanster_copy"/>
+                                <connections>
+                                    <action selector="makeAccountCopy:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eog-BT-fYh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.97254901959999995" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="LPv-3j-dGd" firstAttribute="top" secondItem="mxJ-xD-ZQs" secondAttribute="bottom" constant="1" id="0je-cE-LoH"/>
                             <constraint firstItem="mxJ-xD-ZQs" firstAttribute="leading" secondItem="GqC-s0-grx" secondAttribute="leading" constant="18" id="359-JI-wpo"/>
-                            <constraint firstAttribute="centerX" secondItem="mxJ-xD-ZQs" secondAttribute="trailing" id="9dI-0g-R54"/>
+                            <constraint firstAttribute="centerX" relation="greaterThanOrEqual" secondItem="mxJ-xD-ZQs" secondAttribute="trailing" id="9dI-0g-R54"/>
+                            <constraint firstItem="1f2-gk-esV" firstAttribute="centerY" secondItem="mxJ-xD-ZQs" secondAttribute="centerY" id="UJa-mV-fg0"/>
                             <constraint firstAttribute="trailing" secondItem="ZaB-Ue-S2U" secondAttribute="trailing" constant="18" id="UYz-Yw-zQv"/>
                             <constraint firstItem="ZaB-Ue-S2U" firstAttribute="centerY" secondItem="mxJ-xD-ZQs" secondAttribute="centerY" id="gSO-Ti-6eX"/>
+                            <constraint firstItem="1f2-gk-esV" firstAttribute="leading" secondItem="mxJ-xD-ZQs" secondAttribute="trailing" constant="3" id="mD7-oq-qUz"/>
                             <constraint firstItem="ZaB-Ue-S2U" firstAttribute="centerY" secondItem="GqC-s0-grx" secondAttribute="centerY" id="xfH-n7-KzG"/>
                             <constraint firstItem="LPv-3j-dGd" firstAttribute="leading" secondItem="mxJ-xD-ZQs" secondAttribute="leading" id="zqj-dT-gcG"/>
                         </constraints>
@@ -73,5 +82,6 @@
     </objects>
     <resources>
         <image name="selectAccount" width="22" height="15"/>
+        <image name="tanster_copy" width="16" height="16"/>
     </resources>
 </document>

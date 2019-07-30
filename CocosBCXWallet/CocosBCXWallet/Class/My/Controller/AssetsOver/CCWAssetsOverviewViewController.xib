@@ -14,7 +14,6 @@
             <connections>
                 <outlet property="allAssetsLabel" destination="XV7-Hc-xWv" id="Kup-xG-xCc"/>
                 <outlet property="assetsBgView" destination="UFc-kb-1Ql" id="lru-PO-aE0"/>
-                <outlet property="assetsLabel" destination="XV7-Hc-xWv" id="Db7-jL-kka"/>
                 <outlet property="assetsTitleLabel" destination="LmN-5W-tiS" id="6Iy-8w-es2"/>
                 <outlet property="headerBgView" destination="kPe-uM-7ql" id="E7f-mS-qAV"/>
                 <outlet property="showAssetsBtn" destination="1Fy-SN-xid" id="Y5J-ZT-XQC"/>
@@ -42,8 +41,8 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XV7-Hc-xWv" customClass="CCWLabel">
-                            <rect key="frame" x="20" y="62.5" width="15.5" height="37.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XV7-Hc-xWv" customClass="CCWLabel">
+                            <rect key="frame" x="20" y="62.5" width="54" height="37.5"/>
                             <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="32"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>

@@ -163,4 +163,14 @@
     [self.navigationController pushViewController:transferNhAssetVC animated:YES];
 }
 
+- (IBAction)makeAccountCopy:(UIButton *)sender {
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    if (sender.tag == 1) {
+        [pasteboard setString:self.creater.text];
+    }else{
+        [pasteboard setString:self.seller.text];
+    }
+    [self.view makeToast:CCWLocalizable(@"复制成功")];
+}
+
 @end
