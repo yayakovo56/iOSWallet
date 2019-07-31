@@ -629,6 +629,9 @@ NS_ASSUME_NONNULL_BEGIN
                         Success:(SuccessBlock)successBlock
                           Error:(Error)errorBlock;
 
+/** Sell NH assets MaxExpiration */
+- (void)Cocos_SellNHAssetMaxExpirationSuccess:(SuccessBlock)successBlock Error:(Error)errorBlock;
+
 /** Get global variable parameter(latest blocks news etc.) */
 - (void)Cocos_GetDynamicGlobalPropertiesWithSuccess:(SuccessBlock)successBlock Error:(Error)errorBlock;
 

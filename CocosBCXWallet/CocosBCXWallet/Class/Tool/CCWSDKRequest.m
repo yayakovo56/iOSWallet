@@ -702,6 +702,14 @@
     }
 }
 
+// 出售资产的最大过期时间
++ (void)CCW_SellNHAssetMaxExpirationSuccess:(SuccessBlock)successBlock Error:(ErrorBlock)errorBlock
+{
+    [[CocosSDK shareInstance] Cocos_SellNHAssetMaxExpirationSuccess:successBlock Error:^(NSError *error) {
+        !errorBlock ?:errorBlock([CCWSDKErrorHandle httpErrorStatusWithCode:@{@"code":@(error.code)}],error);
+    }];
+}
+
 // 查询链上发行的资产
 + (void)CCW_QueryChainListLimit:(NSInteger)nLimit
                         Success:(SuccessBlock)successBlock

@@ -151,7 +151,9 @@
         [weakSelf CCW_CancelInfoViewShowWithArray:transferINfoArray];
         
     } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
-        if (error.code == 107){
+        if (error.code == 1011){
+            [CCWKeyWindow makeToast:CCWLocalizable(@"订单已失效")];
+        }else if (error.code == 107){
             [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
         }if (error.code == 105){
             [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];

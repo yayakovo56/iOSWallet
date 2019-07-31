@@ -302,6 +302,10 @@ typedef void (^ErrorBlock)(NSString *errorAlert,id responseObject);// 失败回�
                       OnlyGetFee:(BOOL)onlyGetFee
                          Success:(SuccessBlock)successBlock
                            Error:(ErrorBlock)errorBlock;
+
+// 出售资产的最大过期时间
++ (void)CCW_SellNHAssetMaxExpirationSuccess:(SuccessBlock)successBlock Error:(ErrorBlock)errorBlock;
+
 // 查询链上发行的资产
 + (void)CCW_QueryChainListLimit:(NSInteger)nLimit
                         Success:(SuccessBlock)successBlock

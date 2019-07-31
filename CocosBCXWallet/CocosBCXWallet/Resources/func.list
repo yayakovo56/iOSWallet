@@ -69,6 +69,7 @@ CCW_SaveWalletAccount
 CCW_ScanQRCode
 CCW_ScanQRCodeToTransferWithBlock
 CCW_SellAssetsViewControllerWithAsset
+CCW_SellNHAssetMaxExpirationSuccess
 CCW_SellNHAssetNHAssetId
 CCW_SetImageWithURL
 CCW_SetToast

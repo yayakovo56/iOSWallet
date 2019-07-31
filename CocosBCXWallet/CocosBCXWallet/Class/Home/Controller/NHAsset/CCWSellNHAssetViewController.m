@@ -26,6 +26,9 @@
 
 /** 转账信息 */
 @property (nonatomic, strong) CCWTransferInfoView *transferInfoView;
+
+/** 最大时间 */
+@property (nonatomic, assign) int nhAssetOrderExpiration;
 @end
 
 @implementation CCWSellNHAssetViewController
@@ -48,6 +51,16 @@
     self.priceModel.symbol = @"COCOS";
     self.priceModel.ID = @"1.3.0";
     [self.coinButton setTitle:self.priceModel.symbol forState:UIControlStateNormal];
+    
+    CCWWeakSelf;
+    [CCWSDKRequest CCW_SellNHAssetMaxExpirationSuccess:^(id  _Nonnull responseObject) {
+        NSDictionary *parameters = responseObject[@"parameters"];
+        NSNumber *orderExpirationNumber = parameters[@"maximum_nh_asset_order_expiration"];
+        weakSelf.nhAssetOrderExpiration = [orderExpirationNumber intValue] - 100;
+        weakSelf.maxTimeLabel.text = [NSString stringWithFormat:@"%@：%i",CCWLocalizable(@"最大时间"),weakSelf.nhAssetOrderExpiration];
+    } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
+        [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+    }];
 }
 
 // 选择币种
@@ -73,7 +86,11 @@
     if (IsStrEmpty(validTime)) {
         [self.view makeToast:CCWLocalizable(@"请输入挂单有效时间")];
         return;
+    }else if([validTime intValue] > self.nhAssetOrderExpiration){
+        validTime = [NSString stringWithFormat:@"%i",self.nhAssetOrderExpiration];
+        self.validTimeTF.text = validTime;
     }
+    
     // 输入密码
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:CCWLocalizable(@"提示") message:nil preferredStyle:UIAlertControllerStyleAlert];
     // 添加输入框 (注意:在UIAlertControllerStyleActionSheet样式下是不能添加下面这行代码的)
@@ -132,7 +149,7 @@
         if (error.code == 107){
             [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
         }if (error.code == 105){
-            [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
+            [weakSelf.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
         }else{
             [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         }

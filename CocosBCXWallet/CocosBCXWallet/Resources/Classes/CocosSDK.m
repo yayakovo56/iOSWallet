@@ -1711,6 +1711,18 @@
     } Error:errorBlock];
 }
 
+/** Sell NH assets MaxExpiration */
+- (void)Cocos_SellNHAssetMaxExpirationSuccess:(SuccessBlock)successBlock Error:(Error)errorBlock
+{
+    UploadParams *uploadParams = [[UploadParams alloc] init];
+    uploadParams.methodName = kCocosSellNHAssetExpiration;
+    uploadParams.totalParams = @[@[]];
+    CallBackModel *callBackModel = [[CallBackModel alloc] init];
+    callBackModel.successResult = successBlock;
+    callBackModel.errorResult = errorBlock;
+    [self sendWithChainApi:WebsocketBlockChainApiDataBase method:(WebsocketBlockChainMethodApiCall) params:uploadParams callBack:callBackModel];
+}
+
 #pragma mark - Expanding Method
 - (void)sellNHAssetOperationSeller:(NSString *)SellerAccount
                          NHAssetId:(NSString *)nhAssetid

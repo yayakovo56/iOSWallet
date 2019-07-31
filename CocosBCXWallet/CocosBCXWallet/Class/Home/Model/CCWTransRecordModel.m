@@ -68,8 +68,17 @@
     
     NSDate *createDate = [formatter dateFromString:_timestamp];
     formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
-    NSTimeZone* timeZone8 = [NSTimeZone timeZoneWithAbbreviation:@"GMT+0800"];
-    [formatter setTimeZone:timeZone8];
+    // 东八区
+    //    NSTimeZone* timeZone8 = [NSTimeZone timeZoneWithAbbreviation:@"GMT+0800"];
+    // 获取系统时区
+    NSTimeZone *zone1 = [NSTimeZone systemTimeZone];
+//    // 获取本地时区
+//    NSTimeZone *zone2 = [NSTimeZone localTimeZone];
+//    // 获取默认时区
+//    NSTimeZone *zone3 = [NSTimeZone defaultTimeZone];
+    
+    [formatter setTimeZone:zone1];
+//    [formatter setTimeZone:timeZone8];
     return [formatter stringFromDate:createDate];
 }
 
