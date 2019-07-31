@@ -120,6 +120,19 @@ UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:CCWLocalizable(@"�
 [alert addAction:sureAction];\
 [self presentViewController:alert animated:YES completion:nil];
 
+// 密码输入框确认
+#define CCWPasswordAlert(__handler__)\
+UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:CCWLocalizable(@"提示") message:nil preferredStyle:UIAlertControllerStyleAlert];\
+[alertVc addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {\
+    textField.secureTextEntry = YES;\
+    textField.placeholder = CCWLocalizable(@"请输入密码");\
+}];\
+UIAlertAction *sureAction = [UIAlertAction actionWithTitle:CCWLocalizable(@"确认") style:UIAlertActionStyleDestructive handler:__handler__];\
+UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:CCWLocalizable(@"取消") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];\
+[alertVc addAction:cancelAction];\
+[alertVc addAction:sureAction];\
+[self presentViewController:alertVc animated:YES completion:nil];
+
 #import "CCWConstkey.h"
 /********************    汇率计算公式    **********************/
 #define CCWCNYORUSD [CCWSaveTool boolForKey:CCWCurrencyType]

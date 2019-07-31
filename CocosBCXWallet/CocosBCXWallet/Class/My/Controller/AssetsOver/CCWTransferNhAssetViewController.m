@@ -75,25 +75,12 @@
         return;
     }
     // 输入密码
-    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:CCWLocalizable(@"提示") message:nil preferredStyle:UIAlertControllerStyleAlert];
-    // 添加输入框 (注意:在UIAlertControllerStyleActionSheet样式下是不能添加下面这行代码的)
-    [alertVc addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.secureTextEntry = YES;
-        textField.placeholder = CCWLocalizable(@"请输入密码");
-    }];
     CCWWeakSelf
-    UIAlertAction *action1 = [UIAlertAction actionWithTitle:CCWLocalizable(@"确认") style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    CCWPasswordAlert(^(UIAlertAction * _Nonnull action) {
         // 通过数组拿到textTF的值
         NSString *password = [[alertVc textFields] objectAtIndex:0].text;
         [weakSelf showTransferFee:password];
-    }];
-    UIAlertAction *action2 = [UIAlertAction actionWithTitle:CCWLocalizable(@"取消") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-    }];
-    // 添加行为
-    [alertVc addAction:action2];
-    [alertVc addAction:action1];
-    [self presentViewController:alertVc animated:YES completion:nil];
-    
+    });
 }
 
 - (void)showTransferFee:(NSString *)password
@@ -129,7 +116,7 @@
         }else if (error.code == 116) {
             [weakSelf.view makeToast:CCWLocalizable(@"资产接收方不存在")];
         }else if (error.code == 105){
-            [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
+            [weakSelf.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
         }else if (error.code == 107){
             [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
         }else{

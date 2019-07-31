@@ -79,30 +79,6 @@
 // 点击转账
 - (IBAction)nextTransferClick:(UIButton *)sender {
     
-    // 输入密码
-    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:CCWLocalizable(@"提示") message:nil preferredStyle:UIAlertControllerStyleAlert];
-    // 添加输入框 (注意:在UIAlertControllerStyleActionSheet样式下是不能添加下面这行代码的)
-    [alertVc addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.secureTextEntry = YES;
-        textField.placeholder = CCWLocalizable(@"请输入密码");
-    }];
-    CCWWeakSelf
-    UIAlertAction *action1 = [UIAlertAction actionWithTitle:CCWLocalizable(@"确认") style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        // 通过数组拿到textTF的值
-        NSString *password = [[alertVc textFields] objectAtIndex:0].text;
-        [weakSelf showTransferFee:password];
-    }];
-    UIAlertAction *action2 = [UIAlertAction actionWithTitle:CCWLocalizable(@"取消") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-    }];
-    // 添加行为
-    [alertVc addAction:action2];
-    [alertVc addAction:action1];
-    [self presentViewController:alertVc animated:YES completion:nil];
-    
-}
-
-- (void)showTransferFee:(NSString *)password
-{
     NSString *receiveAddress = self.receiveTextField.text;
     NSString *transferNumStr = self.transferNumTextField.text;
     if (IsStrEmpty(receiveAddress)) {
@@ -117,6 +93,20 @@
         [self.view makeToast:CCWLocalizable(@"请输入转账数量")];
         return;
     }
+    
+    // 输入密码
+    CCWWeakSelf
+    CCWPasswordAlert(^(UIAlertAction * _Nonnull action) {
+        // 通过数组拿到textTF的值
+        NSString *password = [[alertVc textFields] objectAtIndex:0].text;
+        [weakSelf showTransferFee:password];
+    });
+}
+
+- (void)showTransferFee:(NSString *)password
+{
+    NSString *receiveAddress = self.receiveTextField.text;
+    NSString *transferNumStr = self.transferNumTextField.text;
     CCWWeakSelf;
     [CCWSDKRequest CCW_TransferFeeAsset:CCWAccountName toAccount:receiveAddress password:password assetId:self.assetsModel.asset_id feeAssetId:@"COCOS" amount:transferNumStr memo:self.remakeTextField.text Success:^(CCWAssetsModel *feesymbol) {
         password_ = password;
