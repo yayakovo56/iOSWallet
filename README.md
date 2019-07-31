@@ -7,5 +7,5 @@
 - 发现模块支持基于CocosBCX开发的DApp。
 - 支持NH1808资产的转移，和买卖。
 
-[详细使用说明](https://cn-dev.cocosbcx.io/docs/%E9%92%B1%E5%8C%85%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
-[下载链接](https://fir.im/iOSWallet)
+- [详细使用说明](https://cn-dev.cocosbcx.io/docs/%E9%92%B1%E5%8C%85%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
+- [下载链接](https://fir.im/iOSWallet)
