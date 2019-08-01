@@ -14,7 +14,6 @@
 @interface CCWMyOrderViewController ()<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate,CCWPropOrderCellDelegate,CCWCancelSellNHInfoViewDelegate>
 {
     NSInteger page;
-    NSString *password_;
     NSIndexPath *indexPath_;
     CCWNHAssetOrderModel *orderModel_;
 }
@@ -56,7 +55,6 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
     [self.tableView.mj_header beginRefreshing];
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-   
 }
 
 - (void)loadData
@@ -135,21 +133,11 @@
 - (void)CCWPropOrderCellbuyClick:(CCWNHAssetOrderTableViewCell *)propOrderCell
 {
     indexPath_ = [self.tableView indexPathForCell:propOrderCell];
-    orderModel_ = self.myPropOrderArray[indexPath_.row];
-    CCWWeakSelf
-    CCWPasswordAlert(^(UIAlertAction * _Nonnull action) {
-        // 通过数组拿到textTF的值
-        NSString *password = [[alertVc textFields] objectAtIndex:0].text;
-        [weakSelf showCancelSellNHAssetFee:password andOrderModel:self->orderModel_];
-    });
-}
-
-
-- (void)showCancelSellNHAssetFee:(NSString *)password andOrderModel:(CCWNHAssetOrderModel *)orderModel
-{
+    CCWNHAssetOrderModel *orderModel = self.myPropOrderArray[indexPath_.row];
+    orderModel_ = orderModel;
+    
     CCWWeakSelf;
-    [CCWSDKRequest CCW_CancelSellNHAssetOrderId:orderModel.ID Password:password OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
-        self->password_ = password;
+    [CCWSDKRequest CCW_CancelSellNHAssetOrderId:orderModel.ID Password:@"" OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
         NSArray *transferINfoArray = @[@{
                                            @"title":CCWLocalizable(@"订单信息"),
                                            @"info":CCWLocalizable(@"取消订单"),
@@ -190,10 +178,21 @@
         [self.transferInfoView CCW_Show];
     }
 }
+
 - (void)CCW_CancelOrderInfoViewNextButtonClick:(CCWCancelSellNHInfoView *)transferInfoView
 {
     CCWWeakSelf
-    [CCWSDKRequest CCW_CancelSellNHAssetOrderId:orderModel_.ID Password:password_ OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
+    CCWPasswordAlert(^(UIAlertAction * _Nonnull action) {
+        // 通过数组拿到textTF的值
+        NSString *password = [[alertVc textFields] objectAtIndex:0].text;
+        [weakSelf cancelBuyNHAssetWIthPassword:password];
+    });
+}
+
+- (void)cancelBuyNHAssetWIthPassword:(NSString *)password
+{
+    CCWWeakSelf
+    [CCWSDKRequest CCW_CancelSellNHAssetOrderId:orderModel_.ID Password:password OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
         [CCWKeyWindow makeToast:CCWLocalizable(@"取消成功")];
         [weakSelf.myPropOrderArray removeObjectAtIndex:self->indexPath_.row];
         [weakSelf.tableView deleteRowsAtIndexPaths:@[self->indexPath_] withRowAnimation:UITableViewRowAnimationNone];

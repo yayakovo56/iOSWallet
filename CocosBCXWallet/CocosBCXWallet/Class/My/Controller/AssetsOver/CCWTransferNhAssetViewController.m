@@ -11,9 +11,7 @@
 #import "CCWBuyNHInfoView.h"
 
 @interface CCWTransferNhAssetViewController ()<CCWBuyNHInfoViewDelegate>
-{
-    NSString *password_;
-}
+
 @property (weak, nonatomic) IBOutlet UITextField *receiveTextField;
 @property (weak, nonatomic) IBOutlet UITextField *nhAssetIDTextField;
 
@@ -74,21 +72,10 @@
         [self.view makeToast:CCWLocalizable(@"请输入资产接收方")];
         return;
     }
-    // 输入密码
-    CCWWeakSelf
-    CCWPasswordAlert(^(UIAlertAction * _Nonnull action) {
-        // 通过数组拿到textTF的值
-        NSString *password = [[alertVc textFields] objectAtIndex:0].text;
-        [weakSelf showTransferFee:password];
-    });
-}
-
-- (void)showTransferFee:(NSString *)password
-{
-    NSString *receiveAddress = self.receiveTextField.text;
+    
     CCWWeakSelf;
-    [CCWSDKRequest CCW_TransferNHAssetToAccount:receiveAddress NHAssetID:self.nhAssetModel.ID Password:password OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
-        password_ = password;
+    [CCWSDKRequest CCW_TransferNHAssetToAccount:receiveAddress NHAssetID:self.nhAssetModel.ID Password:@"" OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
+        
         NSArray *transferINfoArray = @[@{
                                            @"title":CCWLocalizable(@"订单信息"),
                                            @"info":CCWLocalizable(@"转移资产"),
@@ -136,8 +123,19 @@
 }
 - (void)CCW_BuyInfoViewNextButtonClick:(CCWBuyNHInfoView *)transferInfoView
 {
+    // 输入密码
     CCWWeakSelf
-    [CCWSDKRequest CCW_TransferNHAssetToAccount:self.receiveTextField.text NHAssetID:self.nhAssetModel.ID Password:password_ OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
+    CCWPasswordAlert(^(UIAlertAction * _Nonnull action) {
+        // 通过数组拿到textTF的值
+        NSString *password = [[alertVc textFields] objectAtIndex:0].text;
+        [weakSelf transferNHAssetWithPassword:password];
+    });
+}
+
+- (void)transferNHAssetWithPassword:(NSString *)password
+{
+    CCWWeakSelf
+    [CCWSDKRequest CCW_TransferNHAssetToAccount:self.receiveTextField.text NHAssetID:self.nhAssetModel.ID Password:password OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
         [weakSelf.view makeToast:CCWLocalizable(@"转移成功")];
         // 改变Nav的栈
         NSArray *array = @[weakSelf.navigationController.viewControllers[0],weakSelf.navigationController.viewControllers[1], weakSelf];

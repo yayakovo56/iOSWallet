@@ -11,9 +11,7 @@
 #import "CCWBuyNHInfoView.h"
 
 @interface CCWOrderDetailViewController ()<CCWCancelSellNHInfoViewDelegate,CCWBuyNHInfoViewDelegate>
-{
-    NSString *password_;
-}
+
 // 渐变层
 @property (weak, nonatomic) IBOutlet UIView *gradientView;
 
@@ -101,25 +99,11 @@
     [self.view makeToast:CCWLocalizable(@"复制成功")];
 }
 
-
 #pragma mark - 取消订单
 - (void)cancelNHAssetClick
 {
-    // 输入密码
-    CCWWeakSelf
-    CCWPasswordAlert(^(UIAlertAction * _Nonnull action) {
-        // 通过数组拿到textTF的值
-        NSString *password = [[alertVc textFields] objectAtIndex:0].text;
-        [weakSelf showCancelSellNHAssetFee:password];
-    });
-}
-
-
-- (void)showCancelSellNHAssetFee:(NSString *)password
-{
     CCWWeakSelf;
-    [CCWSDKRequest CCW_CancelSellNHAssetOrderId:self.orderModel.ID Password:password OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
-        self->password_ = password;
+    [CCWSDKRequest CCW_CancelSellNHAssetOrderId:self.orderModel.ID Password:@"" OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
         NSArray *transferINfoArray = @[@{
                                            @"title":CCWLocalizable(@"订单信息"),
                                            @"info":CCWLocalizable(@"取消订单"),
@@ -162,8 +146,19 @@
 }
 - (void)CCW_CancelOrderInfoViewNextButtonClick:(CCWCancelSellNHInfoView *)transferInfoView
 {
+    // 输入密码
     CCWWeakSelf
-    [CCWSDKRequest CCW_CancelSellNHAssetOrderId:self.orderModel.ID Password:password_ OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
+    CCWPasswordAlert(^(UIAlertAction * _Nonnull action) {
+        // 通过数组拿到textTF的值
+        NSString *password = [[alertVc textFields] objectAtIndex:0].text;
+        [weakSelf cancelBuyNHAssetWithPassword:password];
+    });
+}
+
+- (void)cancelBuyNHAssetWithPassword:(NSString *)password
+{
+    CCWWeakSelf
+    [CCWSDKRequest CCW_CancelSellNHAssetOrderId:self.orderModel.ID Password:password OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
         [weakSelf.view makeToast:CCWLocalizable(@"取消成功")];
         [weakSelf.navigationController popViewControllerAnimated:YES];
         !weakSelf.deleteComplete?:weakSelf.deleteComplete(weakSelf.orderType);
@@ -171,7 +166,7 @@
         if (error.code == 107){
             [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
         }if (error.code == 105){
-            [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
+            [weakSelf.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
         }else{
             [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         }
@@ -181,20 +176,8 @@
 #pragma mark - 购买订单
 - (void)buyNHAssetClick
 {
-    // 输入密码
-    CCWWeakSelf
-    CCWPasswordAlert(^(UIAlertAction * _Nonnull action) {
-        // 通过数组拿到textTF的值
-        NSString *password = [[alertVc textFields] objectAtIndex:0].text;
-        [weakSelf showBuyNHAssetFee:password];
-    });
-}
-
-- (void)showBuyNHAssetFee:(NSString *)password
-{
     CCWWeakSelf;
-    [CCWSDKRequest CCW_BugNHAssetOrderId:self.orderModel.ID Password:password OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
-        self->password_ = password;
+    [CCWSDKRequest CCW_BugNHAssetOrderId:self.orderModel.ID Password:@"" OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
         NSArray *transferINfoArray = @[@{
                                            @"title":CCWLocalizable(@"订单信息"),
                                            @"info":CCWLocalizable(@"购买资产"),
@@ -221,7 +204,7 @@
         if (error.code == 107){
             [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
         }if (error.code == 105){
-            [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
+            [weakSelf.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
         }else{
             [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         }
@@ -240,8 +223,19 @@
 
 - (void)CCW_BuyInfoViewNextButtonClick:(CCWBuyNHInfoView *)transferInfoView
 {
+    // 输入密码
     CCWWeakSelf
-    [CCWSDKRequest CCW_BugNHAssetOrderId:self.orderModel.ID Password:password_ OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
+    CCWPasswordAlert(^(UIAlertAction * _Nonnull action) {
+        // 通过数组拿到textTF的值
+        NSString *password = [[alertVc textFields] objectAtIndex:0].text;
+        [weakSelf buyNHAssetWithPassword:password];
+    });
+}
+
+- (void)buyNHAssetWithPassword:(NSString *)password
+{
+    CCWWeakSelf
+    [CCWSDKRequest CCW_BugNHAssetOrderId:self.orderModel.ID Password:password OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
         [weakSelf.view makeToast:CCWLocalizable(@"购买成功")];
         [weakSelf.navigationController popViewControllerAnimated:YES];
         !weakSelf.deleteComplete?:weakSelf.deleteComplete(weakSelf.orderType);
@@ -249,11 +243,10 @@
         if (error.code == 107){
             [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
         }if (error.code == 105){
-            [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
+            [weakSelf.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
         }else{
             [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
         }
     }];
 }
-
 @end

@@ -74,20 +74,9 @@
 
 // 删除
 - (IBAction)deleteAsset:(UIButton *)sender {
-    // 输入密码
-    CCWWeakSelf
-    CCWPasswordAlert(^(UIAlertAction * _Nonnull action) {
-        // 通过数组拿到textTF的值
-        NSString *password = [[alertVc textFields] objectAtIndex:0].text;
-        [weakSelf showDeleteNHAssetFee:password];
-    });
-}
-
-- (void)showDeleteNHAssetFee:(NSString *)password
-{
     CCWWeakSelf;
-    [CCWSDKRequest CCW_DeleteNHAssetId:self.nhAssetModel.ID Password:password OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
-        self->password_ = password;
+    [CCWSDKRequest CCW_DeleteNHAssetId:self.nhAssetModel.ID Password:@"" OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
+        
         NSArray *transferINfoArray = @[@{
                                            @"title":CCWLocalizable(@"订单信息"),
                                            @"info":CCWLocalizable(@"删除资产"),
@@ -104,7 +93,7 @@
                                            @"title":CCWLocalizable(@"旷工费"),
                                            @"info":[NSString stringWithFormat:@"%@%@",feesymbol.amount,feesymbol.symbol],
                                            }];
-        [weakSelf CCW_TransferInfoViewShowWithArray:transferINfoArray];
+        [weakSelf CCW_DeleteNHAssetShowWithArray:transferINfoArray];
     } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
         if (error.code == 107){
             [weakSelf.view makeToast:CCWLocalizable(@"owner key不能进行转账，请导入active key")];
@@ -116,7 +105,7 @@
     }];
 }
 
-- (void)CCW_TransferInfoViewShowWithArray:(NSArray *)array
+- (void)CCW_DeleteNHAssetShowWithArray:(NSArray *)array
 {
     self.deleteInfoView.dataSource = array;
     if (self.deleteInfoView.isShow) {
@@ -127,8 +116,19 @@
 }
 
 - (void)CCW_DeleteInfoViewNextButtonClick:(nonnull CCWDeleteNHInfoView *)transferInfoView {
+    // 输入密码
+    CCWWeakSelf
+    CCWPasswordAlert(^(UIAlertAction * _Nonnull action) {
+        // 通过数组拿到textTF的值
+        NSString *password = [[alertVc textFields] objectAtIndex:0].text;
+        [weakSelf deleteNHAssetWithPassWord:password];
+    });
+}
+
+- (void)deleteNHAssetWithPassWord:(NSString *)password
+{
     CCWWeakSelf;
-    [CCWSDKRequest CCW_DeleteNHAssetId:self.nhAssetModel.ID Password:password_ OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
+    [CCWSDKRequest CCW_DeleteNHAssetId:self.nhAssetModel.ID Password:password OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
         [weakSelf.view makeToast:CCWLocalizable(@"删除成功")];
         [weakSelf.navigationController popViewControllerAnimated:YES];
         !weakSelf.deleteNHAssetComplete?:weakSelf.deleteNHAssetComplete();

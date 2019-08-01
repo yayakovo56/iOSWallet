@@ -14,7 +14,6 @@
 @interface CCWAllOrderViewController ()<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate,CCWPropOrderCellDelegate,CCWBuyNHInfoViewDelegate>
 {
     NSInteger page;
-    NSString *password_;
     NSIndexPath *indexPath_;
     CCWNHAssetOrderModel *orderModel_;
 }
@@ -138,21 +137,8 @@
         [CCWKeyWindow makeToast:CCWLocalizable(@"不能购买自己创建的订单")];
         return;
     }
-    
-    // 输入密码
-    CCWWeakSelf
-    CCWPasswordAlert(^(UIAlertAction * _Nonnull action) {
-        // 通过数组拿到textTF的值
-        NSString *password = [[alertVc textFields] objectAtIndex:0].text;
-        [weakSelf showBuyNHAssetFee:password];
-    });
-}
-
-- (void)showBuyNHAssetFee:(NSString *)password
-{
     CCWWeakSelf;
-    [CCWSDKRequest CCW_BugNHAssetOrderId:orderModel_.ID Password:password OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
-        self->password_ = password;
+    [CCWSDKRequest CCW_BugNHAssetOrderId:orderModel_.ID Password:@"" OnlyGetFee:YES Success:^(CCWAssetsModel *feesymbol) {
         NSArray *transferINfoArray = @[@{
                                            @"title":CCWLocalizable(@"订单信息"),
                                            @"info":CCWLocalizable(@"购买资产"),
@@ -199,8 +185,19 @@
 }
 - (void)CCW_BuyInfoViewNextButtonClick:(CCWBuyNHInfoView *)transferInfoView
 {
+    // 输入密码
     CCWWeakSelf
-    [CCWSDKRequest CCW_BugNHAssetOrderId:orderModel_.ID Password:password_ OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
+    CCWPasswordAlert(^(UIAlertAction * _Nonnull action) {
+        // 通过数组拿到textTF的值
+        NSString *password = [[alertVc textFields] objectAtIndex:0].text;
+        [weakSelf buyNHAssetWithPassword:password];
+    });
+}
+
+- (void)buyNHAssetWithPassword:(NSString *)password{
+    
+    CCWWeakSelf
+    [CCWSDKRequest CCW_BugNHAssetOrderId:orderModel_.ID Password:password OnlyGetFee:NO Success:^(id  _Nonnull responseObject) {
         [weakSelf.view makeToast:CCWLocalizable(@"购买成功")];
         [weakSelf.allPropOrderArray removeObjectAtIndex:self->indexPath_.row];
         [weakSelf.tableView deleteRowsAtIndexPaths:@[self->indexPath_] withRowAnimation:UITableViewRowAnimationNone];
@@ -216,7 +213,6 @@
         }
     }];
 }
-
 #pragma mark - DZNEmptyDataSetSource Methods
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
 {
