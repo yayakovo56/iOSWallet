@@ -131,8 +131,12 @@
             weakSelf.remarkLabel.userInteractionEnabled = NO;
             weakSelf.remarkLabel.text = responseObject;
             weakSelf.remarkLabel.textColor = [UIColor getColor:@"262A33"];
-        } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
-            [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+        } Error:^(NSString * _Nonnull errorAlert, NSError *error) {
+            if (error.code == 105){
+                [weakSelf.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
+            }else{
+                [weakSelf.view makeToast:CCWLocalizable(@"网络繁忙，请检查您的网络连接")];
+            }
         }];
     });    
 }

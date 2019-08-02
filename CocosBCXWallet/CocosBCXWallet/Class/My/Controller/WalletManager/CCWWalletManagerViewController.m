@@ -97,7 +97,7 @@
             NSString *activekey = responseObject[@"active_key"];
             NSString *ownerkey = responseObject[@"owner_key"];
             if (activekey == nil && ownerkey == nil) {
-                [self.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
+                [weakSelf.view makeToast:CCWLocalizable(@"密码错误，请重新输入")];
             }else{
                 CCWExportViewController *exportVC = [[CCWExportViewController alloc] init];
                 exportVC.keys = responseObject;
