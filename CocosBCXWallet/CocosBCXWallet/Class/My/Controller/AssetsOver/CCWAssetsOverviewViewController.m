@@ -221,6 +221,8 @@ static NSString *const AssetsCollectionCell = @"AssetsCollectionCell";
     CGRect colletctionFrame = CGRectMake(0, CGRectGetMaxY(self.titlesView.frame), CCWScreenW, CCWScreenH - APP_Navgationbar_Height - 216);
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:colletctionFrame collectionViewLayout:flowLayout];
     collectionView.backgroundColor = [UIColor whiteColor];
+//    // 禁止弹性效果
+//    collectionView.bounces = NO;
     // 注册一个cell
     [collectionView registerClass:[CCWAssetsOverviewCollectionViewCell class] forCellWithReuseIdentifier:AssetsCollectionCell];
     collectionView.pagingEnabled = YES;

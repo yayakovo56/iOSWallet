@@ -15,13 +15,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol CocosSDKConnectStatusDelegate <NSObject>
-
-/** RPC status callback */
-- (void)Cocos_connectStatusChange:(WebsocketConnectStatus)status;
-
-@end
-
 @interface CocosSDK : NSObject
 
 /**
@@ -31,8 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)shareInstance;
 
-/** RPC Connect delegate */
-@property (nonatomic, weak) id <CocosSDKConnectStatusDelegate> delegate;
+/** RPC Connect Status Block */
+@property (nonatomic, copy) void (^connectStatusChange)(WebsocketConnectStatus status);
+//@property (nonatomic, weak) id <CocosSDKConnectStatusDelegate> delegate;
 
 #pragma mark - System Setup Method
 /**

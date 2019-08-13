@@ -242,7 +242,7 @@
 "已经全部加载完毕" = "All loaded";
 
 // NH 资产
-"通行资产:" = "In:";
+"通行资产:" = "Coin:";
 "（默认币种：COCOS）" = "（COCOS）";
 "世界观" = "Worldview";
 "出售" = "Sell";

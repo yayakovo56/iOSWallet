@@ -70,6 +70,7 @@
     if (CCWNodeInfo) {
         nodeInfo = [CCWNodeInfoModel mj_objectWithKeyValues:CCWNodeInfo];
     }
+    CCWWeakSelf
     // 最新新节点
     [CCWSDKRequest CCW_InitWithUrl:nodeInfo.ws Core_Asset:nodeInfo.coreAsset Faucet_url:nodeInfo.faucetUrl ChainId:nodeInfo.chainId Success:^(id  _Nonnull responseObject) {
         // 记录已连接的数据
@@ -78,6 +79,11 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [[NSNotificationCenter defaultCenter] postNotificationName:@"CCWNetConnectNetworkKey" object:nil];
         });
+        [CocosSDK shareInstance].connectStatusChange = ^(WebsocketConnectStatus status) {
+            if (status == WebsocketConnectStatusClosed) {
+                [weakSelf connectNodeWithNodeArray:nodeArray];
+            }
+        };
     } Error:^(NSString * _Nonnull errorAlert, id  _Nonnull responseObject) {
         
     }];
